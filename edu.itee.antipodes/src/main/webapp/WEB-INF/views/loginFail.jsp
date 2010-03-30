@@ -28,13 +28,13 @@
 	</tr>
 	<tr>
 	
-	<form>
+	
 		<td colspan="2" align="right"><input type="submit" value="Login" name="submit"/></td>
-	</form>
+	
 	</tr>
 
 </table>
-
+</form>
 
 </body>
 </html>
