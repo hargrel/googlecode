@@ -14,7 +14,7 @@
         <li><a class="static" href="<c:url value="deleteAccount.html"/>"><span><img src="img/Search-icon.png">Search Criteria</span></a></li>
         <li><a class="static" href="<c:url value="editAccount.html"/>"><span><img src="img/Fee1-icon.png">Fee</span></a></li>
         <li><a class="static" href="<c:url value="maintainSearchCriteria.html"/>"><span><img src="img/Report-icon.png">Report</span></a></li>  
-    	<li><a class="static" href="<c:url value="search.html"/>"><span><img src="img/Logout-icon.png">Logout</span></a></li>
+    	<li><a class="static" href="j_spring_security_logout"><span><img src="img/Logout-icon.png">Logout</span></a></li>
     </ul>
     </div>
 </body>
