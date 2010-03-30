@@ -9,7 +9,7 @@
 </head>
 <body onload='document.f.j_username.focus();'>
 <h2>Login</h2>
-<form name='f' action='/antipodes/j_spring_security_check' method='POST'>
+<form name='f' action='j_spring_security_check' method='POST'>
 
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
 	<tr>
