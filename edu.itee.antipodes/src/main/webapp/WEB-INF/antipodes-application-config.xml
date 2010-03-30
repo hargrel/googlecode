@@ -23,6 +23,7 @@
         <security:form-login login-page='/TOlogin.html' authentication-failure-url='/loginFail.html'/>
         <security:logout logout-success-url='/search.html'/>
         <security:remember-me />
+		<security:concurrent-session-control max-sessions="1" expired-url="/accessDenied.html" exception-if-maximum-exceeded="true"/>
     </security:http>
 
 
