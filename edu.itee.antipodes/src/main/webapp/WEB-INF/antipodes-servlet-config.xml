@@ -10,7 +10,13 @@
 <!-- Scans the edu.itee.antipodes.web package for @annotations and processes them -->
 	
 	<context:component-scan base-package="edu.itee.antipodes.web" />
-	
+<!-- Set up accounts -->
+	<bean id="accDao" class="edu.itee.antipodes.web.AccountsStub"/>
+
+    <bean id="seedData" class="edu.itee.antipodes.web.SeedData">
+        <property name="accDao" ref="accDao"/>
+    </bean>	
+
 <!-- Wirings for the beans written in traditional spring XML (no annotations) -->
 	
 	<bean name="/inventoryexample.html" class="edu.itee.antipodes.web.InventoryExampleController">
