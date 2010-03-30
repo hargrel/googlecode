@@ -4,11 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class TOloginController {
+public class accessDenied {
 
-	@RequestMapping("/loginFail.html")
+	@RequestMapping("/accessDenied.html")
 	public String redirect()
 	{
-		return "loginFail";
+		return "accessDenied";
 	}
 }
