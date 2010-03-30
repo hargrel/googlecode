@@ -7,11 +7,12 @@
 </head>
 
 <body>
-	<div id="header"> 
-		<div id="login">
-			<a href="<c:url value="TOlogin.html"/>" ></a>
-		</div>
-	</div>
+<div id="header"> 
+<div id="login">
+<a href="TOhome.html" ></a>
+</div>
+</div>
+
 </body>
 
 </html>
