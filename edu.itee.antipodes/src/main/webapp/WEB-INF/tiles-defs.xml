@@ -57,6 +57,16 @@
 	</definition>
 	
 	<!-- Tour Operator -->
+	<definition name="accessDenied" extends="baseLayoutGeneral">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/accessDenied.jsp"/>
+	</definition>
+	
+	<definition name="loginFail" extends="baseLayoutGeneral">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/loginFail.jsp"/>
+	</definition>
+	
 	<definition name="TOlogin" extends="baseLayoutGeneral">
 		<put-attribute name="body" value="/WEB-INF/views/TOlogin.jsp"/>
 	</definition>
