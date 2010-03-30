@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+							 http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" 
+		 version="2.4">
+
+<!-- Dispatcher Servlet a.k.a. Front Controller in /WEB-INF/accounts-servlet-config.xml -->
+
+	<servlet>
+		<servlet-name>antipodes</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/antipodes-servlet-config.xml</param-value>
+		</init-param>
+	</servlet>
+
+<!-- Beans in these files will makeup the configuration of the root web application context -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/antipodes-application-config.xml</param-value>
+	</context-param>
+
+<!-- Bootstraps the root web application context before servlet initialization -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+<!-- Any URL's will be forwarded to the Front Controller -->
+
+	<servlet-mapping>
+		<servlet-name>antipodes</servlet-name>
+		<url-pattern>*.html</url-pattern>
+	</servlet-mapping>
+
+<!-- The entry point for this web application -->
+
+	<welcome-file-list>
+		<welcome-file>
+			index.jsp
+		</welcome-file>
+	</welcome-file-list>
+	
+	
+	
+<!-- Add spring tag libraries for form processing etc. -->
+
+	<jsp-config>
+		<taglib>
+			<taglib-uri>/spring</taglib-uri>
+			<taglib-location>/WEB-INF/taglibs/spring-form.tld</taglib-location>
+		</taglib>
+	</jsp-config>
+	
+
+</web-app>

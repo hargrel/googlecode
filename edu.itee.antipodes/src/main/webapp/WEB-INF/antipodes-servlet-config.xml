@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+              			http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+              			http://www.springframework.org/schema/context
+              			http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+<!-- Scans the edu.itee.antipodes.web package for @annotations and processes them -->
+	
+	<context:component-scan base-package="edu.itee.antipodes.web" />
+	
+<!-- Wirings for the beans written in traditional spring XML (no annotations) -->
+	
+	<bean name="/inventoryexample.html" class="edu.itee.antipodes.web.InventoryExampleController">
+  		<property name="tourManager" ref="tourManager" /> 
+  	</bean>
+
+<!--  Define how to reference the .jsp files we are going to use 
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+-->	
+
+<!-- Pick up definitions in the messages.properties file -->
+
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="messages" />
+    </bean>
+    
+<!--  Resolve different type of views using only one resolver --> 
+
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+		<property name="basename" value="views" />
+	</bean>
+
+<!-- Tiles configuration -->
+
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+	 	<property name="definitions" value="/WEB-INF/tiles-defs.xml" /> 
+	 </bean>      
+
+
+
+<!-- Some sample data to add while we don't have a database 
+ 	
+	<bean id="tourManager" class="edu.itee.antipodes.service.ExampleTourManager">
+        <property name="tours">
+            <list>
+                <ref bean="tour1" />
+                <ref bean="tour2" />
+                <ref bean="tour3" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="tour1" class="edu.itee.antipodes.domain.Tour">
+        <property name="tourID" value="001" />
+        <property name="tourName" value="Dans le printemps" />
+        <property name="tourDesc" value="Est-ce tu veux boire du vin de Bordeaux?" />
+        <property name="price" value="56.99" />
+        <property name="totalDays" value="1" />
+    </bean>
+        
+    <bean id="tour2" class="edu.itee.antipodes.domain.Tour">
+        <property name="tourID" value="002" />
+        <property name="tourName" value="Paris Toujours" />
+        <property name="tourDesc" value="Quand il me prend dans te bras..." />
+        <property name="price" value="109.99" />
+        <property name="totalDays" value="2" />
+    </bean>
+        
+    <bean id="tour3" class="edu.itee.antipodes.domain.Tour">
+        <property name="tourID" value="003" />
+        <property name="tourName" value="Nadie como tu" />
+        <property name="tourDesc" value="Todas siempre poca, muevete bien" />
+        <property name="price" value="26.99" />
+        <property name="totalDays" value="7" />
+    </bean>
+
+-->
+
+</beans>

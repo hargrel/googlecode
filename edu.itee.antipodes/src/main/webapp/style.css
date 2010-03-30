@@ -1,0 +1,191 @@
+* {
+	padding: 0;
+	margin: 0;
+	outline: 0;
+}
+
+img {
+	border: 0;
+}
+
+a, a:link, a:visited, a:hover, a:active {
+	text-decoration: none;
+	color: #444;
+	font-weight: bold;
+}
+
+a.home{
+	color: blue;
+	font-size:10pt;
+	text-decoration: underline;
+	
+}
+	
+body {
+	background: #ccc url(img/background.jpg) repeat center top;
+	font-family: "Lucida Grande", Helvetica, Arial, sans;
+	font-size: 10pt;
+}
+
+#header {
+	height: 125px;
+	margin: auto;
+	background: transparent url(img/antipodeBanner.png) no-repeat left top;
+}
+
+#login {
+	float: right;
+	width: 137px;
+	height: 48px;
+	margin-right: 40px;
+	background: transparent url(img/TO-login.png) no-repeat left top;
+}
+
+#login a{
+	display:block;
+	width:100%;
+	height:100%;
+}
+
+#login a:hover{
+	background: transparent url(img/TO-hover.png) no-repeat left top;
+}
+	
+	
+#content {
+	width: 903px;
+	margin: auto;
+}
+
+#main {
+	background: transparent url(img/mainBackground.png) repeat-y left top;
+	padding: 0 2px;
+}
+
+#end {
+	background: transparent url(img/mainBackgroundEnd.png) no-repeat left top;
+	padding: 10px;
+	height: 20px;
+}
+
+h1 {
+	float: left;
+	width: 300px;
+	height: 75px;
+}
+
+h1 a {
+	display: block;
+	width: 300px;
+	height: 75px;
+	text-indent: -9999px;
+}
+
+h2 {
+	font-style:Helvetica;
+	font-size: 26px;
+	font-weight: bold;
+	color: black;
+	margin-bottom: 20px;
+}
+
+h3 {
+	font-style:Helvetica;
+	font-size: 16px;
+	font-weight: bold;
+	color: black;
+	margin-top: 20px;
+	margin-bottom: 5px;
+}
+
+h4 {
+	font-style:Helvetica;
+	font-size: 14px;
+	font-weight: bold;
+	color: black;
+}
+
+p {
+	font-style:Helvetica;
+	font-size: 11px;
+	color: #444;
+	text-align: justify;
+}
+	
+
+#tab {
+	background: transparent url(img/tab.png) top left repeat-x;
+	clear: both;
+}
+
+#tab ul {
+	text-align: left;
+	padding: 11px 0 11px 50px;
+  	width: 903px;
+}
+
+#tab li {
+	display: inline;
+	white-space: nowrap;
+	list-style: none;
+}
+
+#tab li a.static {
+	color: #444;
+	text-shadow: white 0 1px 0;
+	padding: 7px 7px;
+}
+
+#tab li a.static:hover {
+  background-color:#d9d9d9;
+}
+
+
+#tab li a.selected {
+	color: #222;
+	text-shadow: 0 1px 0 white;
+	background: transparent url(img/tabSelected.png) repeat-x left top;
+	border-right: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	padding: 10px 13px;
+}
+
+#tab li img {
+  margin: 0 6px 6px 0;
+	vertical-align: top;
+}
+
+#context {
+	color: #777;
+	font-size: 6pt;
+	line-height: 18pt;
+	padding: 30px 40px;
+}
+
+ul, li {
+	list-style-type: square;
+}
+
+#footer {
+	padding-top: 10px;
+	text-align: center;
+	font-size: 10px;
+	color: #333;
+	text-shadow: 0px 1px 0px white;
+}
+
+#footer1 {
+	margin-top: -10px;
+	text-align: center;
+	font-size: 10px;
+	color: #333;
+	text-shadow: 0px 1px 0px white;
+}
+
+#link {
+	padding-top: 10px;
+	text-align: right;
+	font-size: 10px;
+	color: #333;
+	text-shadow: 0px 1px 0px white;
+}

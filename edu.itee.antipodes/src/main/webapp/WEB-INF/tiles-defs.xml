@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<!-- Base Layout -->
+	<definition name="baseLayoutCustomer" template="/WEB-INF/tiles/baseLayoutCustomer.jsp">
+		<put-attribute name="title" value="Template"/>
+		<put-attribute name="header" value="/WEB-INF/tiles/customerHeader.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/tiles/menuCustomer.jsp"/>
+		<put-attribute name="link" value="/WEB-INF/tiles/link.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
+	</definition>
+	
+	<definition name="baseLayoutTO" template="/WEB-INF/tiles/baseLayoutTO.jsp">
+		<put-attribute name="title" value="Template"/>
+		<put-attribute name="header" value="/WEB-INF/tiles/generalHeader.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/tiles/menuTO.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
+	</definition>
+	
+	<definition name="baseLayoutAdmin" template="/WEB-INF/tiles/baseLayoutAdmin.jsp">
+		<put-attribute name="title" value="Template"/>
+		<put-attribute name="header" value="/WEB-INF/tiles/generalHeader.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/tiles/menuAdmin.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
+	</definition>
+	
+	<definition name="baseLayoutGeneral" template="/WEB-INF/tiles/baseLayoutGeneral.jsp">
+		<put-attribute name="title" value="Template"/>
+		<put-attribute name="header" value="/WEB-INF/tiles/generalHeader.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/tiles/menuCustomer.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
+	</definition>
+	
+	<!-- Customer -->
+	<definition name="search" extends="baseLayoutCustomer">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/search.jsp"/>
+	</definition>
+	
+	<definition name="Customer-searchResults" extends="baseLayoutCustomer">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/Customer-searchResults.jsp"/>
+	</definition>
+	
+	<definition name="tourInfo" extends="baseLayoutCustomer">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/tourInfo.jsp"/>
+	</definition>
+	
+	<definition name="contactTourOperator" extends="baseLayoutCustomer">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/contactTourOperator.jsp"/>
+	</definition>
+	
+	<definition name="Customer-companyInfo" extends="baseLayoutCustomer">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/Customer-companyInfo.jsp"/>
+	</definition>
+	
+	<!-- Tour Operator -->
+	<definition name="TOlogin" extends="baseLayoutGeneral">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/TOlogin.jsp"/>
+	</definition>
+	
+	<definition name="TOhome" extends="baseLayoutTO">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/TOhome.jsp"/>
+	</definition>
+	
+	<definition name="addCompanyInfo" extends="baseLayoutTO">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/addCompanyInfo.jsp"/>
+	</definition>
+	
+	<definition name="TO-addTourInfo" extends="baseLayoutTO">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/TO-addTourInfo.jsp"/>
+	</definition>
+	
+	<definition name="TO-alignTourList" extends="baseLayoutTO">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/TO-alignTourList.jsp"/>
+	</definition>
+	
+	<definition name="TO-alignTour" extends="baseLayoutTO">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/TO-alignTour.jsp"/>
+	</definition>
+	
+	<definition name="TO-updateCompanyInfo" extends="baseLayoutTO">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/TO-updateCompanyInfo.jsp"/>
+	</definition>
+	
+	<definition name="TO-updateTourInfoList" extends="baseLayoutTO">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/TO-updateTourInfoList.jsp"/>
+	</definition>
+	
+	<definition name="TO-updateTourInfo" extends="baseLayoutTO">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/TO-updateTourInfo.jsp"/>
+	</definition>
+	
+	<definition name="TO-deleteTour" extends="baseLayoutTO">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/TO-deleteTour.jsp"/>
+	</definition>
+	
+	<!-- Administrator -->
+	<definition name="SAlogin" extends="baseLayoutGeneral">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/SAlogin.jsp"/>
+	</definition>
+	
+	<definition name="SAhome" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/SAhome.jsp"/>
+	</definition>
+	
+	<definition name="addAccount" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/addAccount.jsp"/>
+	</definition>
+	
+	<definition name="Admin-deleteAccount" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/Admin-deleteAccount.jsp"/>
+	</definition>
+	
+	<definition name="Admin-editAccountList" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/Admin-editAccountList.jsp"/>
+	</definition>
+	
+	<definition name="Admin-editAccount" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/Admin-editAccount.jsp"/>
+	</definition>
+	
+	<definition name="Admin-manageFee" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/Admin-manageFee.jsp"/>
+	</definition>
+	
+	<definition name="Admin-produceReport" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/Admin-produceReport.jsp"/>
+	</definition>
+	
+	<definition name="Admin-maintainSearchCriteria" extends="baseLayoutAdmin">
+		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="body" value="/WEB-INF/views/Admin-maintainSearchCriteria.jsp"/>
+	</definition>
+	
+</tiles-definitions>

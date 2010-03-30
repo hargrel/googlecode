@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:aop="http://www.springframework.org/schema/aop"
+         xmlns:tx="http://www.springframework.org/schema/tx"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+    <!-- the parent application context definition for the springapp application -->
+
+    <bean id="tourManager" class="edu.itee.antipodes.service.ExampleTourManager">
+        <property name="tourDao" ref="tourDao"/>
+    </bean>
+
+    <bean id="tourDao" class="edu.itee.antipodes.repository.JdbcTourDao">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <bean id="propertyConfigurer" 
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:jdbc.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="transactionManager" 
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <aop:config>
+        <aop:advisor pointcut="execution(* *..ProductManager.*(..))" advice-ref="txAdvice"/>
+    </aop:config>
+
+    <tx:advice id="txAdvice">
+        <tx:attributes>
+            <tx:method name="save*"/>
+            <tx:method name="*" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+
+</beans>
+
+
+<!-- PLEASE SEE BELOW FOR SOME CONFIG EXAMPLES INCLUDING HIBERNATE
+	
+	<context:annotation-config />
+
+ Weaves in transactional advice around @Transactional methods 
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+ The account manager service that can load accounts from the database 
+	<bean id="accountManager" class="accounts.internal.HibernateAccountManager">
+		<constructor-arg ref="sessionFactory" />
+	</bean>
+
+ A Hibernate SessionFactory for mapping Accounts and Restaurants from object to relation tables 
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingLocations">
+			<list>
+				<value>classpath:accounts/internal/Account.hbm.xml</value>
+				<value>classpath:accounts/internal/Beneficiary.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+
+ Creates an in-memory "rewards" database populated with test data for fast testing 
+	<bean id="dataSource" class="accounts.testdb.TestDataSourceFactory">
+		<property name="testDatabaseName" value="rewards"/>
+		<property name="schemaLocation" value="classpath:accounts/testdb/schema.sql"/>
+		<property name="testDataLocation" value="classpath:accounts/testdb/test-data.sql"/>
+	</bean>
+
+ Drives transactions using Hibernate APIs when requested 
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+		
+ Translates Hibernate exceptions to Spring Data Access Exceptions 
+	<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+	
+-->
