@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+	<!-- ResourceBundleViewResolver is the ideal way in which to configure a whole set of JasperReports
+			 views that require nothing more than the URL for configuration. -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+		<property name="basename">
+			<value>views</value>
+		</property>
+	</bean>
+
+	<!-- If a JasperReports view requires more complex configuration then use the BeanNameViewResolver to
+			 map a given view name to a given view bean 
+	<bean id="nameViewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
+-->
+
+
+	<bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/*.*">controller</prop>
+			</props>
+		</property>
+	</bean>
+	
+	
+	<bean id="controller" class="edu.itee.antipodes.web.ReportController">
+		<property name="methodNameResolver">
+			<ref local="resolver"/>
+		</property>
+	</bean>
+
+	<bean id="resolver" class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+		<property name="mappings">
+			<props>
+				<prop key="/BillingTourOperators.*">handleBillingTourOperators</prop>
+				<prop key="/MonitoringSystemUtilisation.*">handleMonitoringSystemUtilisation</prop>
+				<prop key="/MonitoringSearchCriteriaUtilisation.*">handleMonitoringSearchCriteriaUtilisation</prop>
+				<prop key="/DetectingAbuse.*">handleDetectingAbuse</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

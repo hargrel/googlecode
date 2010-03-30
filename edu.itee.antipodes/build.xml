@@ -17,7 +17,7 @@
 		</fileset>
 		<pathelement path="${build.dir}" />
 	</path>
-
+	
 	<target name="usage">
 		<echo message="" />
 		<echo message="${name} build file" />
@@ -183,4 +183,19 @@
 		</fail>
 	</target>
 	
+	<target name="deploy and reload" depends="deploy, reload" >
+	</target>
+	
+	<target name="compile-reports">
+		<delete>
+			<fileset dir="${web.dir}">
+				<include name="**/*.jasper"/>
+			</fileset>
+		</delete>
+		<taskdef name="jrc" classname="net.sf.jasperreports.ant.JRAntCompileTask">
+			<classpath refid="master-classpath" />
+		</taskdef>
+		<jrc srcdir="${web.dir}/WEB-INF/reports/">
+		</jrc>
+	</target>
 </project>
