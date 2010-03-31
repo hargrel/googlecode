@@ -136,8 +136,8 @@
 		<put-attribute name="body" value="/WEB-INF/views/Admin-manageFee.jsp"/>
 	</definition>
 	
-	<definition name="Admin-produceReport" extends="baseLayoutAdmin">
-		<put-attribute name="body" value="/WEB-INF/views/Admin-produceReport.jsp"/>
+	<definition name="produceReport" extends="baseLayoutAdmin">
+		<put-attribute name="body" value="/WEB-INF/views/produceReport.jsp"/>
 	</definition>
 	
 	<definition name="Admin-maintainSearchCriteria" extends="baseLayoutAdmin">

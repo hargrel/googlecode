@@ -9,7 +9,8 @@
 <body>
 <div id="tab">
     <ul>
-  		<li><a class="static" href="<c:url value="TOhome.html"/>"><span><img src="img/Home-icon.png">Home</span></a></li>	
+  		<li><a class="static" href="<c:url value="TOhome.html"/>"><span><img src="img/Home-icon.png">Home</span></a></li>
+  		<li><a class="static" href="<c:url value="search.html"/>" ><span><img src="img/Search-icon.png">Search Tour</span></a></li>		
       	<li><a class="static" href="<c:url value="addCompanyInfo.html"/>"><span><img src="img/Add-icon.png">Add</span></a></li>
         <li><a class="static" href="<c:url value="alignTour.html"/>"><span><img src="img/Align-icon.png">Align</span></a></li>
         <li><a class="static" href="<c:url value="updateTourInfo.html"/>"><span><img src="img/Update-icon.png">Update</span></a></li>

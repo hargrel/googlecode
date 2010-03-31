@@ -21,15 +21,14 @@
 		<td><h4>Password:</h4></td>
 		<td width="100"><input type="password" size="30" name="j_password" /></td>
 	</tr>
+	
 	<tr>
 		<td width="100"><input type="checkbox" size="30" name="_spring_security_remember_me" /></td>
 		<td width="100"><h4>Remember Me</h4></td>
 	</tr>
+	
 	<tr>
-	
-	
 		<td colspan="2" align="right"><input type="submit" value="Login" name="submit"/></td>
-	
 	</tr>
 
 </table>

@@ -17,7 +17,7 @@
 <a class="home" href="<c:url value="deleteAccount.html"/>" >Delete accounts</a><br/>
 <a class="home" href="<c:url value="editAccount.html"/>" >Edit accounts</a><br/>
 <a class="home" href="<c:url value="maintainSearchCriteria.html"/>" >Maintain search criteria</a><br/>
-<a class="home" href="<c:url value="report.html"/>" >Report</a><br/>
+<a class="home" href="<c:url value="produceReport.html"/>" >Report</a><br/>
 
 </body>
 </html>
