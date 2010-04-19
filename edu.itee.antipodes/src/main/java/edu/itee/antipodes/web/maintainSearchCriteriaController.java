@@ -4,11 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class SAloginController {
+public class maintainSearchCriteriaController {
 
-	@RequestMapping("/SAlogin.html")
+	@RequestMapping("/maintainSearchCriteria.html")
 	public String redirect()
 	{
-		return "SAlogin";
+		return "maintainSearchCriteria";
 	}
 }

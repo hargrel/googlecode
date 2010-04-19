@@ -27,6 +27,12 @@ body {
 	font-size: 10pt;
 }
 
+table {
+	font-family: Helvetica;
+	font-size: 11pt;
+	color: black;
+}
+
 #header {
 	height: 125px;
 	margin: auto;
@@ -50,8 +56,99 @@ body {
 #login a:hover{
 	background: transparent url(img/TO-hover.png) no-repeat left top;
 }
+
+#TO {
+	float: right;
+	width: 137px;
+	height: 48px;
+	margin-right: 40px;
+	background: transparent url(img/TOhome-static.png) no-repeat left top;
+}
+
+#TO a{
+	display:block;
+	width:100%;
+	height:100%;
+}
+
+#TO a:hover{
+	background: transparent url(img/TOhome-hover.png) no-repeat left top;
+}
+
+#Admin {
+	float: right;
+	width: 137px;
+	height: 48px;
+	margin-right: 40px;
+	background: transparent url(img/AdminHome-static.png) no-repeat left top;
+}
+
+#Admin a{
+	display:block;
+	width:100%;
+	height:100%;
+}
+
+#Admin a:hover{
+	background: transparent url(img/AdminHome-hover.png) no-repeat left top;
+}
 	
+#Table table {
+	font-family:"Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
+	font-size: 10pt;
+	padding: 0; 
+	margin: 0; 
+	border-collapse: collapse; 
+	color: #333; 
+	background: #F3F5F7;
+}
+
+#Table table a {
+	color: #3A4856; 
+	text-decoration: none; 
+	border-bottom: 1px solid #C6C8CB;
+}  
+
+#Table table a:visited {
+	color: #777;
+}
+
+#Table table a:hover {
+	color: #000;
+}
+
+#Table table thead th {
+	background: #D6E8F4;
+	padding: 10px 10px; 
+	color: #333; 
+	text-align: left; 
+	font-weight: bold;
+}
+
+#Table table tbody, table thead {
+	border-left: 1px solid #EAECEE; 
+	border-right: 1px solid #EAECEE;
+}
+
+#Table table tbody {
+	border-bottom: 1px solid #EAECEE;
+	}
+                      
+#Table table tbody td, table tbody th {
+	padding: 10px; 
+	background: url("img/td_back.gif") repeat-x; 
+	text-align: left;}
+
+#Table table tbody tr {
+	background: #F3F5F7;
 	
+}
+
+#Table table tbody  tr:hover {
+	background: #EAECEE; 
+	color: #111;
+}
+
 #content {
 	width: 903px;
 	margin: auto;

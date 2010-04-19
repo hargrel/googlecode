@@ -20,7 +20,7 @@
     <security:http auto-config="true" access-denied-page="/accessDenied.html" >
         <security:intercept-url pattern="/SAhome.html" access="ROLE_ADMIN"/>
         <security:intercept-url pattern="/TOhome.html" access="IS_AUTHENTICATED_REMEMBERED" />
-        <security:form-login login-page='/TOlogin.html' authentication-failure-url='/loginFail.html'/>
+        <security:form-login login-page='/login.html' authentication-failure-url='/loginFail.html'/>
         <security:logout logout-success-url='/search.html'/>
         <security:remember-me />
 		<security:concurrent-session-control max-sessions="1" expired-url="/accessDenied.html" exception-if-maximum-exceeded="true"/>
@@ -30,7 +30,7 @@
     <security:authentication-provider>
         <security:password-encoder hash="md5"/>
         <security:user-service>
-            <security:user name="Admin" password="21232f297a57a5a743894a0e4a801fc3" authorities="ROLE_OPERATOR, ROLE_USER, ROLE_ADMIN" />
+            <security:user name="Admin" password="21232f297a57a5a743894a0e4a801fc3" authorities="ROLE_USER, ROLE_ADMIN" />
             <security:user name="Operator" password="4b583376b2767b923c3e1da60d10de59" authorities="ROLE_OPERATOR, ROLE_USER" />
         </security:user-service>
     </security:authentication-provider>

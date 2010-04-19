@@ -11,24 +11,24 @@
 
 <body onunload="GUnload()">
 
-<h2>Ziptrek Eco Tour</h2>
+<h2>[TourName]<c:out value="${tour.tourName}" /></h2>
 
 <table border="0" align="center" width=100% style="border-collapse:collapse">
 	<tr>
 		<td rowspan="5" valign="top" width=35% ><div id="map_canvas" style="width: 500px; height: 300px; margin-right:20px"></div></td>
-		<td valign="top"><h4>Price: 499 AUD</h4></td>
+		<td valign="top"><h4>Price: <c:out value="${tour.price}" /></h4></td>
 	</tr>
 
 	<tr>
-		<td valign="top"><h4>Tour Operator: Ecotrack</h4></td>
+		<td valign="top"><h4>Tour Operator: <c:out value="${TourOperator.operatorName}" /></h4></td>
 	</tr>
 
 	<tr>
-		<td valign="top"><h4>Available dates: 10 May, 17 May</h4></td>
+		<td valign="top"><h4>Available dates: <c:out value="${TourDate.startDate}" /></h4></td>
 	</tr>
 	
 	<tr>
-  		<td valign="top"><h4>Duration: 5 hours</h4></td>
+  		<td valign="top"><h4>Duration: <c:out value="${tour.totalDays}" /></h4></td>
   	</tr>
   	
 	<tr>
@@ -37,6 +37,7 @@
 </table>
 
 <h3>Tour Description:</h3>
+<c:out value="${tour.tourDesc}" />
 <p>The best framed views of Lake Wakatipu can be experienced on an interpretive guided tour using flying foxes as low impact adventure access. 
 Join us on a series of lines that traverse the forest in a way that will never be forgotten. 
 This tour is perfect for families, groups and those who have never ziplined before.

@@ -4,11 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class loginFailController {
+public class deleteAccountController {
 
-	@RequestMapping("/login.html")
+	@RequestMapping("/deleteAccount.html")
 	public String redirect()
 	{
-		return "login";
+		return "deleteAccount";
 	}
 }

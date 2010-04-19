@@ -15,9 +15,10 @@
 <h3>Now you can perform these operations:</h3>
 <a class="home" href="<c:url value="addCompanyInfo.html"/>" >Add company information</a><br/>
 <a class="home" href="<c:url value="addTourInfo.html"/>" >Add tour information</a><br/>
-<a class="home" href="<c:url value="alignTour.html"/>" >Align tours with search criteria</a><br/>
+<a class="home" href="<c:url value="alignTourList.html"/>" >Align tour with search criteria list</a><br/>
+<a class="home" href="<c:url value="alignTour.html"/>" >Align tour with search criteria</a><br/>
 <a class="home" href="<c:url value="updateCompanyInfo.html"/>" >Update company information</a><br/>
-<a class="home" href="<c:url value="updateTourInfo.html"/>" >Update tour information</a><br/>
+<a class="home" href="<c:url value="updateTourInfoList.html"/>" >Update tour information</a><br/>
 <a class="home" href="<c:url value="deleteTour.html"/>" >Delete tour information</a>
 
 </body>

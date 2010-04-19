@@ -14,15 +14,23 @@
 
 <h2>Add Company Information</h2>
 
+<!-- Form name: add_companyInfo -->
+<!-- Attribute names: operatorID, operatorName, companyDesc, address, postcode, state, country, telephone -->
+
+<form name="add_companyInfo" action="annoformaddexample.html" method="post">
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
 	<tr>
+		<td><input type="hidden" name="operatorID" /></td>
+	</tr>
+	
+	<tr>
 		<td width="500"><h4>Company name:</h4></td>
-		<td><input type="text" size="40" name="compName" /></td>
+		<td><input type="text" size="40" name="operatorName" /></td>
 	</tr>
 
 	<tr>
 		<td valign="top"><h4>Company description:</h4></td>
-		<td width="500"><textarea name="desc" class="tinymce"></textarea></td>
+		<td width="500"><textarea name="companyDesc" class="tinymce"></textarea></td>
 	</tr>
 	
 	<tr>
@@ -32,13 +40,18 @@
 
 	<tr>
 		<td width="500"><h4>Telephone:</h4></td>
-		<td><input type="text" size="40" name="telephone" /></td>
-	</tr>	
-
-	<tr>
-		<td colspan="2" align="right"><input type="submit" value="Add"/></td>
+		<td><input type="text" size="30" name="telephone" /></td>
 	</tr>
 	
+	<tr>
+		<td width="500"><h4>Email:</h4></td>
+		<td><input type="text" size="30" name="email" /></td>
+	</tr>		
+
+	<tr>
+		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="TOhome.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Add" onclick="document['add_companyInfo'].submit()"/></td>
+	</tr>
 </table>
+</form>
 </body>
 </html>

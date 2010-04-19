@@ -10,6 +10,10 @@
 <body>
 <h2>Contact Tour Operator</h2>
 
+<!-- Form name: email_operator -->
+<!-- Attribute names: name, email, telephone, subject, content -->
+
+<form name="email_operator" action="annoformaddexample.html" method="post">
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
 	<tr>
 		<td width="100"><h4>Name:</h4></td>
@@ -23,24 +27,23 @@
 	
 	<tr>
 		<td><h4>Telephone:</h4></td>
-		<td><input type="password" size="40" name="telephone" /></td>
+		<td><input type="text" size="40" name="telephone" /></td>
 	</tr>
 	
 	<tr>
 		<td><h4>Subject:</h4></td>
-		<td><input type="password" size="40" name="subject" /></td>
+		<td><input type="text" size="40" name="subject" /></td>
 	</tr>
 	
 	<tr>
 		<td colspan="2"><textarea name="content" rows="15" cols="60"></textarea></td>
 	</tr>
 
-<tr>
-<form>
-<td colspan="2" align="right"><input type="button" value="Submit" onClick="window.location.href='<c:url value="TOhome.htm"/>'"/></td>
-</form>
-</tr>
+	<tr>
+		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="tourInfo.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Submit" onclick="document['email_operator'].submit()" /></td>
+	</tr>
 
 </table>
+</form>
 </body>
 </html>
