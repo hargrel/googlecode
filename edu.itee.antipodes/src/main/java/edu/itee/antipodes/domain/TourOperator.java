@@ -1,6 +1,8 @@
 package edu.itee.antipodes.domain;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 public class TourOperator {
 	private int operatorID;
@@ -9,6 +11,22 @@ public class TourOperator {
 	private Date membershipExpired;
 	private String email;
 	private String currency;
+	private AccountUser accountUser;
+	private Set<ListedTour> listedTour = new HashSet<ListedTour>(0);
+	
+	public TourOperator(){}
+	
+	public TourOperator(String operatorName,
+			String companyInfo, Date membershipExpired, String email,
+			String currency, AccountUser accountUser) {
+		this.operatorName = operatorName;
+		this.companyInfo = companyInfo;
+		this.membershipExpired = membershipExpired;
+		this.email = email;
+		this.currency = currency;
+		this.accountUser = accountUser;
+	}
+	
 	public int getOperatorID() {
 		return operatorID;
 	}
@@ -39,13 +57,25 @@ public class TourOperator {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
 	public String getCurrency() {
 		return currency;
 	}
 	public void setCurrency(String currency) {
 		this.currency = currency;
 	}
+	public AccountUser getAccountUser() {
+		return accountUser;
+	}
+	public void setAccountUser(AccountUser accountUser) {
+		this.accountUser = accountUser;
+	}
+	public Set<ListedTour> getListedTour() {
+		return listedTour;
+	}
+	public void setListedTour(Set<ListedTour> listedTour) {
+		this.listedTour = listedTour;
+	}
+	
 	@Override
 	public String toString() {
 		return "TourOperator [operatorID=" + operatorID + ", operatorName=" + operatorName

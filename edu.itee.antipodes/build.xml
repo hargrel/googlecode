@@ -38,6 +38,12 @@
 		<echo message="dbRefresh    --> Reset the database to default" />
 		<echo message="" />
 	</target>
+
+<!--Hibernate Metadata shortcuts-->
+	<patternset id="meta.files">
+		<include name="**/*.xml" />
+		<include name="**/*.properties" />
+	</patternset>
 	
 <!-- Java Related Targets -->
 	
@@ -167,7 +173,8 @@
 
 			<batchtest>
 				<fileset dir="${build.dir}">
-					<include name="**/*Tests.*" />
+					<!--<include name="**/*Tests.*" />-->
+					<include name="**/*Test.*" />
 					<exclude name="**/Jdbc*Tests.*"/>
 				</fileset>
 			</batchtest>
@@ -198,4 +205,13 @@
 		<jrc srcdir="${web.dir}/WEB-INF/reports/">
 		</jrc>
 	</target>
+	
+	<!--Copy metadata to build classpath-->
+	<target name="copymetafiles">
+		<copy todir="${build.dir}">
+			<fileset dir="${src.dir}">
+				<patternset refid="meta.files"/>
+			</fileset>	
+		</copy>
+	</target>	
 </project>

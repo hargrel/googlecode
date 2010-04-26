@@ -33,5 +33,5 @@ public class alignTourListController {
 	
 	@Autowired
 	TourManager tourManager;
-	
 }
+

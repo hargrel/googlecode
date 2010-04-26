@@ -6,17 +6,20 @@ import java.util.Date;
  * A persistence class that stores tour dates from the TourDate table in DB.
  *
  */
+@SuppressWarnings("serial")
 public class TourDate implements Serializable{
 	private int dateID;
 	private Date startDate;
 	private Date finishDate;
 	private int tourID;
+	private Tour tour;
 	
 	public int getDateID(){
 		return dateID;
 	}
+	@SuppressWarnings("unused")
 	private void setDateID(int dateID){
-		this.dateID=dateID;
+		this.dateID = dateID;
 	}
 	public Date getStartDate() {
 		return startDate;
@@ -34,8 +37,14 @@ public class TourDate implements Serializable{
 	public int getTourID() {
 		return tourID;
 	}
-	public void setTourID(){
-		this.tourID=tourID;
+	public void setTourID(int tourID){
+		this.tourID = tourID;
+	}
+	public Tour getTour() {
+		return tour;
+	}
+	public void setTour(Tour tour) {
+		this.tour = tour;
 	}
 	
 	@Override
