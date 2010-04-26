@@ -33,6 +33,7 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/slf4j-api-1.5.8.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/slf4j-simple-1.5.8.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-form.tld"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-modules-validation.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-orm-2.5.5.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-security-acl-2.0.5.RELEASE.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-security-core-2.0.5.RELEASE.jar"/>

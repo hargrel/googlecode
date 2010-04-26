@@ -24,7 +24,7 @@ public class AnnoFormAddExampleController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String updateTour(@RequestParam("tourID") int tourID, @RequestParam("tourName") String tourName, 
+	public String post(@RequestParam("tourID") int tourID, @RequestParam("tourName") String tourName, 
 			@RequestParam("tourDesc") String tourDesc, @RequestParam("price") double price, 
 			@RequestParam("totalDays") int totalDays, Model model) {
 		Tour tour = new Tour();
@@ -33,6 +33,9 @@ public class AnnoFormAddExampleController {
 		tour.setTourDesc(tourDesc);
 		tour.setPrice(price);
 		tour.setTotalDays(totalDays);
+		
+		// validate code...
+		
 		
 		tourManager.addTour(tour);
 		
@@ -43,4 +46,5 @@ public class AnnoFormAddExampleController {
 	
 	@Autowired
 	TourManager tourManager;
+	
 }

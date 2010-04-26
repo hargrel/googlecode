@@ -23,8 +23,8 @@
 		<td width="100"><input type="password" size="30" name="j_password" /></td>
 	</tr>
 	<tr>
-		<td width="100"><input type="checkbox" size="30" name="_spring_security_remember_me" /></td>
-		<td width="100"><h4>Remember Me</h4></td>
+		<td></td>
+		<td width="100"><input type="checkbox" size="30" name="_spring_security_remember_me" />&nbsp;&nbsp;Remember Me</td>
 	</tr>
 	<tr>
 	

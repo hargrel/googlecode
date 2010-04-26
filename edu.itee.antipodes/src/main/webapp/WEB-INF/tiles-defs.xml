@@ -8,7 +8,7 @@
 	<!-- Base Layout -->
 	<definition name="baseLayoutCustomer" template="/WEB-INF/tiles/baseLayoutCustomer.jsp">
 		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
-		<put-attribute name="header" value="/WEB-INF/tiles/customerHeader.jsp"/>
+		<put-attribute name="header" value="/WEB-INF/tiles/headerCustomer.jsp"/>
 		<put-attribute name="menu" value="/WEB-INF/tiles/menuCustomer.jsp"/>
 		<put-attribute name="link" value="/WEB-INF/tiles/link.jsp"/>
 		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
@@ -16,21 +16,21 @@
 	
 	<definition name="baseLayoutTO" template="/WEB-INF/tiles/baseLayoutTO.jsp">
 		<put-attribute name="title" value="Antipode|Tour Operator"/>
-		<put-attribute name="header" value="/WEB-INF/tiles/generalHeader.jsp"/>
+		<put-attribute name="header" value="/WEB-INF/tiles/headerGeneral.jsp"/>
 		<put-attribute name="menu" value="/WEB-INF/tiles/menuTO.jsp"/>
 		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
 	</definition>
 	
 	<definition name="baseLayoutAdmin" template="/WEB-INF/tiles/baseLayoutAdmin.jsp">
 		<put-attribute name="title" value="Antipode|System Administrator"/>
-		<put-attribute name="header" value="/WEB-INF/tiles/generalHeader.jsp"/>
+		<put-attribute name="header" value="/WEB-INF/tiles/headerGeneral.jsp"/>
 		<put-attribute name="menu" value="/WEB-INF/tiles/menuAdmin.jsp"/>
 		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
 	</definition>
 	
 	<definition name="baseLayoutGeneral" template="/WEB-INF/tiles/baseLayoutGeneral.jsp">
 		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
-		<put-attribute name="header" value="/WEB-INF/tiles/generalHeader.jsp"/>
+		<put-attribute name="header" value="/WEB-INF/tiles/headerGeneral.jsp"/>
 		<put-attribute name="menu" value="/WEB-INF/tiles/menuCustomer.jsp"/>
 		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
 	</definition>
@@ -174,6 +174,14 @@
 	
 	<definition name="loginFail" extends="baseLayoutGeneral">
 		<put-attribute name="body" value="/WEB-INF/views/security/loginFail.jsp"/>
+	</definition>
+	
+	<definition name="form" extends="baseLayoutGeneral">
+		<put-attribute name="body" value="/WEB-INF/views/form.jsp"/>
+	</definition>
+	
+	<definition name="thanks" extends="baseLayoutGeneral">
+		<put-attribute name="body" value="/WEB-INF/views/thanks.jsp"/>
 	</definition>
 	
 	
