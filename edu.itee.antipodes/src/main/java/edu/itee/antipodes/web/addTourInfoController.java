@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import edu.itee.antipodes.domain.Tour;
+import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.service.TourManager;
 
 @Controller

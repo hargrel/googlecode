@@ -9,6 +9,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import edu.itee.antipodes.domain.*;
+import edu.itee.antipodes.domain.db.ListedTour;
+import edu.itee.antipodes.domain.db.Tour;
+import edu.itee.antipodes.domain.db.TourOperator;
 import edu.itee.antipodes.repository.ListedTourDaoHibernate;
 import edu.itee.antipodes.repository.TourDaoHibernate;
 import edu.itee.antipodes.repository.TourOperatorDaoHibernate;

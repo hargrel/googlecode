@@ -1,14 +1,14 @@
-package edu.itee.antipodes.web;
+package edu.itee.antipodes.web.reporting;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class billTourOperatorController {
+public class monitorSystemUtilController {
 
-	@RequestMapping("/billTourOperator.html")
+	@RequestMapping("/monitorSystemUtil.html")
 	public String redirect()
 	{
-		return "billTourOperator";
+		return "monitorSystemUtil";
 	}
 }

@@ -10,10 +10,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import edu.itee.antipodes.domain.Location;
 import edu.itee.antipodes.repository.LocationDaoHibernate;
 //import edu.itee.antipodes.repository.TourDaoHibernate;
-import edu.itee.antipodes.domain.Tour;;
+import edu.itee.antipodes.domain.db.Location;
+import edu.itee.antipodes.domain.db.Tour;
 
 public class LocationDaoHibernateTest extends TestCase{
 	private ApplicationContext ctx = null;

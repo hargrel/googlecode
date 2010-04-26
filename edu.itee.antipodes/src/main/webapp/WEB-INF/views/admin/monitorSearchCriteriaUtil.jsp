@@ -15,15 +15,16 @@
 <!-- Attribute names: criteria, fileType -->
 
 
-<form name="monitor_criteria" action="(?).html" method="post">
+<form name="monitor_criteria" action="reports/MonitoringSearchCriteriaUtilisation" method="post">
 
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
 	<tr>
 		<td width="120">Search criteria:</td>
 		<td><select name="criteria">
 				<option value="all">All</option>
-				<option value="criteria 1">Criteria 1</option>
-				<option value="criteria 2">Criteria 2</option>
+				<c:forEach items="${criterias}" var="criteria">
+					<option value="${criteria.s1}"><c:out value="${criteria.s2}" /></option>
+				</c:forEach>
 			</select></td>
 	</tr>
 	

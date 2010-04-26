@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import edu.itee.antipodes.domain.Tour;
+import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.service.TourManager;
 
 @Controller

@@ -1,6 +1,8 @@
 package edu.itee.antipodes.test.repository;
 
 import edu.itee.antipodes.domain.*;
+import edu.itee.antipodes.domain.db.AccountUser;
+import edu.itee.antipodes.domain.db.TourOperator;
 import edu.itee.antipodes.repository.AccountUserDaoHibernate;
 import edu.itee.antipodes.repository.TourOperatorDaoHibernate;
 import junit.framework.TestCase;

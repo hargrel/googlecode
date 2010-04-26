@@ -1,6 +1,7 @@
 package edu.itee.antipodes.repository;
 
-import edu.itee.antipodes.domain.Image;
+import edu.itee.antipodes.domain.db.Image;
+
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.springframework.orm.hibernate3.support.*;

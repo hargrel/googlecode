@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import junit.framework.TestCase;
-import edu.itee.antipodes.domain.Tour;
+import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.repository.TourDao;
 import edu.itee.antipodes.repository.TourDaoHibernate;
 import edu.itee.antipodes.service.ExampleTourManager;

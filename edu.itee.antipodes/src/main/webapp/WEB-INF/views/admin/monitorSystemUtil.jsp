@@ -24,7 +24,7 @@
 <!-- Attribute names: fromDate, toDate, fileType -->
 
 
-<form name="monitor_system" action="(?).html" method="post">
+<form name="monitor_system" action="reports/MonitoringSystemUtilisation" method="post">
 
 <table border="0" width=100% style="border-collapse:collapse; margin-right:30px">
 

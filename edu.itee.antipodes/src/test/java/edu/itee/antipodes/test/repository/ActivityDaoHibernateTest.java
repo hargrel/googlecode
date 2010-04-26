@@ -9,8 +9,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import edu.itee.antipodes.domain.Activity;
-import edu.itee.antipodes.domain.Tour;
+
+import edu.itee.antipodes.domain.db.Activity;
+import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.repository.ActivityDaoHibernate;
 import edu.itee.antipodes.repository.TourDaoHibernate;
 

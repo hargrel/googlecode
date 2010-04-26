@@ -2,7 +2,7 @@ package edu.itee.antipodes.test.repository;
 
 import java.util.List;
 
-import edu.itee.antipodes.domain.Tour;
+import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.repository.TourDao;
 
 public class InMemoryTourDao implements TourDao {

@@ -1,4 +1,4 @@
-package edu.itee.antipodes.domain;
+package edu.itee.antipodes.domain.db;
 
 import java.io.Serializable;
 /**

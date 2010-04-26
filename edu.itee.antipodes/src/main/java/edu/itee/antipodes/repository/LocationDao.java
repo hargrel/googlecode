@@ -2,7 +2,7 @@ package edu.itee.antipodes.repository;
 
 import java.util.List;
 
-import edu.itee.antipodes.domain.Location;
+import edu.itee.antipodes.domain.db.Location;
 
 public interface LocationDao {
 

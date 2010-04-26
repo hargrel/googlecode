@@ -20,13 +20,13 @@
 	<bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<props>
-				<prop key="/*.*">controller</prop>
+				<prop key="/*">controller</prop>
 			</props>
 		</property>
 	</bean>
 	
 	
-	<bean id="controller" class="edu.itee.antipodes.web.ReportController">
+	<bean id="controller" class="edu.itee.antipodes.web.reporting.ReportController">
 		<property name="methodNameResolver">
 			<ref local="resolver"/>
 		</property>
@@ -35,9 +35,9 @@
 	<bean id="resolver" class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
 		<property name="mappings">
 			<props>
-				<prop key="/BillingTourOperators.*">handleBillingTourOperators</prop>
-				<prop key="/MonitoringSystemUtilisation.*">handleMonitoringSystemUtilisation</prop>
-				<prop key="/MonitoringSearchCriteriaUtilisation.*">handleMonitoringSearchCriteriaUtilisation</prop>
+				<prop key="/BillingTourOperators">handleBillingTourOperators</prop>
+				<prop key="/MonitoringSystemUtilisation">handleMonitoringSystemUtilisation</prop>
+				<prop key="/MonitoringSearchCriteriaUtilisation">handleMonitoringSearchCriteriaUtilisation</prop>
 				<prop key="/DetectingAbuse.*">handleDetectingAbuse</prop>
 			</props>
 		</property>

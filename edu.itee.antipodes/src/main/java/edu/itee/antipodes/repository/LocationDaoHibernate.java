@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Set;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 //import edu.itee.antipodes.domain.Activity;
-import edu.itee.antipodes.domain.Location;
-import edu.itee.antipodes.domain.Tour;
+import edu.itee.antipodes.domain.db.Location;
+import edu.itee.antipodes.domain.db.Tour;
 
 public class LocationDaoHibernate extends HibernateDaoSupport implements LocationDao {
 

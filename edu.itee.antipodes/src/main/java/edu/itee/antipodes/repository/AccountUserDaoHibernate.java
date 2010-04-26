@@ -1,6 +1,8 @@
 package edu.itee.antipodes.repository;
 
 import edu.itee.antipodes.domain.*;
+import edu.itee.antipodes.domain.db.AccountUser;
+
 import java.util.List;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 

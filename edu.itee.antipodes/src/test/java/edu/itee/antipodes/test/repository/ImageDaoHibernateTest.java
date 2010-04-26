@@ -1,6 +1,8 @@
 package edu.itee.antipodes.test.repository;
 
 import edu.itee.antipodes.domain.*;
+import edu.itee.antipodes.domain.db.Image;
+import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.repository.ImageDaoHibernate;
 import edu.itee.antipodes.repository.TourDaoHibernate;
 import junit.framework.TestCase;

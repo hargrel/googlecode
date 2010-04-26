@@ -1,7 +1,8 @@
 package edu.itee.antipodes.service;
 
 import java.util.List;
-import edu.itee.antipodes.domain.Tour;
+
+import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.repository.TourDaoHibernate;
 
 public class ExampleTourManager implements TourManager {

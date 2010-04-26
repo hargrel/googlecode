@@ -1,8 +1,9 @@
-package edu.itee.antipodes.domain;
+package edu.itee.antipodes.domain.db;
 
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
 
 public class TourOperator {
 	private int operatorID;

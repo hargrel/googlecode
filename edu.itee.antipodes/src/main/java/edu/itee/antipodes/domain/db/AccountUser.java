@@ -1,5 +1,6 @@
-package edu.itee.antipodes.domain;
+package edu.itee.antipodes.domain.db;
 import java.io.Serializable;
+
 
 /**
  * A persistence class that stores user login details from the User table in DB. 

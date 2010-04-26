@@ -1,14 +1,14 @@
-package edu.itee.antipodes.web;
+package edu.itee.antipodes.web.account;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class monitorSystemUtilController {
+public class deleteAccountController {
 
-	@RequestMapping("/monitorSystemUtil.html")
+	@RequestMapping("/deleteAccount.html")
 	public String redirect()
 	{
-		return "monitorSystemUtil";
+		return "deleteAccount";
 	}
 }

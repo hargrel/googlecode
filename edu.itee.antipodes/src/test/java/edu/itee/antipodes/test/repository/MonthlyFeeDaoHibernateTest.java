@@ -6,7 +6,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import edu.itee.antipodes.domain.MonthlyFee;
+
+import edu.itee.antipodes.domain.db.MonthlyFee;
 import edu.itee.antipodes.repository.MonthlyFeeDaoHibernate;
 
 public class MonthlyFeeDaoHibernateTest extends TestCase {

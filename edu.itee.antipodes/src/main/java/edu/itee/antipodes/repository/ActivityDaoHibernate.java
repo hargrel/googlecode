@@ -4,10 +4,9 @@ package edu.itee.antipodes.repository;
 import java.util.List;
 import java.util.Set;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
-import edu.itee.antipodes.domain.Activity;
 //import edu.itee.antipodes.domain.ListedTour;
-import edu.itee.antipodes.domain.Tour;
-//import edu.itee.antipodes.domain.TourOperator;
+import edu.itee.antipodes.domain.db.Activity;
+import edu.itee.antipodes.domain.db.Tour;
 
 public class ActivityDaoHibernate extends HibernateDaoSupport implements ActivityDao {
 	

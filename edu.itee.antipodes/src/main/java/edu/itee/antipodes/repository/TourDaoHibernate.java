@@ -8,7 +8,7 @@ import org.hibernate.HibernateException;
 import org.springframework.orm.hibernate3.support.*;
 //import edu.itee.antipodes.domain.Activity;
 //import edu.itee.antipodes.domain.Location;
-import edu.itee.antipodes.domain.Tour;
+import edu.itee.antipodes.domain.db.Tour;
 
 public class TourDaoHibernate extends HibernateDaoSupport implements TourDao {
 

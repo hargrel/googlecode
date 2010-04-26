@@ -2,7 +2,7 @@ package edu.itee.antipodes.repository;
 
 import java.util.List;
 
-import edu.itee.antipodes.domain.TourOperator;
+import edu.itee.antipodes.domain.db.TourOperator;
 
 public interface TourOperatorDao {
 	

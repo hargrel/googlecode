@@ -24,7 +24,7 @@
 <!-- Attribute names: fromDate, toDate, tourOperator, fileType -->
 
 
-<form name="bill_operator" action="(?).html" method="post">
+<form name="bill_operator" action="reports/BillingTourOperators" method="post">
 
 <table border="0" width=100% style="border-collapse:collapse; margin-right:30px">
 
@@ -34,10 +34,11 @@
 	</tr>
 	
 	<tr>
-		<td colspan="2">Tour Operator:&nbsp;&nbsp;<select name="tourOperator">
-				<option value="Operator 1">Operator 1</option>
-				<option value="Operator 2">Operator 2</option>
-				<option value="Operator 3">Operator 3</option>
+		<td colspan="2">Tour Operator:&nbsp;&nbsp;
+			<select name="tourOperator">
+				<c:forEach items="${touroperators}" var="to">
+					<option value="${to.operatorID}"><c:out value="${to.operatorName}" /></option>
+				</c:forEach>
 			</select></td>
 	</tr>
 	

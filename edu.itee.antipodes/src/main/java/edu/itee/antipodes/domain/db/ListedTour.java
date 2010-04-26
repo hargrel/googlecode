@@ -1,6 +1,7 @@
-package edu.itee.antipodes.domain;
+package edu.itee.antipodes.domain.db;
 import java.io.Serializable;
 import java.util.Date;
+
 /**
  * A persistence class that stores the tours listed from ListedTours table in DB.
  *
