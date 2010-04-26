@@ -1,4 +1,4 @@
-package edu.itee.antipodes.web;
+package edu.itee.antipodes.web.account;
 
 import org.springframework.stereotype.Controller;
 

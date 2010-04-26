@@ -1,4 +1,4 @@
-package edu.itee.antipodes.web;
+package edu.itee.antipodes.web.operator;
 
 import java.util.List;
 
@@ -13,14 +13,14 @@ import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.service.TourManager;
 
 @Controller
-@RequestMapping("/updateTourInfoList.html")
-public class updateTourInfoListController {
+@RequestMapping("/deleteTour.html")
+public class deleteTourController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showInventory(Model model) {
 		List<Tour> tours = tourManager.getTours();
 		model.addAttribute("tours", tours);
-		return "updateTourInfoList";
+		return "deleteTour";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
@@ -28,7 +28,7 @@ public class updateTourInfoListController {
 		tourManager.dropTourByID(tourID);
 		List<Tour> tours = tourManager.getTours();
 		model.addAttribute("tours", tours);
-		return "updateTourInfoList";
+		return "deleteTour";
 	}
 	
 	@Autowired

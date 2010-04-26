@@ -1,4 +1,4 @@
-package edu.itee.antipodes.web;
+package edu.itee.antipodes.web.customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

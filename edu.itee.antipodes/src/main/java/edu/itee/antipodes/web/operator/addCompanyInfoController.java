@@ -1,14 +1,14 @@
-package edu.itee.antipodes.web;
+package edu.itee.antipodes.web.operator;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class TOhomeController {
+public class addCompanyInfoController {
 
-	@RequestMapping("/TOhome.html")
+	@RequestMapping("/addCompanyInfo.html")
 	public String redirect()
 	{
-		return "TOhome";
+		return "addCompanyInfo";
 	}
 }

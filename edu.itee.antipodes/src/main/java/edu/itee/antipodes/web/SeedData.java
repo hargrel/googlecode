@@ -3,7 +3,6 @@ package edu.itee.antipodes.web;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.util.Assert;
 
-import edu.itee.antipodes.web.account.Account;
 
 public class SeedData implements InitializingBean{
     private AccountsDao accDao;

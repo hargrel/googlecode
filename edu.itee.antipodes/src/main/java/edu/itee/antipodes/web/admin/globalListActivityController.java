@@ -1,14 +1,14 @@
-package edu.itee.antipodes.web;
+package edu.itee.antipodes.web.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class searchController {
+public class globalListActivityController {
 
-	@RequestMapping("/search.html")
+	@RequestMapping("/globalListActivity.html")
 	public String redirect()
 	{
-		return "search";
+		return "globalListActivity";
 	}
 }

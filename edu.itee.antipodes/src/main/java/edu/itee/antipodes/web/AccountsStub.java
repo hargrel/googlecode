@@ -3,7 +3,6 @@ package edu.itee.antipodes.web;
 import java.util.HashMap;
 import java.util.Map;
 
-import edu.itee.antipodes.web.account.Account;
 
 public class AccountsStub implements AccountsDao{
     private long id = 0;

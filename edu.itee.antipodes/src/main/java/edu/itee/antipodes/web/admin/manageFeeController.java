@@ -1,14 +1,14 @@
-package edu.itee.antipodes.web.account;
+package edu.itee.antipodes.web.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class addAccountController {
+public class manageFeeController {
 
-	@RequestMapping("/addAccount.html")
+	@RequestMapping("/manageFee.html")
 	public String redirect()
 	{
-		return "addAccount";
+		return "manageFee";
 	}
 }

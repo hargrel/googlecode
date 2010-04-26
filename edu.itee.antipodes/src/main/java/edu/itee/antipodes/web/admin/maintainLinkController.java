@@ -1,14 +1,14 @@
-package edu.itee.antipodes.web;
+package edu.itee.antipodes.web.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class globalListLocationController {
+public class maintainLinkController {
 
-	@RequestMapping("/globalListLocation.html")
+	@RequestMapping("/maintainLink.html")
 	public String redirect()
 	{
-		return "globalListLocation";
+		return "maintainLink";
 	}
 }

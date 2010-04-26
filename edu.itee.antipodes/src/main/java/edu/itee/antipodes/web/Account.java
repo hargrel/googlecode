@@ -1,4 +1,4 @@
-package edu.itee.antipodes.web.account;
+package edu.itee.antipodes.web;
 
 /**
  * Note this class does not represent best practice, as we are failing to

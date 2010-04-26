@@ -1,14 +1,14 @@
-package edu.itee.antipodes.web;
+package edu.itee.antipodes.web.operator;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class maintainLinkController {
+public class updateCompanyInfoController {
 
-	@RequestMapping("/maintainLink.html")
+	@RequestMapping("/updateCompanyInfo.html")
 	public String redirect()
 	{
-		return "maintainLink";
+		return "updateCompanyInfo";
 	}
 }
