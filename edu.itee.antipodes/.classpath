@@ -46,5 +46,6 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/tiles-api-2.0.4.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/tiles-core-2.0.4.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/tiles-jsp-2.0.4.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/commons-lang.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
