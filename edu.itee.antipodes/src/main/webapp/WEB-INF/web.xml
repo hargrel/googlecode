@@ -62,19 +62,7 @@
 			index.jsp
 		</welcome-file>
 	</welcome-file-list>
-	
-<!--  Jasper Report -->
-	<servlet>
-		<servlet-name>jasperReports</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<load-on-startup>2</load-on-startup>
-	</servlet>
-	
-	<servlet-mapping>
-		<servlet-name>jasperReports</servlet-name>
-		<url-pattern>/reports/*</url-pattern>
-	</servlet-mapping>
-	
+		
 <!-- Add spring tag libraries for form processing etc. -->
 
 	<jsp-config>

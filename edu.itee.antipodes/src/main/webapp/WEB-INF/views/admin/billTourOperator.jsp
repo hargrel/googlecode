@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ include file="/WEB-INF/views/include.jsp" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -22,6 +23,23 @@
 
 <!-- Form name: bill_operator -->
 <!-- Attribute names: fromDate, toDate, tourOperator, fileType -->
+
+
+<form:form commandName="billingTourOperator">
+<table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
+	<tr>
+		<td rowspan="2" valign="top" width="100"><h4>Name:</h4></td>
+		<td><form:input path="toDate" size="40" cssErrorClass="form-error-field"/></td>
+	</tr>
+		<tr><td><div class="form-error-message"><form:errors path="toDate"/></div></td></tr>
+
+	
+	<tr>
+		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="tourInfo.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Submit" /></td>
+	</tr>
+	</table>
+</form:form>
+
 
 
 <form name="bill_operator" action="reports/BillingTourOperators" method="post">

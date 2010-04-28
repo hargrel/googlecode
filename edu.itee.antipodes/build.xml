@@ -118,6 +118,9 @@
 				path="/${name}" />
 	</target>	
 	
+	<target name="tomcat-stop-start" depends="tomcat-stop,tomcat-start" description="stops and starts tomcat">
+	</target>
+	
 <!-- Database Related Targets -->
 	
 	<target name="dbRefresh">
@@ -192,6 +195,9 @@
 	</target>
 	
 	<target name="deploy and reload" depends="deploy, reload" >
+	</target>
+	
+	<target name="stop deploy start" depends="tomcat-stop, deploy, tomcat-start" >
 	</target>
 	
 	<target name="compile-reports">

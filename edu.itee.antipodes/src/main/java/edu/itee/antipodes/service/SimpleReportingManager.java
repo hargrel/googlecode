@@ -6,11 +6,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import edu.itee.antipodes.domain.UniversalBean;
 import edu.itee.antipodes.domain.db.TourOperator;
+import edu.itee.antipodes.repository.DaoManager;
+import edu.itee.antipodes.repository.TourDaoHibernate;
+import edu.itee.antipodes.repository.TourOperatorDaoHibernate;
 
 public class SimpleReportingManager implements ReportingManager {
 
+	private TourOperatorDaoHibernate toDao = DaoManager.getTourOperatorDao();
 	@Override
 	public Map<String, Object> getBillingTourOperators(int tourOperatorID,
 			Date startDate, Date endDate) {
@@ -151,34 +158,10 @@ public class SimpleReportingManager implements ReportingManager {
 		list.add(ub);
 		return list;
 	}
-
+	
 	@Override
-	public List<TourOperator> getTourOperators() {
-		List<TourOperator> list = new ArrayList<TourOperator>();
-		
-		TourOperator to;
-		
-		to = new TourOperator();
-		to.setOperatorName("Operator 1");
-		to.setOperatorID(1);
-		list.add(to);
-		
-		to = new TourOperator();
-		to.setOperatorName("Operator 2");
-		to.setOperatorID(2);
-		list.add(to);
-		
-		to = new TourOperator();
-		to.setOperatorName("Operator 3");
-		to.setOperatorID(3);
-		list.add(to);
-		
-		to = new TourOperator();
-		to.setOperatorName("Operator 4");
-		to.setOperatorID(4);
-		list.add(to);
-		
-		return list;
+	public List<TourOperator> getTourOperators() {	
+		return toDao.getTourOperatorList();
 	}
 
 }
