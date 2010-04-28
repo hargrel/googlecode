@@ -22,43 +22,43 @@ import edu.itee.antipodes.service.SimpleReportingManager;
 public class monitorSystemUtilController {
 	@Autowired
 	private Validator validator;
-	
+
 	ReportingManager rm = new SimpleReportingManager();
-	
+
 	public void setValidator(Validator validator) {
 		this.validator = validator;
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET)
-	public String redirect(Model model)
-	{
+	public String redirect(Model model) {
 		return "monitorSystemUtil";
 	}
-	
+
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView post(@ModelAttribute("XXXXX") BillingTourOperators bto,
 			BindingResult result) {
-		
+
 		validator.validate(bto, result);
-		if (result.hasErrors()) { return new ModelAndView("monitorSystemUtil"); }
-		
-		
+		if (result.hasErrors()) {
+			return new ModelAndView("monitorSystemUtil");
+		}
+
 		try {
 			String format = "pdf";
-			Date fromDate = new Date(); 
-			Date toDate	= new Date(); 
-			
-			//Date fromDate = df.parse(); 
-			//Date toDate	= df.parse(request.getParameter("toDate")); 
-			
+			Date fromDate = new Date();
+			Date toDate = new Date();
+
+			// Date fromDate = df.parse();
+			// Date toDate = df.parse(request.getParameter("toDate"));
+
 			// TODO: UI Mapping
 
-			Map<String, Object> model = rm.getMonitoringSystemUtilisation(fromDate, toDate);
+			Map<String, Object> model = rm.getMonitoringSystemUtilisation(
+					fromDate, toDate);
 			model.put("format", format);
 
 			return new ModelAndView("reportMonitoringSystemUtilisation", model);
-		}
-		catch (Exception e){
+		} catch (Exception e) {
 			return new ModelAndView("monitorSystemUtil");
 		}
 	}

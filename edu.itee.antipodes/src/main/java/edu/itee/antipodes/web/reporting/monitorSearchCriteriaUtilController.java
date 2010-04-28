@@ -18,44 +18,44 @@ import edu.itee.antipodes.service.SimpleReportingManager;
 
 @Controller
 @RequestMapping("/monitorSearchCriteriaUtil.html")
-public class monitorSearchCriteriaUtilController 
-{
+public class monitorSearchCriteriaUtilController {
 	@Autowired
 	private Validator validator;
-	
+
 	ReportingManager rm = new SimpleReportingManager();
-	
+
 	public void setValidator(Validator validator) {
 		this.validator = validator;
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET)
-	public String redirect(Model model)
-	{
+	public String redirect(Model model) {
 		model.addAttribute("criterias", rm.getCriterias());
 		return "monitorSearchCriteriaUtil";
 	}
-	
+
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView post(@ModelAttribute("XXXXX") BillingTourOperators bto,
 			BindingResult result) {
-		
+
 		validator.validate(bto, result);
-		if (result.hasErrors()) { return new ModelAndView("monitorSearchCriteriaUtil"); }
-		
-		
+		if (result.hasErrors()) {
+			return new ModelAndView("monitorSearchCriteriaUtil");
+		}
+
 		try {
 			String format = "pdf";
 			String criteria = "";
-			
+
 			// TODO: UI Mapping
-			
-			Map<String, Object> model = rm.getMonitoringSearchCriteriaUtilisation(criteria);
+
+			Map<String, Object> model = rm
+					.getMonitoringSearchCriteriaUtilisation(criteria);
 			model.put("format", format);
-			
-			return new ModelAndView("reportMonitoringSearchCriteriaUtilisation", model);
-		}
-		catch (Exception e){
+
+			return new ModelAndView(
+					"reportMonitoringSearchCriteriaUtilisation", model);
+		} catch (Exception e) {
 			return new ModelAndView("monitorSearchCriteriaUtil");
 		}
 	}

@@ -21,37 +21,36 @@ import edu.itee.antipodes.service.SimpleReportingManager;
 public class detectAbuseController {
 	@Autowired
 	private Validator validator;
-	
+
 	ReportingManager rp = new SimpleReportingManager();
-	
+
 	public void setValidator(Validator validator) {
 		this.validator = validator;
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET)
-	public String redirect(Model model)
-	{
+	public String redirect(Model model) {
 		model.addAttribute("XXXX", new BillingTourOperators());
 		return "detectAbuse";
 	}
-	
+
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView post(@ModelAttribute("XXXXX") BillingTourOperators bto,
 			BindingResult result) {
-		
+
 		validator.validate(bto, result);
-		if (result.hasErrors()) { return new ModelAndView("detectAbuse"); }
-		
-		
+		if (result.hasErrors()) {
+			return new ModelAndView("detectAbuse");
+		}
+
 		try {
 			String format = "pdf";
-			
+
 			Map<String, Object> model = rp.getDetectingAbuse(123);
 			model.put("format", format);
-			
+
 			return new ModelAndView("reportDetectingAbuse", model);
-		}
-		catch (Exception e){
+		} catch (Exception e) {
 			return new ModelAndView("detectAbuse");
 		}
 	}
