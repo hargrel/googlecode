@@ -1,6 +1,9 @@
 package edu.itee.antipodes.domain.db;
-import java.io.Serializable;
 
+import java.io.Serializable;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.Length;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.NotBlank;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.RegExp;
 
 /**
  * A persistence class that stores user login details from the User table in DB. 
@@ -10,7 +13,14 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class AccountUser implements Serializable {
 	private int userID;
+	
+	@NotBlank
+	@Length(max = 20)
+	@RegExp(value = "[a-zA-Z0-9_.]*")
 	private String userName;
+	
+	@NotBlank
+	@Length(max = 20)
 	private String password;
 	private String userType;
 	private TourOperator operator;

@@ -3,6 +3,7 @@ package edu.itee.antipodes.domain.db;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+
 /**
  * A persistence class that stores info from local Location table in DB.
  */

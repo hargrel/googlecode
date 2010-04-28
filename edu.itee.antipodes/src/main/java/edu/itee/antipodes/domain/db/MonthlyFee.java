@@ -1,9 +1,13 @@
 package edu.itee.antipodes.domain.db;
 
+import org.springmodules.validation.bean.conf.loader.annotation.handler.NotNull;
+
 public class MonthlyFee {
 	private int feeID;
 	private int year;
 	private int month;
+	
+	@NotNull
 	private float fee;
 	
 	public MonthlyFee() {}

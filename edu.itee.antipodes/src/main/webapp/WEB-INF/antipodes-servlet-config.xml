@@ -14,10 +14,23 @@
 		class="org.springmodules.validation.bean.conf.loader.annotation.AnnotationBeanValidationConfigurationLoader"/>
 	<bean id="validator" class="org.springmodules.validation.bean.BeanValidator"
 		p:configurationLoader-ref="configurationLoader"/>
+	<!--  <bean id="accountValidator" class="org.springmodules.validation.valang.ValangValidator">
+  		<property name="valang">
+    		<value>
+    		<![CDATA[
+      		{ userName : length(?) < 3 : 'First name too long' : 'first_name_length' : 3}
+      		{ password : length(?) < 3 : 'Last name too long' : 'last_name_length' : 3 }
+    		]]>
+    		</value>
+  		</property>
+	</bean> -->
+	
 		
 <!-- Scans the edu.itee.antipodes.web package for @annotations and processes them -->
 	
 	<context:component-scan base-package="edu.itee.antipodes.web" />
+	
+	<!-- <bean id="accountValidator" class="edu.itee.antipodes.domain.pages" /> -->
 	
 <!-- Set up accounts -->
 	<bean id="accDao" class="edu.itee.antipodes.web.AccountsStub"/>

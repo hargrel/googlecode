@@ -35,14 +35,14 @@ public class billTourOperatorController {
 		SimpleReportingManager srm = new SimpleReportingManager();
 
 		model.addAttribute("touroperators", srm.getTourOperators());
-		model.addAttribute("billingTourOperator", new BillingTourOperators());
+		model.addAttribute("billOperator", new BillingTourOperators());
 
 		return "billTourOperator";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView post(
-			@ModelAttribute("billingTourOperator") BillingTourOperators bto,
+			@ModelAttribute("billOperator") BillingTourOperators bto,
 			BindingResult result) {
 
 		validator.validate(bto, result);

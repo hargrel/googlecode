@@ -6,41 +6,40 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+		<style>
+			.form-error-field { background-color: #FFC; }
+			.form-error-message { font-weight: bold; color: #900; font-size: 10px; }
+		</style>
 </head>
 <body>
 <h2>Edit Account</h2>
 
-<!-- Form name: edit_account -->
-<!-- Attribute names: userID, username, password -->
+<!-- Form name: accountUser -->
+<!-- Attribute names: userID, userName, password -->
 
-<form name="edit_account" action="annoformaddexample.html" method="post">
+<form:form commandName="accountUser">
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
 	<tr>
 		<td><input type="hidden" name="userID" /></td>
+		<td><input type="hidden" name="userType" value="operator" /></td>
 	</tr>
 	
 	<tr>
-		<td width="150"><h4>Username:</h4></td>
-		<td><h4><c:out value="${AccountUser.userName}" /></h4></td>
+		<td width="100" valign="top">Username:</td>
+		<td><form:input path="userName" size="20" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="userName"/></div></td>
 	</tr>
 
 	<tr>
-		<td><h4>New password:</h4></td>
-		<td width="150"><input type="password" size="30" name="password" /></td>
+		<td valign="top">Password:</td>
+		<td width="150"><form:password path="password" size="20" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="password"/></div></td>
 	</tr>
 	
 	<tr>
-		<td><h4>Re-type password:</h4></td>
-		<td width="150"><input type="password" size="30" name="password" /></td>
-	</tr>
-
-	<tr>
-		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="SAhome.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Edit" onclick="document['edit_account'].submit()" /></td>
+		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="SAhome.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Edit" /></td>
 	</tr>
 
 </table>
-</form>
-
+</form:form>
 
 </body>
 </html>

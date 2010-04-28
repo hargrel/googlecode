@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import edu.itee.antipodes.domain.pages.BillingTourOperators;
+import edu.itee.antipodes.domain.pages.MonitorSystemUtil;
 import edu.itee.antipodes.service.ReportingManager;
 import edu.itee.antipodes.service.SimpleReportingManager;
 
@@ -31,11 +31,12 @@ public class monitorSystemUtilController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String redirect(Model model) {
+		model.addAttribute("monitorSystem", new MonitorSystemUtil());
 		return "monitorSystemUtil";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView post(@ModelAttribute("XXXXX") BillingTourOperators bto,
+	public ModelAndView post(@ModelAttribute("monitorSystem") MonitorSystemUtil bto,
 			BindingResult result) {
 
 		validator.validate(bto, result);

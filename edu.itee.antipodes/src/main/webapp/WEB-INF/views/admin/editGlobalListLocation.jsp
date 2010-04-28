@@ -6,32 +6,36 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+		<style>
+			.form-error-field { background-color: #FFC; }
+			.form-error-message { font-weight: bold; color: #900; font-size: 10px; }
+		</style>
 </head>
 <body>
 
 <h2>Edit Global List of Locations</h2>
 
-<!-- Form name: edit_location -->
+<!-- Form name: location -->
 <!-- Attribute names: locationID, locationName -->
 
-<form name="edit_location" action="annoformaddexample.html" method="post">
+<form:form commandName="location">
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
 	<tr>
-		<td><input type="hidden" name="locationID" /></td>
+		<td><form:hidden path="locationID" /></td>
 	</tr>
 	
 	<tr>
-		<td width="150"><h4>Location Name:</h4></td>
-		<td width="150"><input type="text" size="30" name="locationName" /></td>
+		<td width="150" valign="top">Location Name:</td>
+		<td width="150"><form:input path="locationName" size="20" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="locationName"/></div></td>
 	</tr>
 
 
 	<tr>
-		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="editGlobalList.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Edit" onclick="document['edit_location'].submit()" /></td>
+		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="globalListLocation.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Edit" onclick="document['edit_location'].submit()" /></td>
 	</tr>
 
 </table>
-</form>
+</form:form>
 
 </body>
 </html>

@@ -11,14 +11,27 @@
 
 <h2>Detecting Abuse Report</h2>
 
-<p>
-Export to:&nbsp;&nbsp;&nbsp;
-<a href="<c:url value="reports/DetectingAbuse.pdf"/>"><img src="img/PDF-icon.png">PDF</a>&nbsp;&nbsp;&nbsp;
-<a href="<c:url value="reports/DetectingAbuse.csv"/>"><img src="img/CSV-icon.png">CSV</a>&nbsp;&nbsp;&nbsp;
-<a href="<c:url value="reports/DetectingAbuse.xls"/>"><img src="img/XLS-icon.png">XLS</a>
-</p>
+<!-- Form name: detectAbuse -->
+<!-- Attribute names: exportFormat -->
 
-<input type="button" value="Cancel" onClick="window.location.href='<c:url value="produceReport.html"/>'" style="margin-top:30px;"/>
+
+<form:form commandName="detectAbuse">
+<table border="0" style="border-collapse:collapse; margin-right:30px">
+	<tr>
+		<td width="80">Export to:</td>
+		<td><form:select path="exportFormat">
+				<form:option value="pdf" label="PDF" />
+				<form:option value="xls" label="XLS" />
+				<form:option value="csv" label="CSV" />
+			</form:select>
+		</td>
+	</tr>
+	
+	<tr>
+		<td colspan="2"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="produceReport.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Export" style="margin-top:30px;"/></td>
+	</tr>
+</table>
+</form:form>
 
 
 </body>

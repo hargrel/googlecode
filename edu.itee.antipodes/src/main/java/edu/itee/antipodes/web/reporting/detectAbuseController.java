@@ -30,12 +30,12 @@ public class detectAbuseController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String redirect(Model model) {
-		model.addAttribute("XXXX", new BillingTourOperators());
+		model.addAttribute("detectAbuse", new BillingTourOperators());
 		return "detectAbuse";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView post(@ModelAttribute("XXXXX") BillingTourOperators bto,
+	public ModelAndView post(@ModelAttribute("detectAbuse") BillingTourOperators bto,
 			BindingResult result) {
 
 		validator.validate(bto, result);

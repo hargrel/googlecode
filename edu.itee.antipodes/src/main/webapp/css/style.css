@@ -1,3 +1,5 @@
+/* Antipodes CSS style sheet */
+
 * {
 	padding: 0;
 	margin: 0;
@@ -209,51 +211,6 @@ p {
 	text-align: justify;
 }
 
-	
-
-#tab {
-	background: transparent url(../img/tab.png) top left repeat-x;
-	clear: both;
-}
-
-#tab ul {
-	text-align: left;
-	padding: 11px 0 11px 50px;
-  	width: 903px;
-}
-
-#tab li {
-	display: inline;
-	white-space: nowrap;
-	list-style: none;
-}
-
-#tab li a.static {
-	color: #444;
-	text-shadow: white 0 1px 0;
-	padding: 7px 7px;
-}
-
-#tab li a.static:hover {
-  background-color:#d9d9d9;
-}
-
-
-#tab li a.selected {
-	color: #222;
-	text-shadow: 0 1px 0 white;
-	background: transparent url(../img/tabSelected.png) repeat-x left top;
-	border-right: 1px solid #ccc;
-	border-left: 1px solid #ccc;
-	padding: 10px 13px;
-}
-
-#tab li img {
-  margin: 0 6px 6px 0;
-	vertical-align: top;
-}
-
-/* menu::base */
 #menu {
     height:37px;
     background: transparent url(../img/tab.png) top left repeat-x;
@@ -293,8 +250,6 @@ p {
     visibility: hidden;
     padding: 0 0 9px 7px;
     _padding: 0 0 9px 3px;
-    background: url(../img/submenu-bottom.png) no-repeat 7px bottom;
-    _background-image: url(../img/submenu-bottom.gif);
     margin: 0 0 0 -9px;
 }
 #menu li:hover>div {
@@ -303,7 +258,7 @@ p {
 
 #menu li.current a {}
 
-/* menu::level1 */
+/* menu:level1 */
 #menu a {
     position: relative;
     z-index: 10;
@@ -332,15 +287,10 @@ p {
     color: #353535;
 }
 
-/*#menu li { background: url(../img/nav_separator.png) top left no-repeat; }*/
 #menu li img {
   margin: 0 6px 6px 0;
   vertical-align: top;
 }
-/*#menu li.last span{
-    background: url(../img/nav_separator.png) top right no-repeat;
-    padding: 10px 10px 16px 0;
-}*/
 
 /* menu::level2 */
 #menu ul ul li {

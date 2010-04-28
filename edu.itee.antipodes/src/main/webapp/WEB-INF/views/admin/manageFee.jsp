@@ -10,20 +10,22 @@
 <body>
 <h2>Manage Fees</h2>
 
-<!-- Form name: manage_fee -->
+<!-- Form name: monthlyFee -->
 <!-- Attribute names: fee -->
 
-<form name="manage_fee" action="annoformaddexample.html" method="post">
+<form:form commandName="monthlyFee">
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
 	<tr>
-		<td width="150"><h4>Old fee:</h4></td>
+		<td rowspan="2" width="100"><h4>Old fee:</h4></td>
 		<td><h4><c:out value="${MonthlyFee.fee}" /></h4></td>
 	</tr>
+	<tr></tr>
 
 	<tr>
 		<td><h4>New fee:</h4></td>
-		<td width="150"><input type="text" size="30" name="fee" /></td>
+		<td width="70"><form:input path="fee" size="10" cssErrorClass="form-error-field"/></td>
 	</tr>
+	<tr><td><div class="form-error-message"><form:errors path="fee"/></div></td></tr>
 	
 
 	<tr>
@@ -31,7 +33,7 @@
 	</tr>
 
 </table>
-</form>
+</form:form>
 
 
 </body>

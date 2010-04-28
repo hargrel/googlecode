@@ -8,26 +8,21 @@ import org.springmodules.validation.bean.conf.loader.annotation.handler.RegExp;
 public final class ContactOperator {
 	
 	@NotBlank
-	@Length(max = 80)
-	@RegExp(value = "[a-zA-Z]*")
+	@Length(max = 40)
+	@RegExp(value = "[a-zA-Z ]*")
 	private String name;
 	
 	@NotBlank
 	@Email
-	@Length(max = 80)
+	@Length(max = 30)
 	private String email;
 	
 	@NotBlank
-	@Length(max = 10)
-	@RegExp(value = "[0-9]*")
-	private String telephone;
-	
-	@NotBlank
-	@Length(max = 80)
+	@Length(max = 50)
 	private String subject;
 	
 	@NotBlank
-	@Length(max = 4000)
+	@Length(max = 1000)
 	private String text;
 	
 	public String getName() {
@@ -44,14 +39,6 @@ public final class ContactOperator {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	
-	public String getTelephone() {
-		return telephone;
-	}
-
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
 	}
 	
 	public String getSubject() {

@@ -1,48 +1,44 @@
 package edu.itee.antipodes.web.operator;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.Validator;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
-import edu.itee.antipodes.domain.db.Tour;
-import edu.itee.antipodes.service.TourManager;
+import edu.itee.antipodes.domain.pages.TourInfo;
 
 @Controller
 @RequestMapping("/addTourInfo.html")
-@SessionAttributes("userMessage")
-public class addTourInfoController {
-
+public final class addTourInfoController {
+	
+	@Autowired
+	private Validator validator;
+	
+	public void setValidator(Validator validator) {
+		this.validator = validator;
+	}
+	
 	@RequestMapping(method = RequestMethod.GET)
-	public String showInventory(Model model) {
-		List<Tour> tours = tourManager.getTours();
-		model.addAttribute("tours", tours);
+	public String showUserForm(ModelMap model) {
+		TourInfo tourInfo = new TourInfo();
+		model.addAttribute("addTourInfo", tourInfo);
 		return "addTourInfo";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String updateTour(@RequestParam("tourID") int tourID, @RequestParam("tourName") String tourName, 
-			@RequestParam("tourDesc") String tourDesc, @RequestParam("price") double price, 
-			@RequestParam("totalDays") int totalDays, Model model) {
-		Tour tour = new Tour();
-		tour.setTourID(tourID);
-		tour.setTourName(tourName);
-		tour.setTourDesc(tourDesc);
-		tour.setPrice(price);
-		tour.setTotalDays(totalDays);
+	public String post(@ModelAttribute("addTourInfo") TourInfo info,
+			BindingResult result) {
 		
-		tourManager.addTour(tour);
+		validator.validate(info, result);
+		if (result.hasErrors()) { return "addTourInfo"; }
 		
-		List<Tour> tours = tourManager.getTours();
-		model.addAttribute("tours", tours);
-		return "addTourInfo";
+		// Use the redirect-after-post pattern to reduce double-submits.
+		return "redirect:thanks.html";
+		
 	}
-	
-	@Autowired
-	TourManager tourManager;
+
 }
