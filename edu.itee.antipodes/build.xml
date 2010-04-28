@@ -200,6 +200,8 @@
 	<target name="stop deploy start" depends="tomcat-stop, deploy, tomcat-start" >
 	</target>
 	
+	<target name="super-mega-fix" depends="tomcat-stop, clean, build, copymetafiles, deploy, tomcat-start"></target>
+	
 	<target name="compile-reports">
 		<delete>
 			<fileset dir="${web.dir}">
