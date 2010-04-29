@@ -15,12 +15,21 @@ import edu.itee.antipodes.service.TourManager;
 @RequestMapping("/tourInfo.html")
 public class tourInfoController {
 	
+//	@RequestMapping(method = RequestMethod.GET)
+//	public String showInventory(Model model) {
+//		List<Tour> tours = customerManager.getTours();
+//		model.addAttribute("tours", tours);
+//		return "tourInfo";
+//	}
+
 	@RequestMapping(method = RequestMethod.GET)
 	public String showInventory(Model model) {
 		List<Tour> tours = tourManager.getTours();
-		model.addAttribute("tours", tours);
+		//model.addAttribute("tours", tours);
+		Tour tour = tours.get(0);
+		model.addAttribute("tour", tour);
 		return "tourInfo";
-	}
+	}	
 	
 	@Autowired
 	TourManager tourManager;

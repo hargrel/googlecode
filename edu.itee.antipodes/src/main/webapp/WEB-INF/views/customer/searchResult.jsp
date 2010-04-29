@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
+
 <body>
 
 <h2>Search Results</h2>
@@ -14,6 +15,7 @@
 	<table style="width: 800px;">
 		<thead>
 		<tr>
+			<!--  
 			<th>Name</th>
 			<th>Location</th>
 			<th>Activity</th>
@@ -22,21 +24,23 @@
 			<th>Finish date</th>
 			<th>Price</th>
 			<th></th>
+			-->
+			<th>Name</th>
+			<th>Description</th>
+			<th>Duration</th>
+			<th>Price</th>
+			<th></th>
 		</tr>
 		</thead>
 
 		<tbody>
 		<c:forEach items="${tours}" var="tour">
-			
 			<tr>
 				<td><c:out value="${tour.tourName}" /></td>
-				<td><c:out value="${tour.location}" /></td>
-				<td><c:out value="${tour.activity}" /></td>
+				<td><c:out value="${tour.tourDesc}" /></td>
 				<td><c:out value="${tour.totalDays}" /></td>
-				<td><c:out value="${tour.startDate}" /></td>
-				<td><c:out value="${tour.finishDate}" /></td>
-				<td><c:out value="${tour.currency}" /><c:out value="${tour.price}" /></td>
-			
+				<td><c:out value="${tour.price}" /></td>			
+ 	
 				<td>
 					<form style="margin:0px; padding: 0px;" name="edit_${tour.tourID}" action="updateTourInfo.html" method="get">
 						<input type="hidden" name="tourID" value="${tour.tourID}" />
@@ -46,10 +50,8 @@
 			</tr>
 		</c:forEach>
 		</tbody>
-	
 	</table>
 	<input type="button" value="Back" onClick="window.location.href='<c:url value="search.html"/>'" style="float: right; margin-right: 20px; margin-top: 10px;"/>
 	</div>
-	
 </body>
 </html>

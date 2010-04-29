@@ -52,7 +52,8 @@ public class ActivityDaoHibernateTest extends TestCase {
 		dao.dropActivity(activity);
 		assertNull(dao.getActivityByID(4));
 		//testGetToursByActivityID()
-		assertEquals(1,dao.getToursByActivityID(1).size());
+		assertEquals(2, dao.getToursByActivityID(1).size());
+
 	}
 	
 	@Test

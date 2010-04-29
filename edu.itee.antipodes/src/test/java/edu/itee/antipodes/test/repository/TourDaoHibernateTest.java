@@ -78,7 +78,12 @@ public class TourDaoHibernateTest extends TestCase{
 		tourID = tourDao.getTourList().size();
 		tour = tourDao.getTourByID(tourID);
 		tourDao.dropTour(tour);
-		assertNull(tourDao.getTourByID(tourID));		
+		assertNull(tourDao.getTourByID(tourID));	
+		
+//		// Extra
+//		assertEquals(2, tourDao.getTourDatesByTourID(2).size());
+//		assertEquals(2, tourDao.getImagesByTourID(2).size());
+		
 	}
 }
 

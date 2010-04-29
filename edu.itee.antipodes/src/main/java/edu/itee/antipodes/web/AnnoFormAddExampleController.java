@@ -35,8 +35,7 @@ public class AnnoFormAddExampleController {
 		tour.setTotalDays(totalDays);
 		
 		// validate code...
-		
-		
+
 		tourManager.addTour(tour);
 		
 		List<Tour> tours = tourManager.getTours();

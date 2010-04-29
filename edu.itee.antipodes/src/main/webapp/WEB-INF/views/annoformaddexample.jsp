@@ -1,5 +1,4 @@
 <%@ include file="/WEB-INF/views/include.jsp" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <html>
 
@@ -46,7 +45,6 @@
 		<tr>
 			<td><a href="annoformexample.html" style="color: blue;">cancel</a></td>
 		</tr>
-		<%--
 		<form style="margin:0px; padding: 0px;" name="add_tour" action="annoformaddexample.html" method="post">
 			<tr>
 				<td><input type="hidden" name="tourID" value="23"/>23</td>
@@ -56,18 +54,7 @@
 				<td><input type="text" name="totalDays" size="2"/></td>
 				<td><a href="#" style="color: blue;" onclick="document['add_tour'].submit()">add</a></td>
 			</tr>
-		</form>--%>
-		<form:form commandName="add_tour">
-		<tr>
-		
-		
-		<form:input path="tourName" size="40" cssErrorClass="form-error-field"/>
-		<form:input path="tourDesc" size="40" cssErrorClass="form-error-field"/>
-		<form:input path="price" size="40" cssErrorClass="form-error-field"/>
-		<form:input path="totalDays" size="40" cssErrorClass="form-error-field"/>
-		<input type="submit" value="Submit" />
-		</tr>
-</form:form>
+		</form>
 	</table>
 	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 	<pre>
