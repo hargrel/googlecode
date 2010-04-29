@@ -130,6 +130,12 @@ INSERT INTO ListedTour VALUES (
 INSERT INTO ListedTour VALUES (
 	0004, 0004, 0004, TO_DATE('14052010', 'DDMMYYYY'), TO_DATE('14122010', 'DDMMYYYY')  
 );
+INSERT INTO ListedTour VALUES (
+	0005, 0004, 0004, TO_DATE('14052010', 'DDMMYYYY'), TO_DATE('14122010', 'DDMMYYYY')  
+);
+INSERT INTO ListedTour VALUES (
+	0006, 0004, 0004, TO_DATE('14052010', 'DDMMYYYY'), TO_DATE('14122010', 'DDMMYYYY')  
+);
 
 -- Activity --------------------------------------------------------------------
 
@@ -188,11 +194,11 @@ INSERT INTO Location VALUES (
 -- TourLocation -----------------------------------------------------------------------
 
 INSERT INTO TourLocation VALUES (
-	0001, 0001
+	0001, 0003
 );
 
 INSERT INTO TourLocation VALUES (
-	0002, 0002
+	0002, 0004
 );
 
 INSERT INTO TourLocation VALUES (

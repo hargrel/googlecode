@@ -15,6 +15,8 @@ public class Tour implements Serializable {
 	private int onDemand;
 	private Set<Activity> activities = new HashSet<Activity>(0);
 	private Set<Location> locations = new HashSet<Location>(0);
+	private Set<TourDate> tourDates = new HashSet<TourDate>(0);
+	private Set<Image> images = new HashSet<Image>(0);
 	
 	//default constructor, instances are initiated by Constructor.newInstance()
 	public Tour(){}
@@ -90,6 +92,23 @@ public class Tour implements Serializable {
 		this.locations = locations;
 	}
 	
+	
+	public Set<TourDate> getTourDates() {
+		return tourDates;
+	}
+
+	public void setTourDates(Set<TourDate> tourDates) {
+		this.tourDates = tourDates;
+	}
+	
+	public Set<Image> getImages() {
+		return images;
+	}
+
+	public void setImages(Set<Image> images) {
+		this.images = images;
+	}
+
 	@Override
 	public String toString() {
 		return "Tour [price=" + price + ", totalDays=" + totalDays

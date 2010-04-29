@@ -20,6 +20,14 @@
 	  	<key column="TOUR_ID"></key>
 	  	<many-to-many column="LOCATION_ID"  class="Location"/>
   	</set>
+  	<set name="tourDates" lazy="false">
+	  	<key column="TOUR_ID"></key>
+	  	<one-to-many class="TourDate" />
+  	</set>
+  	<set name="images" lazy="false">
+	  	<key column="IMAGE_ID"></key>
+	  	<one-to-many class="Image" />
+  	</set>
  </class>
 </hibernate-mapping>
 
