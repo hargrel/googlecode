@@ -56,4 +56,11 @@ public class SimpleSystemAdminManager implements SystemAdminManager {
 		ad.saveActivity(activity);
 	}
 
+	@Override
+	public void removeActivityByID(String activityID) {
+		int id = Integer.parseInt(activityID);
+		ActivityDao ad = DaoManager.getActivityDao();
+		ad.dropActivityByID(id);
+	}
+
 }

@@ -31,7 +31,7 @@ public class globalListLocationController {
 	public Object deleteLocation(HttpServletRequest request,
 			HttpServletResponse response) {
 
-		sam.removeLocationByID(request.getParameter("tourID"));
+		sam.removeLocationByID(request.getParameter("locationID"));
 
 		// Use the redirect-after-post pattern to reduce double-submits.
 		return new RedirectView("globalListLocation.html");

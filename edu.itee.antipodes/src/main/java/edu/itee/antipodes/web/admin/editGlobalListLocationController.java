@@ -33,25 +33,26 @@ public final class editGlobalListLocationController {
 	@RequestMapping(method = RequestMethod.GET)
 	public Object showUserForm(ModelMap model, HttpServletRequest request,
 			HttpServletResponse response) {
+		String locationID = request.getParameter("locationID");
+		if (locationID == null)
+			return new RedirectView("globalListLocation.html");
 
-		Location loc = sam.getLocationByID(request.getParameter("tourID"));
-
+		Location loc = sam.getLocationByID(locationID);
 		if (loc == null)
 			return new RedirectView("globalListLocation.html");
 
-		model.addAttribute("location", loc);
+		model.addAttribute("loc", loc);
 		return "editGlobalListLocation";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Object post(@ModelAttribute("location") Location loc,
-			BindingResult result) {
+	public Object post(@ModelAttribute("loc") Location loc, BindingResult result) {
 
 		validator.validate(loc, result);
 		if (result.hasErrors()) {
 			return "editGlobalListLocation";
 		}
-		
+
 		sam.saveLocation(loc);
 		return new RedirectView("globalListLocation.html");
 	}

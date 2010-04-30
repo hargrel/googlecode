@@ -25,11 +25,11 @@
 <!-- Form name: location -->
 <!-- Attribute names: locationID, locationName -->
 
-<form:form commandName="location">
+<form:form commandName="loc">
 	<table border="0" cellspacing="2"
 		style="border-collapse: collapse; padding: 5px">
 		<tr>
-			<td><form:hidden path="locationID" /></td>
+			<td><!--<form:hidden path="locationID" />--></td>
 		</tr>
 
 		<tr>

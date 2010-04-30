@@ -11,6 +11,7 @@ import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
 import edu.itee.antipodes.domain.db.Activity;
@@ -33,10 +34,11 @@ public final class editGlobalListActivityController {
 	@RequestMapping(method = RequestMethod.GET)
 	public Object showUserForm(ModelMap model, HttpServletRequest request,
 			HttpServletResponse response) {
+		String activityID = request.getParameter("activityID");
+		if (activityID == null)
+			return new RedirectView("globalListActivity.html");
 
-		Activity ac = sam.getActivityByID(request.getParameter("activityID"));
-		//Location ac = sam.getLocationByID(request.getParameter("activityID"));
-
+		Activity ac = sam.getActivityByID(activityID);
 		if (ac == null)
 			return new RedirectView("globalListActivity.html");
 
@@ -45,8 +47,7 @@ public final class editGlobalListActivityController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Object post(@ModelAttribute("act") Activity ac,
-			BindingResult result) {
+	public Object post(@ModelAttribute("act") Activity ac, BindingResult result) {
 
 		validator.validate(ac, result);
 		if (result.hasErrors()) {

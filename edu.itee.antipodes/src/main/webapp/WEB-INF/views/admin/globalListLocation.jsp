@@ -31,19 +31,19 @@
 				<td><c:out value="${location.locationName}" /></td>			
 				<td>
 					<form style="margin:0px; padding: 0px;" name="edit_${location.locationID}" action="editGlobalListLocation.html" method="get">
-						<input type="hidden" name="tourID" value="${location.locationID}" />
+						<input type="hidden" name="locationID" value="${location.locationID}" />
 					</form>
 					<a href="#" style="color: blue;" onclick="document['edit_${location.locationID}'].submit()">Edit</a>
 				</td>
 				<td>
 					<form style="margin:0px; padding: 0px;" name="delete_${location.locationID}" action="globalListLocation.html" method="post">
-						<input type="hidden" name="tourID" value="${location.locationID}" />
+						<input type="hidden" name="locationID" value="${location.locationID}" />
 					</form>
 					<a href="#" style="color: blue;" onclick="document['delete_${location.locationID}'].submit()">Delete</a>
 				</td>
 				<td>
 					<form style="margin:0px; padding: 0px;" name="inmap_${location.locationID}" action="maintainLink.html" method="post">
-						<input type="hidden" name="tourID" value="${location.locationID}" />
+						<input type="hidden" name="locationID" value="${location.locationID}" />
 					</form>
 					<a href="#" style="color: blue;" onclick="document['inmap_${location.locationID}'].submit()">Interactive Map</a>
 				</td>

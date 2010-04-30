@@ -29,7 +29,7 @@
 	<table border="0" cellspacing="2"
 		style="border-collapse: collapse; padding: 5px">
 		<tr>
-			<td><form:hidden path="activityID" /></td>
+			<td><!--<form:hidden path="activityID" />--></td>
 		</tr>
 
 		<tr>
