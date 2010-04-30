@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springmodules.validation.bean.conf.loader.annotation.handler.Length;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.NotBlank;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.RegExp;
+
 /**
  * A persistence class that stores info from Activity table
  */
@@ -13,9 +17,9 @@ public class Activity implements Serializable{
 
 	private int activityID;
 	
-	//@NotBlank
-	//@Length(max = 20)
-	//@RegExp(value = "[a-zA-Z ,]*")
+	@NotBlank
+	@Length(max = 20)
+	@RegExp(value = "[a-zA-Z ,]*")
 	private String activityName;
 	
 	private Set<Tour> tours = new HashSet<Tour>(0);
