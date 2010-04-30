@@ -60,10 +60,11 @@
 	    </property>
   	</bean>
 
+<!-- 
     <bean id="hibernateDao" class="edu.itee.antipodes.repository.HibernateTourSearch">
         <property name="sessionFactory" ref="mySessionFactory" />
     </bean>
-    
+    -->
     
     <bean id="tourDao" class="edu.itee.antipodes.repository.TourDaoHibernate">
         <property name="sessionFactory" ref="mySessionFactory" />
