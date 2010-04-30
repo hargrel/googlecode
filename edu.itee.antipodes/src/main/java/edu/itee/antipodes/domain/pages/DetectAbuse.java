@@ -7,6 +7,8 @@ public final class DetectAbuse {
 	@NotBlank
 	private String exportFormat;
 	
+	private int criteriaNum;
+	
 	public String getExportFormat() {
 		return exportFormat;
 	}
@@ -14,4 +16,14 @@ public final class DetectAbuse {
 	public void setExportFormat(String exportFormat) {
 		this.exportFormat = exportFormat;
 	}
+
+	public int getCriteriaNum() {
+		return criteriaNum;
+	}
+
+	public void setCriteriaNum(int criteriaNum) {
+		this.criteriaNum = criteriaNum;
+	}
+	
+	
 }

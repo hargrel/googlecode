@@ -18,7 +18,12 @@
 <form:form commandName="detectAbuse">
 <table border="0" style="border-collapse:collapse; margin-right:30px">
 	<tr>
-		<td width="80">Export to:</td>
+		<td width="140" valign="top">Number of criteria:</td>
+		<td><form:input path="criteriaNum" size="5" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="criteriaNum"/></div></td>
+	</tr>
+	
+	<tr>
+		<td>Export to:</td>
 		<td><form:select path="exportFormat">
 				<form:option value="pdf" label="PDF" />
 				<form:option value="xls" label="XLS" />
