@@ -25,6 +25,10 @@ public class MonthlyFeeDaoHibernate extends HibernateDaoSupport implements Month
 		Object record = getHibernateTemplate().load(MonthlyFee.class, monthlyFee.getFeeID());
         getHibernateTemplate().delete(record);
     }
+	public void dropMonthlyFeeByID(int monthlyFeeID) {
+		Object record = getHibernateTemplate().load(MonthlyFee.class, monthlyFeeID);
+        getHibernateTemplate().delete(record);
+    }
 
 }
 

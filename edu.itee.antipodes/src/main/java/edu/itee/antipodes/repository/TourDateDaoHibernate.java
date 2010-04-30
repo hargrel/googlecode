@@ -31,4 +31,8 @@ public class TourDateDaoHibernate extends HibernateDaoSupport implements TourDat
 		Object record = getHibernateTemplate().load(TourDate.class, tourDate.getDateID());
         getHibernateTemplate().delete(record);
     }
+	public void dropTourDateByID(int tourDateID) throws HibernateException{
+		Object record = getHibernateTemplate().load(TourDate.class, tourDateID);
+        getHibernateTemplate().delete(record);
+    }
 }

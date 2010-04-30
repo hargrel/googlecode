@@ -25,6 +25,10 @@ public class AccountUserDaoHibernate extends HibernateDaoSupport implements Acco
 		Object record = getHibernateTemplate().load(AccountUser.class, accUser.getUserID());
         getHibernateTemplate().delete(record);
     }
+	public void dropAccountUserByID(int accUserID) {
+		Object record = getHibernateTemplate().load(AccountUser.class, accUserID);
+        getHibernateTemplate().delete(record);
+    }
 
 	public void saveAccountUser(AccountUser accUser) {
 		getHibernateTemplate().saveOrUpdate(accUser);

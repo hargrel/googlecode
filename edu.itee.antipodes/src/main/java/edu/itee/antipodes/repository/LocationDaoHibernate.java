@@ -19,6 +19,10 @@ public class LocationDaoHibernate extends HibernateDaoSupport implements Locatio
 		Object record = getHibernateTemplate().load(Location.class, location.getLocationID());
         getHibernateTemplate().delete(record);
     }
+	public void dropLocationByID(int locationID){
+		Object record = getHibernateTemplate().load(Location.class, locationID);
+        getHibernateTemplate().delete(record);
+	}
 
 	@SuppressWarnings("unchecked")
 	public List<Location> getLocationList() {

@@ -22,4 +22,8 @@ public class TourOperatorDaoHibernate extends HibernateDaoSupport implements Tou
 		Object record = getHibernateTemplate().load(TourOperator.class, tourOperator.getOperatorID());
         getHibernateTemplate().delete(record);
     }
+	public void dropTourOperatorByID(int tourOperatorID) {
+		Object record = getHibernateTemplate().load(TourOperator.class, tourOperatorID);
+        getHibernateTemplate().delete(record);
+    }
 }

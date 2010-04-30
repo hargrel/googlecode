@@ -25,4 +25,8 @@ public class ListedTourDaoHibernate extends HibernateDaoSupport implements Liste
 		Object record = getHibernateTemplate().load(ListedTour.class, listedTour.getListID());
         getHibernateTemplate().delete(record);
     }
+	public void dropListedTourByID(int listedTourID) {
+		Object record = getHibernateTemplate().load(ListedTour.class, listedTourID);
+        getHibernateTemplate().delete(record);
+    }
 }

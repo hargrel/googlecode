@@ -30,6 +30,10 @@ public class ActivityDaoHibernate extends HibernateDaoSupport implements Activit
 		Object record = getHibernateTemplate().load(Activity.class, activity.getActivityID());
         getHibernateTemplate().delete(record);
     }
+	public void dropActivityByID(int activityID) {
+		Object record = getHibernateTemplate().load(Activity.class, activityID);
+        getHibernateTemplate().delete(record);
+    }
 	public Set<Tour> getToursByActivityID(int activityID){
 		return ((Activity)getHibernateTemplate().get(Activity.class, activityID)).getTours();
 	}

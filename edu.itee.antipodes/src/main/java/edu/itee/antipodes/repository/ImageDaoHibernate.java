@@ -25,6 +25,10 @@ public class ImageDaoHibernate extends HibernateDaoSupport implements ImageDao {
 		Object record = getHibernateTemplate().load(Image.class, image.getImageID());
         getHibernateTemplate().delete(record);
     }
+	public void dropImageByID(int imageID) throws HibernateException{
+		Object record = getHibernateTemplate().load(Image.class, imageID);
+        getHibernateTemplate().delete(record);
+    }
 	
 }
 
