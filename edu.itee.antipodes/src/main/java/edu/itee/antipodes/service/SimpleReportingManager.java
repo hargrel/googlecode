@@ -6,18 +6,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import edu.itee.antipodes.domain.UniversalBean;
+import edu.itee.antipodes.domain.db.Activity;
+import edu.itee.antipodes.domain.db.Location;
 import edu.itee.antipodes.domain.db.TourOperator;
+import edu.itee.antipodes.repository.ActivityDao;
 import edu.itee.antipodes.repository.DaoManager;
-import edu.itee.antipodes.repository.TourDaoHibernate;
-import edu.itee.antipodes.repository.TourOperatorDaoHibernate;
+import edu.itee.antipodes.repository.LocationDao;
+import edu.itee.antipodes.repository.TourOperatorDao;
 
 public class SimpleReportingManager implements ReportingManager {
 
-	private TourOperatorDaoHibernate toDao = DaoManager.getTourOperatorDao();
+	private TourOperatorDao toDao = DaoManager.getTourOperatorDao();
 	@Override
 	public Map<String, Object> getBillingTourOperators(int tourOperatorID,
 			Date startDate, Date endDate) {
@@ -134,28 +134,30 @@ public class SimpleReportingManager implements ReportingManager {
 
 	@Override
 	public List<UniversalBean> getCriterias() {
+		
+		LocationDao ld = DaoManager.getLocationDao();
+		List<Location> ll = ld.getLocationList();
+		
+		ActivityDao ad = DaoManager.getActivityDao();
+		List<Activity> al = ad.getActivityList();
+		
 		List<UniversalBean> list = new ArrayList<UniversalBean>();
-		
 		UniversalBean ub;
-		ub = new UniversalBean();
-		ub.setS1("l1");
-		ub.setS2("Location 1");
-		list.add(ub);
 		
-		ub = new UniversalBean();
-		ub.setS1("l2");
-		ub.setS2("Location 2");
-		list.add(ub);
+		for (Location location : ll) {
+			ub = new UniversalBean();
+			ub.setS1("l"+location.getLocationID());
+			ub.setS2(location.getLocationName());
+			list.add(ub);
+		}
 		
-		ub = new UniversalBean();
-		ub.setS1("a1");
-		ub.setS2("Activity 1");
-		list.add(ub);
-		
-		ub = new UniversalBean();
-		ub.setS1("a2");
-		ub.setS2("Activity 2");
-		list.add(ub);
+		for (Activity activity : al) {
+			ub = new UniversalBean();
+			ub.setS1("a"+activity.getActivityID());
+			ub.setS2(activity.getActivityName());
+			list.add(ub);
+		}
+
 		return list;
 	}
 	

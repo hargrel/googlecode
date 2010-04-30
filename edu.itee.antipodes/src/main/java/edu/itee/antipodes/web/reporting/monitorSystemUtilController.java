@@ -1,5 +1,7 @@
 package edu.itee.antipodes.web.reporting;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
@@ -45,14 +47,10 @@ public class monitorSystemUtilController {
 		}
 
 		try {
-			String format = "pdf";
-			Date fromDate = new Date();
-			Date toDate = new Date();
-
-			// Date fromDate = df.parse();
-			// Date toDate = df.parse(request.getParameter("toDate"));
-
-			// TODO: UI Mapping
+			DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+			Date fromDate = df.parse(bto.getFromDate());
+			Date toDate = df.parse(bto.getToDate());
+			String format = bto.getExportFormat();
 
 			Map<String, Object> model = rm.getMonitoringSystemUtilisation(
 					fromDate, toDate);

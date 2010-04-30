@@ -23,7 +23,8 @@
 		</thead>
 
 		<tbody>
-		<c:forEach items="${location}" var="location">
+		
+		<c:forEach items="${locations}" var="location">
 			
 			<tr>
 				<td><c:out value="${location.locationID}" /></td>

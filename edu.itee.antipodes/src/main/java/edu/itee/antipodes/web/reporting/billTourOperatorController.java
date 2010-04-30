@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import edu.itee.antipodes.domain.db.TourOperator;
 import edu.itee.antipodes.domain.pages.BillingTourOperators;
 import edu.itee.antipodes.repository.DaoManager;
-import edu.itee.antipodes.repository.TourOperatorDaoHibernate;
+import edu.itee.antipodes.repository.TourOperatorDao;
 import edu.itee.antipodes.service.ReportingManager;
 import edu.itee.antipodes.service.SimpleReportingManager;
 
@@ -53,7 +53,7 @@ public class billTourOperatorController {
 		try {
 			// DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 			ReportingManager rp = new SimpleReportingManager();
-			TourOperatorDaoHibernate todh = DaoManager.getTourOperatorDao();
+			TourOperatorDao tod = DaoManager.getTourOperatorDao();
 
 			Date fromDate = new Date();
 			Date toDate = new Date();
@@ -65,7 +65,7 @@ public class billTourOperatorController {
 			// toDate = df.parse(bto.getToDate());
 			// tourOperator = Integer.parseInt(bto.getTourOperatorID()) ;
 
-			TourOperator to = todh.getTourOperatorByID(tourOperator);
+			TourOperator to = tod.getTourOperatorByID(tourOperator);
 
 			Map<String, Object> model = rp.getBillingTourOperators(
 					tourOperator, fromDate, toDate);

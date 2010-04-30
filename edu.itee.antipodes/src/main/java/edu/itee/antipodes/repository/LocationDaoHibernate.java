@@ -36,5 +36,10 @@ public class LocationDaoHibernate extends HibernateDaoSupport implements Locatio
 		return ((Location)getHibernateTemplate().get(Location.class, locationID)).getTours();
 		
 	}
+	@Override
+	public void removeLocationByID(String locationID) {
+		// TODO Ling Auto-generated method stub
+		System.out.println("++++++++ REMOVE LOCATION ID " + locationID);
+	}
 }
 

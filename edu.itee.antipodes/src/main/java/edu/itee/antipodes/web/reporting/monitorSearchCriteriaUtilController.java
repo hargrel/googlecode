@@ -45,8 +45,8 @@ public class monitorSearchCriteriaUtilController {
 		}
 
 		try {
-			String format = "pdf";
-			String criteria = "";
+			String format = bto.getExportFormat();
+			String criteria = bto.getCriteria();
 
 			// TODO: UI Mapping
 

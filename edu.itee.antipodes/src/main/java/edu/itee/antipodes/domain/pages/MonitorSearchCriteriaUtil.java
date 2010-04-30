@@ -7,6 +7,7 @@ public final class MonitorSearchCriteriaUtil {
 	@NotBlank
 	private String exportFormat;
 	
+	@NotBlank
 	private String criteria;
 
 	public String getExportFormat() {

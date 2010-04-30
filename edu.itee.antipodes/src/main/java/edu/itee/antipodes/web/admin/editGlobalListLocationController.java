@@ -8,6 +8,7 @@ import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.view.RedirectView;
 
 import edu.itee.antipodes.domain.db.Location;
 
@@ -23,21 +24,22 @@ public final class editGlobalListLocationController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public String showUserForm(ModelMap model) {
+	public Object showUserForm(ModelMap model) {
 		Location location = new Location();
 		model.addAttribute("location", location);
+		
 		return "editGlobalListLocation";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String post(@ModelAttribute("location") Location loc,
+	public Object post(@ModelAttribute("location") Location loc,
 			BindingResult result) {
 		
 		validator.validate(loc, result);
 		if (result.hasErrors()) { return "editGlobalListLocation"; }
 		
 		// Use the redirect-after-post pattern to reduce double-submits.
-		return "redirect:thanks.html";
+		return new RedirectView("globalListLocation.html");
 		
 	}
 

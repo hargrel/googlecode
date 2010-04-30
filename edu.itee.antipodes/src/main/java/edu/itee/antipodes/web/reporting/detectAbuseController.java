@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import edu.itee.antipodes.domain.pages.BillingTourOperators;
 import edu.itee.antipodes.domain.pages.DetectAbuse;
 import edu.itee.antipodes.service.ReportingManager;
 import edu.itee.antipodes.service.SimpleReportingManager;

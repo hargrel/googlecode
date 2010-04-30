@@ -11,6 +11,8 @@ public interface LocationDao {
 	public void saveLocation(Location location);
 	
 	public void dropLocation(Location location);	
+	
+	public void removeLocationByID(String locationID);
 }
 
 
