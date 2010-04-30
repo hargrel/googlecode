@@ -42,10 +42,10 @@
 					<a href="#" style="color: blue;" onclick="document['delete_${location.locationID}'].submit()">Delete</a>
 				</td>
 				<td>
-					<form style="margin:0px; padding: 0px;" name="delete_${location.locationID}" action="maintainLink.html" method="post">
+					<form style="margin:0px; padding: 0px;" name="inmap_${location.locationID}" action="maintainLink.html" method="post">
 						<input type="hidden" name="tourID" value="${location.locationID}" />
 					</form>
-					<a href="#" style="color: blue;" onclick="document['edit_${location.locationID}'].submit()">Interactive Map</a>
+					<a href="#" style="color: blue;" onclick="document['inmap_${location.locationID}'].submit()">Interactive Map</a>
 				</td>
 			</tr>
 		</c:forEach>

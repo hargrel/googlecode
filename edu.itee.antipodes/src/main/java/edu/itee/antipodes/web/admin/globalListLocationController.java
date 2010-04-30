@@ -18,19 +18,21 @@ import edu.itee.antipodes.service.SystemAdminManager;
 @RequestMapping("/globalListLocation.html")
 public class globalListLocationController {
 
+	SystemAdminManager sam = new SimpleSystemAdminManager();
+
 	@RequestMapping(method = RequestMethod.GET)
 	public String redirect(ModelMap model) {
-		LocationDao ld = DaoManager.getLocationDao();
 
-		model.addAttribute("locations", ld.getLocationList());
+		model.addAttribute("locations", sam.getLocationList());
 		return "globalListLocation";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Object deleteLocation(HttpServletRequest request, HttpServletResponse response) {
-		SystemAdminManager sam = new SimpleSystemAdminManager();
+	public Object deleteLocation(HttpServletRequest request,
+			HttpServletResponse response) {
+
 		sam.removeLocationByID(request.getParameter("tourID"));
-		System.out.println("++++++++ REMOVE LOCATION ID ");
+
 		// Use the redirect-after-post pattern to reduce double-submits.
 		return new RedirectView("globalListLocation.html");
 

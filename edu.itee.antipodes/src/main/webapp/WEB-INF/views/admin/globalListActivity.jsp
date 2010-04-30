@@ -22,20 +22,20 @@
 		</thead>
 
 		<tbody>
-		<c:forEach items="${activity}" var="activity">
+		<c:forEach items="${activities}" var="activity">
 			
 			<tr>
 				<td><c:out value="${activity.activityID}" /></td>
 				<td><c:out value="${activity.activityName}" /></td>			
 				<td>
 					<form style="margin:0px; padding: 0px;" name="edit_${activity.activityID}" action="editGlobalListActivity.html" method="get">
-						<input type="hidden" name="userID" value="${activity.activityID}" />
+						<input type="hidden" name="activityID" value="${activity.activityID}" />
 					</form>
 					<a href="#" style="color: blue;" onclick="document['edit_${activity.activityID}'].submit()">Edit</a>
 				</td>
 				<td>
 					<form style="margin:0px; padding: 0px;" name="delete_${activity.activityID}" action="globalListActivity.html" method="post">
-						<input type="hidden" name="tourID" value="${activity.activityID}" />
+						<input type="hidden" name="activityID" value="${activity.activityID}" />
 					</form>
 					<a href="#" style="color: blue;" onclick="document['delete_${activity.activityID}'].submit()">Delete</a>
 				</td>

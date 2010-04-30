@@ -9,7 +9,7 @@ import edu.itee.antipodes.domain.db.Tour;
 
 public class LocationDaoHibernate extends HibernateDaoSupport implements LocationDao {
 
-	public Location getLocation(int id){
+	public Location getLocationByID(int id){
 		return (Location)getHibernateTemplate().get(Location.class, id);
 	}
 	public void addLocation(Location location) {
@@ -35,11 +35,6 @@ public class LocationDaoHibernate extends HibernateDaoSupport implements Locatio
 	public Set<Tour> getToursByLocationId(int locationID){
 		return ((Location)getHibernateTemplate().get(Location.class, locationID)).getTours();
 		
-	}
-	@Override
-	public void removeLocationByID(String locationID) {
-		// TODO Ling Auto-generated method stub
-		System.out.println("++++++++ REMOVE LOCATION ID " + locationID);
 	}
 }
 

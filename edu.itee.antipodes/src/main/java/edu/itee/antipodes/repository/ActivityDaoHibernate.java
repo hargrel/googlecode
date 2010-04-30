@@ -23,6 +23,7 @@ public class ActivityDaoHibernate extends HibernateDaoSupport implements Activit
 		getHibernateTemplate().save(activity);
 	}
 	public void saveActivity(Activity activity) {
+		System.out.println(activity);
 		getHibernateTemplate().saveOrUpdate(activity);	
 	}	
 
@@ -36,7 +37,6 @@ public class ActivityDaoHibernate extends HibernateDaoSupport implements Activit
     }
 	public Set<Tour> getToursByActivityID(int activityID){
 		return ((Activity)getHibernateTemplate().get(Activity.class, activityID)).getTours();
-	}
-	
+	}	
 }
 

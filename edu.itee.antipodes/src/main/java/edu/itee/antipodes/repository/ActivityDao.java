@@ -12,5 +12,6 @@ public interface ActivityDao {
 	
 	public void dropActivity(Activity activity);
 
+	public Activity getActivityByID(int activityID);
 }
 

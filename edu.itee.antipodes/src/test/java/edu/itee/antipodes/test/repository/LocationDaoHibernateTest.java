@@ -37,11 +37,11 @@ public class LocationDaoHibernateTest extends TestCase{
 
 	@Test
 	public void testGetLocation() throws HibernateException{
-		assertEquals("NewYork", dao.getLocation(3).getLocationName());
+		assertEquals("NewYork", dao.getLocationByID(3).getLocationName());
 		//testDropLocation() 
-		location=dao.getLocation(1);
+		location=dao.getLocationByID(1);
 		dao.dropLocation(location);
-		assertNull(dao.getLocation(1));
+		assertNull(dao.getLocationByID(1));
 		//testGetLocationList() 
 		assertNotNull(dao.getLocationList());
 		//testSaveLocation() 
@@ -50,14 +50,14 @@ public class LocationDaoHibernateTest extends TestCase{
 		location.setLongitude(124.0903);
 		location.setLocationName("HAHA");
 		dao.saveLocation(location);
-		assertEquals("HAHA", dao.getLocation(5).getLocationName());
+		assertEquals("HAHA", dao.getLocationByID(5).getLocationName());
 		//testGetToursByLocationId() 
-		assertEquals(1, dao.getLocation(2).getTours().size());
+		assertEquals(1, dao.getLocationByID(2).getTours().size());
 		//testAddLocation()
 		Set<Tour> tours = new HashSet<Tour>();
 		location = new Location("new location name", 5f, 5f, tours);	
 		dao.saveLocation(location);
-		assertEquals("new location name",dao.getLocation(6).getLocationName() );
+		assertEquals("new location name",dao.getLocationByID(6).getLocationName() );
 	}
 }
 

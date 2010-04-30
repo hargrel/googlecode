@@ -12,7 +12,9 @@ public interface LocationDao {
 	
 	public void dropLocation(Location location);	
 	
-	public void removeLocationByID(String locationID);
+	public Location getLocationByID(int id);
+	
+	public void dropLocationByID(int locationID);
 }
 
 
