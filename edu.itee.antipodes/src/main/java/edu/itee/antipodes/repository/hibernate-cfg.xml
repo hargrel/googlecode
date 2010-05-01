@@ -60,12 +60,13 @@
 	    </property>
   	</bean>
 
-<!-- 
-    <bean id="hibernateDao" class="edu.itee.antipodes.repository.HibernateTourSearch">
+
+    <bean id="reportSearchDao" class="edu.itee.antipodes.repository.SearchForReportingDaoHibernate">
         <property name="sessionFactory" ref="mySessionFactory" />
     </bean>
-    -->
-    
+
+
+
     <bean id="tourDao" class="edu.itee.antipodes.repository.TourDaoHibernate">
         <property name="sessionFactory" ref="mySessionFactory" />
     </bean>
@@ -93,6 +94,7 @@
     <bean id="imageDao" class="edu.itee.antipodes.repository.ImageDaoHibernate">
         <property name="sessionFactory" ref="mySessionFactory" />
     </bean>
+
 	<!-- tour manager -->
     <bean id="tourManager" class="edu.itee.antipodes.service.ExampleTourManager">
         <property name="tourDao" ref="tourDao" />
