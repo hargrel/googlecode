@@ -36,8 +36,14 @@ public class Activity implements Serializable{
 	public int getActivityID() {
 		return activityID;
 	}
-	public void setActivityID(int activityID) {
-		this.activityID = activityID;
+
+	@SuppressWarnings("unused")
+	private void setActivityID(int activityID){
+		this.activityID=activityID;
+
+	
+	public void setActivityID(int activityID){
+		this.activityID=activityID;
 	}
 	public String getActivityName() {
 		return activityName;
