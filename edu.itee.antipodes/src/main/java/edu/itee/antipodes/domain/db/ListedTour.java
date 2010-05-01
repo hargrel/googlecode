@@ -13,6 +13,7 @@ public class ListedTour implements Serializable{
 	private Date listedTo;
 	private TourOperator operator;
 	private Tour tour;
+	private int tourID;
 	
 	public ListedTour(){}
 	
@@ -53,6 +54,15 @@ public class ListedTour implements Serializable{
 	public void setTour(Tour tour) {
 		this.tour = tour;
 	}
+	
+	public int getTourID() {
+		return tourID;
+	}
+
+	public void setTourID(int tourID) {
+		this.tourID = tourID;
+	}
+
 	@Override
 	public String toString() {
 		return "ListedTour [listID=" + listID + ", listedFrom=" + listedFrom

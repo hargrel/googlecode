@@ -17,8 +17,8 @@ public class TourDate implements Serializable{
 	public int getDateID(){
 		return dateID;
 	}
-	@SuppressWarnings("unused")
-	private void setDateID(int dateID){
+	
+	public void setDateID(int dateID){
 		this.dateID = dateID;
 	}
 	public Date getStartDate() {

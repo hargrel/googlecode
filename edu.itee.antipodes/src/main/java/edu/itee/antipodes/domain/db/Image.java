@@ -15,8 +15,8 @@ public class Image implements Serializable{
 	public int getImageID() {
 		return imageID;
 	}
-	@SuppressWarnings("unused")
-	private void setImageID(int imageID){
+
+	public void setImageID(int imageID){
 		this.imageID=imageID;
 	}
 	public String getUrl() {

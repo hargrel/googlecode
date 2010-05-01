@@ -7,8 +7,9 @@
   	<id name="listID" type="integer" column="LIST_ID">
   		<generator class="increment"/>
   	</id>
-  	<!--  
+  	 
   	<property name="tourID" type="integer" column="TOUR_ID" insert="false" update="false"/>
+  	<!-- 
   	<property name="operatorID" type="integer" column="OPERATOR_ID" insert="false" update="false"/>
   	-->
   	<property name="listedFrom" type="date" column="LISTED_FROM"/>
