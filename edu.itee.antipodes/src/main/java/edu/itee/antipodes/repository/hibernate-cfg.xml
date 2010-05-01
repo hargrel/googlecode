@@ -61,7 +61,7 @@
   	</bean>
 
 
-    <bean id="reportSearchDao" class="edu.itee.antipodes.repository.SearchForReportingDaoHibernate">
+    <bean id="reportDao" class="edu.itee.antipodes.repository.ReportingDaoHibernate">
         <property name="sessionFactory" ref="mySessionFactory" />
     </bean>
 

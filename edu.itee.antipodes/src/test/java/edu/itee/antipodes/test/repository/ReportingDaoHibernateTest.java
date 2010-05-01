@@ -29,7 +29,7 @@ public class ReportingDaoHibernateTest extends TestCase {
 		super.setUp();
 		String[] paths = { "edu/itee/antipodes/repository/hibernate-cfg.xml" };
 		ctx = new ClassPathXmlApplicationContext(paths);
-		dao = (ReportingDaoHibernate) ctx.getBean("reportSearchDao");
+		dao = (ReportingDaoHibernate) ctx.getBean("reportDao");
 	}
 
 	@After
