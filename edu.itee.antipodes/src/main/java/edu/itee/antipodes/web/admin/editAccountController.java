@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.view.RedirectView;
 
 import edu.itee.antipodes.domain.db.AccountUser;
-import edu.itee.antipodes.service.SimpleSystemAdminManager;
-import edu.itee.antipodes.service.SystemAdminManager;
+import edu.itee.antipodes.service.AccountManager;
 
 @Controller
 @RequestMapping("/editAccount.html")
@@ -28,7 +27,6 @@ public final class editAccountController {
 		this.validator = validator;
 	}
 	
-	SystemAdminManager sam = new SimpleSystemAdminManager();
 	@RequestMapping(method = RequestMethod.GET)
 	public Object showUserForm(ModelMap model, HttpServletRequest request,
 			HttpServletResponse response) {
@@ -36,7 +34,7 @@ public final class editAccountController {
 		if (userID == null)
 			return new RedirectView("editAccountList.html");
 		
-		AccountUser accountUser = sam.getAccountUserByID(userID);
+		AccountUser accountUser = accountManager.getAccountByID(Integer.parseInt(userID));
 		if (accountUser == null)
 			return new RedirectView("editAccountList.html");
 		
@@ -50,11 +48,12 @@ public final class editAccountController {
 		
 		validator.validate(accountUser, result);
 		if (result.hasErrors()) { return "editAccount"; }
-		
-		sam.saveAccountUser(accountUser);
+		accountManager.updateAccount(accountUser);
 		// Use the redirect-after-post pattern to reduce double-submits.
-		return "redirect:thanks.html";
+		return "thanks";
 		
 	}
+	@Autowired
+	AccountManager accountManager;
 
 }

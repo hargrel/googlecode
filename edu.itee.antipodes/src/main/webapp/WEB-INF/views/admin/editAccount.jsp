@@ -19,10 +19,6 @@
 
 <form:form commandName="accountUser">
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
-	<tr>
-		<td><!-- <input type="hidden" name="userID" /> --></td>
-		<td><input type="hidden" name="userType" value="operator" /></td>
-	</tr>
 	
 	<tr>
 		<td width="100" valign="top">Username:</td>
@@ -33,9 +29,17 @@
 		<td valign="top">Password:</td>
 		<td width="150"><form:password path="password" size="20" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="password"/></div></td>
 	</tr>
+
+	<tr>
+		<td valign="top">Type:</td>
+		<td>
+			<form:radiobutton path="userType" value="admin"/> Administrator<br/>
+	        <form:radiobutton path="userType" value="operator"/> Operator
+		</td>
+	</tr>
 	
 	<tr>
-		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="editAccountList.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Edit" /></td>
+		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="SAhome.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Edit" /></td>
 	</tr>
 
 </table>

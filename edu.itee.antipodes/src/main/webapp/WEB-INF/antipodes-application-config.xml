@@ -60,6 +60,9 @@
 	    </property>
   	</bean>
 
+	<bean id="accountDao" class="edu.itee.antipodes.repository.AccountUserDaoHibernate">
+        <property name="sessionFactory" ref="mySessionFactory" />
+    </bean>
     <bean id="tourDao" class="edu.itee.antipodes.repository.TourDaoHibernate">
         <property name="sessionFactory" ref="mySessionFactory" />
     </bean>
@@ -92,5 +95,8 @@
         <property name="tourDao" ref="tourDao" />
     </bean>
 
+    <bean id="accountManager" class="edu.itee.antipodes.service.SimpleAccountManager">
+        <property name="accountDao" ref="accountDao" />
+    </bean>
 </beans>
 

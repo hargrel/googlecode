@@ -1,5 +1,30 @@
 package edu.itee.antipodes.service;
 
-public class SimpleAccountManager implements AccountManager {
+import java.util.List;
 
+import edu.itee.antipodes.domain.db.AccountUser;
+import edu.itee.antipodes.repository.AccountUserDaoHibernate;
+
+public class SimpleAccountManager implements AccountManager {
+	
+	private AccountUserDaoHibernate accountDao;
+
+	public void addAccount(AccountUser account) {
+		accountDao.addAccountUser(account);
+	}
+	public void dropAccountByID(int id) {
+		accountDao.dropAccountUserByID(id);
+	}
+	public AccountUser getAccountByID(int id) {
+		return accountDao.getAccountUserByID(id);
+	}
+	public List<AccountUser> getAccounts() {
+		return accountDao.getAccountUserList();
+	}
+	public void updateAccount(AccountUser account) {
+		accountDao.saveAccountUser(account);
+	}
+	public void setAccountDao(AccountUserDaoHibernate accountDao) {
+		this.accountDao = accountDao;
+	}
 }

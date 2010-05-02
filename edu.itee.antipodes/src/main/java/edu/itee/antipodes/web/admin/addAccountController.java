@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.itee.antipodes.domain.db.AccountUser;
+import edu.itee.antipodes.service.AccountManager;
 
 @Controller
 @RequestMapping("/addAccount.html")
@@ -32,13 +33,16 @@ public final class addAccountController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String post(@ModelAttribute("accountUser") AccountUser accountUser,
 			BindingResult result) {
+
 		
 		validator.validate(accountUser, result);
 		if (result.hasErrors()) { return "addAccount"; }
-		
+		accountManager.addAccount(accountUser);
 		// Use the redirect-after-post pattern to reduce double-submits.
-		return "redirect:thanks.html";
+		return "thanks";
 		
 	}
 
+	@Autowired
+	AccountManager accountManager;
 }

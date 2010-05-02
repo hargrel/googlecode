@@ -33,7 +33,7 @@
 			
 				<td>
 					<form style="margin:0px; padding: 0px;" name="delete_${account.userID}" action="deleteAccount.html" method="post">
-						<input type="hidden" name="tourID" value="${account.userID}" />
+						<input type="hidden" name="userID" value="${account.userID}" />
 					</form>
 					<a href="#" style="color: blue" onclick="document['delete_${account.userID}'].submit()">Delete</a>
 				</td>

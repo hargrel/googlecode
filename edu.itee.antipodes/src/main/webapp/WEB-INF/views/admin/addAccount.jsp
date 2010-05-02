@@ -20,10 +20,9 @@
 <form:form commandName="accountUser">
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
 	<tr>
-		<td><input type="hidden" name="userID" /></td>
-		<td><input type="hidden" name="userType" value="operator" /></td>
+		<td><input type="hidden" name="userType" value="operator"/></td>
+		<td></td>
 	</tr>
-	
 	<tr>
 		<td width="100" valign="top">Username:</td>
 		<td><form:input path="userName" size="20" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="userName"/></div></td>
