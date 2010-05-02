@@ -16,8 +16,8 @@
 <script type="text/javascript" src="js/jquery-ui-1.7.2.custom.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		$("#datepicker_from,#datepicker_to").datepicker({onSelect: restrictDates, changeMonth: true, changeYear: true});
-		
+		$("#datepicker_from,#datepicker_to").datepicker({onSelect: restrictDates, changeMonth: true, changeYear: true, dateFormat: 'dd-M-y'});
+
 		function restrictDates(dateStr) {
 		    if (this.id == 'datepicker_from') {
 		        $('#datepicker_to').datepicker('option', 'minDate', $(this).datepicker('getDate'));
@@ -42,14 +42,20 @@
 <table border="0" style="border-collapse:collapse; margin-right:30px">
 
 	<tr>
-		<td width="170">From:&nbsp;&nbsp;<form:input path="fromDate" size="15" id="datepicker_from" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="fromDate"/></div></td>
-		<td>To:&nbsp;&nbsp;<form:input path="toDate" size="15" id="datepicker_to" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="toDate" /></div></td>
+		<td width="170">From:&nbsp;&nbsp;<form:input path="fromDate" size="15" id="datepicker_from" title="dd-MMM-yy" cssErrorClass="form-error-field"/></td>
+		<td>To:&nbsp;&nbsp;<form:input path="toDate" size="15" id="datepicker_to" title="dd-MMM-yy" cssErrorClass="form-error-field"/></td>
+	</tr>
+	
+	<tr>
+		<td valign="top"><div class="form-error-message"><form:errors path="fromDate"/></div></td>
+		<td valign="top"><div class="form-error-message"><form:errors path="toDate" /></div></td>
 	</tr>
 	
 	<tr>
 		<td colspan="2">Tour Operator:&nbsp;&nbsp;<form:select path="operatorID">
 				<form:options items="${touroperators}" itemValue="operatorID" itemLabel="operatorName" />
 			</form:select>
+			<div class="form-error-message"><form:errors path="operatorID"/></div>
 		</td>
 	</tr>
 	
@@ -58,7 +64,9 @@
 				<form:option value="pdf" label="PDF" />
 				<form:option value="xls" label="XLS" />
 				<form:option value="csv" label="CSV" />
-			</form:select></td>
+			</form:select>
+		</td>
+			
 	</tr>
 	
 	<tr>

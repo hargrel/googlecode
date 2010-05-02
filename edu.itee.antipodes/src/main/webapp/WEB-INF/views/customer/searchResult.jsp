@@ -42,10 +42,10 @@
 				<td><c:out value="${tour.price}" /></td>			
  	
 				<td>
-					<form style="margin:0px; padding: 0px;" name="edit_${tour.tourID}" action="updateTourInfo.html" method="get">
+					<form style="margin:0px; padding: 0px;" name="info_${tour.tourID}" action="tourInfo.html" method="get">
 						<input type="hidden" name="tourID" value="${tour.tourID}" />
 					</form>
-					<a href="#" style="color: blue;" onclick="document['edit_${tour.tourID}'].submit()">Update</a>
+					<a href="#" style="color: blue;" onclick="document['info_${tour.tourID}'].submit()">More Info</a>
 				</td>
 			</tr>
 		</c:forEach>

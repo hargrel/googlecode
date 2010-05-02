@@ -34,7 +34,7 @@
 <!-- Form name: alignTour -->
 <!-- Attribute names: tourID, tourName, startDate, finishDate, totalDays, locationName, activityName -->
 
-<h2>Align Tour Information</h2>
+<h2>Align Tour</h2>
 
 <form:form commandName="alignTour">
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
@@ -45,31 +45,31 @@
 	
 	<tr>
 		<!-- Display tour name -->
-		<td width="200"><h4>Tour name:</h4></td>
+		<td width="150">Tour name:</td>
 		<td><h4><c:out value="${tour.tourName}" /></h4></td>
 	</tr>
 	
 	<tr>
 		<!-- Insert starting date -->
-		<td><h4>Starting date:</h4></td>
+		<td>Starting date:</td>
 		<td width="100"><form:input path="startDate" size="15" id="datepicker_from" title="DD/MM/YYYY" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="startDate"/></div></td>
 	</tr>
 
 	<tr>
 		<!-- Insert finishing date -->
-		<td><h4>Finishing date:</h4></td>
+		<td>Finishing date:</td>
 		<td><form:input path="finishDate" size="15" id="datepicker_to" title="DD/MM/YYYY" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="finishDate" /></div></td>
 	</tr>
 
 	<tr>
 		<!-- Insert duration -->
-		<td><h4>Duration:</h4></td>
+		<td>Duration:</td>
 		<td><form:input path="totalDays" size="3" cssErrorClass="form-error-field"/>&nbsp;<span style="font-size: 10px; color: black;">day(s)</span><div class="form-error-message"><form:errors path="totalDays"/></div></td>
 	</tr>
 	
 	<tr>
 		<!-- Choose location from drop-down list -->
-		<td><h4>Choose location:</h4></td>
+		<td>Choose location:</td>
 		<td><form:select path="locationName">
 			<form:option value="" label="Location 1" />
 			<form:option value="" label="Location 2" />
@@ -77,14 +77,14 @@
 		</td>
 			
 		<!-- Add new location to the global list -->
-		<td width="180"><h4>or &nbsp;&nbsp;&nbsp;&nbsp;Specify location:</h4></td>
+		<td width="180">or &nbsp;&nbsp;&nbsp;&nbsp;Specify location:</td>
 		<td width="100"><form:input path="locationName" size="30" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="locationName"/></div></td>
 		
 	</tr>	
 	
 	<tr>
 		<!-- Choose activity from drop-down list -->
-		<td><h4>Choose activity:</h4></td>
+		<td>Choose activity:</td>
 		<td><form:select path="activityName">
 			<form:option value="" label="Activity 1" />
 			<form:option value="" label="Activity 2" />
@@ -92,7 +92,7 @@
 		</td>
 		
 		<!-- Add new activity to the global list -->
-		<td><h4>or &nbsp;&nbsp;&nbsp;&nbsp;Specify activity:</h4></td>
+		<td>or &nbsp;&nbsp;&nbsp;&nbsp;Specify activity:</td>
 		<td><form:input path="activityName" size="30" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="activityName"/></div></td>
 	</tr>
 

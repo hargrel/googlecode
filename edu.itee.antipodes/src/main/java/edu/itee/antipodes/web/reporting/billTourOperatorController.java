@@ -1,20 +1,24 @@
 package edu.itee.antipodes.web.reporting;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.itee.antipodes.domain.db.TourOperator;
-import edu.itee.antipodes.domain.pages.BillingTourOperators;
+import edu.itee.antipodes.domain.pages.Report;
 import edu.itee.antipodes.repository.DaoManager;
 import edu.itee.antipodes.repository.TourOperatorDao;
 import edu.itee.antipodes.service.ReportingManager;
@@ -29,20 +33,25 @@ public class billTourOperatorController {
 	public void setValidator(Validator validator) {
 		this.validator = validator;
 	}
+	
+	@InitBinder
+	public void initBinder(final WebDataBinder binder) {
+		binder.registerCustomEditor(Date.class, null, new CustomDateEditor(new SimpleDateFormat("dd-MMM-yy"), true));
+	}
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String redirect(Model model) {
 		SimpleReportingManager srm = new SimpleReportingManager();
 
 		model.addAttribute("touroperators", srm.getTourOperators());
-		model.addAttribute("billOperator", new BillingTourOperators());
+		model.addAttribute("billOperator", new Report());
 
 		return "billTourOperator";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView post(
-			@ModelAttribute("billOperator") BillingTourOperators bto,
+			@ModelAttribute("billOperator") Report bto,
 			BindingResult result) {
 
 		validator.validate(bto, result);

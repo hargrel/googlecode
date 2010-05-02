@@ -13,7 +13,5 @@
 <h2>Maintain Search Criteria</h2>
 <a class="home" href="<c:url value="globalListLocation.html"/>" >Global list of locations</a><br/>
 <a class="home" href="<c:url value="globalListActivity.html"/>" >Global list of activities</a><br/>
-<a class="home" href="<c:url value="maintainLink.html"/>" >Maintain link between locations and maps</a><br/>
-
 </body>
 </html>

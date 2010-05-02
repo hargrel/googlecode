@@ -14,9 +14,7 @@
 
 <h3>Now you can perform these operations:</h3>
 <a class="home" href="<c:url value="addAccount.html"/>" >Add account</a><br/>
-<a class="home" href="<c:url value="deleteAccount.html"/>" >Delete account</a><br/>
-<a class="home" href="<c:url value="editAccountList.html"/>" >Edit account list</a><br/>
-<a class="home" href="<c:url value="editAccount.html"/>" >Edit account</a><br/>
+<a class="home" href="<c:url value="accountList.html"/>" >Edit/Delete account</a><br/>
 <a class="home" href="<c:url value="maintainSearchCriteria.html"/>" >Maintain search criteria</a><br/>
 <a class="home" href="<c:url value="manageFee.html"/>" >Manage fee</a><br/>
 <a class="home" href="<c:url value="produceReport.html"/>" >Produce reports</a><br/>

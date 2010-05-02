@@ -71,7 +71,12 @@ function point2address(flag) {
 			city = address.AddressDetails.Country.AdministrativeArea.AdministrativeAreaName;
             var myHtml = '<b>Reversed Geocoded Address:</b>&nbsp;'+address.address + '<br/>' +  
                    '<b>Accuracy:</b>&nbsp;' + address.AddressDetails.Accuracy;
-			document.forms['search'].locationName.value = city;
+            //display location name to text field
+            if (document.forms['search'].locationName.value == ""){
+            	document.forms['search'].locationName.value = city;}
+            else{
+            	document.forms['search'].locationName.value += ", " + city;
+            }
             if (flag == 'plus original address') {
                 myHtml = '<b>Original Address:</b>&nbsp;'+document.frm.address.value + '<br/>' +
                          '<b>Coordinates:</b>&nbsp;' + point.toUrlValue() + '<br/><br/>' + 

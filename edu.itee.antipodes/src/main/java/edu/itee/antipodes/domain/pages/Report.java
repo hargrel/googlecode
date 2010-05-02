@@ -2,12 +2,10 @@ package edu.itee.antipodes.domain.pages;
 
 
 import java.util.Date;
-import org.springmodules.validation.bean.conf.loader.annotation.handler.NotBlank;
-import org.springmodules.validation.bean.conf.loader.annotation.handler.NotNull;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.ValidationMethod;
 
-public final class BillingTourOperators {
+public final class Report {
 	
-	@NotNull
 	private String exportFormat;
 	
 	private Date fromDate;
@@ -18,7 +16,6 @@ public final class BillingTourOperators {
 	
 	private int criteriaNum;
 	
-	@NotBlank
 	private String criteria;
 
 	public String getExportFormat() {
@@ -69,6 +66,17 @@ public final class BillingTourOperators {
 		this.criteria = criteria;
 	}
 
+	@SuppressWarnings("unused")
+	@ValidationMethod(forProperty = "fromDate")
+    private boolean compareDate() {	
+		if ((fromDate == null && toDate == null)){
+			return false;}
+		else if((fromDate == null || toDate == null)){
+			return false;
+		}
+		else return fromDate.before(toDate);
+    }
+	
 	@Override
 	public String toString() {
 		return "BillingTourOperators [criteria=" + criteria + ", criteriaNum="

@@ -13,13 +13,9 @@
 <h2>Welcome, <sec:authentication property="principal.username"/></h2>
 
 <h3>Now you can perform these operations:</h3>
-<a class="home" href="<c:url value="addCompanyInfo.html"/>" >Add company information</a><br/>
-<a class="home" href="<c:url value="addTourInfo.html"/>" >Add tour information</a><br/>
-<a class="home" href="<c:url value="alignTourList.html"/>" >Align tour with search criteria list</a><br/>
-<a class="home" href="<c:url value="alignTour.html"/>" >Align tour with search criteria</a><br/>
-<a class="home" href="<c:url value="updateCompanyInfo.html"/>" >Update company information</a><br/>
-<a class="home" href="<c:url value="updateTourInfoList.html"/>" >Update tour information</a><br/>
-<a class="home" href="<c:url value="deleteTour.html"/>" >Delete tour information</a>
-
+<a class="home" href="<c:url value="editCompanyInfo.html"/>" >Edit company information</a><br/>
+<a class="home" href="<c:url value="addTour.html"/>" >Add tour</a><br/>
+<a class="home" href="<c:url value="alignTourList.html"/>" >Align tour</a><br/>
+<a class="home" href="<c:url value="tourList.html"/>" >Edit/Delete tour</a><br/>
 </body>
 </html>

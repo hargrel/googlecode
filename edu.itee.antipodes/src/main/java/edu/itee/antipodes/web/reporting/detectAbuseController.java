@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import edu.itee.antipodes.domain.pages.DetectAbuse;
+import edu.itee.antipodes.domain.pages.Report;
 import edu.itee.antipodes.service.ReportingManager;
 import edu.itee.antipodes.service.SimpleReportingManager;
 
@@ -30,12 +30,12 @@ public class detectAbuseController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String redirect(Model model) {
-		model.addAttribute("detectAbuse", new DetectAbuse());
+		model.addAttribute("detectAbuse", new Report());
 		return "detectAbuse";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView post(@ModelAttribute("detectAbuse") DetectAbuse bto,
+	public ModelAndView post(@ModelAttribute("detectAbuse") Report bto,
 			BindingResult result) {
 
 		validator.validate(bto, result);

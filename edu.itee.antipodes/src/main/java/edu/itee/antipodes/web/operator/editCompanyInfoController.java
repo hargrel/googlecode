@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import edu.itee.antipodes.domain.pages.TourInfo;
+import edu.itee.antipodes.domain.db.TourOperator;
 
 @Controller
-@RequestMapping("/addTourInfo.html")
-public final class addTourInfoController {
+@RequestMapping("/editCompanyInfo.html")
+public final class editCompanyInfoController {
 	
 	@Autowired
 	private Validator validator;
@@ -24,17 +24,17 @@ public final class addTourInfoController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUserForm(ModelMap model) {
-		TourInfo tourInfo = new TourInfo();
-		model.addAttribute("addTourInfo", tourInfo);
-		return "addTourInfo";
+		TourOperator operator = new TourOperator();
+		model.addAttribute("editCompanyInfo", operator);
+		return "editCompanyInfo";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String post(@ModelAttribute("addTourInfo") TourInfo info,
+	public String post(@ModelAttribute("editCompanyInfo") TourOperator compInfo,
 			BindingResult result) {
 		
-		validator.validate(info, result);
-		if (result.hasErrors()) { return "addTourInfo"; }
+		validator.validate(compInfo, result);
+		if (result.hasErrors()) { return "editCompanyInfo"; }
 		
 		// Use the redirect-after-post pattern to reduce double-submits.
 		return "redirect:thanks.html";

@@ -16,12 +16,12 @@
 </head>
 <body>
 
-<h2>Add Company Information</h2>
+<h2>Edit Company Information</h2>
 
 <!-- Form name: addCompanyInfo -->
-<!-- Attribute names: operatorID, operatorName, companyDesc, address, telephone, email -->
+<!-- Attribute names: operatorID, operatorName, companyInfo, address, telephone, email -->
 
-<form:form commandName="addCompanyInfo">
+<form:form commandName="editCompanyInfo">
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
 	<tr>
 		<!-- Insert operator ID -->
@@ -37,30 +37,30 @@
 	<tr>
 		<!-- Insert company description -->
 		<td valign="top"><h4>Company description:</h4></td>
-		<td width="500"><form:textarea path="companyDesc" cssClass="tinymce" /><div class="form-error-message"><form:errors path="companyDesc"/></div></td>
-	</tr>
-	
-	<tr>
-		<!-- Insert address -->
-		<td><h4>Address:</h4></td>
-		<td><form:input path="address" size="40" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="address"/></div></td>
-	</tr>
-
-	<tr>
-		<!-- Insert telephone -->
-		<td><h4>Telephone:</h4></td>
-		<td><form:input path="telephone" size="40" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="telephone"/></div></td>
+		<td width="500"><form:textarea path="companyInfo" cssClass="tinymce" /><div class="form-error-message"><form:errors path="companyInfo"/></div></td>
 	</tr>
 	
 	<tr>
 		<!-- Insert email -->
 		<td><h4>Email:</h4></td>
 		<td><form:input path="email" size="40" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="email"/></div></td>
-	</tr>		
+	</tr>	
+	
+	<tr>
+		<!-- Insert currency -->
+		<td><h4>Currency:</h4></td>
+		<td><form:select path="currency">
+				<form:option value="USD" label="USD" />
+				<form:option value="AUD" label="AUD" />
+				<form:option value="EUR" label="EUR" />
+				<form:option value="GBP" label="GBP" />
+				<form:option value="YEN" label="YEN" />
+			</form:select></td>
+	</tr>	
 
 	<tr>
 		<!-- Cancel or submit -->
-		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="TOhome.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Add"/></td>
+		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="TOhome.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Edit"/></td>
 	</tr>
 </table>
 </form:form>

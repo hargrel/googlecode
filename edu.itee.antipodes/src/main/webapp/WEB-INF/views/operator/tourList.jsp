@@ -9,16 +9,16 @@
 </head>
 <body>
 
-<h2>Delete Tour</h2>
+	<h2>Tour List</h2>
 	<div id="Table">
-	<table style="width: 800px;">
+	<table style="width: 750px;">
 		<thead>
 		<tr>
-			<th style="width: 60px;">Tour ID</th>
+			<th>ID</th>
 			<th>Tour Name</th>
-			<th>Tour Description</th>
+			<th>Description</th>
 			<th>Price</th>
-			<th>Duration</th>
+			<th></th>
 			<th></th>
 		</tr>
 		</thead>
@@ -28,24 +28,26 @@
 			
 			<tr>
 				<td><c:out value="${tour.tourID}" /></td>
-				<td><c:out value="${tour.tourName}" /></td>
+				<td><c:out value="${tour.tourName}" /></td>	
 				<td><c:out value="${tour.tourDesc}" /></td>
-				<td><i>$<c:out value="${tour.price}" /></i></td>
-			 	<td><c:out value="${tour.totalDays}" /></td>
-			
+				<td><c:out value="${tour.price}" /></td>
 				<td>
-					<form style="margin:0px; padding: 0px;" name="delete_${tour.tourID}" action="deleteTour.html" method="post">
+					<form style="margin:0px; padding: 0px;" name="edit_${tour.tourID}" action="editTour.html" method="get">
 						<input type="hidden" name="tourID" value="${tour.tourID}" />
 					</form>
-					<a href="#" style="color: blue" onclick="document['delete_${tour.tourID}'].submit()">Delete</a>
+					<a href="#" style="color: blue;" onclick="document['edit_${tour.tourID}'].submit()">Edit</a>
+				</td>
+				<td>
+					<form style="margin:0px; padding: 0px;" name="delete_${tour.tourID}" action="tourList.html" method="post">
+						<input type="hidden" name="tourID" value="${tour.tourID}" />
+					</form>
+					<a href="#" style="color: blue;" onclick="document['delete_${tour.tourID}'].submit()">Delete</a>
 				</td>
 			</tr>
 		</c:forEach>
 		</tbody>
-	
+		
 	</table>
-	<input type="button" value="Cancel" onClick="window.location.href='<c:url value="TOhome.html"/>'" style="float: right; margin-right: 20px; margin-top: 10px;"/>
-	</div>
-	
+</div>
 </body>
 </html>

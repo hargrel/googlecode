@@ -15,7 +15,7 @@
 <script type="text/javascript">
 	$(function() {
 		$("#datepicker_from,#datepicker_to").datepicker({minDate:0,
-			onSelect: restrictDates, changeMonth: true, changeYear: true});
+			onSelect: restrictDates, changeMonth: true, changeYear: true, dateFormat: 'dd-M-y'});
 		
 		function restrictDates(dateStr) {
 		    if (this.id == 'datepicker_from') {
@@ -68,7 +68,7 @@
 	
 	<tr>
 		<td valign="top">Starting date:</td>
-		<td><form:input path="startDate" size="15" id="datepicker_from" title="DD/MM/YYYY" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="startDate"/></div></td>
+		<td><form:input path="startDate" size="15" id="datepicker_from" title="dd-MMM-YY" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="startDate"/></div></td>
 	</tr>
 	
 	<tr>

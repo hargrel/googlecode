@@ -6,6 +6,7 @@ import java.util.Set;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.Length;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.NotBlank;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.RegExp;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.ValidationMethod;
 
 @SuppressWarnings("serial")
 public class Tour implements Serializable {
@@ -126,5 +127,11 @@ public class Tour implements Serializable {
 				+ ", tourDesc=" + tourDesc + ", tourID=" + tourID
 				+ ", tourName=" + tourName + "]";
 	}
+	
+	@SuppressWarnings("unused")
+	@ValidationMethod(forProperty = "price")
+    private boolean checkDouble() {	
+		return (price != 0.0);
+    }
 	
 }

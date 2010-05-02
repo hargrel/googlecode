@@ -19,7 +19,13 @@
 
 <form:form commandName="accountUser">
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
-	
+	<tr>
+		<td width="100" valign="top">User type:</td>
+		<td><form:radiobutton path="userType" value="admin" cssErrorClass="form-error-field"/>&nbsp;&nbsp;Admin&nbsp;&nbsp;
+			<form:radiobutton path="userType" value="operator" cssErrorClass="form-error-field"/>&nbsp;&nbsp;Operator
+			<div class="form-error-message"><form:errors path="userType"/></div></td>
+	</tr>
+
 	<tr>
 		<td width="100" valign="top">Username:</td>
 		<td><form:input path="userName" size="20" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="userName"/></div></td>
@@ -28,14 +34,6 @@
 	<tr>
 		<td valign="top">Password:</td>
 		<td width="150"><form:password path="password" size="20" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="password"/></div></td>
-	</tr>
-
-	<tr>
-		<td valign="top">Type:</td>
-		<td>
-			<form:radiobutton path="userType" value="admin"/> Administrator<br/>
-	        <form:radiobutton path="userType" value="operator"/> Operator
-		</td>
 	</tr>
 	
 	<tr>

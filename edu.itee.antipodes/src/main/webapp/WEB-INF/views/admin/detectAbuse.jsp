@@ -28,7 +28,7 @@
 				<form:option value="pdf" label="PDF" />
 				<form:option value="xls" label="XLS" />
 				<form:option value="csv" label="CSV" />
-			</form:select>
+			</form:select>	
 		</td>
 	</tr>
 	

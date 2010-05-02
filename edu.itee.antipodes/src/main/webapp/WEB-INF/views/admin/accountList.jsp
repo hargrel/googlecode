@@ -9,15 +9,16 @@
 </head>
 <body>
 
-<h2>Edit Account</h2>
+<h2>Account List</h2>
 	<div id="Table">
-	<table style="width: 800px;">
+	<table style="width: 500px;">
 		<thead>
 		<tr>
 			<th style="width: 60px;">User ID</th>
 			<th>Username</th>
 			<th>Password</th>
 			<th>User Type</th>
+			<th></th>
 			<th></th>
 		</tr>
 		</thead>
@@ -36,6 +37,13 @@
 						<input type="hidden" name="userID" value="${account.userID}" />
 					</form>
 					<a href="#" style="color: blue;" onclick="document['edit_${account.userID}'].submit()">Edit</a>
+				</td>
+				
+				<td>
+					<form style="margin:0px; padding: 0px;" name="delete_${account.userID}" action="accountList.html" method="post">
+						<input type="hidden" name="userID" value="${account.userID}" />
+					</form>
+					<a href="#" style="color: blue" onclick="document['delete_${account.userID}'].submit()">Delete</a>
 				</td>
 			</tr>
 		</c:forEach>

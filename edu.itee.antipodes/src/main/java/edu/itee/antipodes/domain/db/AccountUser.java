@@ -3,6 +3,7 @@ package edu.itee.antipodes.domain.db;
 import java.io.Serializable;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.Length;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.NotBlank;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.NotNull;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.RegExp;
 
 /**
@@ -22,7 +23,10 @@ public class AccountUser implements Serializable {
 	@NotBlank
 	@Length(max = 20)
 	private String password;
+	
+	@NotNull
 	private String userType;
+	
 	private TourOperator operator;
 	
 	public AccountUser(){}		

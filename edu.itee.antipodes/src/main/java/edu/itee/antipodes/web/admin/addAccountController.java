@@ -1,5 +1,7 @@
 package edu.itee.antipodes.web.admin;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -32,14 +34,16 @@ public final class addAccountController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public String post(@ModelAttribute("accountUser") AccountUser accountUser,
-			BindingResult result) {
+			BindingResult result, ModelMap model) {
 
 		
 		validator.validate(accountUser, result);
 		if (result.hasErrors()) { return "addAccount"; }
 		accountManager.addAccount(accountUser);
 		// Use the redirect-after-post pattern to reduce double-submits.
-		return "thanks";
+		List<AccountUser> accounts = accountManager.getAccounts();
+		model.addAttribute("accounts", accounts);
+		return "accountList";
 		
 	}
 

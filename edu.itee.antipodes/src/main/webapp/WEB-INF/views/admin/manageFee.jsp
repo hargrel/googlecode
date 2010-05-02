@@ -16,14 +16,17 @@
 <form:form commandName="monthlyFee">
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
 	<tr>
-		<td rowspan="2" width="100"><h4>Old fee:</h4></td>
-		<td><h4><c:out value="${MonthlyFee.fee}" /></h4></td>
+		<td width="100">Month:&nbsp;&nbsp;<form:select path="month">
+				<form:options items="${months}" itemValue="month" itemLabel="month" />
+			</form:select></td>
+		<td>Year:&nbsp;&nbsp;<form:select path="year">
+				<form:options items="${years}" itemValue="year" itemLabel="year" />
+			</form:select></td>
 	</tr>
-	<tr></tr>
 
 	<tr>
-		<td><h4>New fee:</h4></td>
-		<td width="70"><form:input path="fee" size="10" cssErrorClass="form-error-field"/></td>
+		<td>Fee:</td>
+		<td><form:input path="fee" size="10" cssErrorClass="form-error-field"/></td>
 	</tr>
 	<tr><td><div class="form-error-message"><form:errors path="fee"/></div></td></tr>
 	

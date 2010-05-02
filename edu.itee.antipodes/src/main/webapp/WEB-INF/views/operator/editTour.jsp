@@ -16,12 +16,12 @@
 </head>
 <body>
 
-<h2>Add Tour Information</h2>
+<h2>Edit Tour</h2>
 
-<!-- Form name: addTourInfo -->
+<!-- Form name: editTour -->
 <!-- Attribute names: tourID, tourName, tourDesc, price, image -->
 
-<form:form commandName="addTourInfo">
+<form:form commandName="editTour">
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
 	<tr>
 		<!-- Insert tour ID -->

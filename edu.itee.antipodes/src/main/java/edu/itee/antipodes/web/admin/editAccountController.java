@@ -43,14 +43,16 @@ public final class editAccountController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String post(@ModelAttribute("accountUser") AccountUser accountUser,
-			BindingResult result) {
+	public Object post(@ModelAttribute("accountUser") AccountUser accountUser,
+			BindingResult result, ModelMap model) {
 		
 		validator.validate(accountUser, result);
-		if (result.hasErrors()) { return "editAccount"; }
+		if (result.hasErrors()) { 
+			return "editAccount"; 
+			}
+		
 		accountManager.updateAccount(accountUser);
-		// Use the redirect-after-post pattern to reduce double-submits.
-		return "thanks";
+		return new RedirectView("accountList.html");
 		
 	}
 	@Autowired

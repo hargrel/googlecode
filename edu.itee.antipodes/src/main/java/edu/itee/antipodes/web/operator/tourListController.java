@@ -13,14 +13,14 @@ import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.service.TourManager;
 
 @Controller
-@RequestMapping("/updateTourInfoList.html")
-public class updateTourInfoListController {
+@RequestMapping("/tourList.html")
+public class tourListController {
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public String showInventory(Model model) {
+	public String showTour(Model model) {
 		List<Tour> tours = tourManager.getTours();
 		model.addAttribute("tours", tours);
-		return "updateTourInfoList";
+		return "tourList";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
@@ -28,10 +28,10 @@ public class updateTourInfoListController {
 		tourManager.dropTourByID(tourID);
 		List<Tour> tours = tourManager.getTours();
 		model.addAttribute("tours", tours);
-		return "updateTourInfoList";
+		return "tourList";
 	}
 	
 	@Autowired
 	TourManager tourManager;
-	
 }
+

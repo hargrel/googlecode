@@ -9,16 +9,20 @@
 </head>
 <body>
 
-<h2>Align Tour Information</h2>
+	<h2>Align Tour List</h2>
 	<div id="Table">
-	<table style="width: 800px;">
+	<table width=100%>
 		<thead>
 		<tr>
-			<th style="width: 60px;">Tour ID</th>
+			<th>ID</th>
 			<th>Tour Name</th>
-			<th>Tour Description</th>
-			<th>Price</th>
-			<th></th>
+			<th>Location</th>
+			<th>Activity</th>
+			<th>Start Date</th>
+			<th>Finish Date</th>
+			<th>Duration</th>
+			<th>On Demand</th>	
+			<th></th>	
 		</tr>
 		</thead>
 
@@ -27,23 +31,24 @@
 			
 			<tr>
 				<td><c:out value="${tour.tourID}" /></td>
-				<td><c:out value="${tour.tourName}" /></td>
-				<td><c:out value="${tour.tourDesc}" /></td>
-				<td><i>$<c:out value="${tour.price}" /></i></td>
-			
+				<td><c:out value="${tour.tourName}" /></td>	
+				<td><c:out value="${location.locationName}" /></td>
+				<td><c:out value="${activity.activityName}" /></td>	
+				<td><c:out value="${tourdate.startDate}" /></td>
+				<td><c:out value="${tourdate.finishDate}" /></td>
+				<td><c:out value="${tour.totalDays}" /></td>	
+				<td><c:out value="${tour.onDemand}" /></td>	
 				<td>
-					<form style="margin:0px; padding: 0px;" name="edit_${tour.tourID}" action="alignTourInfo.html" method="get">
+					<form style="margin:0px; padding: 0px;" name="align_${tour.tourID}" action="alignTour.html" method="get">
 						<input type="hidden" name="tourID" value="${tour.tourID}" />
 					</form>
-					<a href="#" style="color: blue;" onclick="document['edit_${tour.tourID}'].submit()">Align</a>
+					<a href="#" style="color: blue;" onclick="document['align_${tour.tourID}'].submit()">Align</a>
 				</td>
 			</tr>
 		</c:forEach>
 		</tbody>
-	
+		
 	</table>
-	<input type="button" value="Cancel" onClick="window.location.href='<c:url value="TOhome.html"/>'" style="float: right; margin-right: 20px; margin-top: 10px;"/>
-	</div>
-	
+</div>
 </body>
 </html>

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import edu.itee.antipodes.domain.pages.MonitorSearchCriteriaUtil;
+import edu.itee.antipodes.domain.pages.Report;
 import edu.itee.antipodes.service.ReportingManager;
 import edu.itee.antipodes.service.SimpleReportingManager;
 
@@ -31,12 +31,12 @@ public class monitorSearchCriteriaUtilController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String redirect(Model model) {
 		model.addAttribute("criterias", rm.getCriterias());
-		model.addAttribute("monitorCriteria", new MonitorSearchCriteriaUtil());
+		model.addAttribute("monitorCriteria", new Report());
 		return "monitorSearchCriteriaUtil";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView post(@ModelAttribute("monitorCriteria") MonitorSearchCriteriaUtil bto,
+	public ModelAndView post(@ModelAttribute("monitorCriteria") Report bto,
 			BindingResult result) {
 
 		validator.validate(bto, result);

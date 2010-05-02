@@ -17,14 +17,14 @@ import edu.itee.antipodes.service.TourManager;
 public class alignTourListController {
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public String showInventory(Model model) {
+	public String showTour(Model model) {
 		List<Tour> tours = tourManager.getTours();
 		model.addAttribute("tours", tours);
 		return "alignTourList";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String deleteTour(@RequestParam("tourID") int tourID, Model model) {
+	public String alignTour(@RequestParam("tourID") int tourID, Model model) {
 		tourManager.dropTourByID(tourID);
 		List<Tour> tours = tourManager.getTours();
 		model.addAttribute("tours", tours);
@@ -33,5 +33,5 @@ public class alignTourListController {
 	
 	@Autowired
 	TourManager tourManager;
+	
 }
-

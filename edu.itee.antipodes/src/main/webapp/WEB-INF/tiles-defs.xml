@@ -61,32 +61,28 @@
 		<put-attribute name="body" value="/WEB-INF/views/operator/TOhome.jsp"/>
 	</definition>
 	
-	<definition name="addCompanyInfo" extends="baseLayoutTO">
-		<put-attribute name="body" value="/WEB-INF/views/operator/addCompanyInfo.jsp"/>
+	<definition name="editCompanyInfo" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/editCompanyInfo.jsp"/>
 	</definition>
 	
-	<definition name="addTourInfo" extends="baseLayoutTO">
-		<put-attribute name="body" value="/WEB-INF/views/operator/addTourInfo.jsp"/>
+	<definition name="addTour" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/addTour.jsp"/>
 	</definition>
 	
-	<definition name="alignTourList" extends="baseLayoutTO">
-		<put-attribute name="body" value="/WEB-INF/views/operator/alignTourList.jsp"/>
+	<definition name="tourList" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/tourList.jsp"/>
 	</definition>
 	
 	<definition name="alignTour" extends="baseLayoutTO">
 		<put-attribute name="body" value="/WEB-INF/views/operator/alignTour.jsp"/>
 	</definition>
 	
-	<definition name="updateCompanyInfo" extends="baseLayoutTO">
-		<put-attribute name="body" value="/WEB-INF/views/operator/updateCompanyInfo.jsp"/>
+	<definition name="alignTourList" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/alignTourList.jsp"/>
 	</definition>
 	
-	<definition name="updateTourInfoList" extends="baseLayoutTO">
-		<put-attribute name="body" value="/WEB-INF/views/operator/updateTourInfoList.jsp"/>
-	</definition>
-	
-	<definition name="updateTourInfo" extends="baseLayoutTO">
-		<put-attribute name="body" value="/WEB-INF/views/operator/updateTourInfo.jsp"/>
+	<definition name="editTour" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/editTour.jsp"/>
 	</definition>
 	
 	<definition name="deleteTour" extends="baseLayoutTO">
@@ -106,8 +102,8 @@
 		<put-attribute name="body" value="/WEB-INF/views/admin/deleteAccount.jsp"/>
 	</definition>
 	
-	<definition name="editAccountList" extends="baseLayoutAdmin">
-		<put-attribute name="body" value="/WEB-INF/views/admin/editAccountList.jsp"/>
+	<definition name="accountList" extends="baseLayoutAdmin">
+		<put-attribute name="body" value="/WEB-INF/views/admin/accountList.jsp"/>
 	</definition>
 	
 	<definition name="editAccount" extends="baseLayoutAdmin">
@@ -116,6 +112,10 @@
 	
 	<definition name="manageFee" extends="baseLayoutAdmin">
 		<put-attribute name="body" value="/WEB-INF/views/admin/manageFee.jsp"/>
+	</definition>
+	
+	<definition name="feeList" extends="baseLayoutAdmin">
+		<put-attribute name="body" value="/WEB-INF/views/admin/feeList.jsp"/>
 	</definition>
 	
 	<definition name="produceReport" extends="baseLayoutAdmin">
