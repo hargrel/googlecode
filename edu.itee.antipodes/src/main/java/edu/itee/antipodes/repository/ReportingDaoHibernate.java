@@ -9,25 +9,25 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterable{
 	Object[] tuple=null;
-
-
 /*
- * @param minNum the specified minimum number of listed tour associated with criteria activity
- * @request minNum != null
- * @return returns a list of tuples(i.e. Object[]), 
- * in which Object[0]=activityID, Object[1]=activityName, Object[2]= number of
- * listed tours associated with the criteria
- * @author 41931527 
+ * For Monitoring search criteria utilisation report
+ * @param id the activityID
+ * @request id != null
+ * @return list of tuples(actually one) in the form of Object[], in which 
+ * Object[0]=activityID,  Object[1]=activityName,Object[12]= number of listed 
+ * tours that are aligned with the given activity .
+ * @author 41931527
  */
-	public List<Object[]> getNumToursAsscWithActivityByMinNum(int minNum){
-		List<Object[]> list = new ArrayList<Object[]>();
-				
-		String select="select a.activityID, a.activityName, COUNT(l.listID) ";
-		String from="from ListedTour as l join l.tour as t join t.activities as a ";
-		if ((Integer)minNum != null){
-			String sql= select+ from+"group by a.activityID, a.activityName "+"having COUNT(l.listID) >= :minNum";
+	
+	public List<Object[]> getNumToursAsscWithActivityByActivityID(int id){
+		List<Object[]> list = new ArrayList<Object[]>();		
+		String select="select a, COUNT(l.listID) ";
+		String from="from ListedTour as l join l.tour as t join t.activities as a ";	
+		String where="where a.activityID=:activityID ";
+		if ((Integer)id != null){
+			String sql= select+ from+where+"group by a.activityID, a.activityName ";
 			Query query= getSession().createQuery(sql);
-			query.setParameter("minNum", Long.valueOf(minNum));
+			query.setParameter("activityID", id);
 			int i=0;
 			 for (Iterator it= query.iterate(); it.hasNext(); i++ ) {
 		            list.add((Object[]) it.next());
@@ -36,20 +36,51 @@ public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterab
 
 		return list;
 	}
-	/*
-	 * @param minNum the specified minimum number of listed tour associated with criteria loction
-	 * @request minNum != null
-	 * @return returns a list of tuples(i.e. Object[]), 
-	 * in which Object[0]=locationID, Object[1]=locationName, Object[2]= number of
-	 * listed tours associated with the criteria
-	 * @author 41931527 
-	 */
-	public List<Object[]> getNumToursAsscWithLocationByMinNum(int minNum){
+/*
+ * For Monitoring search criteria utilisation report
+ * @param id the locationID
+ * @request id != null
+ * @return list of tuples(actually one) in the form of Object[], in which 
+ * Object[0]=location object,  Object[1]= number of listed 
+ * tours that are aligned with the given location .
+ * @author 41931527
+ */
+	
+	public List<Object[]> getNumToursAsscWithLocationByLocationID(int id){
 		List<Object[]> list = new ArrayList<Object[]>();				
-		String select="select c.locationID, c.locationName, COUNT(l.listID) ";
+		String select="select c, COUNT(l.listID) ";
 		String from="from ListedTour as l join l.tour as t join t.locations as c ";
+		String where="where c.locationID=:locationID ";
+		if ((Integer)id != null){
+			String sql= select+ from+where+ "group by c.locationID, c.locationName ";
+			Query query= getSession().createQuery(sql);
+			query.setParameter("locationID", id);
+			int i=0;
+			 for (Iterator it= query.iterate(); it.hasNext(); i++ ) {
+		            list.add((Object[]) it.next());
+			 }
+		}
+
+		return list;
+	}
+	
+
+/*
+ *Detecting abuse report
+ * @param minNum the specified minimum number of listed tour associated with criteria activity
+ * @request minNum != null
+ * @return returns a list of tuples(i.e. Object[]), 
+ * in which Object[0]=tour object, Object[1]=number of
+ * listed tours associated with the criteria where the number >= minNum
+ * @author 41931527 
+ */
+	public List<Object[]> getSumOfActivitiesAndLocationsForToursByMinNum(int minNum){
+		List<Object[]> list = new ArrayList<Object[]>();
+				
+		String select="select t, COUNT(DISTINCT a.activityID)+COUNT(DISTINCT c.locationID)  ";
+		String from="from ListedTour as l join l.tour as t join t.activities as a join t.locations as c ";
 		if ((Integer)minNum != null){
-			String sql= select+ from+ "group by c.locationID, c.locationName "+"having COUNT(l.listID) >=:minNum";
+			String sql= select+ from+"group by t "+"having COUNT(DISTINCT a.activityID)+COUNT(DISTINCT c.locationID) >= :minNum";
 			Query query= getSession().createQuery(sql);
 			query.setParameter("minNum", Long.valueOf(minNum));
 			int i=0;

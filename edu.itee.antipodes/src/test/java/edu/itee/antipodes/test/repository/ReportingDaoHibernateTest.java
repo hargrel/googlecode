@@ -41,18 +41,34 @@ public class ReportingDaoHibernateTest extends TestCase {
 	@Test
 	public void testSearch() throws DataAccessResourceFailureException,
 			HibernateException, IllegalStateException, ParseException {
+		//test getNumToursAsscWithActivityByActivityID(int id)
+		assertEquals("1",dao.getNumToursAsscWithActivityByActivityID(1).get(0)[1].toString());
+		assertEquals("3",dao.getNumToursAsscWithActivityByActivityID(4).get(0)[1].toString());
+		
+		//test getNumToursAsscWithLocationByLocationID(int id)
+		assertEquals("1",dao.getNumToursAsscWithLocationByLocationID(1).get(0)[1].toString());
+		assertEquals("3",dao.getNumToursAsscWithLocationByLocationID(4).get(0)[1].toString());
 
+		//test getSumOfActivitiesForToursByMinNum(int minNum)
+		assertEquals("Tour [price=1899.95, totalDays=2, tourDesc=The most " +
+				"electrifying rock in world entertainment., tourID=4, " +
+				"tourName=The Rock]",
+				dao.getSumOfActivitiesAndLocationsForToursByMinNum(3).
+				get(1)[0].toString());
+		assertEquals("3",dao.getSumOfActivitiesAndLocationsForToursByMinNum(3).
+				get(1)[1].toString());
+		
 		
 		//test getNumToursAsscWithLocationByMinNum(int minNum)
 //		assertNotNull(dao.getNumToursAsscWithActivityByMinNum(1));
 //		assertEquals(4,dao.getNumToursAsscWithActivityByMinNum(1).size());
-		assertEquals("3",dao.getNumToursAsscWithActivityByMinNum(2).get(0)[2].toString());
+//		assertEquals("3",dao.getNumToursAsscWithActivityByMinNum(2).get(0)[2].toString());
 
 		
 		//test getNumToursAsscWithLocationByMinNum(int minNum)
 //		assertEquals(4,dao.getNumToursAsscWithLocationByMinNum(1).size());
 //		assertEquals(2,dao.getNumToursAsscWithLocationByMinNum(2).size());
-		assertEquals("3",dao.getNumToursAsscWithLocationByMinNum(2).get(0)[2].toString());
+//		assertEquals("3",dao.getNumToursAsscWithLocationByMinNum(2).get(0)[2].toString());
 		
 	}
 
