@@ -3,15 +3,36 @@ package edu.itee.antipodes.domain.db;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.Length;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.NotBlank;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.NotNull;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.RegExp;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.Email;
 
 
 public class TourOperator {
 	private int operatorID;
+	
+	@NotBlank
+	@Length(max = 40)
+	@RegExp(value = "[a-zA-Z0-9 ]*")
 	private String operatorName;
+	
+	@NotBlank
+	@Length(max = 200)
 	private String companyInfo;
+	
 	private Date membershipExpired;
+	
+	@NotBlank
+	@Length(max = 30)
+	@Email
 	private String email;
+	
+	@NotNull
+	@Length(max = 3)
 	private String currency;
+	
 	private AccountUser accountUser;
 	private Set<ListedTour> listedTour = new HashSet<ListedTour>(0);
 	

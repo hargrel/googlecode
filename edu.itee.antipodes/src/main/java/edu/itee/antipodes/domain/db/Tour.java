@@ -3,13 +3,24 @@ package edu.itee.antipodes.domain.db;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.Length;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.NotBlank;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.RegExp;
 
 @SuppressWarnings("serial")
 public class Tour implements Serializable {
 	
 	private int tourID; 
+	
+	@NotBlank
+	@Length(max = 40)
+	@RegExp(value = "[a-zA-Z0-9 '?!]*")
 	private String tourName;
+	
+	@NotBlank
+	@Length(max = 80)
 	private String tourDesc;
+	
 	private double price;
 	private int totalDays;
 	private int onDemand;

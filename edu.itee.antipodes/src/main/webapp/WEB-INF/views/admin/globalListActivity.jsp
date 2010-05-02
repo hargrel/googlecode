@@ -11,7 +11,7 @@
 	
 	<h2>Global List of Activities</h2>
 	<div id="Table">
-	<table style="width: 500px;">
+	<table style="width: 400px;">
 		<thead>
 		<tr>
 			<th style="width: 80px;">Activity ID</th>
@@ -44,7 +44,7 @@
 		</tbody>
 	
 	</table>
-	<input type="button" value="Cancel" onClick="window.location.href='<c:url value="maintainSearchCriteria.html"/>'" style="float: right; margin-right: 320px; margin-top: 10px;"/>
+	<input type="button" value="Cancel" onClick="window.location.href='<c:url value="maintainSearchCriteria.html"/>'" style="float: right; margin-right: 420px; margin-top: 10px;"/>
 	</div>
 	
 	

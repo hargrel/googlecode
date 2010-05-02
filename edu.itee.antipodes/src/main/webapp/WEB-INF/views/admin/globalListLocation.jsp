@@ -11,12 +11,13 @@
 
 <h2>Global List of Locations</h2>
 	<div id="Table">
-	<table style="width: 500px;">
+	<table style="width: 600px;">
 		<thead>
 		<tr>
 			<th style="width: 80px;">Location ID</th>
 			<th>Location Name</th>
-			<th></th>
+			<th>Latitude</th>
+			<th>Longitude</th>
 			<th></th>
 			<th></th>
 		</tr>
@@ -28,7 +29,9 @@
 			
 			<tr>
 				<td><c:out value="${location.locationID}" /></td>
-				<td><c:out value="${location.locationName}" /></td>			
+				<td><c:out value="${location.locationName}" /></td>
+				<td><c:out value="${location.latitude}" /></td>
+				<td><c:out value="${location.longitude}" /></td>					
 				<td>
 					<form style="margin:0px; padding: 0px;" name="edit_${location.locationID}" action="editGlobalListLocation.html" method="get">
 						<input type="hidden" name="locationID" value="${location.locationID}" />
@@ -41,19 +44,13 @@
 					</form>
 					<a href="#" style="color: blue;" onclick="document['delete_${location.locationID}'].submit()">Delete</a>
 				</td>
-				<td>
-					<form style="margin:0px; padding: 0px;" name="inmap_${location.locationID}" action="maintainLink.html" method="post">
-						<input type="hidden" name="locationID" value="${location.locationID}" />
-					</form>
-					<a href="#" style="color: blue;" onclick="document['inmap_${location.locationID}'].submit()">Interactive Map</a>
-				</td>
 			</tr>
 		</c:forEach>
 		</tbody>
 	
 	</table>
 	</div>
-	<input type="button" value="Cancel" onClick="window.location.href='<c:url value="maintainSearchCriteria.html"/>'" style="float: right; margin-right: 320px; margin-top: 10px;"/>
+	<input type="button" value="Cancel" onClick="window.location.href='<c:url value="maintainSearchCriteria.html"/>'" style="float: right; margin-right: 220px; margin-top: 10px;"/>
 
 
 </body>

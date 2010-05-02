@@ -3,6 +3,9 @@ package edu.itee.antipodes.domain.db;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.Length;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.NotBlank;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.RegExp;
 
 /**
  * A persistence class that stores info from local Location table in DB.
@@ -11,7 +14,12 @@ import java.util.Set;
 public class Location implements Serializable{
 	
 	private int locationID;
+	
+	@NotBlank
+	@Length(max = 20)
+	@RegExp(value = "[a-zA-Z ,]*")
 	private String locationName;
+	
 	private double longitude;
 	private double latitude;
 	private Set<Tour> tours = new HashSet<Tour>(0);
