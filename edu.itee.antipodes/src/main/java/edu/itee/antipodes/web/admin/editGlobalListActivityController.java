@@ -51,7 +51,6 @@ public final class editGlobalListActivityController {
 
 		validator.validate(ac, result);
 		if (result.hasErrors()) {
-			System.out.println(result.getAllErrors());
 			return "editGlobalListActivity";
 		}
 

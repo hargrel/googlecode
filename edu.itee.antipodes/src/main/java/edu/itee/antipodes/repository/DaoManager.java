@@ -18,4 +18,12 @@ public class DaoManager {
 	public static ActivityDao getActivityDao() {
 		return (ActivityDaoHibernate) ctx.getBean("activityDao");
 	}
+	
+	public static ReportingDaoHibernate getReporingDao() {
+		return (ReportingDaoHibernate) ctx.getBean("reportDao");
+	}
+	
+	public static AccountUserDao getAccountUserDao(){
+		return (AccountUserDao) ctx.getBean("accountUserDao");
+	}
 }

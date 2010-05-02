@@ -20,7 +20,7 @@
 <form:form commandName="accountUser">
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
 	<tr>
-		<td><input type="hidden" name="userID" /></td>
+		<td><!-- <input type="hidden" name="userID" /> --></td>
 		<td><input type="hidden" name="userType" value="operator" /></td>
 	</tr>
 	
@@ -35,7 +35,7 @@
 	</tr>
 	
 	<tr>
-		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="SAhome.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Edit" /></td>
+		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="editAccountList.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Edit" /></td>
 	</tr>
 
 </table>

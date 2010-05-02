@@ -45,8 +45,9 @@ public class detectAbuseController {
 
 		try {
 			String format = "pdf";
+			int minNo = bto.getCriteriaNum();
 
-			Map<String, Object> model = rp.getDetectingAbuse(123);
+			Map<String, Object> model = rp.getDetectingAbuse(minNo);
 			model.put("format", format);
 
 			return new ModelAndView("reportDetectingAbuse", model);

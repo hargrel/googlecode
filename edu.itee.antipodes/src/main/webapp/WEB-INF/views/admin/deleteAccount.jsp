@@ -23,7 +23,7 @@
 		</thead>
 
 		<tbody>
-		<c:forEach items="${account}" var="account">
+		<c:forEach items="${accounts}" var="account">
 			
 			<tr>
 				<td><c:out value="${account.userID}" /></td>

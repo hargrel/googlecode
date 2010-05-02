@@ -1,19 +1,11 @@
 package edu.itee.antipodes.repository;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-import org.hibernate.HibernateException;
 import org.hibernate.Query;
-import org.springframework.dao.DataAccessResourceFailureException;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
-
-import edu.itee.antipodes.domain.UniversalBean;
-import edu.itee.antipodes.domain.db.ListedTour;
 
 public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterable{
 	Object[] tuple=null;
