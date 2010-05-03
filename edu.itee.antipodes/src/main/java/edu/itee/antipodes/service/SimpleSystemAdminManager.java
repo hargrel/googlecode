@@ -2,15 +2,11 @@ package edu.itee.antipodes.service;
 
 import java.util.List;
 
-import edu.itee.antipodes.domain.db.AccountUser;
 import edu.itee.antipodes.domain.db.Activity;
 import edu.itee.antipodes.domain.db.Location;
-import edu.itee.antipodes.repository.AccountUserDao;
 import edu.itee.antipodes.repository.ActivityDao;
-import edu.itee.antipodes.repository.ActivityDaoHibernate;
 import edu.itee.antipodes.repository.DaoManager;
 import edu.itee.antipodes.repository.LocationDao;
-import edu.itee.antipodes.web.AccountsDao;
 
 public class SimpleSystemAdminManager implements SystemAdminManager {
 
@@ -64,25 +60,6 @@ public class SimpleSystemAdminManager implements SystemAdminManager {
 		int id = Integer.parseInt(activityID);
 		ActivityDao ad = DaoManager.getActivityDao();
 		ad.dropActivityByID(id);
-	}
-
-	@Override
-	public List<AccountUser> getAccountList() {
-		AccountUserDao aud = DaoManager.getAccountUserDao();
-		return aud.getAccountUserList();
-	}
-
-	@Override
-	public AccountUser getAccountUserByID(String userID) {
-		int id = Integer.parseInt(userID);
-		AccountUserDao aud = DaoManager.getAccountUserDao();
-		return aud.getAccountUserByID(id);
-	}
-
-	@Override
-	public void saveAccountUser(AccountUser account) {
-		AccountUserDao aud = DaoManager.getAccountUserDao();
-		aud.saveAccountUser(account);
 	}
 
 }
