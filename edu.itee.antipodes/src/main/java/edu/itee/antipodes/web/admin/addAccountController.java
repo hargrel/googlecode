@@ -39,10 +39,17 @@ public final class addAccountController {
 		
 		validator.validate(accountUser, result);
 		if (result.hasErrors()) { return "addAccount"; }
+		
+		List<AccountUser> accounts = accountManager.getAccounts();
+		
+		for(AccountUser accUser : accounts){
+			if(accUser.getUserName().equalsIgnoreCase(accountUser.getUserName()))
+				return "addAccount";
+		}
 		accountManager.addAccount(accountUser);
 		// Use the redirect-after-post pattern to reduce double-submits.
-		List<AccountUser> accounts = accountManager.getAccounts();
-		model.addAttribute("accounts", accounts);
+		List<AccountUser> newAccounts = accountManager.getAccounts();
+		model.addAttribute("accounts", newAccounts);
 		return "accountList";
 		
 	}
