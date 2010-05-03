@@ -21,7 +21,7 @@
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
 	<tr>
 		<td width="100" valign="top">User type:</td>
-		<td><form:radiobutton path="userType" value="admin" cssErrorClass="form-error-field"/>&nbsp;&nbsp;Admin&nbsp;&nbsp;
+		<td><form:radiobutton path="userType" value="admin" cssErrorClass="form-error-field"/>&nbsp;&nbsp;Admin<br/>
 			<form:radiobutton path="userType" value="operator" cssErrorClass="form-error-field"/>&nbsp;&nbsp;Operator
 			<div class="form-error-message"><form:errors path="userType"/></div></td>
 	</tr>
