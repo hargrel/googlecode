@@ -1,16 +1,15 @@
 package edu.itee.antipodes.domain.pages;
 
-import org.springmodules.validation.bean.conf.loader.annotation.handler.NotBlank;
+import java.util.Date;
+
+import org.springmodules.validation.bean.conf.loader.annotation.handler.ValidationMethod;
 
 public final class MonitorSystemUtil {
-	@NotBlank
 	private String exportFormat;
 
-	@NotBlank
-	private String fromDate;
+	private Date fromDate;
 	
-	@NotBlank
-	private String toDate;
+	private Date toDate;
 
 	public String getExportFormat() {
 		return exportFormat;
@@ -20,21 +19,31 @@ public final class MonitorSystemUtil {
 		this.exportFormat = exportFormat;
 	}
 
-	public String getFromDate() {
+	public Date getFromDate() {
 		return fromDate;
 	}
 
-	public void setFromDate(String fromDate) {
+	public void setFromDate(Date fromDate) {
 		this.fromDate = fromDate;
 	}
 
-	public String getToDate() {
+	public Date getToDate() {
 		return toDate;
 	}
 
-	public void setToDate(String toDate) {
+	public void setToDate(Date toDate) {
 		this.toDate = toDate;
 	}
+
+	@SuppressWarnings("unused")
+	@ValidationMethod(forProperty = "fromDate")
+    private boolean compareDate() {	
+		if (fromDate == null || toDate == null)
+		{
+			return false;
+		}
+		return fromDate.before(toDate);
+    }
 
 
 	

@@ -98,5 +98,10 @@
     <bean id="accountManager" class="edu.itee.antipodes.service.SimpleAccountManager">
         <property name="accountDao" ref="accountDao" />
     </bean>
+
+	<!-- Exception handler 
+	<bean id="defaultExceptionHandler" class="org.springframework.web.portlet.handler.SimpleMappingExceptionResolver">
+		<property name="defaultErrorView" value="error" />
+	</bean>-->
 </beans>
 

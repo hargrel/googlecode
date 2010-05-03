@@ -9,6 +9,7 @@ import java.util.Map;
 import edu.itee.antipodes.domain.UniversalBean;
 import edu.itee.antipodes.domain.db.Activity;
 import edu.itee.antipodes.domain.db.Location;
+import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.domain.db.TourOperator;
 import edu.itee.antipodes.repository.ActivityDao;
 import edu.itee.antipodes.repository.DaoManager;
@@ -60,22 +61,32 @@ public class SimpleReportingManager implements ReportingManager {
 
 	@Override
 	public Map<String, Object> getDetectingAbuse(int numberOfCriterias) {
+		UniversalBean ub;
 		Map<String, Object> model = new HashMap<String, Object>();
 		model.put("ReportTitle", "Detecting abuse report");
 
 		ReportingDaoHibernate rdh = DaoManager.getReporingDao();
-		UniversalBean ub;
-		
-		List<UniversalBean> list = new ArrayList<UniversalBean>();
 
-		for (int i = 0; i < 10; i++) {
+		numberOfCriterias++;
+		List<UniversalBean> list = new ArrayList<UniversalBean>();
+		List<Object[]> tl = rdh
+				.getSumOfActivitiesAndLocationsForToursByMinNum(numberOfCriterias);
+
+		for (Object[] objects : tl) {
 			ub = new UniversalBean();
-			ub.setS1(String.format("{0}", i));
-			ub.setS2("Tour " + (int) (Math.random() * 100));
-			ub.setS3(" "+(int) (20 * Math.random()));
+			Tour tour = (Tour) objects[0];
+			ub.setS1(tour.getTourID() + "");
+			ub.setS2(tour.getTourName());
+			ub.setS3(objects[1].toString());
 			list.add(ub);
 		}
 
+		/*
+		 * for (int i = 0; i < 10; i++) { ub = new UniversalBean();
+		 * ub.setS1(String.format("{0}", i)); ub.setS2("Tour " + (int)
+		 * (Math.random() * 100)); ub.setS3(" " + (int) (20 * Math.random()));
+		 * list.add(ub); }
+		 */
 		model.put("dataSource", list);
 		return model;
 	}
@@ -86,30 +97,49 @@ public class SimpleReportingManager implements ReportingManager {
 		Map<String, Object> model = new HashMap<String, Object>();
 
 		ReportingDaoHibernate rdh = DaoManager.getReporingDao();
-
+		List<Object[]> locationList = new ArrayList<Object[]>();
+		List<Object[]> activityList = new ArrayList<Object[]>();
 		String prefix = "";
-		String objectID = "";
+		int objectID;
 		if (criteria.equals("all")) {
-
+			activityList = rdh.getNumToursAsscWithActivity();
+			locationList = rdh.getNumToursAsscWithLocation();
 		} else {
 			prefix = criteria.substring(0, 1);
-			objectID = criteria.substring(1);
+			objectID = Integer.parseInt(criteria.substring(1));
+
+			if (prefix.equalsIgnoreCase("a")) {
+				activityList = rdh
+						.getNumToursAsscWithActivityByActivityID(objectID);
+			} else if (prefix.equalsIgnoreCase("l")) {
+				locationList = rdh
+						.getNumToursAsscWithLocationByLocationID(objectID);
+			}
 		}
 
 		model.put("ReportTitle",
-				"Monitoring search criteria utilisation report " + prefix + " "
-						+ objectID);
+				"Monitoring search criteria utilisation report ");
 
-		List<UniversalBean> list = new ArrayList<UniversalBean>();
+		List<UniversalBean> result = new ArrayList<UniversalBean>();
 		UniversalBean bean;
 
-		bean = new UniversalBean();
-		bean.setI1(243);
-		bean.setS1("Extreme");
-		bean.setI2(13);
-		list.add(bean);
-
-		model.put("dataSource", list);
+		for (Object[] objects : activityList) {
+			bean = new UniversalBean();
+			Activity ac = (Activity)objects[0];
+			bean.setS1(ac.getActivityName());
+			bean.setS2(objects[1].toString());
+			result.add(bean);
+		}
+		
+		for (Object[] objects : locationList) {
+			bean = new UniversalBean();
+			Location loc = (Location)objects[0];
+			bean.setS1(loc.getLocationName());
+			bean.setS2(objects[1].toString());
+			result.add(bean);
+		}
+		
+		model.put("dataSource", result);
 		return model;
 	}
 

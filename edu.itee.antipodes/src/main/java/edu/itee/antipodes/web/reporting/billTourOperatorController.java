@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.itee.antipodes.domain.db.TourOperator;
-import edu.itee.antipodes.domain.pages.Report;
+import edu.itee.antipodes.domain.pages.BillingTourOperators;
 import edu.itee.antipodes.repository.DaoManager;
 import edu.itee.antipodes.repository.TourOperatorDao;
 import edu.itee.antipodes.service.ReportingManager;
@@ -44,14 +44,14 @@ public class billTourOperatorController {
 		SimpleReportingManager srm = new SimpleReportingManager();
 
 		model.addAttribute("touroperators", srm.getTourOperators());
-		model.addAttribute("billOperator", new Report());
+		model.addAttribute("billOperator", new BillingTourOperators());
 
 		return "billTourOperator";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView post(
-			@ModelAttribute("billOperator") Report bto,
+			@ModelAttribute("billOperator") BillingTourOperators bto,
 			BindingResult result) {
 
 		validator.validate(bto, result);
