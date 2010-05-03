@@ -1,14 +1,16 @@
 package edu.itee.antipodes.domain.db;
 
+import java.util.Date;
+
 import org.springmodules.validation.bean.conf.loader.annotation.handler.NotNull;
 
 public class MonthlyFee {
 	private int feeID;
-	private int year;
-	private int month;
+	private Date monthYearStart;
 	
 	@NotNull
 	private float fee;
+
 	
 	public MonthlyFee() {}
 	
@@ -20,20 +22,14 @@ public class MonthlyFee {
 		this.feeID = feeID;
 	}
 
-	public int getYear() {
-		return year;
+	
+
+	public Date getMonthYearStart() {
+		return monthYearStart;
 	}
 
-	public void setYear(int year) {
-		this.year = year;
-	}
-
-	public int getMonth() {
-		return month;
-	}
-
-	public void setMonth(int month) {
-		this.month = month;
+	public void setMonthYearStart(Date monthYearStart) {
+		this.monthYearStart = monthYearStart;
 	}
 
 	public float getFee() {
@@ -43,11 +39,16 @@ public class MonthlyFee {
 	public void setFee(float fee) {
 		this.fee = fee;
 	}
+	
+
+
 
 	@Override
 	public String toString() {
-		return "MonthlyFee [feeID=" + feeID + ", year=" + year +", month=" + month
-				+ ", fee=" + fee + "]";
+		return "MonthlyFee [fee=" + fee + ", feeID=" + feeID
+				+ ", monthYearStart=" + monthYearStart + "]";
 	}
+
+	
 	
 }

@@ -7,8 +7,6 @@
   	<id name="feeID" type="integer" column="FEE_ID">
   		<generator class="increment"/>
   	</id>
-  	<property name="month" column="MONTH" type="integer"/>
-  	<property name="fee" column="FEE" type="float" />
-  	<property name="year" column="YEAR" type="integer" />
-  </class>
+  	<property name="monthYearStart" column="MONTH_YEAR_START" />
+  	<property name="fee" column="FEE" type="float" /></class>
 </hibernate-mapping>

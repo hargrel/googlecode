@@ -9,15 +9,15 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterable{
 	Object[] tuple=null;
-/*
- * For Monitoring search criteria utilisation report
- * @param id the activityID
- * @request id != null
- * @return list of tuples(actually one) in the form of Object[], in which 
- * Object[0]=activityID,  Object[1]=activityName,Object[12]= number of listed 
- * tours that are aligned with the given activity .
- * @author 41931527
- */
+	/*
+	 * For Monitoring search criteria utilisation report
+	 * @param id the activityID
+	 * @request id != null
+	 * @return list of tuples(actually one) in the form of Object[], in which 
+	 * Object[0]=activityID,  Object[1]=activityName,Object[12]= number of listed 
+	 * tours that are aligned with the given activity .
+	 * @author 41931527
+	 */
 	
 	public List<Object[]> getNumToursAsscWithActivityByActivityID(int id){
 		List<Object[]> list = new ArrayList<Object[]>();		
@@ -36,15 +36,15 @@ public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterab
 
 		return list;
 	}
-/*
- * For Monitoring search criteria utilisation report
- * @param id the locationID
- * @request id != null
- * @return list of tuples(actually one) in the form of Object[], in which 
- * Object[0]=location object,  Object[1]= number of listed 
- * tours that are aligned with the given location .
- * @author 41931527
- */
+	/*
+	 * For Monitoring search criteria utilisation report
+	 * @param id the locationID
+	 * @request id != null
+	 * @return list of tuples(actually one) in the form of Object[], in which 
+	 * Object[0]=location object,  Object[1]= number of listed 
+	 * tours that are aligned with the given location .
+	 * @author 41931527
+	 */
 	
 	public List<Object[]> getNumToursAsscWithLocationByLocationID(int id){
 		List<Object[]> list = new ArrayList<Object[]>();				
@@ -65,15 +65,15 @@ public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterab
 	}
 	
 
-/*
- *Detecting abuse report
- * @param minNum the specified minimum number of listed tour associated with criteria activity
- * @request minNum != null
- * @return returns a list of tuples(i.e. Object[]), 
- * in which Object[0]=tour object, Object[1]=number of
- * listed tours associated with the criteria where the number >= minNum
- * @author 41931527 
- */
+	/*
+	 *Detecting abuse report
+	 * @param minNum the specified minimum number of listed tour associated with criteria activity
+	 * @request minNum != null
+	 * @return returns a list of tuples(i.e. Object[]), 
+	 * in which Object[0]=tour object, Object[1]=number of
+	 * listed tours associated with the criteria where the number >= minNum
+	 * @author 41931527 
+	 */
 	public List<Object[]> getSumOfActivitiesAndLocationsForToursByMinNum(int minNum){
 		List<Object[]> list = new ArrayList<Object[]>();
 				
@@ -89,6 +89,34 @@ public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterab
 			 }
 		}
 
+		return list;
+	}
+	/*
+	 * Billing tour operators
+	 * @param operatorID the specified operatorID
+	 * @request operatorID != null
+	 * @return returns a list of tuples(i.e. Object[]), in which 
+	 * Object[0]=operator object, 
+	 * Object[1]= monthYearStart (the starting date of a month-year)
+	 * Object[2]= fee of the month
+	 * Object[4]= total price of the month = (tour# listed in the month)*(monthly fee) 
+	 * @author 41931527 
+	 */
+	public List<Object[]> getNumOfToursAndTotalPricePerMonthByTourOperator(int operatorID){
+		List<Object[]> list = new ArrayList<Object[]>();
+		String select="select o, m.monthYearStart, m.fee, COUNT(t.tourID)*m.fee ";
+		String from="from TourOperator as o join o.listedTour as l join l.tour as t, MonthlyFee as m ";
+		// l.listedFrom-30 since we want to include the previous month, ex. for 12/05/2010, we want to charge 05/2010's fee as well
+		String where="where o.operatorID=:operatorID and ((l.listedFrom-30)<m.monthYearStart) and l.listedTo>m.monthYearStart ";
+		if ((Integer)operatorID != null){
+			String sql= select+ from+ where+"group by o, m.monthYearStart, m.fee "+"order by m.monthYearStart desc";
+			Query query= getSession().createQuery(sql);
+			query.setParameter("operatorID", operatorID);
+			int i=0;
+			 for (Iterator it= query.iterate(); it.hasNext(); i++ ) {
+		            list.add((Object[]) it.next());
+			 }
+		}
 		return list;
 	}
 

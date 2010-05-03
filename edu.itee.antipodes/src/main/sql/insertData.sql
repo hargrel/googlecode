@@ -19,11 +19,11 @@ INSERT INTO AccountUser VALUES (
 -- TourOperator ----------------------------------------------------------------
 
 INSERT INTO TourOperator VALUES (
-	0003, 'op3', 'company3', TO_DATE('13122020', 'DDMMYYYY'), 'o3@3.com', 'USD' 
+	0003, 'Mr Operator 3', 'company3', TO_DATE('13122020', 'DDMMYYYY'), 'o3@3.com', 'USD' 
 );
 
 INSERT INTO TourOperator VALUES (
-	0004, 'op4', 'company4', TO_DATE('14122020', 'DDMMYYYY'), 'o4@4.com', 'USD' 
+	0004, 'Mr Operator 4', 'company4', TO_DATE('14122020', 'DDMMYYYY'), 'o4@4.com', 'USD' 
 );
 
 -- Tour ------------------------------------------------------------------------
@@ -176,27 +176,19 @@ INSERT INTO TourActivity VALUES (
 -- Location -----------------------------------------------------------------------
 
 INSERT INTO Location VALUES (
-	0001, 'Sydney', -33.867139, 151.207114
+	0001, 'Sydney', -10425.01545, 2035.0135
 );
 
 INSERT INTO Location VALUES (
-	0002, 'Brisbane', -27.46758, 153.027892
+	0002, 'Brisbane', 1045435345.054353453452, -2053453.024332423
 );
 
 INSERT INTO Location VALUES (
-	0003, 'New York', 40.7142691, -74.0059729
+	0003, 'NewYork', 10234522.0000123333355, 205435435.03342342
 );
 
 INSERT INTO Location VALUES (
-	0004, 'Perth', -31.9554, 115.85859
-);
-
-INSERT INTO Location VALUES (
-	0005, 'Melbourne', 0, 0
-);
-
-INSERT INTO Location VALUES (
-	0006, 'Byron Bay', 0, 0
+	0004, 'Perth', 10890444.04890403890, 202342342.04432423423
 );
 
 -- TourLocation -----------------------------------------------------------------------
@@ -256,51 +248,51 @@ INSERT INTO TourDate VALUES (
 -- MonthlyFee -----------------------------------------------------------------------
 
 INSERT INTO MonthlyFee VALUES (
-	0001, '01', 101.50, 2010
+	0001, TO_DATE('01/01/2010', 'DD/MM/YYYY'), 101.50
 );
 
 INSERT INTO MonthlyFee VALUES (
-	0002, '02', 102.50, 2010
+	0002, TO_DATE('01/02/2010', 'DD/MM/YYYY'), 102.50
 );
 
 INSERT INTO MonthlyFee VALUES (
-	0003, '03', 103.50, 2010
+	0003, TO_DATE('01/03/2010', 'DD/MM/YYYY'), 103.50
 );
 
 INSERT INTO MonthlyFee VALUES (
-	0004, '04', 104.50, 2010
+	0004, TO_DATE('01/04/2010', 'DD/MM/YYYY'), 104.50
 );
 
 INSERT INTO MonthlyFee VALUES (
-	0005, '05', 105.50, 2010
+	0005, TO_DATE('01/05/2010', 'DD/MM/YYYY'), 105.50
 );
 
 INSERT INTO MonthlyFee VALUES (
-	0006, '06', 106.50, 2010
+	0006, TO_DATE('01/06/2010', 'DD/MM/YYYY'), 106.50
 );
 
 INSERT INTO MonthlyFee VALUES (
-	0007, '07', 107.50, 2010
+	0007, TO_DATE('01/07/2010', 'DD/MM/YYYY'), 107.50
 );
 
 INSERT INTO MonthlyFee VALUES (
-	0008, '08', 108.50, 2010
+	0008, TO_DATE('01/08/2010', 'DD/MM/YYYY'), 108.50
 );
 
 INSERT INTO MonthlyFee VALUES (
-	0009, '09', 109.50, 2010
+	0009, TO_DATE('01/09/2010', 'DD/MM/YYYY'), 109.50
 );
 
 INSERT INTO MonthlyFee VALUES (
-	0010, '10', 110.50, 2010
+	0010, TO_DATE('01/10/2010', 'DD/MM/YYYY'), 110.50
 );
 
 INSERT INTO MonthlyFee VALUES (
-	0011, '11', 111.50, 2010
+	0011, TO_DATE('01/11/2010', 'DD/MM/YYYY'), 111.50
 );
 
 INSERT INTO MonthlyFee VALUES (
-	0012, '12', 112.50, 2010
+	0012, TO_DATE('01/12/2010', 'DD/MM/YYYY'),112.50
 );
 
 COMMIT;
