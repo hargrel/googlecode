@@ -36,10 +36,9 @@
 	
     <bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 	    <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-	    <property name="url" value="jdbc:oracle:thin:@oracle.students.itee.uq.edu.au:1521:iteeo"/>
-	    <!--<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>-->
-	    <!--  <property name="username" value="csse3005a"/> -->
-	    <property name="username" value="csse3005a"/>
+	    <!-- <property name="url" value="jdbc:oracle:thin:@oracle.students.itee.uq.edu.au:1521:iteeo"/> -->
+	    <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+	    <property name="username" value="s4208528"/>
 	    <property name="password" value="csse3005a"/>
   	</bean>
 
@@ -60,13 +59,12 @@
 	    </property>
   	</bean>
 
-
+    <bean id="customerSearchDao" class="edu.itee.antipodes.repository.CustomerSearchDaoHibernate">
+        <property name="sessionFactory" ref="mySessionFactory" />
+    </bean>
     <bean id="reportDao" class="edu.itee.antipodes.repository.ReportingDaoHibernate">
         <property name="sessionFactory" ref="mySessionFactory" />
     </bean>
-
-
-
     <bean id="tourDao" class="edu.itee.antipodes.repository.TourDaoHibernate">
         <property name="sessionFactory" ref="mySessionFactory" />
     </bean>
