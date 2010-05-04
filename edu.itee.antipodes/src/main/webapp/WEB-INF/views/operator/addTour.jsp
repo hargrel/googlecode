@@ -24,26 +24,28 @@
 <form:form commandName="addTour">
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
 	<tr>
-		<!-- Insert tour ID -->
-		<td><form:hidden path="tourID" /></td>
-	</tr>
-	
-	<tr>
 		<!-- Insert tour name -->
-		<td width="500"><h4>Tour name:</h4></td>
+		<td width="500">Tour name:</td>
 		<td><form:input path="tourName" size="40" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="tourName"/></div></td>
 	</tr>
 
 	<tr>
 		<!-- Insert tour description -->
-		<td valign="top"><h4>Tour description:</h4></td>
+		<td valign="top">Tour description:</td>
 		<td width="500"><form:textarea path="tourDesc" cssClass="tinymce" /><div class="form-error-message"><form:errors path="tourDesc"/></div></td>
 	</tr>
 	
 	<tr>
 		<!-- Insert price -->
-		<td><h4>Price:</h4></td>
+		<td>Price:</td>
 		<td><form:input path="price" size="5" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="price"/></div></td>
+	</tr>
+	
+	<tr>
+		<td width="100" valign="top">On Demand:</td>
+		<td><form:radiobutton path="onDemand" value="1" cssErrorClass="form-error-field"/>&nbsp;&nbsp;Yes&nbsp;&nbsp;
+			<form:radiobutton path="onDemand" value="0" cssErrorClass="form-error-field"/>&nbsp;&nbsp;No
+			<div class="form-error-message"><form:errors path="onDemand"/></div></td>
 	</tr>
 	
 	<tr>

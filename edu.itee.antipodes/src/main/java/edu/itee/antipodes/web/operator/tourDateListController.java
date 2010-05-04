@@ -1,4 +1,4 @@
-package edu.itee.antipodes.web;
+package edu.itee.antipodes.web.operator;
 
 import java.util.List;
 
@@ -13,24 +13,25 @@ import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.service.TourManager;
 
 @Controller
-@RequestMapping("/annoformexample.html")
-public class AnnoFormExampleController {
+@RequestMapping("/tourDateList.html")
+public class tourDateListController {
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public String showInventory(Model model) {
+	public String showTourDate(Model model) {
 		List<Tour> tours = tourManager.getTours();
-		model.addAttribute("tours", tours);
-		return "annoformexample";
+		model.addAttribute("tourDate", tours);
+		return "tourDateList";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String deleteTour(@RequestParam("tourID") int tourID, Model model) {
-		tourManager.dropTourByID(tourID);
+	public String deleteTourDate(@RequestParam("dateID") int dateID, Model model) {
+		tourManager.dropTourByID(dateID);
 		List<Tour> tours = tourManager.getTours();
-		model.addAttribute("tours", tours);
-		return "annoformexample";
+		model.addAttribute("tourDate", tours);
+		return "tourDateList";
 	}
 	
 	@Autowired
 	TourManager tourManager;
 }
+

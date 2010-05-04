@@ -39,12 +39,12 @@
         <property name="accDao" ref="accDao"/>
     </bean>	
 
-<!-- Wirings for the beans written in traditional spring XML (no annotations) -->
+<!-- Wirings for the beans written in traditional spring XML (no annotations) 
 	
 	<bean name="/inventoryexample.html" class="edu.itee.antipodes.web.InventoryExampleController">
   		<property name="tourManager" ref="tourManager" /> 
   	</bean>
-
+-->
 <!--  Define how to reference the .jsp files we are going to use 
 	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

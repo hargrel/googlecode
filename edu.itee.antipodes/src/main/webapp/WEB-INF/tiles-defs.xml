@@ -7,7 +7,7 @@
 
 	<!-- Base Layout -->
 	<definition name="baseLayoutCustomer" template="/WEB-INF/tiles/baseLayoutCustomer.jsp">
-		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="title" value="Antipodes | Online Eco-adventure Tours Directory"/>
 		<put-attribute name="header" value="/WEB-INF/tiles/headerCustomer.jsp"/>
 		<put-attribute name="menu" value="/WEB-INF/tiles/menuCustomer.jsp"/>
 		<put-attribute name="link" value="/WEB-INF/tiles/link.jsp"/>
@@ -15,21 +15,21 @@
 	</definition>
 	
 	<definition name="baseLayoutTO" template="/WEB-INF/tiles/baseLayoutTO.jsp">
-		<put-attribute name="title" value="Antipode|Tour Operator"/>
+		<put-attribute name="title" value="Antipodes | Tour Operator"/>
 		<put-attribute name="header" value="/WEB-INF/tiles/headerGeneral.jsp"/>
 		<put-attribute name="menu" value="/WEB-INF/tiles/menuTO.jsp"/>
 		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
 	</definition>
 	
 	<definition name="baseLayoutAdmin" template="/WEB-INF/tiles/baseLayoutAdmin.jsp">
-		<put-attribute name="title" value="Antipode|System Administrator"/>
+		<put-attribute name="title" value="Antipodes | System Administrator"/>
 		<put-attribute name="header" value="/WEB-INF/tiles/headerGeneral.jsp"/>
 		<put-attribute name="menu" value="/WEB-INF/tiles/menuAdmin.jsp"/>
 		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
 	</definition>
 	
 	<definition name="baseLayoutGeneral" template="/WEB-INF/tiles/baseLayoutGeneral.jsp">
-		<put-attribute name="title" value="Antipode|Online Eco-adventure Tours Directory"/>
+		<put-attribute name="title" value="Antipodes | Online Eco-adventure Tours Directory"/>
 		<put-attribute name="header" value="/WEB-INF/tiles/headerGeneral.jsp"/>
 		<put-attribute name="menu" value="/WEB-INF/tiles/menuCustomer.jsp"/>
 		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
@@ -65,28 +65,60 @@
 		<put-attribute name="body" value="/WEB-INF/views/operator/editCompanyInfo.jsp"/>
 	</definition>
 	
-	<definition name="addTour" extends="baseLayoutTO">
-		<put-attribute name="body" value="/WEB-INF/views/operator/addTour.jsp"/>
-	</definition>
-	
 	<definition name="tourList" extends="baseLayoutTO">
 		<put-attribute name="body" value="/WEB-INF/views/operator/tourList.jsp"/>
 	</definition>
 	
-	<definition name="alignTour" extends="baseLayoutTO">
-		<put-attribute name="body" value="/WEB-INF/views/operator/alignTour.jsp"/>
-	</definition>
-	
-	<definition name="alignTourList" extends="baseLayoutTO">
-		<put-attribute name="body" value="/WEB-INF/views/operator/alignTourList.jsp"/>
+	<definition name="addTour" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/addTour.jsp"/>
 	</definition>
 	
 	<definition name="editTour" extends="baseLayoutTO">
 		<put-attribute name="body" value="/WEB-INF/views/operator/editTour.jsp"/>
 	</definition>
 	
-	<definition name="deleteTour" extends="baseLayoutTO">
-		<put-attribute name="body" value="/WEB-INF/views/operator/deleteTour.jsp"/>
+	<definition name="alignTourList" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/alignTourList.jsp"/>
+	</definition>
+	
+	<definition name="alignTour" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/alignTour.jsp"/>
+	</definition>
+	
+	<definition name="tourDateList" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/tourDateList.jsp"/>
+	</definition>
+	
+	<definition name="addTourDate" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/addTourDate.jsp"/>
+	</definition>
+	
+	<definition name="editTourDate" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/editTourDate.jsp"/>
+	</definition>
+	
+	<definition name="tourLocationList" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/tourLocationList.jsp"/>
+	</definition>
+	
+	<definition name="addTourLocation" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/addTourLocation.jsp"/>
+	</definition>
+	
+	<definition name="editTourLocation" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/editTourLocation.jsp"/>
+	</definition>
+	
+	<definition name="tourActivityList" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/tourActivityList.jsp"/>
+	</definition>
+	
+	<definition name="addTourActivity" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/addTourActivity.jsp"/>
+	</definition>
+	
+	<definition name="editTourActivity" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/editTourActivity.jsp"/>
 	</definition>
 	
 	<!-- Administrator -->
@@ -175,14 +207,5 @@
 	<definition name="loginFail" extends="baseLayoutGeneral">
 		<put-attribute name="body" value="/WEB-INF/views/security/loginFail.jsp"/>
 	</definition>
-	
-	<definition name="form" extends="baseLayoutGeneral">
-		<put-attribute name="body" value="/WEB-INF/views/form.jsp"/>
-	</definition>
-	
-	<definition name="thanks" extends="baseLayoutGeneral">
-		<put-attribute name="body" value="/WEB-INF/views/thanks.jsp"/>
-	</definition>
-	
 	
 </tiles-definitions>

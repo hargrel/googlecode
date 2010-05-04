@@ -48,6 +48,7 @@
 		</tbody>
 		
 	</table>
+	<input type="button" value="Cancel" onClick="window.location.href='<c:url value="TOhome.html"/>'" />
 </div>
 </body>
 </html>

@@ -29,7 +29,7 @@ public final class addAccountController {
 	public String showUserForm(ModelMap model) {
 		AccountUser accountUser = new AccountUser();
 		model.addAttribute("accountUser", accountUser);
-		return "addAccount";
+		return "editAccount";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
@@ -38,7 +38,7 @@ public final class addAccountController {
 
 		
 		validator.validate(accountUser, result);
-		if (result.hasErrors()) { return "addAccount"; }
+		if (result.hasErrors()) { return "editAccount"; }
 		
 		List<AccountUser> accounts = accountManager.getAccounts();
 		
