@@ -15,6 +15,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import edu.itee.antipodes.domain.db.AccountUser;
 import edu.itee.antipodes.service.AccountManager;
+import edu.itee.antipodes.service.PasswordHash;
 
 @Controller
 @RequestMapping("/editAccount.html")
@@ -44,12 +45,14 @@ public final class editAccountController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public Object post(@ModelAttribute("accountUser") AccountUser accountUser,
-			BindingResult result, ModelMap model) {
+			BindingResult result, ModelMap model) throws Exception {
 		
 		validator.validate(accountUser, result);
 		if (result.hasErrors()) { 
 			return "editAccount"; 
 			}
+		PasswordHash pHash = new PasswordHash();
+		accountUser.setPassword(pHash.Hash(accountUser.getPassword()));
 		
 		accountManager.updateAccount(accountUser);
 		return new RedirectView("accountList.html");
