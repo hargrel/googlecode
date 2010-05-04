@@ -46,7 +46,7 @@ table {
 	width: 137px;
 	height: 48px;
 	margin-right: 40px;
-	background: transparent url(../img/TO-login.png) no-repeat left top;
+	background: transparent url(../img/login-static.png) no-repeat left top;
 }
 
 #login a{
@@ -56,7 +56,7 @@ table {
 }
 
 #login a:hover{
-	background: transparent url(../img/TO-hover.png) no-repeat left top;
+	background: transparent url(../img/login-hover.png) no-repeat left top;
 }
 
 #TO {
