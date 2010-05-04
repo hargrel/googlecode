@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.itee.antipodes.domain.db.AccountUser;
 import edu.itee.antipodes.service.AccountManager;
+import edu.itee.antipodes.service.PasswordHash;
 
 @Controller
 @RequestMapping("/addAccount.html")
@@ -34,18 +35,15 @@ public final class addAccountController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public String post(@ModelAttribute("accountUser") AccountUser accountUser,
-			BindingResult result, ModelMap model) {
+			BindingResult result, ModelMap model) throws Exception {
 
 		
 		validator.validate(accountUser, result);
 		if (result.hasErrors()) { return "addAccount"; }
 		
-		List<AccountUser> accounts = accountManager.getAccounts();
+		PasswordHash pHash = new PasswordHash();
+		accountUser.setPassword(pHash.Hash(accountUser.getPassword()));
 		
-		for(AccountUser accUser : accounts){
-			if(accUser.getUserName().equalsIgnoreCase(accountUser.getUserName()))
-				return "addAccount";
-		}
 		accountManager.addAccount(accountUser);
 		// Use the redirect-after-post pattern to reduce double-submits.
 		List<AccountUser> newAccounts = accountManager.getAccounts();
