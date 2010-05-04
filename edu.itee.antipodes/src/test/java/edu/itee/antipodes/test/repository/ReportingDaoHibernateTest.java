@@ -61,12 +61,13 @@ public class ReportingDaoHibernateTest extends TestCase {
 //		assertNotNull(dao.getNumToursAsscWithActivity());
 //		assertEquals(4,dao.getNumToursAsscWithActivity().size());
 		//test getNumToursAsscWithLocation
-		assertNotNull(dao.getNumToursAsscWithLocation());
-		assertEquals(3,dao.getNumToursAsscWithLocation().size());
+//		assertNotNull(dao.getNumToursAsscWithLocation());
+//		assertEquals(3,dao.getNumToursAsscWithLocation().size());
 		//test getNumOfToursAndTotalPricePerMonthForAllTourOperator(int operatorID)
-//		assertEquals(14,dao.getNumOfToursAndTotalPricePerMonthForAllTourOperator("02/09/2010", "02/10/2010").size());
-//		assertEquals("245.0",dao.getNumOfToursAndTotalPricePerMonthForAllTourOperator("01/07/2010","01/10/2010").get(0)[4].toString());
-//		
+		
+		assertEquals("219.0",dao.getNumOfToursAndTotalPricePerMonthForAllTourOperator("01/07/2010","01/10/2010").get(0)[4].toString());
+		// test getListedToursPerMonthByOperatorID(int operatorID, String fromDate, String toDate)
+		assertEquals(14,dao.getListedToursPerMonthByOperatorID(03, "01/05/2010", "01/12/2010").size());
 
 	}
 
