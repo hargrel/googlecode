@@ -2,6 +2,8 @@ package edu.itee.antipodes.domain.db;
 
 import java.io.Serializable;
 import java.util.Date;
+import edu.itee.antipodes.service.UtilityManager;
+
 /**
  * A persistence class that stores tour dates from the TourDate table in DB.
  *
@@ -13,6 +15,11 @@ public class TourDate implements Serializable{
 	private Date finishDate;
 	private int tourID;
 	private Tour tour;
+	private String startDateString;
+	private String finishDateString;
+	private String pattern = "dd/MM/yyyy";
+	
+	UtilityManager um = new UtilityManager();
 	
 	public int getDateID(){
 		return dateID;
@@ -30,7 +37,6 @@ public class TourDate implements Serializable{
 	public Date getFinishDate() {
 		return finishDate;
 	}
-	
 	public void setFinishDate(Date finishDate) {
 		this.finishDate = finishDate;
 	}
@@ -46,7 +52,15 @@ public class TourDate implements Serializable{
 	public void setTour(Tour tour) {
 		this.tour = tour;
 	}
-	
+	public String getStartDateString() {
+		startDateString = um.dateToString(startDate, pattern);
+		return startDateString;
+	}
+	public String getFinishDateString() {
+		finishDateString = um.dateToString(finishDate, pattern);
+		return finishDateString;
+	}
+
 	@Override
 	public String toString() {
 		return "TourDate [dateID=" + dateID + ", finishDate=" + finishDate + ", startDate="

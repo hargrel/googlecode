@@ -2,47 +2,33 @@ package edu.itee.antipodes.web.customer;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import edu.itee.antipodes.domain.db.Tour;
-import edu.itee.antipodes.service.TourManager;
+import edu.itee.antipodes.domain.db.*;
+import edu.itee.antipodes.service.*;
 
 @Controller
-@RequestMapping("/companyInfo.html")	// added line
+@RequestMapping("/companyInfo.html")
 public class companyInfoController {
 
-	// ------------------ removed ---------------------------------------------//
-//	@RequestMapping("/companyInfo.html")
-//	public String redirect()
-//	{
-//		return "companyInfo";
-//	}
-	// ------------------ removed ---------------------------------------------//
+  	private CustomerManager cm = new SimpleCustomerManager();
 	
-	// ------------------ added ---------------------------------------------//
 	@RequestMapping(method = RequestMethod.GET)
-	public String showInventory(Model model) {
-		List<Tour> tours = tourManager.getTours();
-		model.addAttribute("tours", tours);
+	public String showUserForm(Model model) {
 		return "companyInfo";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String deleteTour(@RequestParam("tourID") int tourID, Model model) {
-		tourManager.dropTourByID(tourID);
-		List<Tour> tours = tourManager.getTours();
-		model.addAttribute("tours", tours);
+	public String showInventory(Model model,
+			@RequestParam("operatorID") int operatorID) {
+		List<ListedTour> listedTours = cm.getListedToursByOpID(operatorID);
+		model.addAttribute("listedTours", listedTours);
 		return "companyInfo";
 	}
-	
-  	@Autowired
-  	TourManager tourManager;	
-	// ------------------ added ---------------------------------------------//
 }
 
 

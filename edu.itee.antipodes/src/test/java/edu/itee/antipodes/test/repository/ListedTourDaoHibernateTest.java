@@ -7,8 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import edu.itee.antipodes.domain.*;
+import edu.itee.antipodes.service.UtilityManager;
 import edu.itee.antipodes.domain.db.ListedTour;
 import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.domain.db.TourOperator;
@@ -29,6 +28,8 @@ public class ListedTourDaoHibernateTest extends TestCase {
 	private TourOperator op = null;
 	private Tour tour = null;
 	
+	UtilityManager um = new UtilityManager();
+	
 	@Before
 	public void setUp() throws Exception {
 		String[] paths = {"edu/itee/antipodes/repository/hibernate-cfg.xml"};
@@ -46,13 +47,6 @@ public class ListedTourDaoHibernateTest extends TestCase {
         dao2 = null;
 	}
 
-	// repeated code
-	public String dateToString(Date date, String pattern) {
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-		String myDate = simpleDateFormat.format(date);
-		return myDate;
-	} 	
-	
 	@Test
 	public void testAddListedTour() throws Exception {
 		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
@@ -66,8 +60,8 @@ public class ListedTourDaoHibernateTest extends TestCase {
 		
 		dao.addListedTour(listedTour);
 		assertNotNull(dao.getListedTourByID(5));
-		assertEquals(3, dao.getListedTourByID(5).getOperator().getOperatorID());
-		assertEquals(1, dao.getListedTourByID(5).getTour().getTourID());
+		assertEquals(4, dao.getListedTourByID(5).getOperator().getOperatorID());
+		assertEquals(4, dao.getListedTourByID(5).getTour().getTourID());
 	
 		assertNotNull(dao.getListedTourList());
 		assertNotNull(dao.getListedTourByID(1));
@@ -76,11 +70,16 @@ public class ListedTourDaoHibernateTest extends TestCase {
 		listedTour = dao.getListedTourByID(5);
 		listedTour.setListedTo(dateTo);
 		dao.saveListedTour(listedTour);
-		assertEquals("21/12/2010", dateToString(dao.getListedTourByID(5).getListedTo(), "dd/MM/yyyy"));
+		assertEquals("21/12/2010", um.dateToString(dao.getListedTourByID(5).getListedTo(), "dd/MM/yyyy"));
 
 		listedTour = dao.getListedTourByID(3);
 		dao.dropListedTour(listedTour);
 		assertNull(dao.getListedTourByID(3));		
+
+		// extra
+		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
+		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
+		assertEquals(3, dao.getListedToursByOpID(3).size());
 	}
 }
 

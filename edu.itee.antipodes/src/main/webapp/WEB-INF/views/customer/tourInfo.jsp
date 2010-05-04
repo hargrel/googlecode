@@ -9,37 +9,40 @@
 </head>
 
 <body onunload="GUnload()">
-<!--  
-<h2>[TourName]<c:out value="${tour.tourName}" /></h2>
--->
-<h2><c:out value="${tour.tourName}" /></h2>
+<h2><c:out value="${listedTour.tour.tourName}" /></h2>
 <table border="0" align="center" width=100% style="border-collapse:collapse">
 	<tr>
-		<td rowspan="5" valign="top" width=35% ><div id="map_canvas" style="width: 500px; height: 300px; margin-right:20px"></div></td>
-		<td valign="top"><h4>Price: <c:out value="${tour.price}" /></h4></td>
+		<td rowspan="5" valign="top" width=35% ><div id="map_canvas" style="width: 400px; height: 300px; margin-right:20px"></div></td>
+		<td valign="top"><h4>Price: <c:out value="${listedTour.tour.price}" /></h4></td>
 	</tr>
-	<!--  
+	<!-- not working for multiple dates -->
+	<c:forEach items="${listedTour.tour.tourDates}" var="tourDate">
+		<tr>
+			<td valign="top"><h4>Start Date: <c:out value="${tourDate.startDate}" /></h4></td>
+		</tr>
+		<tr>
+			<td valign="top"><h4>Finish Date: <c:out value="${tourDate.finishDate}" /></h4></td>
+		</tr>
+	</c:forEach>
 	<tr>
-		<td valign="top"><h4>Tour Operator: <c:out value="${TourOperator.operatorName}" /></h4></td>
+		<td valign="top">
+			<h4>Tour Operator: <c:out value="${listedTour.operator.operatorName}" /></h4>
+			<form style="margin:0px; padding:0px;" name="company info_${listedTour.operator.operatorID}" 
+				action="companyInfo.html" method="post">
+				<input type="hidden" name="operatorID" value="${listedTour.operator.operatorID}" />
+			</form>
+			<a href="#" style="color: blue;" 
+				onclick="document['company info_${listedTour.operator.operatorID}'].submit()">company info</a>
+		</td>
 	</tr>
-	-->
-	<!--  
-	<tr>
-		<td valign="top"><h4>Available dates: <c:out value="${TourDate.startDate}" /></h4></td>
-	</tr>
-	-->
-	<tr>
-  		<td valign="top"><h4>Duration: <c:out value="${tour.totalDays}" /></h4></td>
-  	</tr>
-  	
 	<tr>
 		<td><input type="button" value="Contact Tour Operator" onClick="window.location.href='<c:url value="contactTourOperator.html"/>'"/></td>
 	</tr>
 </table>
 
 <h3>Tour Description:</h3>
-<h4><c:out value="${tour.tourDesc}" /></h4>
-<!--
+<h4><c:out value="${listedTour.tour.tourDesc}" /></h4>
+
 <p>The best framed views of Lake Wakatipu can be experienced on an interpretive guided tour using flying foxes as low impact adventure access. 
 Join us on a series of lines that traverse the forest in a way that will never be forgotten. 
 This tour is perfect for families, groups and those who have never ziplined before.
@@ -48,7 +51,6 @@ Ride up the Skyline Gondola and then glide through the treetops on a series of f
 Your experienced Guides will deliver an interpretive tour as you "Zzziiiiiip" from tree to tree. 
 Breath in some pristine mountain air as you venture on a carefully crafted journey that combines exhilaration, adventure, and ecological exploration.
 </p>
--->
 
 <script type="text/javascript" src="js/polylines.js"></script>
 </body>

@@ -16,8 +16,7 @@ public class TourDaoHibernate extends HibernateDaoSupport implements TourDao {
 	
 	@SuppressWarnings("unchecked")
 	public List<Tour> getTourList() throws HibernateException{
-		//return (List<Tour>)getHibernateTemplate().find("from Tour");
-		return (List<Tour>)getHibernateTemplate().find("from Tour where totalDays < 5");
+		return (List<Tour>)getHibernateTemplate().find("from Tour");
 	}
 	
 	public Tour getTourByID(int id){

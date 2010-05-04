@@ -11,6 +11,8 @@ public interface ListedTourDao {
 	
 	public List<ListedTour> getListedTourList();
 
+	public List<ListedTour> getListedToursByOpID(int id);
+	
 	public ListedTour getListedTourByID(int id);
 	
 	public void saveListedTour(ListedTour listedTour);

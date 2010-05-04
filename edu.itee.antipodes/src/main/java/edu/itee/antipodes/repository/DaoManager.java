@@ -10,6 +10,18 @@ public class DaoManager {
 	public static TourOperatorDao getTourOperatorDao() {
         return (TourOperatorDaoHibernate) ctx.getBean("tourOperatorDao");
 	}
+
+	public static ListedTourDaoHibernate getListedTourDao() {
+        return (ListedTourDaoHibernate) ctx.getBean("listedTourDao");
+	}
+
+	public static TourDaoHibernate getTourDao() {
+        return (TourDaoHibernate) ctx.getBean("tourDao");
+	}
+	
+	public static CustomerSearchDaoHibernate getTourSearchDao() {
+        return (CustomerSearchDaoHibernate) ctx.getBean("customerSearchDao");
+	}
 	
 	public static LocationDao getLocationDao() {
 		return (LocationDaoHibernate) ctx.getBean("locationDao");
@@ -27,3 +39,4 @@ public class DaoManager {
 		return (AccountUserDao) ctx.getBean("accountUserDao");
 	}
 }
+

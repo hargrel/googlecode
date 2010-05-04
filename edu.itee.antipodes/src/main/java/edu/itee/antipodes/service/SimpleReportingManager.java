@@ -59,7 +59,7 @@ public class SimpleReportingManager implements ReportingManager {
 		return model;
 	}
 
-	@Override
+	//@Override
 	public Map<String, Object> getDetectingAbuse(int numberOfCriterias) {
 		UniversalBean ub;
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -91,7 +91,7 @@ public class SimpleReportingManager implements ReportingManager {
 		return model;
 	}
 
-	@Override
+	//@Override
 	public Map<String, Object> getMonitoringSearchCriteriaUtilisation(
 			String criteria) {
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -143,7 +143,7 @@ public class SimpleReportingManager implements ReportingManager {
 		return model;
 	}
 
-	@Override
+	//@Override
 	public Map<String, Object> getMonitoringSystemUtilisation(Date startDate,
 			Date endDate) {
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -154,7 +154,7 @@ public class SimpleReportingManager implements ReportingManager {
 		return "Hilsbrat hotel company association inc.(R)";
 	}
 
-	@Override
+	//@Override
 	public List<UniversalBean> getCriterias() {
 
 		LocationDao ld = DaoManager.getLocationDao();
@@ -183,7 +183,7 @@ public class SimpleReportingManager implements ReportingManager {
 		return list;
 	}
 
-	@Override
+	//@Override
 	public List<TourOperator> getTourOperators() {
 		return toDao.getTourOperatorList();
 	}

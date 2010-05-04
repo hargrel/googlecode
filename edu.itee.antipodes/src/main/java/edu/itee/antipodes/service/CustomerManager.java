@@ -1,21 +1,19 @@
 package edu.itee.antipodes.service;
 
 import java.io.Serializable;
+import java.text.ParseException;
 import java.util.List;
-
-import edu.itee.antipodes.domain.db.Tour;
+import org.hibernate.HibernateException;
+import org.springframework.dao.DataAccessResourceFailureException;
+import edu.itee.antipodes.domain.db.ListedTour;
 
 public interface CustomerManager extends Serializable {
 	
-	//public List<Tour> searchTours(String parameters);
+	public ListedTour getListedTour(int id);
+	
+	public List<ListedTour> getListedTours();
+	
+	public List<ListedTour> getListedToursByOpID(int id);
 
-	public List<Tour> getTours();
-	
-	public void dropTourByID(int id);
-	
-	public Tour getTourByID(int id);
-	
-	public void updateTour(Tour tour);
-	
-	public void addTour(Tour tour);
+	public List<Object> searchListedTours(String activityName, String locationName, String startDate, String finishDate) throws DataAccessResourceFailureException, HibernateException, IllegalStateException, ParseException;
 }

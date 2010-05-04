@@ -1,34 +1,31 @@
 package edu.itee.antipodes.service;
 
+import java.text.ParseException;
 import java.util.List;
-
-import edu.itee.antipodes.domain.db.Tour;
-import edu.itee.antipodes.repository.TourDaoHibernate;
+import org.hibernate.HibernateException;
+import org.springframework.dao.DataAccessResourceFailureException;
+import edu.itee.antipodes.domain.db.*;
+import edu.itee.antipodes.repository.*;
 
 @SuppressWarnings("serial")
 public class SimpleCustomerManager implements CustomerManager {
 	
-	private TourDaoHibernate tourDao;
-	
-//	public List<Tour> searchTours(String parameters) {
-//		return null;
-//	}
-	public List<Tour> getTours() {
-		return tourDao.getTourList();
+	private ListedTourDaoHibernate listedTourDao = DaoManager.getListedTourDao();
+	private CustomerSearchDaoHibernate tourSearchDao = DaoManager.getTourSearchDao();
+
+	public ListedTour getListedTour(int id) {
+		return listedTourDao.getListedTourByID(id);
+	}	
+	public List<ListedTour> getListedTours() {
+		return listedTourDao.getListedTourList();
 	}
-	public void dropTourByID(int id) {
-		tourDao.dropTour(tourDao.getTourByID(id));
+	public List<ListedTour> getListedToursByOpID(int id) {
+		return listedTourDao.getListedToursByOpID(id);
 	}
-	public Tour getTourByID(int id) {
-		return tourDao.getTourByID(id);
+	public List<Object> searchListedTours(String activityName, String locationName,  
+			String startDate, String finishDate) throws DataAccessResourceFailureException, HibernateException, IllegalStateException, ParseException {
+		//return tourSearchDao.SearchListedTours(activityName, locationName, startDate, finishDate);
+		return tourSearchDao.SearchListedToursV2(activityName, locationName, startDate, finishDate);
 	}
-	public void updateTour(Tour tour) {
-		tourDao.saveTour(tour);
-	}
-	public void addTour(Tour tour) {
-		tourDao.addTour(tour);
-	}
-	public void setTourDao(TourDaoHibernate tourDao) {
-		this.tourDao = tourDao;
-	}
+
 }

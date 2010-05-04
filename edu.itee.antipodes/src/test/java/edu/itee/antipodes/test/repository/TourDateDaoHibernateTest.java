@@ -1,20 +1,16 @@
 package edu.itee.antipodes.test.repository;
 
-import edu.itee.antipodes.domain.*;
 import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.domain.db.TourDate;
 import edu.itee.antipodes.repository.TourDaoHibernate;
 import edu.itee.antipodes.repository.TourDateDaoHibernate;
-
+import edu.itee.antipodes.service.UtilityManager;
 import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Before;
-//import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import java.text.DateFormat;
-//import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -25,6 +21,8 @@ public class TourDateDaoHibernateTest extends TestCase {
 	private TourDaoHibernate tourDao = null;
 	private int tourID;
 	private int tourDateID;
+	
+	UtilityManager um = new UtilityManager();
 	
 	@Before
 	public void setUp() throws Exception {
@@ -42,13 +40,6 @@ public class TourDateDaoHibernateTest extends TestCase {
         tourDao = null;
 	}
 
-	// repeated code
-	public String dateToString(Date date, String pattern) {
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-		String myDate = simpleDateFormat.format(date);
-		return myDate;
-	} 	
-	
 	public void testTourDateCRUD() throws Exception {
 		
 		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
@@ -62,9 +53,6 @@ public class TourDateDaoHibernateTest extends TestCase {
 		tour.setPrice(10.95);
 		tour.setTotalDays(4);
 		tour.setOnDemand(1);
-		//tourDao.addTour(tour);
-		//tourID = tourDao.getTourList().size();
-		//assertEquals("new tour", tourDao.getTourByID(tourID).getTourName());
 		
 		TourDate tourDate = new TourDate();
 		tourDate.setStartDate(startDate);
@@ -74,12 +62,12 @@ public class TourDateDaoHibernateTest extends TestCase {
 		tourDateDao.saveTourDate(tourDate);
 		// addition of tourDate will cascade to addition of tour
 		tourDateID = tourDate.getDateID();
-		assertEquals("11/05/2010", dateToString((tourDateDao.getTourDateByID(
+		assertEquals("11/05/2010", um.dateToString((tourDateDao.getTourDateByID(
 				tourDateID).getStartDate()), "dd/MM/yyyy"));
 		
 		// Retrieve
 		assertNotNull(tourDateDao.getTourDateList());
-		assertEquals("11/12/2010", dateToString(
+		assertEquals("11/12/2010", um.dateToString(
 				tourDateDao.getTourDateByID(tourDateID).getFinishDate(), "dd/MM/yyyy"));
 	
 		// Update
@@ -87,7 +75,7 @@ public class TourDateDaoHibernateTest extends TestCase {
 		tourDate = tourDateDao.getTourDateByID(tourDateID);
 		tourDate.setFinishDate(finishDate);
 		tourDateDao.saveTourDate(tourDate);
-		assertEquals("22/12/2010", dateToString(
+		assertEquals("22/12/2010", um.dateToString(
 				tourDateDao.getTourDateByID(tourDateID).getFinishDate(), "dd/MM/yyyy"));
 		
 		// Delete
