@@ -4,10 +4,11 @@ import java.util.List;
 
 import edu.itee.antipodes.domain.db.AccountUser;
 import edu.itee.antipodes.repository.AccountUserDaoHibernate;
+import edu.itee.antipodes.repository.DaoManager;
 
 public class SimpleAccountManager implements AccountManager {
 	
-	private AccountUserDaoHibernate accountDao;
+	private AccountUserDaoHibernate accountDao = DaoManager.getAccountUserDao();
 
 	public void addAccount(AccountUser account) {
 		accountDao.addAccountUser(account);
@@ -26,5 +27,9 @@ public class SimpleAccountManager implements AccountManager {
 	}
 	public void setAccountDao(AccountUserDaoHibernate accountDao) {
 		this.accountDao = accountDao;
+	}
+	@Override
+	public AccountUser getAccountByUsername(String userName) {
+		return accountDao.getAccountUserByUsername(userName);
 	}
 }

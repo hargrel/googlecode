@@ -10,8 +10,10 @@ public interface AccountManager extends Serializable {
 	public List<AccountUser> getAccounts();
 	
 	public void dropAccountByID(int id);
-	
+
 	public AccountUser getAccountByID(int id);
+
+	public AccountUser getAccountByUsername(String userName);
 	
 	public void updateAccount(AccountUser account);
 	
