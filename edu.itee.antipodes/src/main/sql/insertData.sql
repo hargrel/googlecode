@@ -16,6 +16,13 @@ INSERT INTO AccountUser VALUES (
 	0004, 'user4', ORA_HASH('passsword4'), 'operator'
 );
 
+INSERT INTO AccountUser VALUES (
+	0005, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'operator'
+);
+
+INSERT INTO AccountUser VALUES (
+	0006, 'operator', '4b583376b2767b923c3e1da60d10de59', 'operator'
+);
 -- TourOperator ----------------------------------------------------------------
 
 INSERT INTO TourOperator VALUES (
