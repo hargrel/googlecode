@@ -1,10 +1,16 @@
 package edu.itee.antipodes.domain.db;
 
 import java.io.Serializable;
+import java.util.List;
+
 import org.springmodules.validation.bean.conf.loader.annotation.handler.Length;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.NotBlank;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.NotNull;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.RegExp;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.ValidationMethod;
+
+import edu.itee.antipodes.service.AccountManager;
+import edu.itee.antipodes.service.SimpleAccountManager;
 
 /**
  * A persistence class that stores user login details from the User table in DB. 
@@ -82,4 +88,14 @@ public class AccountUser implements Serializable {
 		return "AccountUser [userID=" + userID + ", password=" + password + ", userType=" + userType
 				+ ", userName=" + userName + "]";
 	}
+	
+	@SuppressWarnings("unused")
+	@ValidationMethod(forProperty = "userName")
+    private boolean compareName() {	
+		AccountManager accManager = new SimpleAccountManager();
+		if(accManager.getAccountByUsername(userName) != null)
+			return false;
+		else
+			return true;
+    }
 }
