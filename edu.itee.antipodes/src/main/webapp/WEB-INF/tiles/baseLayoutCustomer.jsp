@@ -24,9 +24,6 @@
             
             </div>
             <div id="end"></div>
-                <div id="link">
-            		<tiles:insertAttribute name="link" />
-            	</div>
                 <div id="footer1">
                     <tiles:insertAttribute name="footer" />
                 </div>
