@@ -9,8 +9,10 @@ public interface AccountUserDao {
 	public void addAccountUser(AccountUser accUser);	
 	
 	public List<AccountUser> getAccountUserList();
-	
+
 	public AccountUser getAccountUserByID(int id);
+	
+	public AccountUser getAccountUserByUsername(String username);
 	
 	public void saveAccountUser(AccountUser accUser);
 	
