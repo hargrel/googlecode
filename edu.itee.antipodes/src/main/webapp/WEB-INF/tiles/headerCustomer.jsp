@@ -18,13 +18,13 @@
 
 <sec:authorize ifAllGranted="ROLE_OPERATOR">
 <div id="TO">
-<a href="TOhome.html" ></a>
+<a href="<c:url value="/operator/TOhome.html"/>" ></a>
 </div>
 </sec:authorize>
 
 <sec:authorize ifAllGranted="ROLE_ADMIN">
 <div id="Admin">
-<a href="SAhome.html" ></a>
+<a href="<c:url value="/admin/SAhome.html"/>" ></a>
 </div>
 </sec:authorize>
 
