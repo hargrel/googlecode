@@ -16,8 +16,8 @@
 
 
     <security:http auto-config="true" access-denied-page="/accessDenied.html" >
-        <security:intercept-url pattern="/SAhome.html" access="ROLE_ADMIN"/>
-        <security:intercept-url pattern="/TOhome.html" access="ROLE_OPERATOR" />
+        <security:intercept-url pattern="/admin/**" access="ROLE_ADMIN"/>
+        <security:intercept-url pattern="/operator/**" access="ROLE_OPERATOR" />
         <security:form-login login-page='/login.html' authentication-failure-url='/loginFail.html' default-target-url='/redirect.html'/>
         <security:logout logout-success-url='/search.html'/>
         <security:remember-me />
