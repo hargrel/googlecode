@@ -1,10 +1,8 @@
 package edu.itee.antipodes.repository;
 
 import java.text.ParseException;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.springframework.dao.DataAccessResourceFailureException;

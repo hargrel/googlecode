@@ -5,6 +5,7 @@ import java.util.List;
 import edu.itee.antipodes.domain.db.*;
 import edu.itee.antipodes.repository.*;
 
+@SuppressWarnings("serial")
 public class ExampleTourManager implements TourManager {
 	
 	private TourDaoHibernate tourDao;

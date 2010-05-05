@@ -10,8 +10,8 @@ import java.util.List;
 import org.hibernate.Query;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import edu.itee.antipodes.domain.db.MonthlyFee;
 
+@SuppressWarnings("unchecked")
 public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterable{
 	Object[] tuple=null;
 	/*

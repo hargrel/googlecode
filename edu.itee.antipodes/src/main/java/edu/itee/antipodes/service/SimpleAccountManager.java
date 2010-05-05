@@ -6,6 +6,7 @@ import edu.itee.antipodes.domain.db.AccountUser;
 import edu.itee.antipodes.repository.AccountUserDaoHibernate;
 import edu.itee.antipodes.repository.DaoManager;
 
+@SuppressWarnings("serial")
 public class SimpleAccountManager implements AccountManager {
 	
 	private AccountUserDaoHibernate accountDao = DaoManager.getAccountUserDao();

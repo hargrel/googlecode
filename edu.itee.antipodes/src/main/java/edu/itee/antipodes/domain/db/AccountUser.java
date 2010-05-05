@@ -1,7 +1,6 @@
 package edu.itee.antipodes.domain.db;
 
 import java.io.Serializable;
-import java.util.List;
 
 import org.springmodules.validation.bean.conf.loader.annotation.handler.Length;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.NotBlank;

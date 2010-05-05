@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import edu.itee.antipodes.domain.*;
 import edu.itee.antipodes.domain.db.ListedTour;
 
 public class ListedTourDaoHibernate extends HibernateDaoSupport implements ListedTourDao {

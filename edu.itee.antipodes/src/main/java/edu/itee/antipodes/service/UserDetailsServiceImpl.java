@@ -3,7 +3,6 @@ package edu.itee.antipodes.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.GrantedAuthority;
 import org.springframework.security.GrantedAuthorityImpl;
 import org.springframework.security.userdetails.*;
@@ -11,8 +10,6 @@ import org.springframework.stereotype.Service;
 
 
 import edu.itee.antipodes.domain.db.AccountUser;
-import edu.itee.antipodes.repository.AccountUserDao;
-import edu.itee.antipodes.repository.DaoManager;
 import edu.itee.antipodes.service.AccountManager;
 
 @Service("userDetailsService") 

@@ -9,7 +9,6 @@ import org.springframework.web.servlet.HttpServletBean;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -23,7 +22,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.domain.pages.AlignTour;
 import edu.itee.antipodes.service.TourManager;
 

@@ -2,7 +2,6 @@ package edu.itee.antipodes.repository;
 
 import java.util.List;
 
-import edu.itee.antipodes.domain.*;
 import edu.itee.antipodes.domain.db.ListedTour;
 
 public interface ListedTourDao {

@@ -1,9 +1,7 @@
 package edu.itee.antipodes.repository;
 
 import java.util.List;
-import java.util.Set;
 import org.hibernate.HibernateException;
-import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.*;
 import edu.itee.antipodes.domain.db.*;
 
