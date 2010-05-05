@@ -199,7 +199,7 @@
 		<put-attribute name="body" value="/WEB-INF/views/security/login.jsp"/>
 	</definition>
 	
-	<definition name="accessDenied" extends="baseLayoutGeneral">
+	<definition name="accessDenied" extends="baseLayoutCustomer">
 		<put-attribute name="body" value="/WEB-INF/views/security/accessDenied.jsp"/>
 	</definition>
 	

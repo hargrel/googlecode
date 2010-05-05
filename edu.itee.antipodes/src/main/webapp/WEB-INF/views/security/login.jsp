@@ -1,6 +1,8 @@
 <%@ include file="/WEB-INF/views/include.jsp" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,6 +11,7 @@
 </head>
 <body onload='document.f.j_username.focus();'>
 <h2>Login</h2>
+<sec:authorize ifAllGranted="ROLE_ANONYMOUS">
 <form name='f' action='j_spring_security_check' method='POST'>
 
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
@@ -33,6 +36,9 @@
 
 </table>
 </form>
-
+</sec:authorize>
+<sec:authorize ifAllGranted="ROLE_OPERATOR">
+<p><font color='red'>You are already logged in as <sec:authentication property="principal.username" /></font></p>
+</sec:authorize>
 </body>
 </html>
