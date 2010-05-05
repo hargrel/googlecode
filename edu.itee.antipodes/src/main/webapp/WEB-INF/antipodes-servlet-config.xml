@@ -32,12 +32,7 @@
 	
 	<!-- <bean id="accountValidator" class="edu.itee.antipodes.domain.pages" /> -->
 	
-<!-- Set up accounts -->
-	<bean id="accDao" class="edu.itee.antipodes.web.AccountsStub"/>
 
-    <bean id="seedData" class="edu.itee.antipodes.web.SeedData">
-        <property name="accDao" ref="accDao"/>
-    </bean>	
 
 <!-- Wirings for the beans written in traditional spring XML (no annotations) 
 	
