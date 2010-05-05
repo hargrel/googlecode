@@ -41,34 +41,36 @@ public class ReportingDaoHibernateTest extends TestCase {
 	@Test
 	public void testSearch() throws DataAccessResourceFailureException,
 			HibernateException, IllegalStateException, ParseException {
-//		//test getNumToursAsscWithActivityByActivityID(int id)
-//		assertEquals("1",dao.getNumToursAsscWithActivityByActivityID(1).get(0)[1].toString());
-//		assertEquals("3",dao.getNumToursAsscWithActivityByActivityID(4).get(0)[1].toString());
-//		
-//		//test getNumToursAsscWithLocationByLocationID(int id)
-//		assertEquals("1",dao.getNumToursAsscWithLocationByLocationID(1).get(0)[1].toString());
-//		assertEquals("3",dao.getNumToursAsscWithLocationByLocationID(4).get(0)[1].toString());
-//
-//		//test getSumOfActivitiesForToursByMinNum(int minNum)
-//		assertEquals("Tour [price=1899.95, totalDays=2, tourDesc=The most " +
-//				"electrifying rock in world entertainment., tourID=4, " +
-//				"tourName=The Rock]",
-//				dao.getSumOfActivitiesAndLocationsForToursByMinNum(3).
-//				get(1)[0].toString());
-//		assertEquals("3",dao.getSumOfActivitiesAndLocationsForToursByMinNum(3).
-//				get(1)[1].toString());
-		//test getNumToursAsscWithActivity
-//		assertNotNull(dao.getNumToursAsscWithActivity());
-//		assertEquals(4,dao.getNumToursAsscWithActivity().size());
-		//test getNumToursAsscWithLocation
-//		assertNotNull(dao.getNumToursAsscWithLocation());
-//		assertEquals(3,dao.getNumToursAsscWithLocation().size());
-		//test getNumOfToursAndTotalPricePerMonthForAllTourOperator(int operatorID)
+		//test getNumToursAsscWithActivityByActivityID(int id)
+		assertEquals("1",dao.getNumToursAsscWithActivityByActivityID(1).get(0)[1].toString());
+		assertEquals("3",dao.getNumToursAsscWithActivityByActivityID(4).get(0)[1].toString());
 		
-		assertEquals("219.0",dao.getNumOfToursAndTotalPricePerMonthForAllTourOperator("01/07/2010","01/10/2010").get(0)[4].toString());
-		// test getListedToursPerMonthByOperatorID(int operatorID, String fromDate, String toDate)
-		assertEquals(14,dao.getListedToursPerMonthByOperatorID(03, "01/05/2010", "01/12/2010").size());
+		//test getNumToursAsscWithLocationByLocationID(int id)
+		assertEquals("1",dao.getNumToursAsscWithLocationByLocationID(1).get(0)[1].toString());
+		assertEquals("3",dao.getNumToursAsscWithLocationByLocationID(4).get(0)[1].toString());
 
+		//test getSumOfActivitiesForToursByMinNum(int minNum)
+		assertEquals("Tour [price=1899.95, totalDays=2, tourDesc=The most " +
+				"electrifying rock in world entertainment., tourID=4, " +
+				"tourName=The Rock]",
+				dao.getSumOfActivitiesAndLocationsForToursByMinNum(3).
+				get(1)[0].toString());
+		assertEquals("3",dao.getSumOfActivitiesAndLocationsForToursByMinNum(3).
+				get(1)[1].toString());
+		//test getNumToursAsscWithActivity
+		assertNotNull(dao.getNumToursAsscWithActivity());
+		assertEquals(4,dao.getNumToursAsscWithActivity().size());
+		//test getNumToursAsscWithLocation
+		assertNotNull(dao.getNumToursAsscWithLocation());
+		assertEquals(3,dao.getNumToursAsscWithLocation().size());
+		//test getNumOfToursAndTotalPricePerMonthForAllTourOperator(int operatorID)
+		assertEquals(10,dao.getNumOfToursAndTotalPricePerMonthForAllTourOperator("05/05/2010", "02/11/2010").size());
+		assertEquals("223.0",dao.getNumOfToursAndTotalPricePerMonthForAllTourOperator("05/05/2010","02/11/2010").get(0)[4].toString());
+		// test getListedToursPerMonthByOperatorID(int operatorID, String fromDate, String toDate)
+		assertEquals(10,dao.getListedToursPerMonthByOperatorID(03, "05/05/2010", "02/11/2010").size());
+		assertEquals("111.5",dao.getListedToursPerMonthByOperatorID(03, "05/05/2010", "02/11/2010").get(1)[2].toString());
+
+		
 	}
 
 }
