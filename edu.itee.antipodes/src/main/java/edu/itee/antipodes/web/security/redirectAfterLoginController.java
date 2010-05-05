@@ -23,9 +23,9 @@ public class redirectAfterLoginController {
 			return "redirect";
 		AccountManager accountManager = new SimpleAccountManager();
 		if(accountManager.getAccountByUsername(username).getUserType().equalsIgnoreCase("admin"))
-			return new RedirectView("SAhome.html");
+			return new RedirectView("admin/SAhome.html");
 		else if(accountManager.getAccountByUsername(username).getUserType().equalsIgnoreCase("operator"))
-			return new RedirectView("TOhome.html");
+			return new RedirectView("operator/TOhome.html");
 		return "search";
 	}
 }

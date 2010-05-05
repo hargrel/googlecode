@@ -13,7 +13,7 @@ import edu.itee.antipodes.service.SimpleSystemAdminManager;
 import edu.itee.antipodes.service.SystemAdminManager;
 
 @Controller
-@RequestMapping("/globalListActivity.html")
+@RequestMapping("/admin/globalListActivity.html")
 public class globalListActivityController {
 	
 	SystemAdminManager sam = new SimpleSystemAdminManager();

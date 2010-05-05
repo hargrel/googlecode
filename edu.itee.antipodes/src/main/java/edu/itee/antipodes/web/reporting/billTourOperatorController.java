@@ -25,7 +25,7 @@ import edu.itee.antipodes.service.ReportingManager;
 import edu.itee.antipodes.service.SimpleReportingManager;
 
 @Controller
-@RequestMapping("/billTourOperator.html")
+@RequestMapping("/admin/billTourOperator.html")
 public class billTourOperatorController {
 	@Autowired
 	private Validator validator;

@@ -13,7 +13,7 @@ import edu.itee.antipodes.domain.db.AccountUser;
 import edu.itee.antipodes.service.AccountManager;
 
 @Controller
-@RequestMapping("/feeList.html")
+@RequestMapping("/admin/feeList.html")
 public class feeListController {
 
 	

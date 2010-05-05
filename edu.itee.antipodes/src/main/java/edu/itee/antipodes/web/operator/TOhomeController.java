@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class TOhomeController {
 
-	@RequestMapping("/TOhome.html")
+	@RequestMapping("/operator/TOhome.html")
 	public String redirect()
 	{
 		return "TOhome";

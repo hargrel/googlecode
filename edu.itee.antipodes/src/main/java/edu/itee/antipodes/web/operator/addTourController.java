@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import edu.itee.antipodes.domain.db.Tour;
 
 @Controller
-@RequestMapping("/addTour.html")
+@RequestMapping("/operator/addTour.html")
 public final class addTourController {
 	
 	@Autowired

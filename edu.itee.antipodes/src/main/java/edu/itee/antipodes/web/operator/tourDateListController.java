@@ -13,7 +13,7 @@ import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.service.TourManager;
 
 @Controller
-@RequestMapping("/tourDateList.html")
+@RequestMapping("/operator/tourDateList.html")
 public class tourDateListController {
 	
 	@RequestMapping(method = RequestMethod.GET)

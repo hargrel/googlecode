@@ -15,7 +15,7 @@ import edu.itee.antipodes.service.SimpleSystemAdminManager;
 import edu.itee.antipodes.service.SystemAdminManager;
 
 @Controller
-@RequestMapping("/globalListLocation.html")
+@RequestMapping("/admin/globalListLocation.html")
 public class globalListLocationController {
 
 	SystemAdminManager sam = new SimpleSystemAdminManager();

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class SAhomeController {
 
-	@RequestMapping("/SAhome.html")
+	@RequestMapping("/admin/SAhome.html")
 	public String redirect()
 	{
 		return "SAhome";

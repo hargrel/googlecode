@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import edu.itee.antipodes.domain.db.TourOperator;
 
 @Controller
-@RequestMapping("/editCompanyInfo.html")
+@RequestMapping("/operator/editCompanyInfo.html")
 public final class editCompanyInfoController {
 	
 	@Autowired

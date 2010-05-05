@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class produceReportController {
 
-	@RequestMapping("/produceReport.html")
+	@RequestMapping("/admin/produceReport.html")
 	public String redirect()
 	{
 		return "produceReport";

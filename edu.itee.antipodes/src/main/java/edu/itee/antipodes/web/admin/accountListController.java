@@ -13,7 +13,7 @@ import edu.itee.antipodes.domain.db.AccountUser;
 import edu.itee.antipodes.service.AccountManager;
 
 @Controller
-@RequestMapping("/accountList.html")
+@RequestMapping("/admin/accountList.html")
 public class accountListController {
 
 	

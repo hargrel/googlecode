@@ -17,7 +17,7 @@ import edu.itee.antipodes.service.ReportingManager;
 import edu.itee.antipodes.service.SimpleReportingManager;
 
 @Controller
-@RequestMapping("/monitorSearchCriteriaUtil.html")
+@RequestMapping("/admin/monitorSearchCriteriaUtil.html")
 public class monitorSearchCriteriaUtilController {
 	@Autowired
 	private Validator validator;

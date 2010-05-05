@@ -17,7 +17,7 @@ import edu.itee.antipodes.service.ReportingManager;
 import edu.itee.antipodes.service.SimpleReportingManager;
 
 @Controller
-@RequestMapping("/detectAbuse.html")
+@RequestMapping("/admin/detectAbuse.html")
 public class detectAbuseController {
 	@Autowired
 	private Validator validator;

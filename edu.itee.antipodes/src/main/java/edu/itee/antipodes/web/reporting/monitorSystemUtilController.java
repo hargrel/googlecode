@@ -25,7 +25,7 @@ import edu.itee.antipodes.service.ReportingManager;
 import edu.itee.antipodes.service.SimpleReportingManager;
 
 @Controller
-@RequestMapping("/monitorSystemUtil.html")
+@RequestMapping("/admin/monitorSystemUtil.html")
 public class monitorSystemUtilController {
 	@Autowired
 	private Validator validator;

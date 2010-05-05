@@ -18,7 +18,7 @@ import edu.itee.antipodes.service.SimpleSystemAdminManager;
 import edu.itee.antipodes.service.SystemAdminManager;
 
 @Controller
-@RequestMapping("/editGlobalListLocation.html")
+@RequestMapping("/admin/editGlobalListLocation.html")
 public final class editGlobalListLocationController {
 
 	@Autowired

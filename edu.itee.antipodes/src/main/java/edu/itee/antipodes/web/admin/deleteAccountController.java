@@ -13,7 +13,7 @@ import edu.itee.antipodes.domain.db.AccountUser;
 import edu.itee.antipodes.service.AccountManager;
 
 @Controller
-@RequestMapping("/deleteAccount.html")
+@RequestMapping("/admin/deleteAccount.html")
 public class deleteAccountController {
 	
 	

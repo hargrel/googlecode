@@ -28,7 +28,7 @@ import edu.itee.antipodes.domain.pages.AlignTour;
 import edu.itee.antipodes.service.TourManager;
 
 @Controller
-@RequestMapping("/alignTour.html")
+@RequestMapping("/operator/alignTour.html")
 public class alignTourController {
 	
 	@Autowired

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import edu.itee.antipodes.domain.db.MonthlyFee;
 
 @Controller
-@RequestMapping("/manageFee.html")
+@RequestMapping("/admin/manageFee.html")
 public final class manageFeeController {
 	
 	@Autowired

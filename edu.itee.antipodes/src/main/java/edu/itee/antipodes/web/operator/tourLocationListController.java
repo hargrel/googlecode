@@ -13,7 +13,7 @@ import edu.itee.antipodes.service.SimpleSystemAdminManager;
 import edu.itee.antipodes.service.SystemAdminManager;
 
 @Controller
-@RequestMapping("/tourLocationList.html")
+@RequestMapping("/operator/tourLocationList.html")
 public class tourLocationListController {
 
 	SystemAdminManager sam = new SimpleSystemAdminManager();

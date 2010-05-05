@@ -16,7 +16,7 @@ import edu.itee.antipodes.service.AccountManager;
 import edu.itee.antipodes.service.PasswordHash;
 
 @Controller
-@RequestMapping("/addAccount.html")
+@RequestMapping("/admin/addAccount.html")
 public final class addAccountController {
 	
 	@Autowired
