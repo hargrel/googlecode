@@ -5,13 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<link type="text/css" href="css/smoothness/jquery-ui-1.7.2.custom.css" rel="stylesheet" />
+<link type="text/css" href="<c:url value="/css/smoothness/jquery-ui-1.7.2.custom.css"/>" rel="stylesheet" />
 		<style>
 			.form-error-field { background-color: #FFC; }
 			.form-error-message { font-weight: bold; color: #900; font-size: 10px; }
 		</style>
-<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.7.2.custom.min.js"></script>
+<script type="text/javascript" src="<c:url value="/js/jquery-1.3.2.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/jquery-ui-1.7.2.custom.min.js"/>"></script>
 <script type="text/javascript">
 	$(function() {
 		$("#datepicker_from,#datepicker_to").datepicker({minDate:0,
@@ -29,7 +29,7 @@
 	});
 </script>
 <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAQlV1b2FPUM74rst4A4cFzxT2yXp_ZAY8_ufC3CFXhHIE1NvwkxQSgLSOP2XkswKd7txk3wHZjh27CA&sensor=false" type="text/javascript"></script>
-<script type="text/javascript" src="js/search.js"></script>
+<script type="text/javascript" src="<c:url value="/js/search.js"/>"></script>
 </head>
 
 <body onload="initialize()" onunload="GUnload()">

@@ -10,9 +10,9 @@
 			.form-error-field { background-color: #FFC; }
 			.form-error-message { font-weight: bold; color: #900; font-size: 10px; }
 		</style>
-<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
-<script type="text/javascript" src="js/tiny_mce/jquery.tinymce.js"></script>
-<script type="text/javascript" src="js/editor.js"></script>
+<script type="text/javascript" src="<c:url value="/js/jquery-1.3.2.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/tiny_mce/jquery.tinymce.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/editor.js"/>"></script>
 </head>
 <body>
 

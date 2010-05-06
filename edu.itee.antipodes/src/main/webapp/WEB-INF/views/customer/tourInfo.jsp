@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAQlV1b2FPUM74rst4A4cFzxT2yXp_ZAY8_ufC3CFXhHIE1NvwkxQSgLSOP2XkswKd7txk3wHZjh27CA&sensor=false" type="text/javascript"></script>
-<script type="text/javascript" src="js/polylines.js"></script>
+<script type="text/javascript" src="<c:url value="/js/polylines.js"/>"></script>
 </head>
 
 <body onunload="GUnload()">
@@ -52,6 +52,6 @@ Your experienced Guides will deliver an interpretive tour as you "Zzziiiiiip" fr
 Breath in some pristine mountain air as you venture on a carefully crafted journey that combines exhilaration, adventure, and ecological exploration.
 </p>
 
-<script type="text/javascript" src="js/polylines.js"></script>
+<script type="text/javascript" src="<c:url value="/js/polylines.js"/>"></script>
 </body>
 </html>
