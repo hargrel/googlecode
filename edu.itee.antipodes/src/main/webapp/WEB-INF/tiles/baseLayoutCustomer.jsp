@@ -24,7 +24,7 @@
             
             </div>
             <div id="end"></div>
-                <div id="footer1">
+                <div id="footer">
                     <tiles:insertAttribute name="footer" />
                 </div>
 

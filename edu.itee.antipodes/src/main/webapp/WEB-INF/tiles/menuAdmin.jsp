@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <html>
 
@@ -35,7 +36,10 @@
                 <li><a href="<c:url value="detectAbuse.html"/>"><span>Detecting Abuse</span></a></li>
             </ul></div>
         </li>
+        <sec:authorize ifAllGranted="ROLE_OPERATOR">   
         <li class="last"><a href="<c:url value="/j_spring_security_logout"/>"><span><img src="<c:url value="/img/Logout-icon.png"/>">Logout</span></a></li>
+        <li class="log"><a><span>Logged in as <font color='blue'><sec:authentication property="principal.username" /></font></span></a></li>
+        </sec:authorize>
     </ul>
 </div>
 </body>

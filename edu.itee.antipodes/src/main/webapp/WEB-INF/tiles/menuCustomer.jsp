@@ -16,8 +16,8 @@
         <li><a href="<c:url value="/tourInfo.html"/>"><span><img src="<c:url value="/img/Tour-icon.png"/>">Tour Info</span></a></li>
         <li><a href="<c:url value="/companyInfo.html"/>"><span><img src="<c:url value="/img/Tour-icon.png"/>">Company Info</span></a></li>
         <sec:authorize ifAllGranted="ROLE_OPERATOR">   
-        <li class="last"><a href="j_spring_security_logout"><span><img src="<c:url value="/img/Logout-icon.png"/>">Logout</span></a></li>
-        <li class="log"><a><span>You are currently logged in as <font color='blue'><sec:authentication property="principal.username" /></font></span></a></li>
+        <li class="last"><a href="<c:url value="/j_spring_security_logout"/>"><span><img src="<c:url value="/img/Logout-icon.png"/>">Logout</span></a></li>
+        <li class="log"><a><span>Logged in as <font color='blue'><sec:authentication property="principal.username" /></font></span></a></li>
         </sec:authorize>
     </ul>
 </div>
