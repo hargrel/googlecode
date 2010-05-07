@@ -93,6 +93,9 @@
 	    </java>
 	</target>
 	
+	<target name="full deploy" depends="build,copymetafiles,compile-reports,deploy">
+	</target>
+	
 	<target name="deploy" depends="build" description="Deploy application">
 		<copy todir="${deploy.path}/${name}" preservelastmodified="true">
 			<fileset dir="${web.dir}">
