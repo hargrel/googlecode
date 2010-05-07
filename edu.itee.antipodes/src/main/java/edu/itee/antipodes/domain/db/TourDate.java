@@ -2,6 +2,9 @@ package edu.itee.antipodes.domain.db;
 
 import java.io.Serializable;
 import java.util.Date;
+
+import org.springmodules.validation.bean.conf.loader.annotation.handler.ValidationMethod;
+
 import edu.itee.antipodes.service.UtilityManager;
 
 /**
@@ -66,4 +69,14 @@ public class TourDate implements Serializable{
 		return "TourDate [dateID=" + dateID + ", finishDate=" + finishDate + ", startDate="
 				+ startDate + ", tourID=" + tourID + "]";
 	}
+	
+	@SuppressWarnings("unused")
+	@ValidationMethod(forProperty = "startDate")
+    private boolean compareDate() {	
+		if (startDate == null || finishDate == null)
+		{
+			return false;
+		}
+		return startDate.before(finishDate) || startDate.equals(finishDate);
+    }
 }

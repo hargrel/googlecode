@@ -15,7 +15,7 @@
 <script type="text/javascript" src="<c:url value="/js/jquery-ui-1.7.2.custom.min.js"/>"></script>
 <script type="text/javascript">
 	$(function() {
-		$("#datepicker_from,#datepicker_to").datepicker({onSelect: restrictDates, changeMonth: true, changeYear: true, dateFormat: 'dd-M-y'});
+		$("#datepicker_from,#datepicker_to").datepicker({onSelect: restrictDates, changeMonth: true, changeYear: true, dateFormat: 'dd/mm/yy'});
 		
 		function restrictDates(dateStr) {
 		    if (this.id == 'datepicker_from') {

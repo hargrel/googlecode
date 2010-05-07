@@ -11,8 +11,10 @@
 			.form-error-message { font-weight: bold; color: #900; font-size: 10px; }
 		</style>
 <link type="text/css" href="<c:url value="/css/smoothness/jquery-ui-1.7.2.custom.css"/>" rel="stylesheet" />
-<script type="text/javascript" src="<c:url value="/js/jquery-1.3.2.min.js"/>"></script>
+<link type="text/css" href="<c:url value="/css/jquery.multiselect.css"/>" rel="stylesheet" />
+<script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/jquery-ui-1.7.2.custom.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/jquery.multiselect.min.js"/>"></script>
 <script type="text/javascript">
 	$(function() {
 		$("#datepicker_from,#datepicker_to").datepicker({onSelect: restrictDates, changeMonth: true, changeYear: true});
@@ -28,6 +30,17 @@
 				
 	});
 </script>
+<script type="text/javascript">
+	$(function() {
+		$("#loc,#act").multiSelect({ 
+			minWidth:200,
+			maxHeight:90,
+			selectedList:5,
+			showHeader:false
+		});
+				
+	});
+</script>
 </head>
 <body>
 
@@ -38,67 +51,61 @@
 
 <form:form commandName="alignTour">
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
-	<tr>
-		<!-- Insert tour ID -->
-		<td><form:hidden path="tourID" /></td>
-	</tr>
 	
 	<tr>
 		<!-- Display tour name -->
-		<td width="150">Tour name:</td>
+		<td width="120">Tour name:</td>
 		<td><h4><c:out value="${tour.tourName}" /></h4></td>
 	</tr>
 	
 	<tr>
-		<!-- Insert starting date -->
-		<td>Starting date:</td>
-		<td width="100"><form:input path="startDate" size="15" id="datepicker_from" title="DD/MM/YYYY" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="startDate"/></div></td>
-	</tr>
-
-	<tr>
-		<!-- Insert finishing date -->
-		<td>Finishing date:</td>
-		<td><form:input path="finishDate" size="15" id="datepicker_to" title="DD/MM/YYYY" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="finishDate" /></div></td>
+		<!-- Insert start & finish date -->
+		<td colspan="2">Start date:&nbsp;&nbsp;<form:input path="startDate" size="10" id="datepicker_from" title="DD/MM/YYYY" cssErrorClass="form-error-field"/>&nbsp;&nbsp;
+		Finish date:&nbsp;&nbsp;<form:input path="finishDate" size="10" id="datepicker_to" title="DD/MM/YYYY" cssErrorClass="form-error-field"/></td>
+		
+		<!-- Add new date -->
+		<td><a class="home" href="<c:url value="addTourDate.html"/>">Add new date</a><br/></td>
+	
 	</tr>
 
 	<tr>
 		<!-- Insert duration -->
+		<c:if test="${tour.onDemand == '1'}">
 		<td>Duration:</td>
 		<td><form:input path="totalDays" size="3" cssErrorClass="form-error-field"/>&nbsp;<span style="font-size: 10px; color: black;">day(s)</span><div class="form-error-message"><form:errors path="totalDays"/></div></td>
+		</c:if>
 	</tr>
 	
 	<tr>
 		<!-- Choose location from drop-down list -->
-		<td>Choose location:</td>
-		<td><form:select path="locationName">
-			<form:option value="" label="Location 1" />
-			<form:option value="" label="Location 2" />
+		<td valign="top">Choose location:</td>
+		<td width="220"><form:select path="locationID" id="loc" multiple="multiple" size="3">
+				<form:options items="${locations}" itemValue="locationID" itemLabel="locationName" />
 			</form:select>
+			<div class="form-error-message"><form:errors path="locationID"/></div>
 		</td>
 			
 		<!-- Add new location to the global list -->
-		<td width="180">or &nbsp;&nbsp;&nbsp;&nbsp;Specify location:</td>
-		<td width="100"><form:input path="locationName" size="30" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="locationName"/></div></td>
+		<td><a class="home" href="<c:url value="addTourLocation.html"/>" >Add new location</a><br/></td>
 		
 	</tr>	
 	
 	<tr>
 		<!-- Choose activity from drop-down list -->
 		<td>Choose activity:</td>
-		<td><form:select path="activityName">
-			<form:option value="" label="Activity 1" />
-			<form:option value="" label="Activity 2" />
+		<td><form:select path="activityID" id="act" multiple="multiple" size="3">
+				<form:options items="${activities}" itemValue="activityID" itemLabel="activityName" />
 			</form:select>
+			<div class="form-error-message"><form:errors path="activityID"/></div>
 		</td>
 		
 		<!-- Add new activity to the global list -->
-		<td>or &nbsp;&nbsp;&nbsp;&nbsp;Specify activity:</td>
-		<td><form:input path="activityName" size="30" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="activityName"/></div></td>
+		<td><a class="home" href="<c:url value="addTourActivity.html"/>" >Add new activity</a><br/></td>
 	</tr>
 
 	<tr>
 		<!-- Cancel or submit -->
-		<td colspan="4" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="TOhome.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Align" /></td>
+		<td colspan="3" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="TOhome.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Align" /></td>
 	</tr>
 	
 </table>

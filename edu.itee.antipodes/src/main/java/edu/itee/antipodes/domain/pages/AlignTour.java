@@ -15,6 +15,12 @@ public class AlignTour {
 	
 	private Date finishDate;
 	
+	private int locationID;
+	
+	private int activityID;
+	
+
+
 	private int totalDays;
 	
 	@Length(max = 30)
@@ -81,6 +87,22 @@ public class AlignTour {
 		this.activityName = activityName;
 	}
 
+	public int getLocationID() {
+		return locationID;
+	}
+
+	public void setLocationID(int locationID) {
+		this.locationID = locationID;
+	}
+
+	public int getActivityID() {
+		return activityID;
+	}
+
+	public void setActivityID(int activityID) {
+		this.activityID = activityID;
+	}
+	
 	@Override
 	public String toString() {
 		return "AlignTour [activityName=" + activityName + ", finishDate="

@@ -1,7 +1,7 @@
 var map = null;
 var geocoder = null;
 var marker;
-var tabAccuracy = new Array(2,4,6,10,12,13,16,16,17,18);
+var tabAccuracy = new Array(2,4,6,8);
 var lt = document.loc.latitude.value
 var lg = document.loc.longitude.value
 var loc = document.loc.locationName.value
@@ -11,13 +11,41 @@ function initialize() {
     if (GBrowserIsCompatible()) {
         map = new GMap2(document.getElementById("map"));
         map.addControl(new GLargeMapControl());
-        map.setCenter(new GLatLng(0,0), 2);
-
-
+        var latlng = new GLatLng(document.getElementById("latitude").value, document.getElementById("longitude").value);
+        var lat = document.getElementById("latitude").value;
+        var lng = document.getElementById("longitude").value;
+        //map.setCenter(new GLatLng(document.getElementById("latitude").value,document.getElementById("longitude").value), 8);
+        map.setCenter(latlng, 8);
         geocoder = new GClientGeocoder();
         GEvent.addListener(map, "click", clicked);
+        //showAddress(document.getElementById("locationName").value);
+        if (lat!=0 && lng!=0)
+        {
+        	addCoords();
+        }
+        
     }
 }
+
+function createMarker(point) {
+	//address = addresses.Placemark[0];
+	//showAddress(document.forms['loc'].locationName.value);
+    var marker = new GMarker(point, {draggable: true});
+	map.addOverlay(marker);
+	
+	
+	/*address = addresses.Placemark[0];
+	
+	point2address();
+	
+    GEvent.addListener(marker, "dragstart", function() {
+        map.closeInfoWindow();
+    });
+
+    GEvent.addListener(marker, "dragend", point2address);
+    
+    return marker;*/
+  }
 
 function clicked(overlay, latlng) {
     if (latlng) {
@@ -65,6 +93,23 @@ function point2address(flag) {
     });
 }
 
+function addCoords() {
+    map.clearOverlays();
+
+        latlng = new GLatLng(document.getElementById("latitude").value, document.getElementById("longitude").value);
+        marker = new GMarker(latlng, {draggable: true});
+        map.addOverlay(marker);
+
+        point2address("plus original address");
+        
+        GEvent.addListener(marker, "dragstart", function() {
+            map.closeInfoWindow();
+        });
+
+        GEvent.addListener(marker, "dragend", point2address);
+
+}
+
 function addCoordsToMap(response) {
     map.clearOverlays();
     if (!response || response.Status.code != 200) {
@@ -74,6 +119,7 @@ function addCoordsToMap(response) {
         place = response.Placemark[0];
         point = new GLatLng(place.Point.coordinates[1],
                             place.Point.coordinates[0]);
+        latlng = new GLatLng(document.getElementById("latitude").value, document.getElementById("longitude").value);
         marker = new GMarker(point, {draggable: true});
         map.addOverlay(marker);
 

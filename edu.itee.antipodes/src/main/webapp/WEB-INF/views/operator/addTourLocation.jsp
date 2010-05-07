@@ -22,22 +22,18 @@
 </head>
 <body onload="initialize()" onunload="GUnload()">
 
-<h2>Edit Global List of Locations</h2>
+<h2>Add Location</h2>
 
-<!-- Form name: loc -->
+<!-- Form name: location -->
 <!-- Attribute names: locationID, locationName, latitude, longitude -->
 
-<form:form commandName="loc">
+<form:form commandName="location">
 	<table border="0" cellspacing="2"
 		style="border-collapse: collapse; padding: 5px">
 		<tr>
-			<td><!--<form:hidden path="locationID" />--></td>
-		</tr>
-		
-		<tr>
 			<td width="150" valign="top">Location Name:</td>
 			<td width="150"><form:input path="locationName" size="20"
-				cssErrorClass="form-error-field" />&nbsp;&nbsp;<input type="button" value="Search" onclick="showAddress(document.forms['loc'].locationName.value); return false">
+				cssErrorClass="form-error-field" />&nbsp;&nbsp;<input type="button" value="Get Latitude & Longitude" onclick="showAddress(document.forms['loc'].locationName.value); return false">
 			<div class="form-error-message"><form:errors
 				path="locationName" /></div>
 			</td>
@@ -70,9 +66,9 @@
 		<tr>
 			<td colspan="2" align="right"><input type="button"
 				value="Cancel"
-				onClick="window.location.href='<c:url value="globalListLocation.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;
+				onClick="window.location.href='<c:url value="alignTour.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;
 				<input 
-				type="submit" value="Edit" />
+				type="submit" value="Add" />
 				
 				</td>
 		</tr>

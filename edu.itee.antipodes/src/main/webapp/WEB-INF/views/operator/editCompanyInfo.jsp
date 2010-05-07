@@ -10,9 +10,10 @@
 			.form-error-field { background-color: #FFC; }
 			.form-error-message { font-weight: bold; color: #900; font-size: 10px; }
 		</style>
-<script type="text/javascript" src="<c:url value="/js/jquery-1.3.2.min.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/js/tiny_mce/jquery.tinymce.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/js/editor.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/nicEdit.js"/>"></script>
+<script type="text/javascript">
+	bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+</script>
 </head>
 <body>
 
@@ -33,7 +34,7 @@
 	<tr>
 		<!-- Insert company description -->
 		<td valign="top">Company description:</td>
-		<td width="500"><form:textarea path="companyInfo" cssClass="tinymce" /><div class="form-error-message"><form:errors path="companyInfo"/></div></td>
+		<td width="500"><form:textarea path="companyInfo" cols="60" /><div class="form-error-message"><form:errors path="companyInfo"/></div></td>
 	</tr>
 	
 	<tr>

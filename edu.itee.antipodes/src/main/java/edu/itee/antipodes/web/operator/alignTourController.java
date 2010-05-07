@@ -1,14 +1,8 @@
 package edu.itee.antipodes.web.operator;
-/*
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import org.springframework.beans.propertyeditors.CustomDateEditor;
-import org.springframework.web.bind.ServletRequestDataBinder;
-import org.springframework.web.servlet.HttpServletBean;
-*/
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -22,7 +16,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import edu.itee.antipodes.domain.db.Activity;
+import edu.itee.antipodes.domain.db.Location;
 import edu.itee.antipodes.domain.pages.AlignTour;
+import edu.itee.antipodes.repository.ActivityDao;
+import edu.itee.antipodes.repository.DaoManager;
+import edu.itee.antipodes.repository.LocationDao;
 import edu.itee.antipodes.service.TourManager;
 
 @Controller
@@ -47,6 +46,13 @@ public class alignTourController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUserForm(ModelMap model) {
 		AlignTour alignTour = new AlignTour();
+		LocationDao ld = DaoManager.getLocationDao();
+		List<Location> loc = ld.getLocationList();
+		ActivityDao ad = DaoManager.getActivityDao();
+		List<Activity> act = ad.getActivityList();
+		
+		model.addAttribute("activities", act);
+		model.addAttribute("locations", loc);
 		model.addAttribute("alignTour", alignTour);
 		return "alignTour";
 	}

@@ -25,7 +25,7 @@
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
 	<tr>
 		<!-- Insert tour name -->
-		<td width="500">Tour name:</td>
+		<td width="160">Tour name:</td>
 		<td><form:input path="tourName" size="40" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="tourName"/></div></td>
 	</tr>
 
@@ -46,6 +46,15 @@
 		<td><form:radiobutton path="onDemand" value="1" cssErrorClass="form-error-field"/>&nbsp;&nbsp;Yes&nbsp;&nbsp;
 			<form:radiobutton path="onDemand" value="0" cssErrorClass="form-error-field"/>&nbsp;&nbsp;No
 			<div class="form-error-message"><form:errors path="onDemand"/></div></td>
+	</tr>
+	
+	<tr>
+		<!-- Upload image -->
+		<td>Image:</td>
+		<td><form method="post" action="upload.form" enctype="multipart/form-data">
+            <input type="file" name="file"/>
+            <input type="submit" value="Upload"/>
+    		</form></td>
 	</tr>
 	
 	<tr>

@@ -16,7 +16,7 @@ public class Location implements Serializable{
 	private int locationID;
 	
 	@NotBlank
-	@Length(max = 20)
+	@Length(max = 30)
 	@RegExp(value = "[a-zA-Z ,]*")
 	private String locationName;
 	
