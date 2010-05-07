@@ -1,11 +1,8 @@
 package edu.itee.antipodes.test.repository;
 
-import static org.junit.Assert.*;
-
+import java.text.DateFormat;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.text.SimpleDateFormat;
 
 import junit.framework.TestCase;
 
@@ -17,7 +14,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.dao.DataAccessResourceFailureException;
 
-import edu.itee.antipodes.domain.db.*;
 import edu.itee.antipodes.repository.ReportingDaoHibernate;
 
 public class ReportingDaoHibernateTest extends TestCase {
@@ -64,11 +60,12 @@ public class ReportingDaoHibernateTest extends TestCase {
 		assertNotNull(dao.getNumToursAsscWithLocation());
 		assertEquals(3,dao.getNumToursAsscWithLocation().size());
 		//test getNumOfToursAndTotalPricePerMonthForAllTourOperator(int operatorID)
-		assertEquals(10,dao.getNumOfToursAndTotalPricePerMonthForAllTourOperator("05/05/2010", "02/11/2010").size());
-		assertEquals("223.0",dao.getNumOfToursAndTotalPricePerMonthForAllTourOperator("05/05/2010","02/11/2010").get(0)[4].toString());
+		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		assertEquals(10,dao.getNumOfToursAndTotalPricePerMonthForAllTourOperator(df.parse("05/05/2010"), df.parse("02/11/2010")).size());
+		assertEquals("223.0",dao.getNumOfToursAndTotalPricePerMonthForAllTourOperator(df.parse("05/05/2010"),df.parse("02/11/2010")).get(0)[4].toString());
 		// test getListedToursPerMonthByOperatorID(int operatorID, String fromDate, String toDate)
-		assertEquals(10,dao.getListedToursPerMonthByOperatorID(03, "05/05/2010", "02/11/2010").size());
-		assertEquals("111.5",dao.getListedToursPerMonthByOperatorID(03, "05/05/2010", "02/11/2010").get(1)[2].toString());
+		assertEquals(10,dao.getListedToursPerMonthByOperatorID(03, df.parse("05/05/2010"), df.parse("02/11/2010")).size());
+		assertEquals("111.5",dao.getListedToursPerMonthByOperatorID(03, df.parse("05/05/2010"), df.parse("02/11/2010")).get(1)[2].toString());
 
 		
 	}

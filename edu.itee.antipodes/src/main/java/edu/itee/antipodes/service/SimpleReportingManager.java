@@ -1,5 +1,7 @@
 package edu.itee.antipodes.service;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -21,45 +23,49 @@ public class SimpleReportingManager implements ReportingManager {
 
 	private TourOperatorDao toDao = DaoManager.getTourOperatorDao();
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public Map<String, Object> getBillingTourOperators(int tourOperatorID,
-			Date startDate, Date endDate) {
-
+			Date fromDate, Date toDate) {
+		fromDate.setDate(1);
 		Map<String, Object> model = new HashMap<String, Object>();
 
 		List<UniversalBean> list = new ArrayList<UniversalBean>();
 		UniversalBean bean;
 
-		bean = new UniversalBean();
-		bean.setS1("July 2009");
-		bean.setS2("Tour 1");
-		bean.setI1(1);
-		bean.setI2(20);
-		list.add(bean);
+		TourOperatorDao to = DaoManager.getTourOperatorDao();
+		ReportingDaoHibernate rdh = DaoManager.getReporingDao();
+		DateFormat df = new SimpleDateFormat("MMMMM yyyy");
 
-		bean = new UniversalBean();
-		bean.setS1("July 2009");
-		bean.setS2("Tour 2");
-		bean.setI1(2);
-		bean.setI2(30);
-		list.add(bean);
+		List<Object[]> temp = rdh.getListedToursPerMonthByOperatorID(
+				tourOperatorID, fromDate, toDate);
 
-		bean = new UniversalBean();
-		bean.setS1("August 2009");
-		bean.setS2("Tour 3");
-		bean.setI1(3);
-		bean.setI2(20);
-		list.add(bean);
+		for (Object[] objects : temp) {
+			Date d = (Date) objects[0];
+			Tour t = (Tour) objects[1];
+			float f = (Float) objects[2];
 
-		model.put("ReportTitle", "Billing tour operators report");
-		model.put("ReportPeriod", "July 2009 - August 2009");
-		model.put("CustomerName", getCustomerNameByID(1));
+			bean = new UniversalBean();
+			bean.setS1(df.format(d));
+			bean.setS2(t.getTourName());
+			bean.setI1(t.getTourID());
+			bean.setF1(f);
+			list.add(bean);
+		}
+
+		TourOperator operator = to.getTourOperatorByID(tourOperatorID);
+
+		String datesRange = df.format(fromDate) + " - " + df.format(toDate);
+		model.put("ReportPeriod", datesRange);
+		model.put("CustomerName", operator.getOperatorName());
 		model.put("dataSource", list);
+
+		model.put("ReportTitle", "Billing report");
 
 		return model;
 	}
 
-	//@Override
+	// @Override
 	public Map<String, Object> getDetectingAbuse(int numberOfCriterias) {
 		UniversalBean ub;
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -91,7 +97,7 @@ public class SimpleReportingManager implements ReportingManager {
 		return model;
 	}
 
-	//@Override
+	// @Override
 	public Map<String, Object> getMonitoringSearchCriteriaUtilisation(
 			String criteria) {
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -125,36 +131,71 @@ public class SimpleReportingManager implements ReportingManager {
 
 		for (Object[] objects : activityList) {
 			bean = new UniversalBean();
-			Activity ac = (Activity)objects[0];
+			Activity ac = (Activity) objects[0];
 			bean.setS1(ac.getActivityName());
 			bean.setS2(objects[1].toString());
 			result.add(bean);
 		}
-		
+
 		for (Object[] objects : locationList) {
 			bean = new UniversalBean();
-			Location loc = (Location)objects[0];
+			Location loc = (Location) objects[0];
 			bean.setS1(loc.getLocationName());
 			bean.setS2(objects[1].toString());
 			result.add(bean);
 		}
-		
+
 		model.put("dataSource", result);
 		return model;
 	}
 
-	//@Override
-	public Map<String, Object> getMonitoringSystemUtilisation(Date startDate,
-			Date endDate) {
+	// @Override
+	@SuppressWarnings("deprecation")
+	public Map<String, Object> getMonitoringSystemUtilisation(Date fromDate,
+			Date toDate) {
+		fromDate.setDate(1);
+		
 		Map<String, Object> model = new HashMap<String, Object>();
+
+		List<UniversalBean> list = new ArrayList<UniversalBean>();
+		UniversalBean bean;
+
+		ReportingDaoHibernate rdh = DaoManager.getReporingDao();
+		DateFormat df = new SimpleDateFormat("MMMMM yyyy");
+
+		List<Object[]> temp = rdh
+				.getNumOfToursAndTotalPricePerMonthForAllTourOperator(fromDate,
+						toDate);
+		
+		for (Object[] objects : temp) {
+			Date d = (Date) objects[0];
+			TourOperator t = (TourOperator)objects[1];
+			float f = (Float) objects[2];
+			long countL = (Long)objects[3];
+			int count = (int)countL;
+			float cost = (Float) objects[4];
+
+			bean = new UniversalBean();
+			bean.setS1(df.format(d));
+			bean.setS2(t.getOperatorName());
+			bean.setI1(t.getOperatorID());
+			bean.setI2(count);
+			bean.setF1(cost);
+			bean.setF2(f);
+			list.add(bean);
+		}
+		
+
+		String datesRange = df.format(fromDate) + " - " + df.format(toDate);
+		model.put("ReportPeriod", datesRange);
+		model.put("dataSource", list);
+
+		model.put("ReportTitle", "System Utilisation Report");
+		
 		return model;
 	}
 
-	private String getCustomerNameByID(int customerID) {
-		return "Hilsbrat hotel company association inc.(R)";
-	}
-
-	//@Override
+	// @Override
 	public List<UniversalBean> getCriterias() {
 
 		LocationDao ld = DaoManager.getLocationDao();
@@ -183,7 +224,7 @@ public class SimpleReportingManager implements ReportingManager {
 		return list;
 	}
 
-	//@Override
+	// @Override
 	public List<TourOperator> getTourOperators() {
 		return toDao.getTourOperatorList();
 	}

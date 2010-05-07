@@ -48,8 +48,6 @@ public class monitorSearchCriteriaUtilController {
 			String format = bto.getExportFormat();
 			String criteria = bto.getCriteria();
 
-			// TODO: UI Mapping
-
 			Map<String, Object> model = rm
 					.getMonitoringSearchCriteriaUtilisation(criteria);
 			model.put("format", format);

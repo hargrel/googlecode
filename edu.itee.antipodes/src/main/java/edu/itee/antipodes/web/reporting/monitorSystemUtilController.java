@@ -57,9 +57,6 @@ public class monitorSystemUtilController {
 		}
 
 		try {
-			//DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-			//Date fromDate = df.parse(bto.getFromDate());
-			//Date toDate = df.parse(bto.getToDate());
 			String format = bto.getExportFormat();
 			Date fromDate = bto.getFromDate();
 			Date toDate = bto.getToDate();

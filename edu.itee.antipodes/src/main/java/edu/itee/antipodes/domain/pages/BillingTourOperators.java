@@ -2,9 +2,13 @@ package edu.itee.antipodes.domain.pages;
 
 
 import java.util.Date;
+import java.util.List;
+
 import org.springmodules.validation.bean.conf.loader.annotation.handler.NotBlank;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.NotNull;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.ValidationMethod;
+
+import edu.itee.antipodes.domain.db.TourOperator;
 
 public final class BillingTourOperators {
 	

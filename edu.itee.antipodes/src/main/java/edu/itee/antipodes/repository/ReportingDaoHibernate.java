@@ -154,10 +154,10 @@ public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterab
 	 * Object[3]= number of tours listed in that month-year
 	 * Object[4]= total price of the month = (tour# listed in the month)*(monthly fee) 
 	 */
-	public List<Object[]> getNumOfToursAndTotalPricePerMonthForAllTourOperator(String fromDate, String toDate) throws ParseException{
+	public List<Object[]> getNumOfToursAndTotalPricePerMonthForAllTourOperator(Date fromD, Date toD) {
 		List<Object[]> list = new ArrayList<Object[]>();
-		Date fromD = StringToDate(fromDate);
-		Date toD = StringToDate(toDate);
+		//Date fromD = StringToDate(fromDate);
+		//Date toD = StringToDate(toDate);
 		String select="select  m.monthYearStart,o, m.fee, COUNT(t.tourID), COUNT(t.tourID)*m.fee ";
 		String from="from TourOperator as o join o.listedTour as l join l.tour as t, MonthlyFee as m ";
 		// l.listedFrom-30 since we want to include the previous month, ex. for 12/05/2010, we want to charge 05/2010's fee as well
@@ -182,10 +182,10 @@ public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterab
 	 * Object[1]= tour object, i.e. the tour listed
 	 * Object[2]= fee of the month
 	 */
-	public List<Object[]> getListedToursPerMonthByOperatorID(int operatorID, String fromDate, String toDate) throws ParseException{
+	public List<Object[]> getListedToursPerMonthByOperatorID(int operatorID, Date fromD, Date toD){
 		List<Object[]> list = new ArrayList<Object[]>();
-		Date fromD = StringToDate(fromDate);
-		Date toD = StringToDate(toDate);
+		//Date fromD = StringToDate(fromDate);
+		//Date toD = StringToDate(toDate);
 		String select="select m.monthYearStart, t, m.fee ";
 		String from="from TourOperator as o join o.listedTour as l join l.tour as t, MonthlyFee as m ";
 		String where="where o.operatorID=:operatorID and m.monthYearStart between :from and :to and m.monthYearStart between (l.listedFrom-30) and l.listedTo and (l.listedTo-l.listedFrom)>=1 ";

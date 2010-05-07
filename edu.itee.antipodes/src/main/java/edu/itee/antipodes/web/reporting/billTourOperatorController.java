@@ -33,54 +33,43 @@ public class billTourOperatorController {
 	public void setValidator(Validator validator) {
 		this.validator = validator;
 	}
-	
+
 	@InitBinder
 	public void initBinder(final WebDataBinder binder) {
-		binder.registerCustomEditor(Date.class, null, new CustomDateEditor(new SimpleDateFormat("dd/MM/yyyy"), true));
+		binder.registerCustomEditor(Date.class, null, new CustomDateEditor(
+				new SimpleDateFormat("dd/MM/yyyy"), true));
 	}
 
-	@RequestMapping(method = RequestMethod.GET)
-	public String redirect(Model model) {
-		SimpleReportingManager srm = new SimpleReportingManager();
+	ReportingManager rm = new SimpleReportingManager();
 
-		model.addAttribute("touroperators", srm.getTourOperators());
+	@RequestMapping(method = RequestMethod.GET)
+	public Object redirect(Model model) {
+		BillingTourOperators bto = new BillingTourOperators();
+		model.addAttribute("touroperators", rm.getTourOperators());
 		model.addAttribute("billOperator", new BillingTourOperators());
 
 		return "billTourOperator";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView post(
+	public Object post(
 			@ModelAttribute("billOperator") BillingTourOperators bto,
 			BindingResult result) {
 
 		validator.validate(bto, result);
 		if (result.hasErrors()) {
-			return new ModelAndView("billTourOperator");
+			return "billTourOperator";
 		}
 
 		try {
-			// DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-			ReportingManager rp = new SimpleReportingManager();
-			TourOperatorDao tod = DaoManager.getTourOperatorDao();
+			String format = bto.getExportFormat();
+			Date toDate = bto.getToDate();
+			Date fromDate = bto.getFromDate();
+			int operatorID = bto.getOperatorID();
 
-			Date fromDate = new Date();
-			Date toDate = new Date();
-			int tourOperator = 3;
-			String format = "pdf";
-
-			// TODO: do mapping
-			// fromDate = df.parse(bto.getFromDate());
-			// toDate = df.parse(bto.getToDate());
-			// tourOperator = Integer.parseInt(bto.getTourOperatorID()) ;
-
-			TourOperator to = tod.getTourOperatorByID(tourOperator);
-
-			Map<String, Object> model = rp.getBillingTourOperators(
-					tourOperator, fromDate, toDate);
+			Map<String, Object> model = rm.getBillingTourOperators(operatorID,
+					fromDate, toDate);
 			model.put("format", format);
-			model.put("ReportTitle", "Billing report for "
-					+ to.getOperatorName());
 
 			return new ModelAndView("reportBillingTourOperators", model);
 		} catch (Exception e) {
