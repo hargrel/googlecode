@@ -30,7 +30,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
     if(userEntity.getUserType().equalsIgnoreCase("admin")){
 		authorities.add(new GrantedAuthorityImpl("ROLE_ADMIN"));
-		authorities.add(new GrantedAuthorityImpl("ROLE_OPERATOR"));
     }else
 		authorities.add(new GrantedAuthorityImpl("ROLE_OPERATOR"));
     
