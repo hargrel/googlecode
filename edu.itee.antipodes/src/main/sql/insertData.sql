@@ -1,19 +1,19 @@
 -- AccountUser -----------------------------------------------------------------
 
 INSERT INTO AccountUser VALUES (
-	0001, 'user1', ORA_HASH('passsword1'), 'admin'
+	0001, 'user1', '7c6a180b36896a0a8c02787eeafb0e4c', 'admin'
 );
 
 INSERT INTO AccountUser VALUES (
-	0002, 'user2', ORA_HASH('passsword2'), 'admin'
+	0002, 'user2', '6cb75f652a9b52798eb6cf2201057c73', 'admin'
 );
 
 INSERT INTO AccountUser VALUES (
-	0003, 'user3', ORA_HASH('passsword3'), 'operator'
+	0003, 'user3', '819b0643d6b89dc9b579fdfc9094f28e', 'operator'
 );
 
 INSERT INTO AccountUser VALUES (
-	0004, 'user4', ORA_HASH('passsword4'), 'operator'
+	0004, 'user4', '34cc93ece0ba9e3f6f235d4af979b16c', 'operator'
 );
 
 INSERT INTO AccountUser VALUES (
