@@ -40,5 +40,11 @@ public class MonthlyFeeDaoHibernateTest extends TestCase {
 		assertEquals(122.50f, dao.getMonthlyFeeByID(12).getFee());
 		dao.dropMonthlyFee(dao.getMonthlyFeeByID(1));
 		assertNull(dao.getMonthlyFeeByID(1));		
+		
+		//test getTotalMonthlyForAllListedTours()
+		assertEquals(766.5, dao.getTotalMonthlyFeeForAllListedTours().get(1)[3]);
+		
+		//test getMonthlyFeeForAllListedTours()
+		assertEquals("105.5", dao.getMonthlyFeeForAllListedTours().get(0)[2].toString());
 	}
 }

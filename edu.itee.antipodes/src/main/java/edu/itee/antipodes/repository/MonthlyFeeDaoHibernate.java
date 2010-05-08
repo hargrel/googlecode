@@ -1,7 +1,11 @@
 package edu.itee.antipodes.repository;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
+import org.hibernate.Query;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import edu.itee.antipodes.domain.db.MonthlyFee;
@@ -29,6 +33,52 @@ public class MonthlyFeeDaoHibernate extends HibernateDaoSupport implements Month
 		Object record = getHibernateTemplate().load(MonthlyFee.class, monthlyFeeID);
         getHibernateTemplate().delete(record);
     }
+	
+	/*
+	 * @return a list of tuples as Object[], where
+	 * Object[0]=listID
+	 * Object[1]=listedFrom
+	 * Object[2]=listedTo
+	 * Object[3]= total monthly fee for the listed tour
+	 */
+	public List<Object[]> getTotalMonthlyFeeForAllListedTours() {
+		List<Object[]> list = new ArrayList<Object[]>();
+		
+		String select="select  l.listID, l.listedFrom, l.listedTo, SUM(m.fee) ";
+		String from="from ListedTour as l, MonthlyFee as m ";
+		// l.listedFrom-30 since we want to include the previous month, ex. for 12/05/2010, we want to charge 05/2010's fee as well
+		String where="where m.monthYearStart between (l.listedFrom-30) and l.listedTo   ";		
+		String sql= select+ from+ where+"group by  l.listID, l.listedFrom, l.listedTo "+"order by l.listID ASC";
+		Query query= getSession().createQuery(sql);		
+		int i=0;
+		 for (Iterator it= query.iterate(); it.hasNext(); i++ ) {
+	            list.add((Object[]) it.next());
+		 }
+		
+		return list;
+	}
+	/*
+	 * @return a list of tuples as Object[], where
+	 * Object[0]=listID
+	 * Object[1]=monthYearStart, i.e. the date that represents a month-year
+	 * Object[2]=monthly fee for the month
+	 */
+	public List<Object[]> getMonthlyFeeForAllListedTours() {
+		List<Object[]> list = new ArrayList<Object[]>();
+		
+		String select="select l.listID, m.monthYearStart, m.fee ";
+		String from="from ListedTour as l, MonthlyFee as m ";
+		// l.listedFrom-30 since we want to include the previous month, ex. for 12/05/2010, we want to charge 05/2010's fee as well
+		String where="where m.monthYearStart between (l.listedFrom-30) and l.listedTo   ";		
+		String sql= select+ from+ where+"order by l.listID";
+		Query query= getSession().createQuery(sql);		
+		int i=0;
+		 for (Iterator it= query.iterate(); it.hasNext(); i++ ) {
+	            list.add((Object[]) it.next());
+		 }
+		
+		return list;
+	}
 
 }
 
