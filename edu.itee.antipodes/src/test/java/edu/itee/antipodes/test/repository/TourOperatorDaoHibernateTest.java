@@ -49,7 +49,7 @@ public class TourOperatorDaoHibernateTest extends TestCase {
 		AccountUser accUser1 = new AccountUser("user5", "hashed5", "admin");
 		//dao2.addAccountUser(accUser1);
 		
-		TourOperator op = new TourOperator("op5", "c5", dateExpired, "o5@5.com", "USD", accUser1);
+		TourOperator op = new TourOperator("op5", "c5", dateExpired, "o5@5.com",  accUser1);
 		dao.saveTourOperator(op);
 		opID = op.getOperatorID();
 		assertEquals(opID, dao.getTourOperatorByID(opID).getOperatorID());

@@ -10,8 +10,7 @@ CREATE TABLE TourOperator (
 	operator_Name VARCHAR2(256),
 	company_Info VARCHAR2(256),
 	membership_Expired DATE,	
-	email VARCHAR2(256),
-	currency CHAR(3)
+	email VARCHAR2(256)
 );
 
 CREATE TABLE Tour (
@@ -20,7 +19,8 @@ CREATE TABLE Tour (
 	tour_Desc VARCHAR2(256),
 	price FLOAT,
 	total_Days NUMBER,
-	on_Demand NUMBER(1)
+	on_Demand NUMBER(1),
+	currency CHAR(3)
 );
 
 CREATE TABLE ListedTour (

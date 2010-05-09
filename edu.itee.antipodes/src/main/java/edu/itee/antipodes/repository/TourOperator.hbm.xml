@@ -13,7 +13,7 @@
   	<property name="companyInfo" column="COMPANY_INFO"/>  	
   	<property name="membershipExpired" column="MEMBERSHIP_EXPIRED"/>
   	<property name="email" column="EMAIL"/>
-  	<property name="currency" column="CURRENCY"/>
+  	
   	<one-to-one name="accountUser" class="AccountUser" constrained="true"/>
   	<set name="listedTour" table="ListedTour" cascade="all" lazy="false">
 	  	<key column="OPERATOR_ID"/>

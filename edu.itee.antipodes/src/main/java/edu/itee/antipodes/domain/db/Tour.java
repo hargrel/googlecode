@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.Length;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.NotBlank;
+import org.springmodules.validation.bean.conf.loader.annotation.handler.NotNull;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.RegExp;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.ValidationMethod;
 
@@ -21,6 +22,9 @@ public class Tour implements Serializable {
 	@NotBlank
 	@Length(max = 80)
 	private String tourDesc;
+	@NotNull
+	@Length(max = 3)
+	private String currency;
 	
 	private double price;
 	private int totalDays;
@@ -33,11 +37,12 @@ public class Tour implements Serializable {
 	//default constructor, instances are initiated by Constructor.newInstance()
 	public Tour(){}
 	
-	public Tour(String tourName, String tourDesc, float price, int totalDays){
+	public Tour(String tourName, String tourDesc, float price, int totalDays,String currency){
 		this.tourName = tourName;
 		this.tourDesc = tourDesc;
 		this.price = price;
 		this.totalDays = totalDays;
+		this.currency=currency;
 	}		
 	
 	public int getTourID() {
@@ -120,14 +125,26 @@ public class Tour implements Serializable {
 	public void setImages(Set<Image> images) {
 		this.images = images;
 	}
+	
 
+	public String getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+
+	
+	
 	@Override
 	public String toString() {
-		return "Tour [price=" + price + ", totalDays=" + totalDays
+		return "Tour [currency=" + currency + ", onDemand=" + onDemand
+				+ ", price=" + price + ", totalDays=" + totalDays
 				+ ", tourDesc=" + tourDesc + ", tourID=" + tourID
 				+ ", tourName=" + tourName + "]";
 	}
-	
+
 	@SuppressWarnings("unused")
 	@ValidationMethod(forProperty = "price")
     private boolean checkDouble() {	

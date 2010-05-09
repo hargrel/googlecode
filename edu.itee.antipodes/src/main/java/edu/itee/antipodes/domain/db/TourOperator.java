@@ -29,9 +29,7 @@ public class TourOperator {
 	@Email
 	private String email;
 	
-	@NotNull
-	@Length(max = 3)
-	private String currency;
+	
 	
 	private AccountUser accountUser;
 	private Set<ListedTour> listedTour = new HashSet<ListedTour>(0);
@@ -40,12 +38,12 @@ public class TourOperator {
 	
 	public TourOperator(String operatorName,
 			String companyInfo, Date membershipExpired, String email,
-			String currency, AccountUser accountUser) {
+			 AccountUser accountUser) {
 		this.operatorName = operatorName;
 		this.companyInfo = companyInfo;
 		this.membershipExpired = membershipExpired;
 		this.email = email;
-		this.currency = currency;
+		
 		this.accountUser = accountUser;
 	}
 	
@@ -79,12 +77,7 @@ public class TourOperator {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getCurrency() {
-		return currency;
-	}
-	public void setCurrency(String currency) {
-		this.currency = currency;
-	}
+	
 	public AccountUser getAccountUser() {
 		return accountUser;
 	}
@@ -102,6 +95,6 @@ public class TourOperator {
 	public String toString() {
 		return "TourOperator [operatorID=" + operatorID + ", operatorName=" + operatorName
 				+ ", companyInfo=" + companyInfo + ", membershipExpired=" + membershipExpired
-				+ ", email=" + email + ", currency"+currency+"]";
+				+ ", email=" + email + "]";
 	}
 }

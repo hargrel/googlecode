@@ -12,6 +12,7 @@
   	<property name="price" column="PRICE"/>
   	<property name="totalDays" column="TOTAL_DAYS"/>
   	<property name="onDemand" column="ON_DEMAND"/>
+  	<property name="currency" column="CURRENCY"/>
   	<set name="activities" table="TourActivity" lazy="false">
 	  	<key column="TOUR_ID"></key>
 	  	<many-to-many column="ACTIVITY_ID"  class="Activity"/>
