@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import edu.itee.antipodes.domain.db.AccountUser;
 import edu.itee.antipodes.service.AccountManager;
 import edu.itee.antipodes.service.PasswordHash;
-import edu.itee.antipodes.service.XMLGenerator;
+//import edu.itee.antipodes.service.XMLGenerator;
 
 @Controller
 @RequestMapping("/admin/addAccount.html")
@@ -47,9 +47,9 @@ public final class addAccountController {
 		
 		accountManager.addAccount(accountUser);
 		// Use the redirect-after-post pattern to reduce double-submits.
-		XMLGenerator xml = new XMLGenerator();
+		//XMLGenerator xml = new XMLGenerator();
 		String x[]={"A"};
-		xml.main(x);
+		//xml.main(x);
 		List<AccountUser> newAccounts = accountManager.getAccounts();
 		model.addAttribute("accounts", newAccounts);
 		return "accountList";

@@ -57,10 +57,9 @@
 	<tr>
 		<!-- Upload image -->
 		<td>Image:</td>
-		<td><form method="post" action="upload.form" enctype="multipart/form-data">
-            <input type="file" name="file"/>
-            <input type="submit" value="Upload"/>
-    		</form></td>
+		<td></td>
+    		
+       
 	</tr>
 	
 	<tr>
@@ -69,5 +68,13 @@
 	</tr>
 </table>
 </form:form>
+
+<form method="post" action="uploadFile.html" enctype="multipart/form-data">
+			
+            <input type="hidden" name="tourID" value="2" />
+            <input type="file" name="file"/>
+            <input type="submit" value="Upload"/>
+    		</form>
+
 </body>
 </html>

@@ -214,4 +214,9 @@
 	<definition name="redirect" extends="baseLayoutGeneral">
 		<put-attribute name="body" value="/WEB-INF/views/security/redirect.jsp"/>
 	</definition>
+	
+	<definition name="error" extends="baseLayoutGeneral">
+		<put-attribute name="body" value="/WEB-INF/views/security/error.jsp"/>
+	</definition>
+	
 </tiles-definitions>

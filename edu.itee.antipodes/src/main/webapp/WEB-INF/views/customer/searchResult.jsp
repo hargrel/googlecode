@@ -33,6 +33,10 @@
 					<td><c:out value="${tourDate.startDate}" /></td>
 					<td><c:out value="${tourDate.finishDate}" /></td>
 					<td><c:out value="${listedTour.tour.price}" /></td>
+					
+					<!-- This is a currency sample 
+					<td><fmt:formatNumber type="currency" value="${cur:convert(listedTour.tour.price,listedTour.tour.tourName,listedTour.tour.tourName)}" /></td> -->
+					
 					<td>
 						<form style="margin:0px; padding: 0px;" name="info_${listedTour.listID}" 
 							action="tourInfo.html" method="post">
