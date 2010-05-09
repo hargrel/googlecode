@@ -23,6 +23,7 @@
                 <li><a href="<c:url value="tourList.html"/>"><span>Edit/Delete</span></a></li>
             </ul></div>
         </li>
+         <li><a href="<c:url value="userManual.html"/>"><span><img src="<c:url value="/img/Manual-icon.png"/>">User Manual</span></a></li>
         <sec:authorize ifAnyGranted="ROLE_ADMIN,ROLE_OPERATOR">   
         <li class="last"><a href="<c:url value="/j_spring_security_logout"/>"><span><img src="<c:url value="/img/Logout-icon.png"/>">Logout</span></a></li>
         <li class="log"><a><span>Logged in as <font color='blue'><sec:authentication property="principal.username" /></font></span></a></li>

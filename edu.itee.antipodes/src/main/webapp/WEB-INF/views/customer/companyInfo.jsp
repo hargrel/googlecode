@@ -15,7 +15,7 @@
 <table border="0" align="center" width=100% style="border-collapse:collapse">
 	<tr>
 		<td valign="top"><h4>Company Info: </h4></td>
-		<td valign="top"><h4><c:out value="${listedTours[0].operator.companyInfo}" /></h4></td>
+		<td valign="top"><h4><c:out value="${listedTours[0].operator.companyInfo}" escapeXml="false"/></h4></td>
 	</tr>
 	<tr>
 		<td valign="top"><h4>Membership Expired: </h4></td>

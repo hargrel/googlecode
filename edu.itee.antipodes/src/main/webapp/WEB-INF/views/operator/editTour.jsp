@@ -10,9 +10,15 @@
 			.form-error-field { background-color: #FFC; }
 			.form-error-message { font-weight: bold; color: #900; font-size: 10px; }
 		</style>
-<script type="text/javascript" src="<c:url value="/js/jquery-1.3.2.min.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/js/tiny_mce/jquery.tinymce.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/js/editor.js"/>"></script>
+<link rel="stylesheet" href="<c:url value="/js/jwysiwyg/jquery.wysiwyg.css"/>" />
+<script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/jwysiwyg/jquery.wysiwyg.js"/>"></script>
+<script type="text/javascript">
+  $(function()
+  {
+      $('#tourDesc').wysiwyg();
+  });
+</script>
 </head>
 <body>
 
@@ -32,7 +38,7 @@
 	<tr>
 		<!-- Insert tour description -->
 		<td valign="top">Tour description:</td>
-		<td width="500"><form:textarea path="tourDesc" cssClass="tinymce" /><div class="form-error-message"><form:errors path="tourDesc"/></div></td>
+		<td width="500"><form:textarea path="tourDesc" cols="70" rows="12" id="tourDesc" /><div class="form-error-message"><form:errors path="tourDesc"/></div></td>
 	</tr>
 	
 	<tr>

@@ -120,6 +120,10 @@
 		<put-attribute name="body" value="/WEB-INF/views/operator/editTourActivity.jsp"/>
 	</definition>
 	
+	<definition name="userManual" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/userManual.jsp"/>
+	</definition>
+	
 	<!-- Administrator -->
 	<definition name="SAhome" extends="baseLayoutAdmin">
 		<put-attribute name="body" value="/WEB-INF/views/admin/SAhome.jsp"/>

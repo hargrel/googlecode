@@ -68,19 +68,15 @@
 	
 	<tr>
 		<td valign="top">Starting date:</td>
-		<td><form:input path="startDate" size="15" id="datepicker_from" title="dd-MMM-YY" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="startDate"/></div></td>
+		<td><form:input path="startDate" size="15" id="datepicker_from" title="DD/MM/YYYY" cssErrorClass="form-error-field"/>&nbsp;&nbsp;<span style="font-size: 12px; font-style:italic; color: black;">(DD/MM/YYYY)<span>
+		<div class="form-error-message"><form:errors path="startDate"/></div></td>
 	</tr>
 	
 	<tr>
 		<td valign="top">Finishing date:</td>
-		<td><form:input path="finishDate" size="15" id="datepicker_to" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="finishDate" /></div></td>
+		<td><form:input path="finishDate" size="15" id="datepicker_to" title="DD/MM/YYYY" cssErrorClass="form-error-field"/>&nbsp;&nbsp;<span style="font-size: 12px; font-style:italic; color: black;">(DD/MM/YYYY)<span>
+		<div class="form-error-message"><form:errors path="finishDate" /></div></td>
 	</tr>
-
-	<!-- <tr>
-		<td><h3>Currency:</h3></td>
-		<td><select name="currency"><option value="AUD">AUD</option>
-			<option value="USD">USD</option></select></td>
-	</tr> -->
 
 	<tr>
 		<td colspan="2" align="right"><input type="submit" value="Search" /></td>

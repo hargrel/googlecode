@@ -7,17 +7,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<link type="text/css" href="<c:url value="/css/smoothness/jquery-ui-1.7.2.custom.css"/>" rel="stylesheet" />
 		<style>
 			.form-error-field { background-color: #FFC; }
 			.form-error-message { font-weight: bold; color: #900; font-size: 10px; }
 		</style>
-<link type="text/css" href="<c:url value="/css/smoothness/jquery-ui-1.7.2.custom.css"/>" rel="stylesheet" />
-<script type="text/javascript" src="<c:url value="/js/jquery-1.3.2.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/jquery-ui-1.7.2.custom.min.js"/>"></script>
-<script type="text/javascript">
+<!--  <script type="text/javascript">
 	$(function() {
-		$("#datepicker_from,#datepicker_to").datepicker({onSelect: restrictDates, changeMonth: true, changeYear: true, dateFormat: 'dd/mm/yy'});
-
+		$("#datepicker_from,#datepicker_to").datepicker({minDate:0,
+			onSelect: restrictDates, changeMonth: true, changeYear: true, dateFormat: 'dd/mm/yy'});
+		
 		function restrictDates(dateStr) {
 		    if (this.id == 'datepicker_from') {
 		        $('#datepicker_to').datepicker('option', 'minDate', $(this).datepicker('getDate'));
@@ -28,7 +29,27 @@
 		}
 				
 	});
+</script>-->
+<script type="text/javascript">
+$(function() {
+    $('.date-picker').datepicker( {
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        dateFormat: 'MM yy',
+        onClose: function(dateText, inst) { 
+            var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+            $(this).datepicker('setDate', new Date(year, month, 1));
+        }
+    });
+});
 </script>
+<style>
+.ui-datepicker-calendar {
+    display: none;
+    }
+</style>
 </head>
 <body>
 
@@ -42,7 +63,7 @@
 <table border="0" style="border-collapse:collapse; margin-right:30px">
 
 	<tr>
-		<td width="170">From:&nbsp;&nbsp;<form:input path="fromDate" size="15" id="datepicker_from" title="DD/MM/YYYY" cssErrorClass="form-error-field"/></td>
+		<td width="170">From:&nbsp;&nbsp;<form:input path="fromDate" size="15" id="datepicker_from" title="DD/MM/YYYY" cssClass="date-picker" cssErrorClass="form-error-field"/></td>
 		<td>To:&nbsp;&nbsp;<form:input path="toDate" size="15" id="datepicker_to" title="DD/MM/YYYY" cssErrorClass="form-error-field"/></td>
 	</tr>
 	

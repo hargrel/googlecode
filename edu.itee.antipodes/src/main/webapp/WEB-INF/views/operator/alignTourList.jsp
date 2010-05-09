@@ -21,7 +21,6 @@
 			<th>Start Date</th>
 			<th>Finish Date</th>
 			<th>Duration</th>
-			<th>On Demand</th>	
 			<th></th>	
 		</tr>
 		</thead>
@@ -36,8 +35,7 @@
 				<td><c:out value="${activity.activityName}" /></td>	
 				<td><c:out value="${tourdate.startDate}" /></td>
 				<td><c:out value="${tourdate.finishDate}" /></td>
-				<td><c:out value="${tour.totalDays}" /></td>	
-				<td><c:out value="${tour.onDemand}" /></td>	
+				<td><c:out value="${tour.totalDays}" /></td>		
 				<td>
 					<form style="margin:0px; padding: 0px;" name="align_${tour.tourID}" action="alignTour.html" method="get">
 						<input type="hidden" name="tourID" value="${tour.tourID}" />

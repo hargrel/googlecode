@@ -33,7 +33,7 @@
 		<tr>
 			<td width="150" valign="top">Location Name:</td>
 			<td width="150"><form:input path="locationName" size="20"
-				cssErrorClass="form-error-field" />&nbsp;&nbsp;<input type="button" value="Get Latitude & Longitude" onclick="showAddress(document.forms['loc'].locationName.value); return false">
+				cssErrorClass="form-error-field" />&nbsp;&nbsp;<input type="button" value="Search" onclick="showAddress(document.forms['loc'].locationName.value); return false">
 			<div class="form-error-message"><form:errors
 				path="locationName" /></div>
 			</td>

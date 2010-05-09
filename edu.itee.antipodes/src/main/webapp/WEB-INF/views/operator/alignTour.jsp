@@ -79,7 +79,7 @@
 	<tr>
 		<!-- Choose location from drop-down list -->
 		<td valign="top">Choose location:</td>
-		<td width="220"><form:select path="locationID" id="loc" multiple="multiple" size="3">
+		<td width="240"><form:select path="locationID" id="loc" multiple="multiple" size="3">
 				<form:options items="${locations}" itemValue="locationID" itemLabel="locationName" />
 			</form:select>
 			<div class="form-error-message"><form:errors path="locationID"/></div>

@@ -10,34 +10,40 @@
 			.form-error-field { background-color: #FFC; }
 			.form-error-message { font-weight: bold; color: #900; font-size: 10px; }
 		</style>
-<script type="text/javascript" src="<c:url value="/js/jquery-1.3.2.min.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/js/tiny_mce/jquery.tinymce.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/js/editor.js"/>"></script>
+<link rel="stylesheet" href="<c:url value="/js/jwysiwyg/jquery.wysiwyg.css"/>" />
+<script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/jwysiwyg/jquery.wysiwyg.js"/>"></script>
+<script type="text/javascript">
+  $(function()
+  {
+      $('#tourDesc').wysiwyg();
+  });
+</script>
 </head>
 <body>
 
 <h2>Add Tour</h2>
 
-<!-- Form name: addTourInfo -->
+<!-- Form name: addTour -->
 <!-- Attribute names: tourID, tourName, tourDesc, price, image -->
 
 <form:form commandName="addTour">
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
 	<tr>
 		<!-- Insert tour name -->
-		<td width="500">Tour name:</td>
+		<td width="140" valign="top">Tour name:</td>
 		<td><form:input path="tourName" size="40" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="tourName"/></div></td>
 	</tr>
 
 	<tr>
 		<!-- Insert tour description -->
 		<td valign="top">Tour description:</td>
-		<td width="500"><form:textarea path="tourDesc" cssClass="tinymce" /><div class="form-error-message"><form:errors path="tourDesc"/></div></td>
+		<td width="500"><form:textarea path="tourDesc" id="tourDesc" cols="70" rows="12"/><div class="form-error-message"><form:errors path="tourDesc"/></div></td>
 	</tr>
 	
 	<tr>
 		<!-- Insert price -->
-		<td>Price:</td>
+		<td valign="top">Price:</td>
 		<td><form:input path="price" size="5" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="price"/></div></td>
 	</tr>
 	
@@ -46,6 +52,15 @@
 		<td><form:radiobutton path="onDemand" value="1" cssErrorClass="form-error-field"/>&nbsp;&nbsp;Yes&nbsp;&nbsp;
 			<form:radiobutton path="onDemand" value="0" cssErrorClass="form-error-field"/>&nbsp;&nbsp;No
 			<div class="form-error-message"><form:errors path="onDemand"/></div></td>
+	</tr>
+	
+	<tr>
+		<!-- Upload image -->
+		<td>Image:</td>
+		<td><form method="post" action="upload.form" enctype="multipart/form-data">
+            <input type="file" name="file"/>
+            <input type="submit" value="Upload"/>
+    		</form></td>
 	</tr>
 	
 	<tr>

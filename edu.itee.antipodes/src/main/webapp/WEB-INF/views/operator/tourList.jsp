@@ -18,6 +18,7 @@
 			<th>Tour Name</th>
 			<th>Description</th>
 			<th>Price</th>
+			<th>On Demand</th>	
 			<th></th>
 			<th></th>
 		</tr>
@@ -31,6 +32,7 @@
 				<td><c:out value="${tour.tourName}" /></td>	
 				<td><c:out value="${tour.tourDesc}" /></td>
 				<td><c:out value="${tour.price}" /></td>
+				<td><c:out value="${tour.onDemand}" /></td>
 				<td>
 					<form style="margin:0px; padding: 0px;" name="edit_${tour.tourID}" action="editTour.html" method="get">
 						<input type="hidden" name="tourID" value="${tour.tourID}" />

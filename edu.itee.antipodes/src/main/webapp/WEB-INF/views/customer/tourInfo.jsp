@@ -41,7 +41,7 @@
 </table>
 
 <h3>Tour Description:</h3>
-<h4><c:out value="${listedTour.tour.tourDesc}" /></h4>
+<h4><c:out value="${listedTour.tour.tourDesc}" escapeXml="false"/></h4>
 
 <p>The best framed views of Lake Wakatipu can be experienced on an interpretive guided tour using flying foxes as low impact adventure access. 
 Join us on a series of lines that traverse the forest in a way that will never be forgotten. 

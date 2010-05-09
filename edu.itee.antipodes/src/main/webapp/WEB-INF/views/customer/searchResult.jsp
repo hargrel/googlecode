@@ -20,7 +20,7 @@
 			<th>Start Date</th>
 			<th>Finish Date</th>
 			<th>Tour Price</th>
-			<th>More Info</th>
+			<th></th>
 		</tr>
 		</thead>
 
@@ -39,7 +39,7 @@
 							<input type="hidden" name="listID" value="${listedTour.listID}" />
 						</form>
 						<a href="#" style="color: blue;" 
-							onclick="document['info_${listedTour.listID}'].submit()">info</a>
+							onclick="document['info_${listedTour.listID}'].submit()">More info</a>
 					</td>
 				</tr>
 			</c:forEach>

@@ -10,10 +10,16 @@
 			.form-error-field { background-color: #FFC; }
 			.form-error-message { font-weight: bold; color: #900; font-size: 10px; }
 		</style>
-<script type="text/javascript" src="<c:url value="/js/nicEdit.js"/>"></script>
+<link rel="stylesheet" href="<c:url value="/js/jwysiwyg/jquery.wysiwyg.css"/>" />
+<script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/jwysiwyg/jquery.wysiwyg.js"/>"></script>
 <script type="text/javascript">
-	bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+  $(function()
+  {
+      $('#companyInfo').wysiwyg();
+  });
 </script>
+
 </head>
 <body>
 
@@ -27,19 +33,19 @@
 
 	<tr>
 		<!-- Insert company name -->
-		<td width="500">Company name:</td>
+		<td valign="top" width="180">Company name:</td>
 		<td><form:input path="operatorName" size="40" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="operatorName"/></div></td>
 	</tr>
 
 	<tr>
 		<!-- Insert company description -->
 		<td valign="top">Company description:</td>
-		<td width="500"><form:textarea path="companyInfo" cols="60" /><div class="form-error-message"><form:errors path="companyInfo"/></div></td>
+		<td width="500"><form:textarea path="companyInfo" cols="70" rows="12" id="companyInfo"/><div class="form-error-message"><form:errors path="companyInfo"/></div></td>
 	</tr>
 	
 	<tr>
 		<!-- Insert email -->
-		<td>Email:</td>
+		<td valign="top">Email:</td>
 		<td><form:input path="email" size="40" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="email"/></div></td>
 	</tr>	
 	
