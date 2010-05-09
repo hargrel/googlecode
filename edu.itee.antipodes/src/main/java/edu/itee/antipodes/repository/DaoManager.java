@@ -34,9 +34,13 @@ public class DaoManager {
 	public static ReportingDaoHibernate getReporingDao() {
 		return (ReportingDaoHibernate) ctx.getBean("reportDao");
 	}
-	
+
 	public static AccountUserDaoHibernate getAccountUserDao(){
 		return (AccountUserDaoHibernate) ctx.getBean("accountUserDao");
+	}
+	
+	public static MonthlyFeeDaoHibernate getMonthlyFeeDao(){
+		return (MonthlyFeeDaoHibernate) ctx.getBean("monthlyFeeDao");
 	}
 }
 
