@@ -122,14 +122,9 @@
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 
-	<!-- Exception Handler org.springframework.web.servlet.handler.SimpleMappingExceptionResolver-->
+	<!-- Exception Handler -->
 	<bean id="defaultExceptionHandler"
 		class="edu.itee.antipodes.service.SimpleHandlerExceptionResolver">
-		<property name="exceptionMappings">
-			<map>
-				<entry key="DataAccessException" value="data-error" />
-			</map>
-		</property>
 		<property name="defaultErrorView" value="error" />
 	</bean>
 </beans>
