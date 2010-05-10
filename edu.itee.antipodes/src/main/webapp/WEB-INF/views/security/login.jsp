@@ -17,27 +17,28 @@
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
 	<tr>
 		<td width="100"><h4>Username:</h4></td>
-		<td><input type="text" size="30" name="j_username" value=''/></td>
+		<td colspan="2"><input type="text" size="40" name="j_username" value=''/></td>
 	</tr>
 
 	<tr>
 		<td><h4>Password:</h4></td>
-		<td width="100"><input type="password" size="30" name="j_password" /></td>
+		<td colspan="2" width="250"><input type="password" size="40" name="j_password" /></td>
 	</tr>
 	
 	<tr>
 		<td></td>
-		<td width="100"><input type="checkbox" size="30" name="_spring_security_remember_me" />&nbsp;&nbsp;Remember Me</td>
+		<td style="font-size:8pt"><input type="checkbox" size="30" name="_spring_security_remember_me" />&nbsp;&nbsp;Keep me logged in</td>
+		<td style="font-size:8pt" align="right">Forgotten your password?</td>
 	</tr>
-	
+
 	<tr>
-		<td colspan="2" align="right"><input type="submit" value="Login" name="submit"/></td>
+		<td colspan="3" align="right"><input type="submit" value="Login" name="submit"/></td>
 	</tr>
 
 </table>
 </form>
 </sec:authorize>
-<sec:authorize ifAllGranted="ROLE_OPERATOR">
+<sec:authorize ifAnyGranted="ROLE_ADMIN,ROLE_OPERATOR">
 <p><font color='red'>You are already logged in as <sec:authentication property="principal.username" /></font></p>
 </sec:authorize>
 </body>

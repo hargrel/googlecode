@@ -9,35 +9,42 @@
 </head>
 <body>
 <h2>Manage Fees</h2>
-
-<!-- Form name: monthlyFee -->
-<!-- Attribute names: fee -->
-
-<form:form commandName="monthlyFee">
-<table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
+<div id="Table">
+<table style="width: 100%;">
+	<thead>
 	<tr>
-		<td width="100">Month:&nbsp;&nbsp;<form:select path="month">
-				<form:options items="${months}" itemValue="month" itemLabel="month" />
-			</form:select></td>
-		<td>Year:&nbsp;&nbsp;<form:select path="year">
-				<form:options items="${years}" itemValue="year" itemLabel="year" />
-			</form:select></td>
+		<th style="width: 60px;">ListID</th>
+		<th>OperatorID</th>
+		<th>TourID</th>
+		<th>From</th>
+		<th>To</th>
+		<th>Total Fee</th>
+		<th></th>
 	</tr>
+	</thead>
 
-	<tr>
-		<td>Fee:</td>
-		<td><form:input path="fee" size="10" cssErrorClass="form-error-field"/></td>
-	</tr>
-	<tr><td><div class="form-error-message"><form:errors path="fee"/></div></td></tr>
-	
-
-	<tr>
-		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="SAhome.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Change" onclick="document['manage_fee'].submit()" /></td>
-	</tr>
+	<tbody>
+	<c:forEach items="${listedTours}" var="listedTour">
+		
+		<tr>
+			<td><c:out value="${listedTour[0]}" /></td>
+			<td><c:out value="${listedTour[1]}" /></td>
+			<td><c:out value="${listedTour[2]}" /></td>
+			<td><c:out value="${listedTour[3]}" /></td>
+			<td><c:out value="${listedTour[4]}" /></td>
+			<td><c:out value="${listedTour[5]}" /></td>
+			<td>
+				<form style="margin:0px; padding: 0px;" name="manage_${listedTour[0]}" action="feeList.html" method="get">
+				<input type="hidden" name="listID" value="${listedTour[0]}" />
+				</form>
+				<a href="#" style="color: blue" onclick="document['manage_${listedTour[0]}'].submit()">Manage</a>
+			</td>
+		</tr>
+	</c:forEach>
+	</tbody>
 
 </table>
-</form:form>
-
-
+<input type="button" value="Cancel" onClick="window.location.href='<c:url value="SAhome.html"/>'" style="float: right; margin-right: 20px; margin-top: 10px;"/>
+</div>
 </body>
 </html>

@@ -14,30 +14,31 @@
 	<table style="width: 500px;">
 		<thead>
 		<tr>
-			<th style="width: 60px;">ID</th>
+			<th style="width: 60px;">Fee ID</th>
 			<th>Month</th>
-			<th>Year</th>
 			<th>Fee</th>
 			<th></th>
 		</tr>
 		</thead>
 
 		<tbody>
-		<c:forEach items="${fees}" var="fee">
-			
+		<c:forEach items="${listedTourFees}" var="listedTourFee">
+		<form style="margin:0px; padding: 0px;" name="save_${listedTourFee[3]}" action="feeList.html" method="post">
 			<tr>
-				<td><c:out value="${fee.feeID}" /></td>
-				<td><c:out value="${fee.month}" /></td>
-				<td><c:out value="${fee.year}" /></td>
-				<td><c:out value="${fee.fee}" /></td>
+				
+				<td><c:out value="${listedTourFee[3]}" /></td>
+				<td><c:out value="${listedTourFee[1]}" /></td>
+				<td><input type="text" name="fee" value="${listedTourFee[2]}" size="5" /></td>
 			
 				<td>
-					<form style="margin:0px; padding: 0px;" name="edit_${fee.feeID}" action="feeList.html" method="get">
-						<input type="hidden" name="feeID" value="${fee.feeID}" />
-					</form>
-					<a href="#" style="color: blue;" onclick="document['edit_${fee.feeID}'].submit()">Edit</a>
+					<input type="hidden" name="listID" value="${listedTourFee[0]}" />
+					<input type="hidden" name="feeID" value="${listedTourFee[3]}" />
+					
+					<a href="#" style="color: blue;" onclick="document['save_${listedTourFee[3]}'].submit()">Save</a>
 				</td>
+				
 			</tr>
+		</form>
 		</c:forEach>
 		</tbody>
 	
