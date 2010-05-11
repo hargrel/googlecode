@@ -43,7 +43,7 @@
 		</tbody>
 	
 	</table>
-	<input type="button" value="Cancel" onClick="window.location.href='<c:url value="SAhome.html"/>'" style="float: right; margin-right: 20px; margin-top: 10px;"/>
+	<input type="button" value="Cancel" onClick="window.location.href='<c:url value="manageFee.html"/>'" style="float: right; margin-right: 20px; margin-top: 10px;"/>
 	</div>
 	
 </body>
