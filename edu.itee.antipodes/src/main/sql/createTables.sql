@@ -20,7 +20,9 @@ CREATE TABLE Tour (
 	price FLOAT,
 	total_Days NUMBER,
 	on_Demand NUMBER(1),
-	currency CHAR(3)
+	currency CHAR(3),
+	points CHAR(30),
+	levels CHAR(10)
 );
 
 CREATE TABLE ListedTour (

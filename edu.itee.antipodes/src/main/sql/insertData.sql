@@ -37,87 +37,87 @@ INSERT INTO TourOperator VALUES (
 
 INSERT INTO Tour VALUES (
 	0001, '5 Nights in Paris', 'Sample the food and wine of magical Paris.',
-	1899.95, 6, 0,'USD'
+	1899.95, 6, 0,'USD','JFKDLSFJDSDFS','bbb'
 );
 
 INSERT INTO Tour VALUES (
 	0002, 'Australia Zoo', 'Experience the reef and rainforest in Cairns.',
-	349.95, 4, 0,'USD'
+	349.95, 4, 0,'USD','JFdsfdsfdsfsSFJDfdSDFS','bbb'
 );
 
 INSERT INTO Tour VALUES (
 	0003, 'The Milford Track', 'Take 5 days off for this world famous guided hike.',
-	1790.00, 5, 0,'AUD'
+	1790.00, 5, 0,'AUD','JF23232DSDFS7676','bbb'
 );
 
 INSERT INTO Tour VALUES (
 	0004, 'The Rock', 'The most electrifying rock in world entertainment.',
-	1899.95, 2, 0,'AUD'
+	1899.95, 2, 0,'AUD','JFKewtrewrDLSFJDSy54yDFS','bbb'
 );
 
 INSERT INTO Tour VALUES (
 	0005, 'Egyptian Wonders', 'Rameses, Tutankhamun, Nefertiti and Cleopatra.',
-	1899.95, 6, 1,'AUD'
+	1899.95, 6, 1,'AUD','JFKDLSFJDSDFS','bbb'
 );
 
 INSERT INTO Tour VALUES (
 	0006, 'Big Apple', 'New York at its finest; loud, proud and ugly.',
-	2799.95, 9, 1,'AUD'
+	2799.95, 9, 1,'AU','JFKDLSsfrewrewFJDSD1212FS','bbb'
 );
 
 INSERT INTO Tour VALUES (
 	0007, 'Pax Romana', 'Take a walking tour of Rome, the eternal city.',
-	1899.95, 3, 1,'AUD'
+	1899.95, 3, 1,'AU','JFKDLS)(*O&^FJDSDFS','bbb'
 );
 
 INSERT INTO Tour VALUES (
 	0008, 'Medieval Europe', 'Prague is Europe''s hidden gem, affordable and beautiful',
-	999.95, 6, 1,'EUD'
+	999.95, 6, 1,'EUR','JFKgfdgjre%^%^%&DSDFS','bbb'
 );
 
 INSERT INTO Tour VALUES (
 	0009, 'Stonehenge', 'Take this day tour to the mythical site of the Druids',
-	1899.95, 1, 1,'EUD'
+	1899.95, 1, 1,'EUR','*>.<*00','bbb'
 );
 
 INSERT INTO Tour VALUES (
-	0010, 'Fire and Ice', 'It''s Iceland as you have never seen it before.',
-	1299.95, 4, 1,'EUD'
++	0010, 'Fire and Ice', 'It''s Iceland as you have never seen it before.',
+	1299.95, 4, 1,'EUR','JFKDgfdgfdgfd543LSFJDSDFS','bbb'
 );
 
 INSERT INTO Tour VALUES (
 	0011, 'Dostoyevski''s Ruin', 'Fancy a trip to Siberia? We don''t, but you can go.',
-	1899.95, 23, 1,'AUD'
+	1899.95, 23, 1,'AUD','JFKDLfdgfd*/-/+SFJDSDFS','bbb'
 );
 
 INSERT INTO Tour VALUES (
 	0012, 'Holiday in Cambodia', 'What the heck was Jello Biafra talking about?',
-	699.95, 6, 1,'AUD'
+	699.95, 6, 1,'AUD','JFKDLSFJ+-*//*-/*-/*/DSDFS','bbb'
 );
 
 INSERT INTO Tour VALUES (
 	0013, 'Wine Country', 'Bordeaux dans printemps. C''est vraiment bon.',
-	1599.95, 8, 1,'AUD'
+	1599.95, 8, 1,'AUD','JFKDL*/9/-*/+-*/-*SFJDSDFS','bbb'
 );
 
 INSERT INTO Tour VALUES (
 	0014, 'Eye of the Tiger', 'Who cares about the Declaration when you have Rocky.',
-	1999.95, 4, 1,'AUD'
+	1999.95, 4, 1,'AUD','JFKDL9/+6/+*/+*+SFJDSDFS','bbb'
 );
 
 INSERT INTO Tour VALUES (
 	0015, 'The Odyssey', 'Set off from Piraeus to the Ios and then beautiful Santorini.',
-	1099.95, 6, 1,'AUD'
+	1099.95, 6, 1,'AUD','Jfgkjretjoi/*/*-/*/*/FS','bbb'
 );
 
 INSERT INTO Tour VALUES (
 	0016, 'The Last Crusade', 'Starting in Turkey, and finishing in Palestine.',
-	1199.95, 15, 1,'EUD'
+	1199.95, 15, 1,'EUR','JFKDLSFJDytrytrtSDFS','bbb'
 );
 
 INSERT INTO Tour VALUES (
 	0017, 'World Game', 'Catch the 2010 Football World Cup in Johannesburg.',
-	2599.95, 30, 1,'EUD'
+	2599.95, 30, 1,'EUR','JFKDLSFJDSDFS*+/-*/-++','bbb'
 );
 
 -- ListedTour -----------------------------------------------------------------------

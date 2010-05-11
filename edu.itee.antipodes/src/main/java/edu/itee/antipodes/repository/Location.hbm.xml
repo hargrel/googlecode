@@ -3,17 +3,19 @@
 	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="edu.itee.antipodes.domain.db">
-  <class name="Location" table="Location" lazy="false">
+  <class name="Location" table="Location" lazy="false" >
   	<id name="locationID" type="integer" column="LOCATION_ID">
   		<generator class="increment"/>
   	</id>
   	<property name="locationName" column="LOCATION_NAME"/>
   	<property name="longitude" column="LONGITUDE"/>
   	<property name="latitude" column="LATITUDE"/>
+  	<property name="points" column="POINTS"/>
+  	<property name="levels" column="LEVELS"/>
   	<!-- bidirectional one-to-many mapping to tourDate table -->
   	<!-- remove cascade="all" to avoid re-save deleted object to Tour table when delete activity? -->
   	<!--<set name="tours" table="TourLocation" cascade="all" lazy="false">-->
-  	<set name="tours" table="TourLocation" lazy="false">
+  	<set name="tours" table="TourLocation" >
 	  	<key column="LOCATION_ID"></key>
 	  	<many-to-many column="TOUR_ID"  class="Tour"/>
   	</set>
