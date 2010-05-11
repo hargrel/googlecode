@@ -18,10 +18,11 @@ import edu.itee.antipodes.repository.DaoManager;
 import edu.itee.antipodes.repository.LocationDao;
 import edu.itee.antipodes.repository.ReportingDaoHibernate;
 import edu.itee.antipodes.repository.TourOperatorDao;
+import edu.itee.antipodes.repository.TourOperatorDaoHibernate;
 
 public class SimpleReportingManager implements ReportingManager {
 
-	private TourOperatorDao toDao = DaoManager.getTourOperatorDao();
+	private TourOperatorDaoHibernate toDao = DaoManager.getTourOperatorDao();
 
 	@SuppressWarnings("deprecation")
 	@Override

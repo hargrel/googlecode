@@ -34,7 +34,9 @@
 	<tr>
 		<!-- Insert company name -->
 		<td valign="top" width="180">Company name:</td>
-		<td><form:input path="operatorName" size="40" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="operatorName"/></div></td>
+		<td>
+			<form:input path="operatorName" size="40" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="operatorName"/></div>
+		</td>
 	</tr>
 
 	<tr>
@@ -44,23 +46,10 @@
 	</tr>
 	
 	<tr>
-		<!-- Insert email -->
+		<!-- Insert email  -->
 		<td valign="top">Email:</td>
 		<td><form:input path="email" size="40" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="email"/></div></td>
 	</tr>	
-	
-	<tr>
-		<!-- Insert currency -->
-		<td>Currency:</td>
-		<td><form:select path="currency">
-				<form:option value="USD" label="USD" />
-				<form:option value="AUD" label="AUD" />
-				<form:option value="EUR" label="EUR" />
-				<form:option value="GBP" label="GBP" />
-				<form:option value="YEN" label="YEN" />
-			</form:select></td>
-	</tr>	
-
 	<tr>
 		<!-- Cancel or submit -->
 		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="TOhome.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Edit"/></td>

@@ -9,9 +9,12 @@ import edu.itee.antipodes.repository.DaoManager;
 @SuppressWarnings("serial")
 public class SimpleAccountManager implements AccountManager {
 	
+	PasswordHash pHash = new PasswordHash();
+	
 	private AccountUserDaoHibernate accountDao = DaoManager.getAccountUserDao();
 
-	public void addAccount(AccountUser account) {
+	public void addAccount(AccountUser account) throws Exception {
+		account.setPassword(pHash.Hash(account.getPassword()));
 		accountDao.addAccountUser(account);
 	}
 	public void dropAccountByID(int id) {
@@ -23,13 +26,14 @@ public class SimpleAccountManager implements AccountManager {
 	public List<AccountUser> getAccounts() {
 		return accountDao.getAccountUserList();
 	}
-	public void updateAccount(AccountUser account) {
+	public void updateAccount(AccountUser account) throws Exception {
+		account.setPassword(pHash.Hash(account.getPassword()));
 		accountDao.saveAccountUser(account);
 	}
 	public void setAccountDao(AccountUserDaoHibernate accountDao) {
 		this.accountDao = accountDao;
 	}
-	@Override
+	
 	public AccountUser getAccountByUsername(String userName) {
 		return accountDao.getAccountUserByUsername(userName);
 	}

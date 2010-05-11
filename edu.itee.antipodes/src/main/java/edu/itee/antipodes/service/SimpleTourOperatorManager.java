@@ -3,19 +3,44 @@ package edu.itee.antipodes.service;
 import java.io.File;
 import java.io.IOException;
 import java.security.InvalidParameterException;
+import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.itee.antipodes.domain.db.Image;
+import edu.itee.antipodes.domain.db.TourOperator;
 import edu.itee.antipodes.repository.DaoManager;
 import edu.itee.antipodes.repository.ImageDao;
 import edu.itee.antipodes.repository.TourDao;
+import edu.itee.antipodes.repository.TourOperatorDaoHibernate;
 
+@SuppressWarnings("serial")
 public class SimpleTourOperatorManager implements TourOperatorManager {
 
 	ImageDao imd = DaoManager.getImageDao();
 	TourDao to = DaoManager.getTourDao();
+	private TourOperatorDaoHibernate operatorDao = DaoManager.getTourOperatorDao();
+
+	public TourOperator getTourOperatorByID(int id) {
+		return operatorDao.getTourOperatorByID(id);
+	}
+
+	public void updateTourOperator(TourOperator operator) {
+		operatorDao.saveTourOperator(operator);
+	}
+
+	public void addTourOperator(TourOperator operator) {
+		operatorDao.addTourOperator(operator);
+	}
+
+	public void dropTourOperator(int id) {
+		operatorDao.dropTourOperatorByID(id);
+	}
+
+	public List<TourOperator> getOperators() {
+		return operatorDao.getTourOperatorList();
+	}
 	
 	@Override
 	public void UploadFile(ApplicationContext applicationContext,

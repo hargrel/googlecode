@@ -15,8 +15,8 @@ public interface AccountManager extends Serializable {
 
 	public AccountUser getAccountByUsername(String userName);
 	
-	public void updateAccount(AccountUser account);
+	public void updateAccount(AccountUser account) throws Exception;
 	
-	public void addAccount(AccountUser account);
+	public void addAccount(AccountUser account) throws Exception;
 
 }

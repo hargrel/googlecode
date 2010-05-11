@@ -35,6 +35,11 @@
 		<td valign="top">Password:</td>
 		<td width="150"><form:password path="password" size="20" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="password"/></div></td>
 	</tr>
+
+	<tr>
+		<td valign="top">Membership Expiry:</td>
+		<td width="150"><input name="membershipExpiry" size="20"/></td>
+	</tr>
 	
 	<tr>
 		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="SAhome.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Add" /></td>

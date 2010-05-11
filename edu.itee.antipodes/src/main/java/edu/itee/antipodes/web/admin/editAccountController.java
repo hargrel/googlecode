@@ -51,8 +51,6 @@ public final class editAccountController {
 		if (result.hasErrors()) { 
 			return "editAccount"; 
 			}
-		PasswordHash pHash = new PasswordHash();
-		accountUser.setPassword(pHash.Hash(accountUser.getPassword()));
 		
 		accountManager.updateAccount(accountUser);
 		return new RedirectView("accountList.html");

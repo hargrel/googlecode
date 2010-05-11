@@ -7,7 +7,7 @@ public class DaoManager {
 	private static String[] paths = {"edu/itee/antipodes/repository/hibernate-cfg.xml"};
 	private static ApplicationContext ctx = new ClassPathXmlApplicationContext(paths);
 
-	public static TourOperatorDao getTourOperatorDao() {
+	public static TourOperatorDaoHibernate getTourOperatorDao() {
         return (TourOperatorDaoHibernate) ctx.getBean("tourOperatorDao");
 	}
 
