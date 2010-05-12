@@ -12,7 +12,7 @@ import edu.itee.antipodes.service.UtilityManager;
 public class CustomerSearchDaoHibernate extends HibernateDaoSupport implements Iterable<Object>{
 	
 	Object[] tuple = null;
-	String pattern = "MM/dd/yyyy";
+	String pattern = "dd/MM/yyyy";
 	String select="";
 	
 	UtilityManager um = new UtilityManager();
@@ -29,73 +29,34 @@ public class CustomerSearchDaoHibernate extends HibernateDaoSupport implements I
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Object> SearchListedTours(String activityName, String locationName, String startDate, String finishDate) 
+	public List<Object> findListedTours(String activityNames, String locationNames, String startDate, String finishDate) 
 	throws DataAccessResourceFailureException, HibernateException, IllegalStateException, ParseException{
 
-		// dummy values to be changed
-		String activityNameTemp = "dummy";
-		String locationNameTemp = "dummy";
+		// dummy values to avoid passing null to database
+		String activityNamesTemp = "dummy";
+		String locationNamesTemp = "dummy";
 		String startDateTemp = "22/11/2000";
 		String finishDateTemp = "22/11/3000";
 		
-		if (activityName != null) {activityNameTemp = activityName;}
-		if (locationName != null) {locationNameTemp = locationName;}
-		if (startDate != null) {startDateTemp = startDate;}
-		if (finishDate != null) {finishDateTemp = finishDate;}
+		// use input parameters if not null, else use dummy values
+		if (activityNames != null) {activityNamesTemp = activityNames;}
+		if (locationNames != null) {locationNamesTemp = locationNames;}
+		if (startDate != "") {startDateTemp = startDate;}
+		if (finishDate != "") {finishDateTemp = finishDate;}
 		
-		String sqlActivityAndLocationAndStartDateAndFinishDate=select+"from ListedTour as l join l.tour as t " +
-		"join t.locations as c join t.activities as a join t.tourDates as d " +
-		"where (c.locationName = :locationName1 or a.activityName = :activityName1) " +
-		"and (d.startDate >= :startDate and d.finishDate <= :finishDate)";
-		
-		Query query= getSession().createQuery(sqlActivityAndLocationAndStartDateAndFinishDate).
-			setParameter("startDate", um.stringToDate(startDateTemp, pattern)).
-			setParameter("finishDate", um.stringToDate(finishDateTemp, pattern)).
-			setParameter("activityName1", activityNameTemp).			
-			setParameter("locationName1", locationNameTemp);
-		return query.list();
-	}
-
-	// V2 handles multiple locations and activities
-	@SuppressWarnings("unchecked")
-	public List<Object> SearchListedToursV2(String activityName, String locationName, String startDate, String finishDate) 
-	throws DataAccessResourceFailureException, HibernateException, IllegalStateException, ParseException{
-
-		// dummy values to be changed
-		String activityNameTemp = "dummy";
-		String locationNameTemp = "dummy";
-		String startDateTemp = "22/11/2000";
-		String finishDateTemp = "22/11/3000";
-		
-//		Set<String> activityNameSet = new HashSet<String>();
-//		Set<String> locationNameSet = new HashSet<String>();
-//		activityNameSet.add("'Hide'");
-//		activityNameSet.add("'Jump')");
-//		locationNameSet.add("'Brisbane'");
-//		locationNameSet.add("'NewYork')");
-		
-		if (activityName != null) {activityNameTemp = activityName;}
-		if (locationName != null) {locationNameTemp = locationName;}
-		if (startDate != null) {startDateTemp = startDate;}
-		if (finishDate != null) {finishDateTemp = finishDate;}
-		
+		// query listed tours on any locs OR acts, AND with dates
 		String sqlCustomerSearchQuery = select+"from ListedTour as l join l.tour as t " +
 		"join t.locations as c join t.activities as a join t.tourDates as d " +
-		"where (c.locationName = :locationName1 or a.activityName = :activityName1) " +
+		"where (c.locationName IN (:locationName1) or a.activityName IN (:activityName1)) " +
 		"and (d.startDate >= :startDate and d.finishDate <= :finishDate)";
-		
-		Query query= getSession().createQuery(sqlCustomerSearchQuery).
-			setParameter("startDate", um.stringToDate(startDateTemp, pattern)).
-			setParameter("finishDate", um.stringToDate(finishDateTemp, pattern)).
-			setParameter("activityName1", activityNameTemp).
-			setParameter("locationName1", locationNameTemp);			
 
-//		Query query= getSession().createQuery(sqlCustomerSearchQuery).
-//		setParameter("startDate", um.stringToDate(startDateTemp, pattern)).
-//		setParameter("finishDate", um.stringToDate(finishDateTemp, pattern)).
-//		setParameterList("activityName1", activityNameSet).
-//		setParameterList("locationName1", locationNameSet);			
-		
+		// use setParameterList() for multiple values
+		Query query = getSession().createQuery(sqlCustomerSearchQuery)
+		.setParameter("startDate", um.stringToDate(startDateTemp, pattern))
+		.setParameter("finishDate", um.stringToDate(finishDateTemp, pattern))
+		.setParameterList("activityName1", activityNamesTemp.split(","))
+		.setParameterList("locationName1", locationNamesTemp.split(","));
+
 		return query.list();
 	}
 	

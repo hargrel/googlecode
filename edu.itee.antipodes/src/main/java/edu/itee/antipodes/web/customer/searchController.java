@@ -71,22 +71,31 @@ public class searchController {
 		validator.validate(sch, result);
 		if (result.hasErrors()) { return "search"; }
 
-		String startDateTemp = null;
-		String finishDateTemp = null;
 		Set<ListedTour> ListedTours = new HashSet<ListedTour>();
 		CustomerManager cm = new SimpleCustomerManager();
-		if (startDate != "") {startDateTemp = startDate;}
-		if (finishDate != "") {finishDateTemp = finishDate;}
-		// should name activityNames, locationNames with 's'
-		Iterator<Object> it = cm.searchListedTours(activityName, locationName, startDateTemp, finishDateTemp).iterator();
-		while (it.hasNext()) {
-			Object[] tour = (Object[]) it.next();
-			ListedTours.add((ListedTour)tour[0]);
-		}
+		// should name activityNames, locationNames
+		Iterator<Object> it = cm.searchListedTours(activityName,locationName,startDate,finishDate).iterator();
+		// tour[0] is the listedTour
+		while(it.hasNext()) {Object[] tour = (Object[]) it.next(); ListedTours.add((ListedTour)tour[0]);}
 		model.addAttribute("listedTours", ListedTours);
 		return "searchResult";
     }
 
+//	public static void main(String[] args) throws DataAccessResourceFailureException, HibernateException, IllegalStateException, ParseException {
+//		String locationsName = "Peru";
+//		String activityName = "Seek";
+//		Set<ListedTour> ListedTours = new HashSet<ListedTour>();
+//		System.out.println("******");
+//		CustomerManager cm = new SimpleCustomerManager();
+//		Iterator<Object> it = cm.searchListedTours(activityName,locationsName,"","").iterator();
+//		System.out.println("******");
+//		while(it.hasNext()) {Object[] tour = (Object[]) it.next(); ListedTours.add((ListedTour)tour[0]);}
+//		for(ListedTour lt: ListedTours) {
+//			System.out.println("***   "+lt.getListID());
+//		}
+//		if (ListedTours.size() == 0) {System.out.println("***   nothing found");}
+//	}
+	
 }
 
 

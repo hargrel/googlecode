@@ -22,10 +22,9 @@ public class SimpleCustomerManager implements CustomerManager {
 	public List<ListedTour> getListedToursByOpID(int id) {
 		return listedTourDao.getListedToursByOpID(id);
 	}
-	public List<Object> searchListedTours(String activityName, String locationName,  
+	public List<Object> searchListedTours(String activityNames, String locationNames,  
 			String startDate, String finishDate) throws DataAccessResourceFailureException, HibernateException, IllegalStateException, ParseException {
-		//return tourSearchDao.SearchListedTours(activityName, locationName, startDate, finishDate);
-		return tourSearchDao.SearchListedToursV2(activityName, locationName, startDate, finishDate);
+		return tourSearchDao.findListedTours(activityNames, locationNames, startDate, finishDate);
 	}
 
 }
