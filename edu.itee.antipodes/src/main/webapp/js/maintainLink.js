@@ -18,7 +18,6 @@ function initialize() {
         map.setCenter(latlng, 8);
         geocoder = new GClientGeocoder();
         GEvent.addListener(map, "click", clicked);
-        //showAddress(document.getElementById("locationName").value);
         if (lat!=0 && lng!=0)
         {
         	addCoords();
@@ -28,23 +27,9 @@ function initialize() {
 }
 
 function createMarker(point) {
-	//address = addresses.Placemark[0];
-	//showAddress(document.forms['loc'].locationName.value);
     var marker = new GMarker(point, {draggable: true});
-	map.addOverlay(marker);
-	
-	
-	/*address = addresses.Placemark[0];
-	
-	point2address();
-	
-    GEvent.addListener(marker, "dragstart", function() {
-        map.closeInfoWindow();
-    });
-
-    GEvent.addListener(marker, "dragend", point2address);
-    
-    return marker;*/
+	map.addOverlay(marker);    
+    return marker;
   }
 
 function clicked(overlay, latlng) {

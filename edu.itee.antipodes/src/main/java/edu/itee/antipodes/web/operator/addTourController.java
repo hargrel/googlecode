@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.itee.antipodes.domain.db.Tour;
+import edu.itee.antipodes.service.TourManager;
+
 
 @Controller
 @RequestMapping("/operator/addTour.html")
@@ -21,6 +23,10 @@ public final class addTourController {
 	public void setValidator(Validator validator) {
 		this.validator = validator;
 	}
+	
+	@Autowired
+	TourManager tourManager;
+
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUserForm(ModelMap model) {
@@ -36,8 +42,10 @@ public final class addTourController {
 		validator.validate(info, result);
 		if (result.hasErrors()) { return "addTour"; }
 		
+		tourManager.addTour(info);
+
 		// Use the redirect-after-post pattern to reduce double-submits.
-		return "redirect:thanks.html";
+		return "tourList";
 		
 	}
 

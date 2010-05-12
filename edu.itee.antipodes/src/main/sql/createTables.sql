@@ -20,9 +20,7 @@ CREATE TABLE Tour (
 	price FLOAT,
 	total_Days NUMBER,
 	on_Demand NUMBER(1),
-	currency CHAR(3),
-	points CHAR(30),
-	levels CHAR(10)
+	currency CHAR(3)
 );
 
 CREATE TABLE ListedTour (
@@ -48,7 +46,9 @@ CREATE TABLE Location (
 	location_ID NUMBER PRIMARY KEY,
 	location_Name VARCHAR2(256),
 	latitude FLOAT,
-	longitude FLOAT
+	longitude FLOAT,
+	points VARCHAR2(256),
+	levels VARCHAR2(256)
 );
 
 CREATE TABLE TourLocation (

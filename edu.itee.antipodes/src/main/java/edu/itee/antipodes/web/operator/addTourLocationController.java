@@ -13,6 +13,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import edu.itee.antipodes.domain.db.Location;
 import edu.itee.antipodes.service.SimpleSystemAdminManager;
 import edu.itee.antipodes.service.SystemAdminManager;
+import edu.itee.antipodes.service.XMLGenerator;
 
 @Controller
 @RequestMapping("/operator/addTourLocation.html")
@@ -43,6 +44,13 @@ public final class addTourLocationController {
 		}
 
 		sam.saveLocation(loc);
+		XMLGenerator xml = new XMLGenerator();
+		String x[]={"A"};
+		try {
+			xml.main(x);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return new RedirectView("alignTour.html");
 	}
 }

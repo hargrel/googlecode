@@ -2,8 +2,6 @@ package edu.itee.antipodes.domain.pages;
 
 import java.util.Date;
 
-import org.springmodules.validation.bean.conf.loader.annotation.handler.Length;
-import org.springmodules.validation.bean.conf.loader.annotation.handler.RegExp;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.ValidationMethod;
 
 public class AlignTour {
@@ -18,18 +16,8 @@ public class AlignTour {
 	private int locationID;
 	
 	private int activityID;
-	
-
 
 	private int totalDays;
-	
-	@Length(max = 30)
-	@RegExp(value = "[a-zA-Z ]*")
-	private String locationName;
-	
-	@Length(max = 30)
-	@RegExp(value = "[a-zA-Z ]*")
-	private String activityName;
 
 	public int getTourID() {
 		return tourID;
@@ -71,22 +59,6 @@ public class AlignTour {
 		this.totalDays = totalDays;
 	}
 
-	public String getLocationName() {
-		return locationName;
-	}
-
-	public void setLocationName(String locationName) {
-		this.locationName = locationName;
-	}
-
-	public String getActivityName() {
-		return activityName;
-	}
-
-	public void setActivityName(String activityName) {
-		this.activityName = activityName;
-	}
-
 	public int getLocationID() {
 		return locationID;
 	}
@@ -102,13 +74,13 @@ public class AlignTour {
 	public void setActivityID(int activityID) {
 		this.activityID = activityID;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "AlignTour [activityName=" + activityName + ", finishDate="
-				+ finishDate + ", locationName=" + locationName
-				+ ", startDate=" + startDate + ", totalDays=" + totalDays
-				+ ", tourID=" + tourID + ", tourName=" + tourName + "]";
+		return "AlignTour [activityID=" + activityID + ", finishDate="
+				+ finishDate + ", locationID=" + locationID + ", startDate="
+				+ startDate + ", totalDays=" + totalDays + ", tourID=" + tourID
+				+ ", tourName=" + tourName + "]";
 	}
 
 	@SuppressWarnings("unused")

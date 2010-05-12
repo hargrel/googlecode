@@ -97,7 +97,7 @@ table {
 	
 #Table table {
 	font-family:"Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
-	font-size: 10pt;
+	font-size: 8pt;
 	padding: 0; 
 	margin: 0; 
 	border-collapse: collapse; 
@@ -125,6 +125,7 @@ table {
 	color: #333; 
 	text-align: left; 
 	font-weight: bold;
+	font-size: 10pt;
 }
 
 #Table table tbody, table thead {

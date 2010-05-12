@@ -40,19 +40,19 @@ public class alignTourController {
 	
 	@InitBinder
 	public void initBinder(final WebDataBinder binder) {
-		binder.registerCustomEditor(Date.class, null, new CustomDateEditor(new SimpleDateFormat("dd-MMM-yy"), true));
+		binder.registerCustomEditor(Date.class, null, new CustomDateEditor(new SimpleDateFormat("dd/MM/yyyy"), true));
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUserForm(ModelMap model) {
 		AlignTour alignTour = new AlignTour();
-		LocationDao ld = DaoManager.getLocationDao();
-		List<Location> loc = ld.getLocationList();
+		/*LocationDao ld = DaoManager.getLocationDao();
+		List<Location> loc = ld.getLocationList();*/
 		ActivityDao ad = DaoManager.getActivityDao();
 		List<Activity> act = ad.getActivityList();
 		
 		model.addAttribute("activities", act);
-		model.addAttribute("locations", loc);
+		//model.addAttribute("locations", loc);
 		model.addAttribute("alignTour", alignTour);
 		return "alignTour";
 	}
@@ -65,7 +65,7 @@ public class alignTourController {
 		if (result.hasErrors()) { return "alignTour"; }
 		
 		// Use the redirect-after-post pattern to reduce double-submits.
-		return "redirect:thanks.html";
+		return "alignTourList";
 		
 	}
 

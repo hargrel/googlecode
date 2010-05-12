@@ -6,10 +6,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<style type="text/css">
+.error{
+	font-family: "Courier";
+	}
+</style>
 </head>
 <body>
-	<h2><c:out value="${errorheader}" /></h2>
-	<h3><c:out value="${errormessage}" /></h3>
-	<pre><c:out value="${errordetails}" /></pre>
+	<h2><img style="margin-bottom: -10px" src="img/Warning-icon.png"/>&nbsp;&nbsp;<c:out value="${errorheader}" />!</h2>
+	<h3><c:out value="${errormessage}" />.</h3>
+	<p class="error"><c:out value="${errordetails}" /></p>
+
+	
 </body>
 </html>

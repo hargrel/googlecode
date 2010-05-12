@@ -23,8 +23,7 @@ function initialize() {
 
 function createMarker(point,loc) {
         var marker = new GMarker(point);
-        GEvent.addListener(marker, "click", function()
-        		{marker.openInfoWindowHtml(loc);
+        GEvent.addListener(marker, "click", function() {
         		if (document.forms['search'].locationName.value == ""){
                 	document.forms['search'].locationName.value = loc;}
                 else{

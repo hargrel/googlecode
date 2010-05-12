@@ -11,10 +11,10 @@
 
 <h2>Global List of Locations</h2>
 	<div id="Table">
-	<table style="width: 100%">
+	<table style="width: 600px">
 		<thead>
 		<tr>
-			<th style="width: 80px;">Location ID</th>
+			<th>ID</th>
 			<th>Location Name</th>
 			<th>Latitude</th>
 			<th>Longitude</th>
@@ -50,7 +50,7 @@
 	
 	</table>
 	</div>
-	<input type="button" value="Cancel" onClick="window.location.href='<c:url value="maintainSearchCriteria.html"/>'" style="float: right; margin-top: 10px;"/>
+	<input type="button" value="Cancel" onClick="window.location.href='<c:url value="maintainSearchCriteria.html"/>'" style="float: right; margin-right: 220px; margin-top: 20px;"/>
 
 
 </body>

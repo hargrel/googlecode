@@ -42,12 +42,25 @@
 	</tr>
 	
 	<tr>
+		<!-- Insert currency -->
+		<td>Currency:</td>
+		<td><form:select path="currency">
+				<form:option value="USD" label="USD" />
+				<form:option value="AUD" label="AUD" />
+				<form:option value="EUR" label="EUR" />
+				<form:option value="GBP" label="GBP" />
+				<form:option value="YEN" label="YEN" />
+			</form:select></td>
+	</tr>	
+	
+	<tr>
 		<!-- Insert price -->
 		<td>Price:</td>
 		<td><form:input path="price" size="5" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="price"/></div></td>
 	</tr>
 	
 	<tr>
+		<!-- Set on demand value -->
 		<td width="100" valign="top">On Demand:</td>
 		<td><form:radiobutton path="onDemand" value="1" cssErrorClass="form-error-field"/>&nbsp;&nbsp;Yes&nbsp;&nbsp;
 			<form:radiobutton path="onDemand" value="0" cssErrorClass="form-error-field"/>&nbsp;&nbsp;No

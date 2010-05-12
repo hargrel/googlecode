@@ -11,10 +11,10 @@
 	
 	<h2>Global List of Activities</h2>
 	<div id="Table">
-	<table style="width: 400px;">
+	<table style="width: 350px;">
 		<thead>
 		<tr>
-			<th style="width: 80px;">Activity ID</th>
+			<th>ID</th>
 			<th>Activity Name</th>
 			<th></th>
 			<th></th>
@@ -44,7 +44,7 @@
 		</tbody>
 	
 	</table>
-	<input type="button" value="Cancel" onClick="window.location.href='<c:url value="maintainSearchCriteria.html"/>'" style="float: right; margin-right: 420px; margin-top: 10px;"/>
+	<input type="button" value="Cancel" onClick="window.location.href='<c:url value="maintainSearchCriteria.html"/>'" style="float: right; margin-right: 470px; margin-top: 20px;"/>
 	</div>
 	
 	

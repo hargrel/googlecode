@@ -11,10 +11,10 @@
 
 <h2>Account List</h2>
 	<div id="Table">
-	<table style="width: 500px;">
+	<table style="width: 600px;">
 		<thead>
 		<tr>
-			<th style="width: 60px;">User ID</th>
+			<th>User ID</th>
 			<th>Username</th>
 			<th>Password</th>
 			<th>User Type</th>
@@ -50,7 +50,7 @@
 		</tbody>
 	
 	</table>
-	<input type="button" value="Cancel" onClick="window.location.href='<c:url value="SAhome.html"/>'" style="float: right; margin-right: 20px; margin-top: 10px;"/>
+	<input type="button" value="Cancel" onClick="window.location.href='<c:url value="SAhome.html"/>'" style="float: right; margin-right: 220px; margin-top: 20px;"/>
 	</div>
 	
 </body>

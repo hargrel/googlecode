@@ -11,11 +11,11 @@
 
 	<h2>Tour List</h2>
 	<div id="Table">
-	<table style="width: 750px;">
+	<table style="width: 100%;">
 		<thead>
 		<tr>
 			<th>ID</th>
-			<th>Tour Name</th>
+			<th width="120">Tour Name</th>
 			<th>Description</th>
 			<th>Price</th>
 			<th>On Demand</th>	
@@ -28,18 +28,18 @@
 		<c:forEach items="${tours}" var="tour">
 			
 			<tr>
-				<td><c:out value="${tour.tourID}" /></td>
-				<td><c:out value="${tour.tourName}" /></td>	
-				<td><c:out value="${tour.tourDesc}" /></td>
-				<td><c:out value="${tour.price}" /></td>
-				<td><c:out value="${tour.onDemand}" /></td>
-				<td>
+				<td valign="top"><c:out value="${tour.tourID}" /></td>
+				<td valign="top"><c:out value="${tour.tourName}" /></td>	
+				<td valign="top"><c:out value="${tour.tourDesc}" /></td>
+				<td valign="top"><c:out value="${tour.price}" />&nbsp;<c:out value="${tour.currency}" /></td>
+				<td valign="top"><c:out value="${tour.onDemand}" /></td>
+				<td valign="top">
 					<form style="margin:0px; padding: 0px;" name="edit_${tour.tourID}" action="editTour.html" method="get">
 						<input type="hidden" name="tourID" value="${tour.tourID}" />
 					</form>
 					<a href="#" style="color: blue;" onclick="document['edit_${tour.tourID}'].submit()">Edit</a>
 				</td>
-				<td>
+				<td valign="top">
 					<form style="margin:0px; padding: 0px;" name="delete_${tour.tourID}" action="tourList.html" method="post">
 						<input type="hidden" name="tourID" value="${tour.tourID}" />
 					</form>
@@ -50,7 +50,7 @@
 		</tbody>
 		
 	</table>
-	<input type="button" value="Cancel" onClick="window.location.href='<c:url value="TOhome.html"/>'" />
+
 </div>
 </body>
 </html>

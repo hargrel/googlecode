@@ -63,9 +63,6 @@ public final class addAccountController {
 			tod.addTourOperator(operator);
 		}
 		// Use the redirect-after-post pattern to reduce double-submits.
-		XMLGenerator xml = new XMLGenerator();
-		String x[]={"A"};
-		xml.main(x);
 		List<AccountUser> newAccounts = accountManager.getAccounts();
 		model.addAttribute("accounts", newAccounts);
 		return "accountList";
