@@ -1,43 +1,43 @@
 -- AccountUser -----------------------------------------------------------------
 
 INSERT INTO AccountUser VALUES (
-	0001, 'austravel', '7c6a180b36896a0a8c02787eeafb0e4c', 'operator'
+	0001, 'austravel', '460f727a0ef1f797995a24033ebd9a7d', 'operator'
 );
 
 INSERT INTO AccountUser VALUES (
-	0002, 'ecotrans', '6cb75f652a9b52798eb6cf2201057c73', 'operator'
+	0002, 'ecotrans', '18fdec38e5777a28f0810333161c5e84', 'operator'
 );
 
 INSERT INTO AccountUser VALUES (
-	0003, 'adventours', '7c6a180b36896a0a8c02787eeafb0e4c', 'operator'
+	0003, 'adventours', 'f84b407363cd30799f590982ea922384', 'operator'
 );
 
 INSERT INTO AccountUser VALUES (
-	0004, 'travelscene', '7c6a180b36896a0a8c02787eeafb0e4c', 'operator'
+	0004, 'travelscene', 'e3286d4aefa8e9e941dee81d6f73229f', 'operator'
 );
 
 INSERT INTO AccountUser VALUES (
-	0005, 'ecotravel', '7c6a180b36896a0a8c02787eeafb0e4c', 'operator'
+	0005, 'ecotravel', 'f76be6d6433ea30b79cfe17f07331074', 'operator'
 );
 
 INSERT INTO AccountUser VALUES (
-	0006, 'travelink', '6cb75f652a9b52798eb6cf2201057c73', 'operator'
+	0006, 'travelink', '0125e65edcc01c6d667b87686ebb0ace', 'operator'
 );
 
 INSERT INTO AccountUser VALUES (
-	0007, 'scenictours', '6cb75f652a9b52798eb6cf2201057c73', 'operator'
+	0007, 'scenictours', '883d5ec0f754cb60c4bab7dbd9e8c883', 'operator'
 );
 
 INSERT INTO AccountUser VALUES (
-	0008, 'travelous', '819b0643d6b89dc9b579fdfc9094f28e', 'operator'
+	0008, 'travelous', '73f3844aafd9ea2f387baecf11d20cb7', 'operator'
 );
 
 INSERT INTO AccountUser VALUES (
-	0009, 'travelocity', '6cb75f652a9b52798eb6cf2201057c73', 'operator'
+	0009, 'travelocity', '73ef0f17b0edb1d1a197e1ac992e712c', 'operator'
 );
 
 INSERT INTO AccountUser VALUES (
-	0010, 'safari.link', '819b0643d6b89dc9b579fdfc9094f28e', 'operator'
+	0010, 'safari.link', 'f4c4ffae7d779da6ec95b6316b3fed26', 'operator'
 );
 
 INSERT INTO AccountUser VALUES (
@@ -86,6 +86,10 @@ INSERT INTO TourOperator VALUES (
 
 INSERT INTO TourOperator VALUES (
 	0010, 'Safari Link', 'Safari Link is an established safari and holiday operator dedicated to offering high quality, bespoke and innovative safaris and holidays to Africa', TO_DATE('13122020', 'DDMMYYYY'), 'safari.link@gmail.com'  
+);
+
+INSERT INTO TourOperator VALUES (
+	0011, 'OperatorExample', 'Operator example for testing!', TO_DATE('13122020', 'DDMMYYYY'), 'operator@example.com'  
 );
 
 -- Tour ------------------------------------------------------------------------
