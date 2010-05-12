@@ -26,6 +26,7 @@ public final class editCompanyInfoController {
 
 	CurrentUser currentUser = new CurrentUser();
 	TourOperatorDaoHibernate tod = DaoManager.getTourOperatorDao();
+	String successMessage;
 	
 	@Autowired
 	private Validator validator;
@@ -37,19 +38,21 @@ public final class editCompanyInfoController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUserForm(Model model) {
 		TourOperator operator = tod.getTourOperatorByID(currentUser.getCurrentUserID());
+		successMessage = "";
 		model.addAttribute("editCompanyInfo", operator);
+		model.addAttribute("successMessage", successMessage);
 		return "editCompanyInfo";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public Object post(@ModelAttribute("editCompanyInfo") TourOperator operator,
-			BindingResult result) {
-		
+			BindingResult result, Model model) {
 		validator.validate(operator, result);
 		if (result.hasErrors()) { return "editCompanyInfo"; }
 		operator.setOperatorID(currentUser.getCurrentUserID());
 		tod.saveTourOperator(operator);
-		
+		successMessage = "Update successful!";
+		model.addAttribute("successMessage", successMessage);
 		return "editCompanyInfo";
 		
 	}

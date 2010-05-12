@@ -14,8 +14,8 @@
 	<thead>
 	<tr>
 		<th style="width: 60px;">ListID</th>
-		<th>OperatorID</th>
 		<th>TourID</th>
+		<th>OperatorID</th>
 		<th>From</th>
 		<th>To</th>
 		<th>Total Fee</th>

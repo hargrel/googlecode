@@ -56,17 +56,23 @@
 	<tr>
 		<!-- Display tour name -->
 		<td width="120">Tour name:</td>
-		<td><h4><c:out value="${tour.tourName}" /></h4></td>
+		<td><h4><c:out value="${tour.tourName}" />
+		</h4></td>
 	</tr>
 	
 	<tr>
 		<!-- Insert start & finish date -->
-		<td colspan="2">Start date:&nbsp;&nbsp;<form:input path="startDate" size="10" id="datepicker_from" title="DD/MM/YYYY" cssErrorClass="form-error-field"/>&nbsp;&nbsp;
-		Finish date:&nbsp;&nbsp;<form:input path="finishDate" size="10" id="datepicker_to" title="DD/MM/YYYY" cssErrorClass="form-error-field"/></td>
+		<c:if test="${tour.onDemand == '0'}">
+		<td colspan="2">Start date:&nbsp;&nbsp;<input name="startDate" size="10" id="datepicker_from"/>&nbsp;&nbsp;
+		Finish date:&nbsp;&nbsp;<input name="finishDate" size="10" id="datepicker_to"/></td>
 		
 		<!-- Add new date -->
 		<td><a class="home" href="<c:url value="addTourDate.html"/>">Add new date</a><br/></td>
-	
+		</c:if>
+		<c:if test="${tour.onDemand == '1'}">
+		<input name="startDate" type="hidden" size="10" value="00/00/0000"/>
+		<input name="finishDate" type="hidden" size="10" value="00/00/0000"/>
+		</c:if>
 	</tr>
 
 	<tr>

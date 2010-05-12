@@ -82,7 +82,7 @@ public class Location implements Serializable{
 		return "Location [latitude=" + latitude + ", levels=" + levels
 				+ ", locationID=" + locationID + ", locationName="
 				+ locationName + ", longitude=" + longitude + ", points="
-				+ points + ", tours=" + tours + "]";
+				+ points + "]";
 	}
 	
 }

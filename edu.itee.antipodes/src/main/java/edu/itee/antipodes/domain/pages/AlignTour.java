@@ -1,8 +1,16 @@
 package edu.itee.antipodes.domain.pages;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import org.springmodules.validation.bean.conf.loader.annotation.handler.ValidationMethod;
+
+import edu.itee.antipodes.domain.db.Activity;
+import edu.itee.antipodes.domain.db.Location;
+import edu.itee.antipodes.domain.db.TourDate;
 
 public class AlignTour {
 	private int tourID;
@@ -13,10 +21,10 @@ public class AlignTour {
 	
 	private Date finishDate;
 	
-	private int locationID;
-	
-	private int activityID;
 
+	private List<Integer> activityID = new ArrayList<Integer>(0);
+	private List<Integer> locationID = new ArrayList<Integer>(0);
+	
 	private int totalDays;
 
 	public int getTourID() {
@@ -59,19 +67,19 @@ public class AlignTour {
 		this.totalDays = totalDays;
 	}
 
-	public int getLocationID() {
+	public List<Integer> getLocationID() {
 		return locationID;
 	}
 
-	public void setLocationID(int locationID) {
+	public void setLocationID(List<Integer> locationID) {
 		this.locationID = locationID;
 	}
 
-	public int getActivityID() {
+	public List<Integer> getActivityID() {
 		return activityID;
 	}
 
-	public void setActivityID(int activityID) {
+	public void setActivityID(List<Integer> activityID) {
 		this.activityID = activityID;
 	}
 
@@ -90,7 +98,7 @@ public class AlignTour {
 		return true;}
 		else return startDate.before(finishDate) || startDate.equals(finishDate);
     }
-	
+	/*
 	@SuppressWarnings("unused")
 	@ValidationMethod(forProperty = "totalDays")
     private boolean checkInt() {	
@@ -98,5 +106,5 @@ public class AlignTour {
 		return false;}
 		else return true;
     }
-	
+	*/
 }

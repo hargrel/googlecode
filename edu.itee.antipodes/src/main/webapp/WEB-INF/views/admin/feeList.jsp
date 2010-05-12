@@ -6,11 +6,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+	<style>
+		.form-error-message { font-weight: bold; color: #900; font-size: 10px; }
+	</style>
 </head>
 <body>
 
 <h2>Monthly Fee List</h2>
 	<div id="Table">
+	<span class="form-error-message"><c:out value="${errorMessage}" /></span>
 	<table style="width: 500px;">
 		<thead>
 		<tr>
@@ -28,7 +32,8 @@
 				
 				<td><c:out value="${listedTourFee[3]}" /></td>
 				<td><c:out value="${listedTourFee[1]}" /></td>
-				<td><input type="text" name="fee" value="${listedTourFee[2]}" size="5" /></td>
+				<td><input type="text" name="fee" value="${listedTourFee[2]}" size="5" />
+				</td>
 			
 				<td>
 					<input type="hidden" name="listID" value="${listedTourFee[0]}" />

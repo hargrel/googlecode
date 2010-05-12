@@ -19,12 +19,10 @@ import edu.itee.antipodes.repository.MonthlyFeeDaoHibernate;
 @RequestMapping("/admin/feeList.html")
 public class feeListController {
 	MonthlyFeeDaoHibernate mfdh = DaoManager.getMonthlyFeeDao();
-	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUserForm(Model model, HttpServletRequest request,
 			HttpServletResponse response) {
 		String listID = request.getParameter("listID");
-		
 		
 		List<Object[]> listedTourFees = mfdh.getMonthlyFeeForListedTour(Integer.parseInt(listID));
 		model.addAttribute("listedTourFees", listedTourFees);
@@ -32,16 +30,25 @@ public class feeListController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String post(@RequestParam("fee") float fee, @RequestParam("listID") int listID, @RequestParam("feeID") int feeID, Model model) {
+	public String post(@RequestParam("fee") String feeString, @RequestParam("listID") int listID, @RequestParam("feeID") int feeID, Model model) {
+		
+		
 		
 		MonthlyFee monthlyFee = mfdh.getMonthlyFeeByID(feeID);
-		monthlyFee.setFee(fee);
-		mfdh.saveMonthlyFee(monthlyFee);
-		//MonthlyFee monthlyFee = new MonthlyFee();
-		//monthlyFee.setFee(fee);
-		//monthlyFee.setFeeID(feeID);
+		String errorMessage;
 		
-		//mfdh.saveMonthlyFee(monthlyFee);
+		try
+		{
+			float fee = Float.valueOf(feeString.trim()).floatValue();
+			monthlyFee.setFee(fee);
+			mfdh.saveMonthlyFee(monthlyFee);
+		}
+		catch (NumberFormatException nfe)
+		{
+			errorMessage = "Please enter a correct value.";
+			model.addAttribute("errorMessage", errorMessage);
+		}
+		
 		
 		List<Object[]> listedTourFees = mfdh.getMonthlyFeeForListedTour(listID);
 		model.addAttribute("listedTourFees", listedTourFees);

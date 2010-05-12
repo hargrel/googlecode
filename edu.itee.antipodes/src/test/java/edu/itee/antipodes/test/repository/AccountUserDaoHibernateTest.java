@@ -29,7 +29,7 @@ public class AccountUserDaoHibernateTest extends TestCase {
 	@Test
 	public void testAccountUser() {
 		//test List<Object> getAccountUserByUsername(String userName)
-		assertEquals("AccountUser [userID=2, password=4034611159, userType=admin, userName=user2]",dao.getAccountUserByUsername("user2").toString());
+		assertEquals("AccountUser [userID=2, password=18fdec38e5777a28f0810333161c5e84, userType=operator, userName=ecotrans]",dao.getAccountUserByUsername("ecotrans").toString());
 	
 		
 		
@@ -43,8 +43,8 @@ public class AccountUserDaoHibernateTest extends TestCase {
 		
 		assertNotNull(dao.getAccountUserList());
 		
-		assertEquals("user1", dao.getAccountUserByID(1).getUserName());
-		assertEquals("admin", dao.getAccountUserByID(1).getUserType());
+		assertEquals("austravel", dao.getAccountUserByID(1).getUserName());
+		assertEquals("operator", dao.getAccountUserByID(1).getUserType());
 		
 		accUser1 = dao.getAccountUserByID(userID);
 		accUser1.setUserName("new user name");
