@@ -22,7 +22,7 @@
 		<td valign="top"><h4>Email: </h4></td>
 		<td valign="top"><h4><c:out value="${listedTours[0].operator.email}" /></h4></td>
 	</tr>
-	
+
 	<tr>
 		<td valign="top"><h4>Membership Expired: </h4></td>
 		<td valign="top"><h4><c:out value="${listedTours[0].operator.membershipExpired}" /></h4></td>
@@ -38,9 +38,6 @@
 	</tr>
 	<tr>
 		<td valign="top"><h4>Email: <c:out value="${listedTours[0].operator.email}" /></h4></td>
-	</tr>
-	<tr>
-		<td valign="top"><h4>Currency: <c:out value="${listedTours[0].operator.currency}" /></h4></td>
 	</tr>
 	-->
 	<input type="button" value="Contact Tour Operator" 
