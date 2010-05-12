@@ -34,6 +34,16 @@ public class ListedTourDaoHibernate extends HibernateDaoSupport implements Liste
 		Object record = getHibernateTemplate().load(ListedTour.class, listedTourID);
         getHibernateTemplate().delete(record);
     }
+	/*
+	 * For Google map function
+	 * @return a list of tuples in which
+	 * Object[0]= location object
+	 * Object[1]=latitude
+	 * Object[2]=longitude
+	 * Object[3]=points
+	 * Object[4]=levels
+	 */
+	
 	public List<Object[]> getLocationDetailsByListedTourID(int id){
 		List<Object[]> list = new ArrayList<Object[]>();		
 		String select="select c, c.latitude,c.longitude, c.points, c.levels ";
@@ -44,6 +54,12 @@ public class ListedTourDaoHibernate extends HibernateDaoSupport implements Liste
 		list= query.setParameter("listID", id).list();
 		return list;
 	}
+	/*
+	 * For Google map function
+	 * @return a list of tuples in which
+	 * Object[0]= image object
+	 * Object[1]= url
+	 * */
 	public List<Object[]> getImageDetailsByListedTourID(int id){
 		List<Object[]> list = new ArrayList<Object[]>();		
 		String select="select i, i.url ";
