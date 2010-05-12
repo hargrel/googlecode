@@ -43,13 +43,13 @@ public final class editCompanyInfoController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public Object post(@ModelAttribute("editCompanyInfo") TourOperator operator,
-			BindingResult result, ModelMap model) {
+			BindingResult result) {
 		
 		validator.validate(operator, result);
 		if (result.hasErrors()) { return "editCompanyInfo"; }
 		operator.setOperatorID(currentUser.getCurrentUserID());
 		tod.saveTourOperator(operator);
-		model.addAttribute("editCompanyInfo", tod.getTourOperatorByID(currentUser.getCurrentUserID()));
+		
 		return "editCompanyInfo";
 		
 	}
