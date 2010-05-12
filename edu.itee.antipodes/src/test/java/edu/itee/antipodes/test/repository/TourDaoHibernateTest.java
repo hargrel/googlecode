@@ -3,6 +3,8 @@
  */
 package edu.itee.antipodes.test.repository;
 
+import java.util.List;
+
 import edu.itee.antipodes.domain.*;
 import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.repository.TourDaoHibernate;
@@ -79,6 +81,9 @@ public class TourDaoHibernateTest extends TestCase{
 		tour = tourDao.getTourByID(tourID);
 		tourDao.dropTour(tour);
 		assertNull(tourDao.getTourByID(tourID));	
+		
+		// test List<Tour> getTourListByOperatorID(int id)
+		assertEquals(1, tourDao.getTourListByOperatorID(1).get(0).getTourID());
 		
 //		// Extra
 //		assertEquals(2, tourDao.getTourDatesByTourID(2).size());
