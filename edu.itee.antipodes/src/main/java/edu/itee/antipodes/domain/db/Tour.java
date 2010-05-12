@@ -34,6 +34,7 @@ public class Tour implements Serializable {
 	private Set<Location> locations = new HashSet<Location>(0);
 	private Set<TourDate> tourDates = new HashSet<TourDate>(0);
 	private Set<Image> images = new HashSet<Image>(0);
+	private TourOperator operator;
 	
 	//default constructor, instances are initiated by Constructor.newInstance()
 	public Tour(){}
@@ -111,6 +112,16 @@ public class Tour implements Serializable {
 	}
 	
 	
+	
+	
+	public TourOperator getOperator() {
+		return operator;
+	}
+
+	public void setOperator(TourOperator operator) {
+		this.operator = operator;
+	}
+
 	public Set<TourDate> getTourDates() {
 		return tourDates;
 	}
@@ -138,12 +149,13 @@ public class Tour implements Serializable {
 
 	
 	
+	
 	@Override
 	public String toString() {
-		return "Tour [currency=" + currency + ", onDemand=" + onDemand
-				+ ", price=" + price + ", totalDays=" + totalDays
-				+ ", tourDesc=" + tourDesc + ", tourID=" + tourID
-				+ ", tourName=" + tourName + "]";
+		return "Tour [currency=" + currency + ", locations=" + locations
+				+ ", onDemand=" + onDemand + ", operator=" + operator
+				+ ", price=" + price + ", tourDesc=" + tourDesc + ", tourID="
+				+ tourID + ", tourName=" + tourName + "]";
 	}
 
 	@SuppressWarnings("unused")

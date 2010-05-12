@@ -96,102 +96,102 @@ INSERT INTO TourOperator VALUES (
 
 INSERT INTO Tour VALUES (
 	0001, 'Everest Adventure', 'Everest Base Camp conjures up visions of sheer awe and beauty, and this epic journey will not disappoint! Trek through the Himalayan foothills on the way to the base of the highest mountain in the world.',
-	1269.55, 15, 0,'USD'
+	1269.55, 15, 0,'USD',1
 );
 
 INSERT INTO Tour VALUES (
 	0002, 'Inca Discovery', 'Follow in the steps of the Incas on this trip to the "must-see" highlight of Peru - the Inca Trail to Machu Picchu! The 4-day trek from Cuzco is spectacular and the first glimpse of Machu Picchu will leave memories.',
-	1289.75, 10, 0,'USD'
+	1289.75, 10, 0,'USD',3
 );
 
 INSERT INTO Tour VALUES (
 	0003, 'Trekking Mont Blanc', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
-	1399.35, 10, 1,'AUD'
+	1399.35, 10, 1,'AUD',4
 );
 
 INSERT INTO Tour VALUES (
 	0004, 'Atlas Mountain Trekking', 'Love to hike? Then this 8-day active adventure in Morocco is for you! Enjoy mountain treks offering magnificent views, encounters with Berber villagers and the opportunity to explore bustling Marrakech.',
-	1679.95, 12, 0,'AUD'
+	1679.95, 12, 0,'AUD',4
 );
 
 INSERT INTO Tour VALUES (
 	0005, 'Sicilian Volcano Trail', 'Exhilarating hiking on the edge! A week of unforgettable hikes over three active volcanoes: Vulcano; Stromboli, one of the most active volcanoes in the world; and mighty Etna, Europe highest active volcano.',
-	1899.95, 14, 1,'AUD'
+	1899.95, 14, 1,'AUD',2
 );
 
 INSERT INTO Tour VALUES (
 	0006, 'Turkey Multi Sport', 'Turkey''s rocky, mountainous coastline is perfect for the active adventurer. Hike, bike and paddle through the steep canyons, traditional villages, ancient ruins and olive groves of the southern Turkish countryside.',
-	1519.95, 10, 0,'AUD'
+	1519.95, 10, 0,'AUD',3
 );
 
 INSERT INTO Tour VALUES (
 	0007, 'Thailand Sailing Adventure', 'Island hop in Southern Thailand to some of the best snorkeling and diving locations in the world. Enjoy a week aboard a sailing catamaran, while swimming in deserted waters among turtles.',
-	1899.95, 10, 0,'AUD'
+	1899.95, 10, 0,'AUD',5
 );
 
 INSERT INTO Tour VALUES (
 	0008, 'Bali Village Cycling', 'Riding in quiet villages expose the heart of bali about 17 km and set of after a tasty morning tea overlooking Batukaru, Batur and Agung Mountain.',
-	999.95, 9, 1,'EUR'
+	999.95, 9, 1,'EUR',6
 );
 
 INSERT INTO Tour VALUES (
 	0009, 'Maldives Cruise', 'Take a relaxing voyage through many of the least developed atolls that make up the Maldives. On our traditional Dhoni we will visit isolated beaches, small towns and traditional fishing villages.',
-	1899.95, 8, 1,'EUR'
+	1899.95, 8, 1,'EUR',7
 );
 
 INSERT INTO Tour VALUES (
 	0010, 'Kenya Wildlife Adventure', 'Wildlife is one of the big draws of Kenya, and this trip has it all! Track down the Big 5 as you roam the savannah discovering the unique wildlife of Samburu, observe millions of flamingos at Lake Nakuru.',
-	1999.95, 10, 0,'EUR'
+	1999.95, 10, 0,'EUR',8
 );
 
 INSERT INTO Tour VALUES (
 	0011, 'Nigeria Expedition', 'An eco-tourism expedition to the two major sectors of the Gashaka-Gumpti National Park, Nigeria''s largest park. The expedition offers an unparalleled experience to explore the remote wilderness areas of Nigeria.',
-	2899.95, 23, 1,'AUD'
+	2899.95, 23, 1,'AUD',9
 );
 
 INSERT INTO Tour VALUES (
 	0012, 'Ethiopia Explorer', 'Explore captivating Ethiopia! Experience ancient monasteries, castles, and rock-hewn churches, including the famous Saint George Church in Lalibela, which is carved out of one single rock.',
-	2699.95, 16, 1,'AUD'
+	2699.95, 16, 1,'AUD',10
 );
 
 INSERT INTO Tour VALUES (
 	0013, 'Cycle Tasmania', 'Join a group of like-minded adventure people for an active ride through some of the hidden treasures on Tasmania''s coastlines and mountains.',
-	1099.95, 9, 0,'AUD'
+	1099.95, 9, 0,'AUD',9
 );
 
 INSERT INTO Tour VALUES (
 	0014, 'Roam India', 'India is home to great food, fascinating culture, alluring sights and friendly and inviting people. Discover the charms and mystery that makes up this incredible country.',
-	1999.95, 14, 0,'AUD'
+	1999.95, 14, 0,'AUD',8
 );
 
 INSERT INTO Tour VALUES (
 	0015, 'Borneo Rainforest Walk', 'Explore one of the 2km jungle trails and learn about some of the unique medicinal plants, tropical hardwood trees, coastal vegetation, tropical dipterocarp rainforest and the ecology of the mangrove forest.',
-	1099.95, 8, 0,'AUD'
+	1099.95, 8, 0,'AUD',8
 );
 
 INSERT INTO Tour VALUES (
 	0016, 'China Hike, Bike & Raft', 'From rural roads through endless rice fields in southern China to the bustling streets of Beijing, over the Great Wall of China and down the Li River, see China in a unique way!',
-	1599.95, 30, 1,'EUR'
+	1599.95, 30, 1,'EUR',7
 );
 
 INSERT INTO Tour VALUES (
 	0017, 'Nomadic Mongolia', 'An incredible journey to the land of blue skies, green hills and nomadic people. Get out and explore the city of Ulaan Baatar and lush green countryside, which is dotted with ancient monasteries.',
-	2099.95, 18, 0,'AUD'
+	2099.95, 18, 0,'AUD',7
 );
 
 INSERT INTO Tour VALUES (
 	0018, 'Madagascar Experience', 'The fascinating island of Madagascar awaits. Escape the everyday routine on this 10-day journey encompassing natural beauty, stunning landscapes, Malgache history and culture, and of course, a wide variety of lemurs.',
-	2999.95, 14, 0,'AUD'
+	2999.95, 14, 0,'AUD',6
 );
 
 INSERT INTO Tour VALUES (
 	0019, 'Uluru Walk', 'An absorbing exposition of Uluru''s (Ayers Rock) natural history and deep significance to the Aboriginal people. Short walks bring you close to this powerful place, view rock art, waterholes, flora and fauna of Uluru.',
-	1099.95, 9, 0,'AUD'
+	1099.95, 9, 0,'AUD',5
 );
 
 INSERT INTO Tour VALUES (
 	0020, 'Japan Adventure', 'Japan is blessed with some of the most pristine scenery in Asia. With beautiful rivers, lakes and mountains, Japan really is the perfect place for a multi-sport adventure!',
-	1899.95, 10, 1,'EUR'
+	1899.95, 10, 1,'EUR',4
 );
 
 -- ListedTour -----------------------------------------------------------------------
