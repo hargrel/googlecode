@@ -80,6 +80,11 @@ public class ListedTourDaoHibernateTest extends TestCase {
 		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
 		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
 		assertEquals(3, dao.getListedToursByOpID(3).size());
+		//getLocationDetailsByListedTourID(int id)
+		
+		assertEquals(28.275358281817105, dao.getLocationDetailsByListedTourID(3).get(0)[1]);
+		//getImageDetailsByListedTourID(int id)
+		assertEquals("http://localhost/image0003.jpg", dao.getImageDetailsByListedTourID(3).get(0)[1].toString());
 	}
 }
 
