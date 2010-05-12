@@ -38,21 +38,30 @@
 				<input type="hidden" name="operatorID" value="${listedTour.operator.operatorID}" />
 			</form>
 			<a href="#" style="color: blue;" 
-				onclick="document['company info_${listedTour.operator.operatorID}'].submit()">company info</a>
+				onclick="document['company info_${listedTour.operator.operatorID}'].submit()">Company info</a>
 		</td>
+		<tr>
+		<td>
+		Departures:
+		</td>
+		</tr>
 	</tr>
 	<tr>
-		<td><input type="button" value="Contact Tour Operator" onClick="window.location.href='<c:url value="contactTourOperator.html"/>'"/></td>
+		<td><input type="button" value="Contact Tour Operator" style="margin-top: 50px" onClick="window.location.href='<c:url value="contactTourOperator.html"/>'"/></td>
 	</tr>
 </table>
 
-<h3>Description:</h3>
+<h4>Location:</h4>
+<h4>Activity:</h4>
+<h4>Description:</h4>
 <h4><c:out value="${listedTour.tour.tourDesc}" escapeXml="false"/></h4>
 
 <p class="test">The best framed views of Lake Wakatipu can be experienced on an interpretive guided tour using flying foxes as low impact adventure access. 
 Join us on a series of lines that traverse the forest in a way that will never be forgotten. 
 This tour is perfect for families, groups and those who have never ziplined before.
 </p>
+
+<h4>Images:</h4>
 
 </body>
 </html>

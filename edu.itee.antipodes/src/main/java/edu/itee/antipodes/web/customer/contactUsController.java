@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import edu.itee.antipodes.domain.pages.ContactOperator;
 
 @Controller
-@RequestMapping("/contactTourOperator.html")
-public final class contactTourOperatorController {
+@RequestMapping("/contactUs.html")
+public final class contactUsController {
 	
 	@Autowired
 	private Validator validator;
@@ -24,17 +24,17 @@ public final class contactTourOperatorController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUserForm(ModelMap model) {
-		ContactOperator contactOperator = new ContactOperator();
-		model.addAttribute("contactOperator", contactOperator);
-		return "contactTourOperator";
+		ContactOperator contactUs = new ContactOperator();
+		model.addAttribute("contactUs", contactUs);
+		return "contactUs";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String post(@ModelAttribute("contactOperator") ContactOperator contactOpt,
+	public String post(@ModelAttribute("contactOperator") ContactOperator contact,
 			BindingResult result) {
 		
-		validator.validate(contactOpt, result);
-		if (result.hasErrors()) { return "contactTourOperator"; }
+		validator.validate(contact, result);
+		if (result.hasErrors()) { return "contactUs"; }
 		
 		// Use the redirect-after-post pattern to reduce double-submits.
 		return "search";

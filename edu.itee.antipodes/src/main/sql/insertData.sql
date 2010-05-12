@@ -49,11 +49,11 @@ INSERT INTO AccountUser VALUES (
 );
 -- TourOperator ----------------------------------------------------------------
 INSERT INTO TourOperator VALUES (
-	0001, 'Austravel', 'Austravel is a leading travel centre representing Australia''s major tour operators. We offer a comprehensive travel planning and reservation service for all tours. Our product range includes eco tours, harbour cruises, and extended adventures', TO_DATE('13122020', 'DDMMYYYY'), 'austravel@gmail.com'  
+	0001, 'Austravel', 'Austravel is a leading travel centre representing Australia''s major tour operators. We offer a comprehensive travel planning and reservation service for all tours.', TO_DATE('13122020', 'DDMMYYYY'), 'austravel@gmail.com'  
 );
 
 INSERT INTO TourOperator VALUES (
-	0002, 'Ecotrans', 'Ecotrans offers exhilarating outdoor adventures to Africa, Asia, Caribbean, Europe, Latin America, and the South Pacific. Whether it''s an eco adventure or a jungle safari, you can count on Ecotrans to make your travel dreams come true.', TO_DATE('14122020', 'DDMMYYYY'), 'ecotrans@yahoo.com' 
+	0002, 'Ecotrans', 'Ecotrans offers exhilarating outdoor adventures to Africa, Asia, Caribbean, Europe, Latin America, and the South Pacific. Whether it''s an eco adventure or a jungle safari, you can count on us to make your travel dreams come true.', TO_DATE('14122020', 'DDMMYYYY'), 'ecotrans@yahoo.com' 
 );
 
 INSERT INTO TourOperator VALUES (
@@ -61,7 +61,7 @@ INSERT INTO TourOperator VALUES (
 );
 
 INSERT INTO TourOperator VALUES (
-	0004, 'Travelscene', 'Travelscene offers great service, great deals and the best prices on all types of travel products. Our product range includes eco tours, harbour cruises, accommodation packages, airfares, rail, coach, car hire & extended adventure.', TO_DATE('13122020', 'DDMMYYYY'), 'travel.scene@live.com'  
+	0004, 'Travelscene', 'Travelscene offers great service, great deals and the best prices on all types of travel products. Our product range includes eco tours, harbour cruises, & extended adventures.', TO_DATE('13122020', 'DDMMYYYY'), 'travel.scene@live.com'  
 );
 
 INSERT INTO TourOperator VALUES (
@@ -73,7 +73,7 @@ INSERT INTO TourOperator VALUES (
 );
 
 INSERT INTO TourOperator VALUES (
-	0007, 'Scenictours', 'Scenic tours is an independent travel agency selling escorted treks and tours, adventure and activity travel, safari and wildlife trips and tailor-made holidays to customers who desire impeccable and personalised service', TO_DATE('13122020', 'DDMMYYYY'), 'scenic.tours@aol.com'  
+	0007, 'Scenictours', 'Scenic tours is an independent travel agency selling escorted treks and tours, adventure and activity travel, safari and wildlife trips and tailor-made holidays to customers who desire impeccable and personalised service.', TO_DATE('13122020', 'DDMMYYYY'), 'scenic.tours@aol.com'  
 );
 
 INSERT INTO TourOperator VALUES (
@@ -85,7 +85,7 @@ INSERT INTO TourOperator VALUES (
 );
 
 INSERT INTO TourOperator VALUES (
-	0010, 'Safari Link', 'Safari Link is an established safari and holiday operator dedicated to offering high quality, bespoke and innovative safaris and holidays to Africa', TO_DATE('13122020', 'DDMMYYYY'), 'safari.link@gmail.com'  
+	0010, 'Safari Link', 'Safari Link is an established safari and holiday operator dedicated to offering high quality, bespoke and innovative safaris and holidays to Africa.', TO_DATE('13122020', 'DDMMYYYY'), 'safari.link@gmail.com'  
 );
 
 INSERT INTO TourOperator VALUES (
@@ -100,7 +100,7 @@ INSERT INTO Tour VALUES (
 );
 
 INSERT INTO Tour VALUES (
-	0002, 'Inca Discovery', 'Follow in the steps of the Incas on this trip to the "must-see" highlight of Peru - the Inca Trail to Machu Picchu! The 4-day trek from Cuzco is spectacular and the first glimpse of Machu Picchu will leave memories to last a lifetime.',
+	0002, 'Inca Discovery', 'Follow in the steps of the Incas on this trip to the "must-see" highlight of Peru - the Inca Trail to Machu Picchu! The 4-day trek from Cuzco is spectacular and the first glimpse of Machu Picchu will leave memories.',
 	1289.75, 10, 0,'USD'
 );
 
@@ -115,7 +115,7 @@ INSERT INTO Tour VALUES (
 );
 
 INSERT INTO Tour VALUES (
-	0005, 'Sicilian Volcano Trail', 'Exhilarating hiking on the edge! A week of Mediterranean villages, black sand beaches, and unforgettable hikes over three active volcanoes: Vulcano; Stromboli, one of the most active volcanoes in the world; and mighty Etna, Europe highest active volcano.',
+	0005, 'Sicilian Volcano Trail', 'Exhilarating hiking on the edge! A week of unforgettable hikes over three active volcanoes: Vulcano; Stromboli, one of the most active volcanoes in the world; and mighty Etna, Europe highest active volcano.',
 	1899.95, 14, 1,'AUD'
 );
 
@@ -125,7 +125,7 @@ INSERT INTO Tour VALUES (
 );
 
 INSERT INTO Tour VALUES (
-	0007, 'Thailand Sailing Adventure', 'Island hop in Southern Thailand to some of the best snorkeling and diving locations in the world. Enjoy a week aboard a sailing catamaran, while swimming in deserted waters among turtles, manta rays, and beautiful fish as far as the eye can see.',
+	0007, 'Thailand Sailing Adventure', 'Island hop in Southern Thailand to some of the best snorkeling and diving locations in the world. Enjoy a week aboard a sailing catamaran, while swimming in deserted waters among turtles.',
 	1899.95, 10, 0,'AUD'
 );
 
@@ -190,7 +190,7 @@ INSERT INTO Tour VALUES (
 );
 
 INSERT INTO Tour VALUES (
-	0020, 'Japan Adventure', 'Known as much for its high tech gadgets as for its centuries old traditions, Japan is blessed with some of the most pristine scenery in Asia. With beautiful rivers, lakes and mountains, Japan really is the perfect place for a multi-sport adventure!',
+	0020, 'Japan Adventure', 'Japan is blessed with some of the most pristine scenery in Asia. With beautiful rivers, lakes and mountains, Japan really is the perfect place for a multi-sport adventure!',
 	1899.95, 10, 1,'EUR'
 );
 

@@ -55,6 +55,14 @@
 		<put-attribute name="body" value="/WEB-INF/views/customer/companyInfo.jsp"/>
 	</definition>
 	
+	<definition name="contactUs" extends="baseLayoutCustomer">
+		<put-attribute name="body" value="/WEB-INF/views/customer/contactUs.jsp"/>
+	</definition>
+	
+	<definition name="aboutUs" extends="baseLayoutCustomer">
+		<put-attribute name="body" value="/WEB-INF/views/customer/aboutUs.jsp"/>
+	</definition>
+	
 	<!-- Tour Operator -->	
 	<definition name="TOhome" extends="baseLayoutTO">
 		<put-attribute name="body" value="/WEB-INF/views/operator/TOhome.jsp"/>

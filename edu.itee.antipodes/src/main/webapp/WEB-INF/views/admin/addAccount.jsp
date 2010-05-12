@@ -10,6 +10,26 @@
 			.form-error-field { background-color: #FFC; }
 			.form-error-message { font-weight: bold; color: #900; font-size: 10px; }
 		</style>
+<script type="text/javascript">
+function dispText() {
+	document.getElementById("hide").style.display = '';
+}
+function hideText() {
+	document.getElementById("hide").style.display = 'none';
+}
+</script>
+<link type="text/css" href="<c:url value="/css/smoothness/jquery-ui-1.7.2.custom.css"/>" rel="stylesheet" />
+<script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/jquery-ui-1.7.2.custom.min.js"/>"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#datepicker').datepicker({
+			changeMonth: true,
+			changeYear: true,
+			minDate:0
+		});
+	});
+	</script>
 </head>
 <body>
 <h2>Add Account</h2>
@@ -20,9 +40,9 @@
 <form:form commandName="accountUser">
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
 	<tr>
-		<td width="100" valign="top">User type:</td>
-		<td><form:radiobutton path="userType" value="admin" cssErrorClass="form-error-field"/>&nbsp;&nbsp;Admin<br/>
-			<form:radiobutton path="userType" value="operator" cssErrorClass="form-error-field"/>&nbsp;&nbsp;Operator
+		<td width="150" valign="top">User type:</td>
+		<td><form:radiobutton path="userType" value="admin" cssErrorClass="form-error-field" onclick="hideText()"/>&nbsp;Admin&nbsp;&nbsp;
+			<form:radiobutton path="userType" value="operator" cssErrorClass="form-error-field" onclick="dispText()"/>&nbsp;Operator
 			<div class="form-error-message"><form:errors path="userType"/></div></td>
 	</tr>
 	
@@ -33,16 +53,16 @@
 
 	<tr>
 		<td valign="top">Password:</td>
-		<td width="150"><form:password path="password" size="20" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="password"/></div></td>
+		<td width="200"><form:password path="password" size="20" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="password"/></div></td>
 	</tr>
 
-	<tr>
+	<tr id="hide" style="display: none">
 		<td valign="top">Membership Expiry:</td>
-		<td width="150"><input name="membershipExpiry" size="20"/></td>
+		<td><input name="membershipExpiry" size="20" id="datepicker"/></td>
 	</tr>
 	
 	<tr>
-		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="SAhome.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Add" /></td>
+		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="SAhome.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Add" style="margin-right: 50px"/></td>
 	</tr>
 
 </table>

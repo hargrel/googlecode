@@ -20,8 +20,9 @@ public class Tour implements Serializable {
 	private String tourName;
 	
 	@NotBlank
-	@Length(max = 80)
+	@Length(max = 256)
 	private String tourDesc;
+	
 	@NotNull
 	@Length(max = 3)
 	private String currency;

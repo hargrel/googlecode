@@ -46,8 +46,8 @@ public class alignTourController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUserForm(ModelMap model) {
 		AlignTour alignTour = new AlignTour();
-		/*LocationDao ld = DaoManager.getLocationDao();
-		List<Location> loc = ld.getLocationList();*/
+		//LocationDao ld = DaoManager.getLocationDao();
+		//List<Location> loc = ld.getLocationList();
 		ActivityDao ad = DaoManager.getActivityDao();
 		List<Activity> act = ad.getActivityList();
 		

@@ -14,7 +14,7 @@
 		</style>
 <script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/jquery-ui-1.7.2.custom.min.js"/>"></script>
-<!--  <script type="text/javascript">
+<script type="text/javascript">
 	$(function() {
 		$("#datepicker_from,#datepicker_to").datepicker({minDate:0,
 			onSelect: restrictDates, changeMonth: true, changeYear: true, dateFormat: 'dd/mm/yy'});
@@ -29,27 +29,7 @@
 		}
 				
 	});
-</script>-->
-<script type="text/javascript">
-$(function() {
-    $('.date-picker').datepicker( {
-        changeMonth: true,
-        changeYear: true,
-        showButtonPanel: true,
-        dateFormat: 'MM yy',
-        onClose: function(dateText, inst) { 
-            var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
-            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
-            $(this).datepicker('setDate', new Date(year, month, 1));
-        }
-    });
-});
 </script>
-<style>
-.ui-datepicker-calendar {
-    display: none;
-    }
-</style>
 </head>
 <body>
 

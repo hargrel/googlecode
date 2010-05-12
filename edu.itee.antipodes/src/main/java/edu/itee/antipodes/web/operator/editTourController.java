@@ -37,7 +37,7 @@ public final class editTourController {
 		if (result.hasErrors()) { return "editTour"; }
 		
 		// Use the redirect-after-post pattern to reduce double-submits.
-		return "redirect:thanks.html";
+		return "tourList";
 		
 	}
 

@@ -19,7 +19,7 @@ public class TourOperator {
 	private String operatorName;
 	
 	@NotBlank
-	@Length(max = 200)
+	@Length(max = 256)
 	private String companyInfo;
 	
 	private Date membershipExpired;

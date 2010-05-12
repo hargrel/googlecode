@@ -17,7 +17,8 @@
 <script type="text/javascript" src="<c:url value="/js/jquery.multiselect.min.js"/>"></script>
 <script type="text/javascript">
 	$(function() {
-		$("#datepicker_from,#datepicker_to").datepicker({onSelect: restrictDates, changeMonth: true, changeYear: true});
+		$("#datepicker_from,#datepicker_to").datepicker({minDate:0,
+			onSelect: restrictDates, changeMonth: true, changeYear: true, dateFormat: 'dd/mm/yy'});
 		
 		function restrictDates(dateStr) {
 		    if (this.id == 'datepicker_from') {

@@ -31,14 +31,14 @@
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
 	<tr>
 		<!-- Insert tour name -->
-		<td width="140" valign="top">Tour name:</td>
+		<td width="140">Tour name:</td>
 		<td><form:input path="tourName" size="40" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="tourName"/></div></td>
 	</tr>
 
 	<tr>
 		<!-- Insert tour description -->
 		<td valign="top">Tour description:</td>
-		<td width="500"><form:textarea path="tourDesc" id="tourDesc" cols="70" rows="12"/><div class="form-error-message"><form:errors path="tourDesc"/></div></td>
+		<td width="500"><form:textarea path="tourDesc" cols="70" rows="12" id="tourDesc" /><div class="form-error-message"><form:errors path="tourDesc"/></div></td>
 	</tr>
 	
 	<tr>
@@ -61,19 +61,10 @@
 	
 	<tr>
 		<!-- Set on demand value -->
-		<td width="100" valign="top">On Demand:</td>
+		<td valign="top">On Demand:</td>
 		<td><form:radiobutton path="onDemand" value="1" cssErrorClass="form-error-field"/>&nbsp;&nbsp;Yes&nbsp;&nbsp;
 			<form:radiobutton path="onDemand" value="0" cssErrorClass="form-error-field"/>&nbsp;&nbsp;No
 			<div class="form-error-message"><form:errors path="onDemand"/></div></td>
-	</tr>
-	
-	<tr>
-		<!-- Upload image -->
-		<td>Image:</td>
-		<td><form method="post" action="upload.form" enctype="multipart/form-data">
-            <input type="file" name="file"/>
-            <input type="submit" value="Upload"/>
-    		</form></td>
 	</tr>
 	
 	<tr>
@@ -82,5 +73,17 @@
 	</tr>
 </table>
 </form:form>
+
+<form method="post" action="uploadFile.html" style="margin-top: -25px" enctype="multipart/form-data">
+<table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">			
+<tr>
+	<td width="140">Image:</td>
+    <td><input type="hidden" name="tourID" value="2" />
+            <input type="file" name="file"/>
+            <input type="submit" value="Upload" />
+    </td>
+</tr>
+</form>
+</table>
 </body>
 </html>

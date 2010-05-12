@@ -34,7 +34,7 @@
 
 <body onload="initialize()" onunload="GUnload()">
 
-<h2>Search</h2>
+<h2>Search Tours</h2>
 
 <!-- Form name: search -->
 <!-- Attribute names: locationName, activityName, startDate, endDate, currency -->
@@ -54,7 +54,7 @@
 	
 	
 	<tr>
-		<td><div id="map_canvas" style="width: 500px; height: 300px; margin:10px 0"></div></td>
+		<td><div id="map_canvas" style="width: 500px; height: 300px; margin:10px 0; overflow: hidden"></div></td>
 	</tr>
 					
 	<tr>
@@ -67,13 +67,13 @@
 	</tr>
 	
 	<tr>
-		<td valign="top">Starting date:</td>
+		<td valign="top">Start date:</td>
 		<td><form:input path="startDate" size="15" id="datepicker_from" title="DD/MM/YYYY" cssErrorClass="form-error-field"/>&nbsp;&nbsp;<span style="font-size: 12px; font-style:italic; color: black;">(DD/MM/YYYY)<span>
 		<div class="form-error-message"><form:errors path="startDate"/></div></td>
 	</tr>
 	
 	<tr>
-		<td valign="top">Finishing date:</td>
+		<td valign="top">Finish date:</td>
 		<td><form:input path="finishDate" size="15" id="datepicker_to" title="DD/MM/YYYY" cssErrorClass="form-error-field"/>&nbsp;&nbsp;<span style="font-size: 12px; font-style:italic; color: black;">(DD/MM/YYYY)<span>
 		<div class="form-error-message"><form:errors path="finishDate" /></div></td>
 	</tr>
