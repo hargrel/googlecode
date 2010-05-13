@@ -18,6 +18,10 @@ public class ImageDaoHibernate extends HibernateDaoSupport implements ImageDao {
 	public Image getImageByID(int id) {
 		return (Image)getHibernateTemplate().get(Image.class, id);
 	}
+	@SuppressWarnings("unchecked")
+	public List<Image> getImageByTourID(int tourid) {
+		return getHibernateTemplate().find("from Image as IMG where IMG.tourID="+tourid);
+	}
 	public void saveImage(Image image) throws HibernateException{
 		getHibernateTemplate().saveOrUpdate(image);	
 	}		

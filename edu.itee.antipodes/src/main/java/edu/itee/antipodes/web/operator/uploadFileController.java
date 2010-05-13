@@ -43,6 +43,6 @@ public final class uploadFileController {
 			}
 		}
 
-		return new RedirectView("editTour.html?tourID="+tourID);
+		return new RedirectView("tourList.html");
 	}
 }

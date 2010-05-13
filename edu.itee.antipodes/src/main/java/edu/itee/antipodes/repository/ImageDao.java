@@ -10,6 +10,8 @@ public interface ImageDao {
 	
 	public List<Image> getImageList();
 	
+	public List<Image> getImageByTourID(int tourid);
+	
 	public Image getImageByID(int id);
 	
 	public void saveImage(Image image);

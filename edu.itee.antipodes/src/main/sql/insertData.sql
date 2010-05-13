@@ -191,7 +191,7 @@ INSERT INTO Tour VALUES (
 
 INSERT INTO Tour VALUES (
 	0020, 'Japan Adventure', 'Japan is blessed with some of the most pristine scenery in Asia. With beautiful rivers, lakes and mountains, Japan really is the perfect place for a multi-sport adventure!',
-	1899.95, 10, 1,'EUR',4
+	1899.95, 10, 1,'EUR',12
 );
 
 -- ListedTour -----------------------------------------------------------------------

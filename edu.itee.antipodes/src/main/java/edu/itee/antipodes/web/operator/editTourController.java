@@ -1,5 +1,10 @@
 package edu.itee.antipodes.web.operator;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -8,8 +13,18 @@ import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.view.RedirectView;
 
+import edu.itee.antipodes.domain.db.Image;
 import edu.itee.antipodes.domain.db.Tour;
+import edu.itee.antipodes.repository.DaoManager;
+import edu.itee.antipodes.repository.ImageDao;
+import edu.itee.antipodes.repository.ImageDaoHibernate;
+import edu.itee.antipodes.repository.TourOperatorDaoHibernate;
+import edu.itee.antipodes.service.CurrentUser;
+import edu.itee.antipodes.service.SimpleTourOperatorManager;
+import edu.itee.antipodes.service.TourManager;
+import edu.itee.antipodes.service.TourOperatorManager;
 
 @Controller
 @RequestMapping("/operator/editTour.html")
@@ -21,23 +36,36 @@ public final class editTourController {
 	public void setValidator(Validator validator) {
 		this.validator = validator;
 	}
+
+	@Autowired
+	TourManager tourManager;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public String showUserForm(ModelMap model) {
-		Tour updateTourInfo = new Tour();
+	public String showUserForm(ModelMap model, HttpServletRequest request,
+			HttpServletResponse response) {
+		int tourID = Integer.parseInt(request.getParameter("tourID"));
+		Tour updateTourInfo = tourManager.getTourByID(tourID);
+		ImageDao idh = DaoManager.getImageDao();
+		List<Image> images = idh.getImageByTourID(tourID);
 		model.addAttribute("editTour", updateTourInfo);
+		model.addAttribute("images", images);
+		model.addAttribute("numberOfImages", images.size());
 		return "editTour";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String post(@ModelAttribute("editTour") Tour info,
+	public Object post(@ModelAttribute("editTour") Tour info,
 			BindingResult result) {
 		
 		validator.validate(info, result);
 		if (result.hasErrors()) { return "editTour"; }
 		
-		// Use the redirect-after-post pattern to reduce double-submits.
-		return "tourList";
+		TourOperatorDaoHibernate todh = DaoManager.getTourOperatorDao();
+		CurrentUser currentUser = new CurrentUser();
+		
+		info.setOperator(todh.getTourOperatorByID(currentUser.getCurrentUserID()));
+		tourManager.updateTour(info);
+		return new RedirectView("tourList.html");
 		
 	}
 

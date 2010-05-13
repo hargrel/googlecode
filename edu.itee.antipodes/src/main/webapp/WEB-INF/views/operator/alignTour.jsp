@@ -70,8 +70,8 @@
 		<td><a class="home" href="<c:url value="addTourDate.html"/>">Add new date</a><br/></td>
 		</c:if>
 		<c:if test="${tour.onDemand == '1'}">
-		<input name="startDate" type="hidden" size="10" value="00/00/0000"/>
-		<input name="finishDate" type="hidden" size="10" value="00/00/0000"/>
+		<input name="startDate" type="hidden" size="10" value="01/01/1900"/>
+		<input name="finishDate" type="hidden" size="10" value="01/01/1900"/>
 		</c:if>
 	</tr>
 

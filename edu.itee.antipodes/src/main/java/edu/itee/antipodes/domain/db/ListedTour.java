@@ -17,9 +17,7 @@ public class ListedTour implements Serializable{
 	
 	public ListedTour(){}
 	
-	public ListedTour(Date listedFrom, Date listedTo, TourOperator operator, Tour tour) {
-		this.listedFrom = listedFrom;
-		this.listedTo = listedTo;
+	public ListedTour(TourOperator operator, Tour tour) {
 		this.operator = operator;
 		this.tour = tour;
 	}

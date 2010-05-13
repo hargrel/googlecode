@@ -72,6 +72,10 @@
 		<put-attribute name="body" value="/WEB-INF/views/operator/editCompanyInfo.jsp"/>
 	</definition>
 	
+	<definition name="uploadImages" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/uploadImages.jsp"/>
+	</definition>
+	
 	<definition name="tourList" extends="baseLayoutTO">
 		<put-attribute name="body" value="/WEB-INF/views/operator/tourList.jsp"/>
 	</definition>

@@ -66,24 +66,13 @@
 			<form:radiobutton path="onDemand" value="0" cssErrorClass="form-error-field"/>&nbsp;&nbsp;No
 			<div class="form-error-message"><form:errors path="onDemand"/></div></td>
 	</tr>
-	
 	<tr>
 		<!-- Cancel or submit -->
-		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="TOhome.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Add" /></td>
+		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="TOhome.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Next" /></td>
 	</tr>
 </table>
 </form:form>
 
-<form method="post" action="uploadFile.html" style="margin-top: -25px" enctype="multipart/form-data">
-<table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">			
-<tr>
-	<td width="140">Image:</td>
-    <td><input type="hidden" name="tourID" value="2" />
-            <input type="file" name="file"/>
-            <input type="submit" value="Upload" />
-    </td>
-</tr>
-</form>
 </table>
 </body>
 </html>

@@ -1,0 +1,100 @@
+package edu.itee.antipodes.web.operator;
+
+import java.security.InvalidParameterException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.view.RedirectView;
+
+import edu.itee.antipodes.repository.DaoManager;
+import edu.itee.antipodes.repository.ImageDao;
+import edu.itee.antipodes.service.SimpleTourOperatorManager;
+import edu.itee.antipodes.service.TourOperatorManager;
+
+
+@Controller
+@RequestMapping("/operator/uploadImages.html")
+public class uploadImagesController {
+	
+	@Autowired
+	private ApplicationContext applicationContext;
+
+	TourOperatorManager tom = new SimpleTourOperatorManager();
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public String showUserForm(ModelMap model, HttpServletRequest request,
+			HttpServletResponse response) {
+		int tourID = Integer.parseInt(request.getParameter("tourID"));
+		
+		ImageDao imd = DaoManager.getImageDao();
+		List<String> files = new ArrayList();
+		for(int i=1;i <= (4 - imd.getImageByTourID(tourID).size());i++){
+			files.add("file"+i);
+		}
+
+		model.addAttribute("tourID", tourID);
+		model.addAttribute("files", files);
+		model.addAttribute("numberOfFiles", files.size());
+		return "uploadImages";
+	}
+	
+	@RequestMapping(method = RequestMethod.POST)
+	public Object upload(@RequestParam("file1") MultipartFile multipartFile1,
+			@RequestParam("file2") MultipartFile multipartFile2,
+			@RequestParam("file3") MultipartFile multipartFile3,
+			@RequestParam("file4") MultipartFile multipartFile4,
+			@RequestParam("tourID") int tourID,
+			Model model) {
+
+		if (!multipartFile1.isEmpty()) {
+			try {
+				tom.UploadFile(applicationContext, multipartFile1, tourID);
+			} catch (InvalidParameterException ex) {
+				model.addAttribute("errorheader", "Oopps");
+				model.addAttribute("errormessage", "Can't upload files of this type. Please try again.");
+				return "error";
+			}
+		}
+		if (!multipartFile2.isEmpty()) {
+			try {
+				tom.UploadFile(applicationContext, multipartFile2, tourID);
+			} catch (InvalidParameterException ex) {
+				model.addAttribute("errorheader", "Oopps");
+				model.addAttribute("errormessage", "Can't upload files of this type. Please try again.");
+				return "error";
+			}
+		}
+		if (!multipartFile3.isEmpty()) {
+			try {
+				tom.UploadFile(applicationContext, multipartFile3, tourID);
+			} catch (InvalidParameterException ex) {
+				model.addAttribute("errorheader", "Oopps");
+				model.addAttribute("errormessage", "Can't upload files of this type. Please try again.");
+				return "error";
+			}
+		}
+		if (!multipartFile4.isEmpty()) {
+			try {
+				tom.UploadFile(applicationContext, multipartFile4, tourID);
+			} catch (InvalidParameterException ex) {
+				model.addAttribute("errorheader", "Oopps");
+				model.addAttribute("errormessage", "Can't upload files of this type. Please try again.");
+				return "error";
+			}
+		}
+
+		return new RedirectView("tourList.html");
+	}
+}

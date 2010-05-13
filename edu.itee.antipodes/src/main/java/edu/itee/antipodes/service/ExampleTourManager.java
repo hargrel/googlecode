@@ -29,4 +29,8 @@ public class ExampleTourManager implements TourManager {
 	public void setTourDao(TourDaoHibernate tourDao) {
 		this.tourDao = tourDao;
 	}
+
+	public List<Tour> getToursByOperatorID(int operatorID) {
+		return tourDao.getTourListByOperatorID(operatorID);
+	}
 }

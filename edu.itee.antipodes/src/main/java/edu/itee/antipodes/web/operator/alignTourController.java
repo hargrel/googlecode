@@ -101,10 +101,13 @@ public class alignTourController {
 		listedTour.setTour(tdh.getTourByID(align.getTourID()));
 		listedTour.setTourID(tdh.getTourByID(align.getTourID()).getTourID());
 		listedTour.setOperator(todh.getTourOperatorByID(currentUser.getCurrentUserID()));
-		if(startDate.getDate() != 0 || finishDate.getDate() != 0){
+		if(startDate.getYear() == 0 || finishDate.getYear() == 0){
+			tdh.getTourByID(align.getTourID()).setTotalDays(align.getTotalDays());
+		}
+		
 			listedTour.setListedFrom(startDate);
 			listedTour.setListedTo(finishDate);
-		}
+		
 		
 		ltdh.addListedTour(listedTour);
 		// Use the redirect-after-post pattern to reduce double-submits.

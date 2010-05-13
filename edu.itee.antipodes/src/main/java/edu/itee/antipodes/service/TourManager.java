@@ -9,6 +9,8 @@ public interface TourManager extends Serializable {
 	
 	public List<Tour> getTours();
 	
+	public List<Tour> getToursByOperatorID(int id);
+	
 	public void dropTourByID(int id);
 	
 	public Tour getTourByID(int id);

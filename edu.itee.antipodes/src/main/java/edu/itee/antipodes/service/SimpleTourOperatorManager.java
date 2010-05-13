@@ -57,7 +57,7 @@ public class SimpleTourOperatorManager implements TourOperatorManager {
 			int dot = originalFileName.lastIndexOf('.');
 		    String extension = originalFileName.substring(dot);
 			if (!contentType.equals("image/png")
-					&& !contentType.equals("image/jpg"))
+					&& !contentType.equals("image/jpeg"))
 				throw new InvalidParameterException();
 			
 			Image img = new Image();
@@ -67,6 +67,8 @@ public class SimpleTourOperatorManager implements TourOperatorManager {
 			imd.saveImage(img);
 			
 			String fileName = img.getImageID() + extension;
+			img.setUrl(img.getImageID()+extension);
+			imd.saveImage(img);
 			File file = new File(dir, fileName);
 			multipartFile.transferTo(file);
 		} 

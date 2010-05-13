@@ -61,6 +61,25 @@
 	
 	<tr>
 		<!-- Set on demand value -->
+		<td valign="top">Uploaded Images:</td>
+		<td>
+			<c:if test="${numberOfImages < 4}">
+			<a href="<c:url value="uploadImages.html?tourID=" /><c:out value="${editTour.tourID}" />">Add</a>
+			<br/><br/>
+			</c:if>
+			
+			<c:forEach items="${images}" var="image">
+			<img src="<c:url value="/uploads/images/"/><c:out value="${image.url}" />" width="100px"/><br/>
+			<a href="<c:url value="deleteImages.html?imageID="/><c:out value="${image.imageID}" />" />Delete</a><br/><br/>
+			</c:forEach>
+			<c:if test="${empty images}">
+			There are no images added.
+			</c:if>
+		</td>
+	</tr>
+	
+	<tr>
+		<!-- Set on demand value -->
 		<td valign="top">On Demand:</td>
 		<td><form:radiobutton path="onDemand" value="1" cssErrorClass="form-error-field"/>&nbsp;&nbsp;Yes&nbsp;&nbsp;
 			<form:radiobutton path="onDemand" value="0" cssErrorClass="form-error-field"/>&nbsp;&nbsp;No
@@ -73,17 +92,5 @@
 	</tr>
 </table>
 </form:form>
-
-<form method="post" action="uploadFile.html" style="margin-top: -25px" enctype="multipart/form-data">
-<table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">			
-<tr>
-	<td width="140">Image:</td>
-    <td><input type="hidden" name="tourID" value="2" />
-            <input type="file" name="file"/>
-            <input type="submit" value="Upload" />
-    </td>
-</tr>
-</form>
-</table>
 </body>
 </html>
