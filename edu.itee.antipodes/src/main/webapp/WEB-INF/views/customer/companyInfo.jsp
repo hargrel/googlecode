@@ -14,35 +14,23 @@
 
 <table border="0" align="center" width=100% style="border-collapse:collapse">
 	<tr>
-		<td valign="top"><h4>Company Info: </h4></td>
-		<td valign="top"><h4><c:out value="${listedTours[0].operator.companyInfo}" escapeXml="false"/></h4></td>
-	</tr>
-	
-	<tr>
-		<td valign="top"><h4>Email: </h4></td>
-		<td valign="top"><h4><c:out value="${listedTours[0].operator.email}" /></h4></td>
+		<!-- Company Info -->
+		<td valign="top" width="160"><b>Company Info: </b></td>
+		<td valign="top"><c:out value="${listedTours[0].operator.companyInfo}" escapeXml="false"/></td>
 	</tr>
 
 	<tr>
-		<td valign="top"><h4>Membership Expired: </h4></td>
-		<td valign="top"><h4><c:out value="${listedTours[0].operator.membershipExpired}" /></h4></td>
+		<!-- Membership Expired -->
+		<td valign="top"><b>Membership Expired: </b></td>
+		<td valign="top"><c:out value="${listedTours[0].operator.membershipExpired}" /></td>
+	</tr>
+		
+	<tr>
+		<!-- Email -->
+		<td valign="top"><b>Email: </b></td>
+		<td valign="top"><a style="color: blue;" href='<c:url value="contactTourOperator.html"/>'><c:out value="${listedTours[0].operator.email}" /></a></td>
 	</tr>
 	
-
-	<!--  
-	<tr>
-		<td valign="top"><h4>Company Info: <c:out value="${listedTours[0].operator.companyInfo}" /></h4></td>
-	</tr>
-	<tr>
-		<td valign="top"><h4>Membership Expired: <c:out value="${listedTours[0].operator.membershipExpired}" /></h4></td>
-	</tr>
-	<tr>
-		<td valign="top"><h4>Email: <c:out value="${listedTours[0].operator.email}" /></h4></td>
-	</tr>
-	-->
-	<input type="button" value="Contact Tour Operator" 
-		onClick="window.location.href='<c:url value="contactTourOperator.html"/>'" 
-		style="float: right; margin-right: 20px; margin-top: 10px;"/>
 </table>
 
 <h3>List of tours:</h3>
@@ -55,7 +43,7 @@
 			<th>Start Date</th>
 			<th>Finish Date</th>
 			<th>Total Days</th>
-			<th>More Info</th>
+			<th></th>
 		</tr>
 		</thead>
 		<tbody>
@@ -64,17 +52,17 @@
 			<c:forEach items="${listedTour.tour.tourDates}" var="tourDate">
 				<tr>
 					<td><c:out value="${listedTour.tour.tourName}" /></td>
-					<td><c:out value="${listedTour.tour.price}" /></td>
+					<td><c:out value="${listedTour.tour.price}" />&nbsp;<c:out value="${listedTour.tour.currency}" /></td>
 					<td><c:out value="${tourDate.startDate}" /></td>
 					<td><c:out value="${tourDate.finishDate}" /></td>
-					<td><c:out value="${listedTour.tour.totalDays}" /></td>
+					<td><c:out value="${listedTour.tour.totalDays}" />&nbsp;days</td>
 					<td>
 						<form style="margin:0px; padding: 0px;" name="info_${listedTour.listID}" 
 							action="tourInfo.html" method="post">
 							<input type="hidden" name="listID" value="${listedTour.listID}" />
 						</form>
 						<a href="#" style="color: blue;" 
-							onclick="document['info_${listedTour.listID}'].submit()">info</a>
+							onclick="document['info_${listedTour.listID}'].submit()">More info</a>
 					</td>
 				</tr>
 			</c:forEach>

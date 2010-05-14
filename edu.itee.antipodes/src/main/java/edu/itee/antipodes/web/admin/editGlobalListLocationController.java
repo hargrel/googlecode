@@ -16,7 +16,6 @@ import org.springframework.web.servlet.view.RedirectView;
 import edu.itee.antipodes.domain.db.Location;
 import edu.itee.antipodes.service.SimpleSystemAdminManager;
 import edu.itee.antipodes.service.SystemAdminManager;
-import edu.itee.antipodes.service.XMLGenerator;
 
 @Controller
 @RequestMapping("/admin/editGlobalListLocation.html")
@@ -55,13 +54,6 @@ public final class editGlobalListLocationController {
 		}
 
 		sam.saveLocation(loc);
-		XMLGenerator xml = new XMLGenerator();
-		String x[]={"A"};
-		try {
-			xml.main(x);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 		return new RedirectView("globalListLocation.html");
 	}
 }

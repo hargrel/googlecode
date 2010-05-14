@@ -62,7 +62,7 @@
 		</tr>
 		
 		<tr>
-			<td rowspan="4"><div id="map_canvas" style="width: 400px; height: 250px; margin:10px 20px 0 0"></div></td>
+			<td rowspan="4"><div id="map_canvas" style="width: 400px; overflow: hidden; height: 250px; margin:10px 20px 0 0"></div></td>
 		</tr>
 		
 		<tr>

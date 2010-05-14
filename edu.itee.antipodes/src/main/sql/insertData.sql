@@ -362,11 +362,11 @@ INSERT INTO Location VALUES (
 -- TourLocation -----------------------------------------------------------------------
 
 INSERT INTO TourLocation VALUES (
-	0001, 0003
+	0001, 0001
 );
 
 INSERT INTO TourLocation VALUES (
-	0002, 0004
+	0002, 0002
 );
 
 INSERT INTO TourLocation VALUES (
@@ -376,6 +376,31 @@ INSERT INTO TourLocation VALUES (
 INSERT INTO TourLocation VALUES (
 	0004, 0004
 );
+
+INSERT INTO TourLocation VALUES (
+	0005, 0005
+);
+
+INSERT INTO TourLocation VALUES (
+	0006, 0006
+);
+
+INSERT INTO TourLocation VALUES (
+	0007, 0007
+);
+
+INSERT INTO TourLocation VALUES (
+	0008, 0008
+);
+
+INSERT INTO TourLocation VALUES (
+	0009, 0009
+);
+
+INSERT INTO TourLocation VALUES (
+	0010, 0010
+);
+
 
 -- Image -----------------------------------------------------------------------
 

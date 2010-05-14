@@ -21,7 +21,6 @@ import edu.itee.antipodes.repository.DaoManager;
 import edu.itee.antipodes.repository.TourOperatorDao;
 import edu.itee.antipodes.repository.TourOperatorDaoHibernate;
 import edu.itee.antipodes.service.AccountManager;
-import edu.itee.antipodes.service.XMLGenerator;
 
 @Controller
 @RequestMapping("/admin/addAccount.html")

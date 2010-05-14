@@ -6,23 +6,26 @@ var marker;
 
 function initialize() {
 	if (GBrowserIsCompatible()) {
+		var url = window.top.location.search;
 		map = new GMap2(document.getElementById("map_canvas"));
 		map.setMapType(G_SATELLITE_MAP);
-		map.setCenter(new GLatLng(-45.028202, 168.654728), 15);
+		map.setCenter(new GLatLng(23.324, 65.039), 2);
 		map.addControl(new GSmallMapControl());
 		geocoder = new GClientGeocoder();
-			GDownloadUrl("xml/polylines.xml", function(data) {
+			GDownloadUrl('gmap/poly.jsp'+url, function(data) {
 	          var xml = GXml.parse(data);
 	          var markers = xml.documentElement.getElementsByTagName("marker");
 	          for (var i = 0; i < markers.length; i++) {
+	        	var latlng = new GLatLng(parseFloat(markers[i].getAttribute("lat")),
+                          		parseFloat(markers[i].getAttribute("lng")));
 	        	var encodedPoint = markers[i].getAttribute("pt");
 	        	var encodedLevel = markers[i].getAttribute("lvl");
-	            var latlng = new GLatLng(parseFloat(markers[i].getAttribute("lat")),
-	                                    parseFloat(markers[i].getAttribute("lng")));
-	            var marker = createMarker(latlng);
+	            var imageURL = markers[i].getAttribute("img");
+	            var marker = createMarker(latlng,imageURL);
 				var polyline = createPolyline(encodedPoint,encodedLevel)
 	          }//for
 	        });//GDownload
+			//map.setCenter(latlng, 2);
 	    }
 	}
 
@@ -39,10 +42,10 @@ function createPolyline(point,level) {
 	return polyline;
 }
 
-function createMarker(point) {
+function createMarker(point,img) {
     var marker = new GMarker(point);
-    GEvent.addListener(marker, "click", function(){
-    	marker.openInfoWindowHtml('<img src="img/test.jpg"/>');
+    GEvent.addListener(marker, "click", function(){   	
+    	marker.openInfoWindowHtml('<img src="img/test.jpg"/>'); 	
     	});
 	map.addOverlay(marker);
     return marker;
