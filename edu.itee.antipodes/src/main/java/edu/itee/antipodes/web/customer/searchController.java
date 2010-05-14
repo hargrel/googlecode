@@ -36,6 +36,9 @@ public class searchController {
 	@Autowired
 	private Validator validator;
 	
+	@Autowired
+	private CustomerManager customerManager;
+	
 	public void setValidator(Validator validator) {
 		this.validator = validator;
 	}
@@ -72,9 +75,9 @@ public class searchController {
 		if (result.hasErrors()) { return "search"; }
 
 		Set<ListedTour> ListedTours = new HashSet<ListedTour>();
-		CustomerManager cm = new SimpleCustomerManager();
+		//CustomerManager cm = new SimpleCustomerManager();
 		// should name activityNames, locationNames
-		Iterator<Object> it = cm.searchListedTours(activityName,locationName,startDate,finishDate).iterator();
+		Iterator<Object> it = customerManager.searchListedTours(activityName,locationName,startDate,finishDate).iterator();
 		// tour[0] is the listedTour
 		while(it.hasNext()) {Object[] tour = (Object[]) it.next(); ListedTours.add((ListedTour)tour[0]);}
 		model.addAttribute("listedTours", ListedTours);

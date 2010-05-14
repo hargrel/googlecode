@@ -1,9 +1,5 @@
 package edu.itee.antipodes.web.admin;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,11 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
 import edu.itee.antipodes.domain.db.AccountUser;
-import edu.itee.antipodes.domain.db.TourOperator;
-import edu.itee.antipodes.repository.DaoManager;
-import edu.itee.antipodes.repository.TourOperatorDao;
 import edu.itee.antipodes.service.AccountManager;
-import edu.itee.antipodes.service.PasswordHash;
 
 @Controller
 @RequestMapping("/admin/editAccount.html")
@@ -54,13 +46,14 @@ public final class editAccountController {
 	@RequestMapping(method = RequestMethod.POST)
 	public Object post(@RequestParam("membershipExpiry") String membershipExpiry, @ModelAttribute("accountUser") AccountUser accountUser,
 			BindingResult result, ModelMap model) throws Exception {
-		
+		return "search";
+		/*
 		validator.validate(accountUser, result);
 		if (!accountUser.getUserName().equalsIgnoreCase(accountManager.getAccountByID(accountUser.getUserID()).getUserName()) && result.hasErrors()) { 
 			return "editAccount"; 
 			}
-		TourOperatorDao tod = DaoManager.getTourOperatorDao();
-		TourOperator operator = tod.getTourOperatorByID(accountUser.getUserID());
+		//TourOperatorDao tod = DaoManager.getTourOperatorDao();
+		//TourOperator operator = tod.getTourOperatorByID(accountUser.getUserID());
 		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 		
 		Date membershipExpiryDate = df.parse(membershipExpiry);
@@ -69,11 +62,11 @@ public final class editAccountController {
 		
 		if(accountUser.getUserType().equalsIgnoreCase("operator")){
 			//operator.setOperatorID(accountUser.getUserID());
-			operator.setMembershipExpired(membershipExpiryDate);
-			tod.saveTourOperator(operator);
+			//operator.setMembershipExpired(membershipExpiryDate);
+			//tod.saveTourOperator(operator);
 		}
 		return new RedirectView("accountList.html");
-		
+		*/
 	}
 	@Autowired
 	AccountManager accountManager;

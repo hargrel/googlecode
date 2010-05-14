@@ -29,8 +29,8 @@ import edu.itee.antipodes.service.SimpleReportingManager;
 public class monitorSystemUtilController {
 	@Autowired
 	private Validator validator;
-
-	ReportingManager rm = new SimpleReportingManager();
+	@Autowired
+	private ReportingManager reportingManager;
 
 	public void setValidator(Validator validator) {
 		this.validator = validator;
@@ -61,7 +61,7 @@ public class monitorSystemUtilController {
 			Date fromDate = bto.getFromDate();
 			Date toDate = bto.getToDate();
 			
-			Map<String, Object> model = rm.getMonitoringSystemUtilisation(
+			Map<String, Object> model = reportingManager.getMonitoringSystemUtilisation(
 					fromDate, toDate);
 			model.put("format", format);
 

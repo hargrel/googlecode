@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.itee.antipodes.domain.db.Tour;
-import edu.itee.antipodes.repository.DaoManager;
-import edu.itee.antipodes.repository.TourDaoHibernate;
 import edu.itee.antipodes.service.CurrentUser;
 import edu.itee.antipodes.service.TourManager;
 
@@ -31,11 +29,12 @@ public class tourListController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String deleteTour(@RequestParam("tourID") int tourID, Model model) {
 		//tourManager.dropTourByID(tourID);
-		TourDaoHibernate tdh = DaoManager.getTourDao();
+		return "search";
+		/*TourDaoHibernate tdh = DaoManager.getTourDao();
 		tdh.dropTourByID(tourID);
 		List<Tour> tours = tourManager.getTours();
 		model.addAttribute("tours", tours);
-		return "tourList";
+		return "tourList";*/
 	}
 	
 	@Autowired

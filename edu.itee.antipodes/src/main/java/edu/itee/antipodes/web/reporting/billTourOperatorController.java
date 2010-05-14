@@ -17,12 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import edu.itee.antipodes.domain.db.TourOperator;
 import edu.itee.antipodes.domain.pages.BillingTourOperators;
-import edu.itee.antipodes.repository.DaoManager;
-import edu.itee.antipodes.repository.TourOperatorDao;
 import edu.itee.antipodes.service.ReportingManager;
-import edu.itee.antipodes.service.SimpleReportingManager;
 
 @Controller
 @RequestMapping("/admin/billTourOperator.html")
@@ -40,12 +36,13 @@ public class billTourOperatorController {
 				new SimpleDateFormat("dd/MM/yyyy"), true));
 	}
 
-	ReportingManager rm = new SimpleReportingManager();
+	@Autowired
+	private ReportingManager reportingManager;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public Object redirect(Model model) {
 		BillingTourOperators bto = new BillingTourOperators();
-		model.addAttribute("touroperators", rm.getTourOperators());
+		model.addAttribute("touroperators", reportingManager.getTourOperators());
 		model.addAttribute("billOperator", new BillingTourOperators());
 
 		return "billTourOperator";
@@ -67,7 +64,7 @@ public class billTourOperatorController {
 			Date fromDate = bto.getFromDate();
 			int operatorID = bto.getOperatorID();
 
-			Map<String, Object> model = rm.getBillingTourOperators(operatorID,
+			Map<String, Object> model = reportingManager.getBillingTourOperators(operatorID,
 					fromDate, toDate);
 			model.put("format", format);
 

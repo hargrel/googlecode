@@ -3,6 +3,7 @@ package edu.itee.antipodes.web.operator;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,13 +16,13 @@ import edu.itee.antipodes.service.SystemAdminManager;
 @Controller
 @RequestMapping("/operator/tourLocationList.html")
 public class tourLocationListController {
-
-	SystemAdminManager sam = new SimpleSystemAdminManager();
+	@Autowired
+	private SystemAdminManager systemAdminManager;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String redirect(ModelMap model) {
 
-		model.addAttribute("locations", sam.getLocationList());
+		model.addAttribute("locations", systemAdminManager.getLocationList());
 		return "tourLocationList";
 	}
 
@@ -29,7 +30,7 @@ public class tourLocationListController {
 	public Object deleteLocation(HttpServletRequest request,
 			HttpServletResponse response) {
 
-		sam.removeLocationByID(request.getParameter("locationID"));
+		systemAdminManager.removeLocationByID(request.getParameter("locationID"));
 
 		// Use the redirect-after-post pattern to reduce double-submits.
 		return new RedirectView("tourLocationList.html");

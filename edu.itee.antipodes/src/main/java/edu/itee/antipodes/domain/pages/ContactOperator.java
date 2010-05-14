@@ -25,6 +25,8 @@ public final class ContactOperator {
 	@Length(max = 1000)
 	private String text;
 	
+	private int operatorID;
+	
 	public String getName() {
 		return name;
 	}
@@ -55,5 +57,13 @@ public final class ContactOperator {
 
 	public void setText(String text) {
 		this.text = text;
+	}
+
+	public int getOperatorID() {
+		return operatorID;
+	}
+
+	public void setOperatorID(int operatorID) {
+		this.operatorID = operatorID;
 	}
 }

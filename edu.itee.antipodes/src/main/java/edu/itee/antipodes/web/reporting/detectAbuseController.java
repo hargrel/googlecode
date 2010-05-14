@@ -14,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import edu.itee.antipodes.domain.pages.DetectAbuse;
 import edu.itee.antipodes.service.ReportingManager;
-import edu.itee.antipodes.service.SimpleReportingManager;
 
 @Controller
 @RequestMapping("/admin/detectAbuse.html")
@@ -22,7 +21,8 @@ public class detectAbuseController {
 	@Autowired
 	private Validator validator;
 
-	ReportingManager rp = new SimpleReportingManager();
+	@Autowired
+	private ReportingManager reportingManager;
 
 	public void setValidator(Validator validator) {
 		this.validator = validator;
@@ -47,7 +47,7 @@ public class detectAbuseController {
 			String format = bto.getExportFormat();
 			int minNo = bto.getCriteriaNum();
 
-			Map<String, Object> model = rp.getDetectingAbuse(minNo);
+			Map<String, Object> model = reportingManager.getDetectingAbuse(minNo);
 			model.put("format", format);
 
 			return new ModelAndView("reportDetectingAbuse", model);

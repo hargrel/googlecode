@@ -25,6 +25,7 @@ public class Currency {
 		// CurrentUser cu = new CurrentUser();
 		// cu.getCurrentUserID();
 
+		/*
 		try {
 			
 			CurrencyConvertor cc = new CurrencyConvertorLocator();
@@ -33,6 +34,7 @@ public class Currency {
 		} catch (ServiceException ex) {
 		} catch (RemoteException ex) {
 		}
+		*/
 
 		return amount * rate;// * cu.getCurrentUserID();
 	}

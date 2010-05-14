@@ -23,8 +23,8 @@ public final class editGlobalListLocationController {
 
 	@Autowired
 	private Validator validator;
-
-	SystemAdminManager sam = new SimpleSystemAdminManager();
+	@Autowired
+	private SystemAdminManager systemAdminManager;
 
 	public void setValidator(Validator validator) {
 		this.validator = validator;
@@ -37,7 +37,7 @@ public final class editGlobalListLocationController {
 		if (locationID == null)
 			return new RedirectView("globalListLocation.html");
 
-		Location loc = sam.getLocationByID(locationID);
+		Location loc = systemAdminManager.getLocationByID(locationID);
 		if (loc == null)
 			return new RedirectView("globalListLocation.html");
 
@@ -53,7 +53,7 @@ public final class editGlobalListLocationController {
 			return "editGlobalListLocation";
 		}
 
-		sam.saveLocation(loc);
+		systemAdminManager.saveLocation(loc);
 		return new RedirectView("globalListLocation.html");
 	}
 }

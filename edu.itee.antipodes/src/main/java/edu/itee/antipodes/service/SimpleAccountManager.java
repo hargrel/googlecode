@@ -2,16 +2,20 @@ package edu.itee.antipodes.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import edu.itee.antipodes.domain.db.AccountUser;
 import edu.itee.antipodes.repository.AccountUserDaoHibernate;
-import edu.itee.antipodes.repository.DaoManager;
 
 @SuppressWarnings("serial")
 public class SimpleAccountManager implements AccountManager {
 	
+	private SimpleAccountManager(){	}
+
 	PasswordHash pHash = new PasswordHash();
 	
-	private AccountUserDaoHibernate accountDao = DaoManager.getAccountUserDao();
+	@Autowired
+	private AccountUserDaoHibernate accountDao;
 
 	public void addAccount(AccountUser account) throws Exception {
 		account.setPassword(pHash.Hash(account.getPassword()));

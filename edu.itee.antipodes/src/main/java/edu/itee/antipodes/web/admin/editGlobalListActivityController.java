@@ -23,8 +23,8 @@ public final class editGlobalListActivityController {
 
 	@Autowired
 	private Validator validator;
-
-	SystemAdminManager sam = new SimpleSystemAdminManager();
+	@Autowired
+	private SystemAdminManager systemAdminManager;
 
 	public void setValidator(Validator validator) {
 		this.validator = validator;
@@ -37,7 +37,7 @@ public final class editGlobalListActivityController {
 		if (activityID == null)
 			return new RedirectView("globalListActivity.html");
 
-		Activity ac = sam.getActivityByID(activityID);
+		Activity ac = systemAdminManager.getActivityByID(activityID);
 		if (ac == null)
 			return new RedirectView("globalListActivity.html");
 
@@ -53,7 +53,7 @@ public final class editGlobalListActivityController {
 			return "editGlobalListActivity";
 		}
 
-		sam.saveActivity(ac);
+		systemAdminManager.saveActivity(ac);
 		return new RedirectView("globalListActivity.html");
 	}
 }

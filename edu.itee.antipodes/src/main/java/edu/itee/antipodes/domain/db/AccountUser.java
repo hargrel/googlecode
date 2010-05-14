@@ -2,6 +2,7 @@ package edu.itee.antipodes.domain.db;
 
 import java.io.Serializable;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.Length;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.NotBlank;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.NotNull;
@@ -87,12 +88,14 @@ public class AccountUser implements Serializable {
 		return "AccountUser [userID=" + userID + ", password=" + password + ", userType=" + userType
 				+ ", userName=" + userName + "]";
 	}
-	
+	@Autowired
+	private AccountManager accountUserManager;
+	// TODO: Check if compareName works
 	@SuppressWarnings("unused")
 	@ValidationMethod(forProperty = "userName")
     private boolean compareName() {	
-		AccountManager accManager = new SimpleAccountManager();
-		if(accManager.getAccountByUsername(userName) != null)
+		//AccountManager accManager = new SimpleAccountManager();
+		if(accountUserManager.getAccountByUsername(userName) != null)
 			return false;
 		else
 			return true;

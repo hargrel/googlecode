@@ -58,6 +58,7 @@
 
 	<target name="clean" description="Clean output directories">
 		<delete dir="${build.dir}/edu" />
+		<delete dir="${build.dir}/NET" />
 		<delete dir="${deploy.path}/${name}" />
 	</target>
 	

@@ -5,12 +5,12 @@ import java.io.IOException;
 import java.security.InvalidParameterException;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.itee.antipodes.domain.db.Image;
 import edu.itee.antipodes.domain.db.TourOperator;
-import edu.itee.antipodes.repository.DaoManager;
 import edu.itee.antipodes.repository.ImageDao;
 import edu.itee.antipodes.repository.TourDao;
 import edu.itee.antipodes.repository.TourOperatorDaoHibernate;
@@ -18,9 +18,14 @@ import edu.itee.antipodes.repository.TourOperatorDaoHibernate;
 @SuppressWarnings("serial")
 public class SimpleTourOperatorManager implements TourOperatorManager {
 
-	ImageDao imd = DaoManager.getImageDao();
-	TourDao to = DaoManager.getTourDao();
-	private TourOperatorDaoHibernate operatorDao = DaoManager.getTourOperatorDao();
+	private SimpleTourOperatorManager(){}
+	
+	@Autowired
+	private ImageDao imd;// = DaoManager.getImageDao();
+	@Autowired
+	private TourDao to;// = DaoManager.getTourDao();
+	@Autowired
+	private TourOperatorDaoHibernate operatorDao;// = DaoManager.getTourOperatorDao();
 
 	public TourOperator getTourOperatorByID(int id) {
 		return operatorDao.getTourOperatorByID(id);

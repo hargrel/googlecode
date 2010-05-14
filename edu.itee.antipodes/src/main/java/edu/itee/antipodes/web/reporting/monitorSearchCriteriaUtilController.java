@@ -14,15 +14,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import edu.itee.antipodes.domain.pages.MonitorSearchCriteriaUtil;
 import edu.itee.antipodes.service.ReportingManager;
-import edu.itee.antipodes.service.SimpleReportingManager;
 
 @Controller
 @RequestMapping("/admin/monitorSearchCriteriaUtil.html")
 public class monitorSearchCriteriaUtilController {
 	@Autowired
 	private Validator validator;
-
-	ReportingManager rm = new SimpleReportingManager();
+	@Autowired
+	private ReportingManager reportingManager;
 
 	public void setValidator(Validator validator) {
 		this.validator = validator;
@@ -30,7 +29,7 @@ public class monitorSearchCriteriaUtilController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String redirect(Model model) {
-		model.addAttribute("criterias", rm.getCriterias());
+		model.addAttribute("criterias", reportingManager.getCriterias());
 		model.addAttribute("monitorCriteria", new MonitorSearchCriteriaUtil());
 		return "monitorSearchCriteriaUtil";
 	}
@@ -48,7 +47,7 @@ public class monitorSearchCriteriaUtilController {
 			String format = bto.getExportFormat();
 			String criteria = bto.getCriteria();
 
-			Map<String, Object> model = rm
+			Map<String, Object> model = reportingManager
 					.getMonitoringSearchCriteriaUtilisation(criteria);
 			model.put("format", format);
 

@@ -2,6 +2,7 @@ package edu.itee.antipodes.service;
 
 import java.util.List;
 
+import edu.itee.antipodes.domain.db.AccountUser;
 import edu.itee.antipodes.domain.db.Activity;
 import edu.itee.antipodes.domain.db.Location;
 
@@ -16,4 +17,5 @@ public interface SystemAdminManager {
 	public void saveActivity(Activity activity);
 	public void removeActivityByID(String activityID);
 	
+	public void addAccount(AccountUser accountUser, String membershipExpiry) throws Exception;
 }

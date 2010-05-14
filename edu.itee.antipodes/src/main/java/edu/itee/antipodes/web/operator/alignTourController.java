@@ -1,10 +1,7 @@
 package edu.itee.antipodes.web.operator;
 
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,17 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import edu.itee.antipodes.domain.db.Activity;
-import edu.itee.antipodes.domain.db.ListedTour;
-import edu.itee.antipodes.domain.db.Location;
 import edu.itee.antipodes.domain.pages.AlignTour;
-import edu.itee.antipodes.repository.ActivityDao;
-import edu.itee.antipodes.repository.DaoManager;
-import edu.itee.antipodes.repository.ListedTourDaoHibernate;
-import edu.itee.antipodes.repository.LocationDao;
-import edu.itee.antipodes.repository.TourDaoHibernate;
-import edu.itee.antipodes.repository.TourOperatorDaoHibernate;
-import edu.itee.antipodes.service.CurrentUser;
 import edu.itee.antipodes.service.TourManager;
 
 @Controller
@@ -61,7 +48,7 @@ public class alignTourController {
 		
 		
 		AlignTour alignTour = new AlignTour();
-		
+		/*
 		LocationDao ld = DaoManager.getLocationDao();
 		List<Location> loc = ld.getLocationList();
 		ActivityDao ad = DaoManager.getActivityDao();
@@ -72,6 +59,7 @@ public class alignTourController {
 		model.addAttribute("locations", loc);
 		model.addAttribute("activities", act);
 		model.addAttribute("alignTour", alignTour);
+		*/
 		model.addAttribute("tour", tourManager.getTourByID(Integer.parseInt(tourID)));
 		return "alignTour";
 	}
@@ -83,6 +71,8 @@ public class alignTourController {
 			@ModelAttribute("alignTour") AlignTour align,
 			BindingResult result) throws Exception {
 		
+		return "search";
+		/*
 		validator.validate(align, result);
 		if (result.hasErrors()) { return "alignTour"; }
 		
@@ -109,10 +99,10 @@ public class alignTourController {
 			listedTour.setListedTo(finishDate);
 		
 		
-		ltdh.addListedTour(listedTour);
+		//ltdh.addListedTour(listedTour);
 		// Use the redirect-after-post pattern to reduce double-submits.
 		return "alignTourList";
-		
+		*/
 	}
 
 }

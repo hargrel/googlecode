@@ -8,13 +8,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import edu.itee.antipodes.domain.UniversalBean;
 import edu.itee.antipodes.domain.db.Activity;
 import edu.itee.antipodes.domain.db.Location;
 import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.domain.db.TourOperator;
 import edu.itee.antipodes.repository.ActivityDao;
-import edu.itee.antipodes.repository.DaoManager;
 import edu.itee.antipodes.repository.LocationDao;
 import edu.itee.antipodes.repository.ReportingDaoHibernate;
 import edu.itee.antipodes.repository.TourOperatorDao;
@@ -22,8 +23,19 @@ import edu.itee.antipodes.repository.TourOperatorDaoHibernate;
 
 public class SimpleReportingManager implements ReportingManager {
 
-	private TourOperatorDaoHibernate toDao = DaoManager.getTourOperatorDao();
-
+	private SimpleReportingManager(){}
+	
+	@Autowired
+	private TourOperatorDaoHibernate toDao;
+	@Autowired
+	private TourOperatorDao to;
+	@Autowired
+	private LocationDao ld;
+	@Autowired
+	private ActivityDao ad;
+	@Autowired
+	private ReportingDaoHibernate rdh;
+	
 	@SuppressWarnings("deprecation")
 	@Override
 	public Map<String, Object> getBillingTourOperators(int tourOperatorID,
@@ -34,8 +46,8 @@ public class SimpleReportingManager implements ReportingManager {
 		List<UniversalBean> list = new ArrayList<UniversalBean>();
 		UniversalBean bean;
 
-		TourOperatorDao to = DaoManager.getTourOperatorDao();
-		ReportingDaoHibernate rdh = DaoManager.getReporingDao();
+		//TourOperatorDao to = DaoManager.getTourOperatorDao();
+		//ReportingDaoHibernate rdh = DaoManager.getReporingDao();
 		DateFormat df = new SimpleDateFormat("MMMMM yyyy");
 
 		List<Object[]> temp = rdh.getListedToursPerMonthByOperatorID(
@@ -72,7 +84,7 @@ public class SimpleReportingManager implements ReportingManager {
 		Map<String, Object> model = new HashMap<String, Object>();
 		model.put("ReportTitle", "Detecting abuse report");
 
-		ReportingDaoHibernate rdh = DaoManager.getReporingDao();
+		//ReportingDaoHibernate rdh = DaoManager.getReporingDao();
 
 		numberOfCriterias++;
 		List<UniversalBean> list = new ArrayList<UniversalBean>();
@@ -103,7 +115,7 @@ public class SimpleReportingManager implements ReportingManager {
 			String criteria) {
 		Map<String, Object> model = new HashMap<String, Object>();
 
-		ReportingDaoHibernate rdh = DaoManager.getReporingDao();
+		//ReportingDaoHibernate rdh = DaoManager.getReporingDao();
 		List<Object[]> locationList = new ArrayList<Object[]>();
 		List<Object[]> activityList = new ArrayList<Object[]>();
 		String prefix = "";
@@ -161,7 +173,7 @@ public class SimpleReportingManager implements ReportingManager {
 		List<UniversalBean> list = new ArrayList<UniversalBean>();
 		UniversalBean bean;
 
-		ReportingDaoHibernate rdh = DaoManager.getReporingDao();
+		//ReportingDaoHibernate rdh = DaoManager.getReporingDao();
 		DateFormat df = new SimpleDateFormat("MMMMM yyyy");
 
 		List<Object[]> temp = rdh
@@ -199,10 +211,10 @@ public class SimpleReportingManager implements ReportingManager {
 	// @Override
 	public List<UniversalBean> getCriterias() {
 
-		LocationDao ld = DaoManager.getLocationDao();
+		//LocationDao ld = DaoManager.getLocationDao();
 		List<Location> ll = ld.getLocationList();
 
-		ActivityDao ad = DaoManager.getActivityDao();
+		//ActivityDao ad = DaoManager.getActivityDao();
 		List<Activity> al = ad.getActivityList();
 
 		List<UniversalBean> list = new ArrayList<UniversalBean>();

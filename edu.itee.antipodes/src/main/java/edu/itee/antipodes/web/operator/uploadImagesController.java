@@ -1,8 +1,6 @@
 package edu.itee.antipodes.web.operator;
 
 import java.security.InvalidParameterException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,9 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
 
-import edu.itee.antipodes.repository.DaoManager;
-import edu.itee.antipodes.repository.ImageDao;
-import edu.itee.antipodes.service.SimpleTourOperatorManager;
 import edu.itee.antipodes.service.TourOperatorManager;
 
 
@@ -30,13 +25,15 @@ public class uploadImagesController {
 	
 	@Autowired
 	private ApplicationContext applicationContext;
-
-	TourOperatorManager tom = new SimpleTourOperatorManager();
+	@Autowired
+	private TourOperatorManager tourOperatorManager;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUserForm(ModelMap model, HttpServletRequest request,
 			HttpServletResponse response) {
-		int tourID = Integer.parseInt(request.getParameter("tourID"));
+		return "search";
+		
+		/*int tourID = Integer.parseInt(request.getParameter("tourID"));
 		
 		ImageDao imd = DaoManager.getImageDao();
 		List<String> files = new ArrayList();
@@ -47,7 +44,7 @@ public class uploadImagesController {
 		model.addAttribute("tourID", tourID);
 		model.addAttribute("files", files);
 		model.addAttribute("numberOfFiles", files.size());
-		return "uploadImages";
+		return "uploadImages";*/
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
@@ -60,7 +57,7 @@ public class uploadImagesController {
 
 		if (!multipartFile1.isEmpty()) {
 			try {
-				tom.UploadFile(applicationContext, multipartFile1, tourID);
+				tourOperatorManager.UploadFile(applicationContext, multipartFile1, tourID);
 			} catch (InvalidParameterException ex) {
 				model.addAttribute("errorheader", "Oopps");
 				model.addAttribute("errormessage", "Can't upload files of this type. Please try again.");
@@ -69,7 +66,7 @@ public class uploadImagesController {
 		}
 		if (!multipartFile2.isEmpty()) {
 			try {
-				tom.UploadFile(applicationContext, multipartFile2, tourID);
+				tourOperatorManager.UploadFile(applicationContext, multipartFile2, tourID);
 			} catch (InvalidParameterException ex) {
 				model.addAttribute("errorheader", "Oopps");
 				model.addAttribute("errormessage", "Can't upload files of this type. Please try again.");
@@ -78,7 +75,7 @@ public class uploadImagesController {
 		}
 		if (!multipartFile3.isEmpty()) {
 			try {
-				tom.UploadFile(applicationContext, multipartFile3, tourID);
+				tourOperatorManager.UploadFile(applicationContext, multipartFile3, tourID);
 			} catch (InvalidParameterException ex) {
 				model.addAttribute("errorheader", "Oopps");
 				model.addAttribute("errormessage", "Can't upload files of this type. Please try again.");
@@ -87,7 +84,7 @@ public class uploadImagesController {
 		}
 		if (!multipartFile4.isEmpty()) {
 			try {
-				tom.UploadFile(applicationContext, multipartFile4, tourID);
+				tourOperatorManager.UploadFile(applicationContext, multipartFile4, tourID);
 			} catch (InvalidParameterException ex) {
 				model.addAttribute("errorheader", "Oopps");
 				model.addAttribute("errormessage", "Can't upload files of this type. Please try again.");

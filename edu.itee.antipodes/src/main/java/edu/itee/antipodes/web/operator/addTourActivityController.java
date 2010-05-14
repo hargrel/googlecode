@@ -20,8 +20,8 @@ public final class addTourActivityController {
 
 	@Autowired
 	private Validator validator;
-
-	SystemAdminManager sam = new SimpleSystemAdminManager();
+	@Autowired
+	private SystemAdminManager systemAdminManager;
 
 	public void setValidator(Validator validator) {
 		this.validator = validator;
@@ -42,7 +42,7 @@ public final class addTourActivityController {
 			return "addTourActivity";
 		}
 
-		sam.saveActivity(act);
+		systemAdminManager.saveActivity(act);
 		return new RedirectView("alignTour.html");
 	}
 }
