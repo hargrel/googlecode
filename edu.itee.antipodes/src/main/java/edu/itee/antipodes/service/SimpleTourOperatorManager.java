@@ -231,7 +231,7 @@ public class SimpleTourOperatorManager implements ITourOperatorManager {
 			tour.setTotalDays(alignTour.getTotalDays());
 		} else {
 			// Listed tour
-			Date startDate = UtilityManager.stringToDate(startDateString);
+			/*Date startDate = UtilityManager.stringToDate(startDateString);
 			Date finishDate = UtilityManager.stringToDate(finishDateString);
 
 			ListedTour listedTour = new ListedTour();
@@ -243,6 +243,7 @@ public class SimpleTourOperatorManager implements ITourOperatorManager {
 			listedTour.setListedFrom(startDate);
 			listedTour.setListedTo(finishDate);
 			listedTourDao.addListedTour(listedTour);
+			*/
 		}
 
 		tourDao.saveTour(tour);
