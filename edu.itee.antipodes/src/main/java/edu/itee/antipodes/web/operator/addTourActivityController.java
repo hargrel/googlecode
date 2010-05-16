@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import edu.itee.antipodes.domain.db.Activity;
 import edu.itee.antipodes.service.SimpleSystemAdminManager;
-import edu.itee.antipodes.service.SystemAdminManager;
+import edu.itee.antipodes.service.ISystemAdminManager;
 
 @Controller
 @RequestMapping("/operator/addTourActivity.html")
@@ -21,7 +21,7 @@ public final class addTourActivityController {
 	@Autowired
 	private Validator validator;
 	@Autowired
-	private SystemAdminManager systemAdminManager;
+	private ISystemAdminManager systemAdminManager;
 
 	public void setValidator(Validator validator) {
 		this.validator = validator;

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.itee.antipodes.domain.pages.MonitorSearchCriteriaUtil;
-import edu.itee.antipodes.service.ReportingManager;
+import edu.itee.antipodes.service.IReportingManager;
 
 @Controller
 @RequestMapping("/admin/monitorSearchCriteriaUtil.html")
@@ -21,7 +21,7 @@ public class monitorSearchCriteriaUtilController {
 	@Autowired
 	private Validator validator;
 	@Autowired
-	private ReportingManager reportingManager;
+	private IReportingManager reportingManager;
 
 	public void setValidator(Validator validator) {
 		this.validator = validator;

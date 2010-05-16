@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.itee.antipodes.domain.db.AccountUser;
-import edu.itee.antipodes.service.AccountManager;
+import edu.itee.antipodes.service.IAccountManager;
 
 @Controller
 @RequestMapping("/admin/addAccount.html")
@@ -46,5 +46,5 @@ public final class addAccountController {
 	}
 
 	@Autowired
-	AccountManager accountManager;
+	IAccountManager accountManager;
 }

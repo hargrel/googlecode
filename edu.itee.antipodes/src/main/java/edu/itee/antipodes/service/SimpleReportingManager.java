@@ -21,7 +21,7 @@ import edu.itee.antipodes.repository.ReportingDaoHibernate;
 import edu.itee.antipodes.repository.TourOperatorDao;
 import edu.itee.antipodes.repository.TourOperatorDaoHibernate;
 
-public class SimpleReportingManager implements ReportingManager {
+public class SimpleReportingManager implements IReportingManager {
 
 	private SimpleReportingManager(){}
 	

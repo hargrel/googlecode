@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.itee.antipodes.domain.db.ListedTour;
 import edu.itee.antipodes.domain.pages.Search;
-import edu.itee.antipodes.service.CustomerManager;
+import edu.itee.antipodes.service.ICustomerManager;
 import edu.itee.antipodes.service.SimpleCustomerManager;
 
 @Controller
@@ -37,7 +37,7 @@ public class searchController {
 	private Validator validator;
 	
 	@Autowired
-	private CustomerManager customerManager;
+	private ICustomerManager customerManager;
 	
 	public void setValidator(Validator validator) {
 		this.validator = validator;
@@ -75,7 +75,7 @@ public class searchController {
 		if (result.hasErrors()) { return "search"; }
 
 		Set<ListedTour> ListedTours = new HashSet<ListedTour>();
-		//CustomerManager cm = new SimpleCustomerManager();
+		//ICustomerManager cm = new SimpleCustomerManager();
 		// should name activityNames, locationNames
 		Iterator<Object> it = customerManager.searchListedTours(activityName,locationName,startDate,finishDate).iterator();
 		// tour[0] is the listedTour
@@ -89,7 +89,7 @@ public class searchController {
 //		String activityName = "Seek";
 //		Set<ListedTour> ListedTours = new HashSet<ListedTour>();
 //		System.out.println("******");
-//		CustomerManager cm = new SimpleCustomerManager();
+//		ICustomerManager cm = new SimpleCustomerManager();
 //		Iterator<Object> it = cm.searchListedTours(activityName,locationsName,"","").iterator();
 //		System.out.println("******");
 //		while(it.hasNext()) {Object[] tour = (Object[]) it.next(); ListedTours.add((ListedTour)tour[0]);}

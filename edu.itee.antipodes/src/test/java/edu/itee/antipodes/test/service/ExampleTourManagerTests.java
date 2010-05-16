@@ -1,15 +1,6 @@
 package edu.itee.antipodes.test.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import junit.framework.TestCase;
-import edu.itee.antipodes.domain.db.Tour;
-import edu.itee.antipodes.repository.TourDao;
-import edu.itee.antipodes.repository.TourDaoHibernate;
-import edu.itee.antipodes.service.ExampleTourManager;
-import edu.itee.antipodes.service.TourManager;
-import edu.itee.antipodes.test.repository.InMemoryTourDao;
 
 public class ExampleTourManagerTests extends TestCase {
 	

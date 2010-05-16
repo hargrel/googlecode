@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.view.RedirectView;
 
 import edu.itee.antipodes.service.SimpleSystemAdminManager;
-import edu.itee.antipodes.service.SystemAdminManager;
+import edu.itee.antipodes.service.ISystemAdminManager;
 
 @Controller
 @RequestMapping("/admin/globalListActivity.html")
 public class globalListActivityController {
 	@Autowired
-	private SystemAdminManager systemAdminManager;
+	private ISystemAdminManager systemAdminManager;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String redirect(ModelMap model) {

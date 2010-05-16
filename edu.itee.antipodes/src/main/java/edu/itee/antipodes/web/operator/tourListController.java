@@ -10,34 +10,36 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.itee.antipodes.domain.db.Tour;
+import edu.itee.antipodes.repository.TourDaoHibernate;
 import edu.itee.antipodes.service.CurrentUser;
-import edu.itee.antipodes.service.TourManager;
+import edu.itee.antipodes.service.ITourOperatorManager;
+import edu.itee.antipodes.utils.SpringApplicationContext;
 
 @Controller
 @RequestMapping("/operator/tourList.html")
 public class tourListController {
 	
+	@Autowired
+	private ITourOperatorManager tourOperatorManager;
+	
 	CurrentUser currentUser = new CurrentUser();
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showTour(Model model) {
-		List<Tour> tours = tourManager.getToursByOperatorID(currentUser.getCurrentUserID());
+		List<Tour> tours = tourOperatorManager.getToursByOperatorID(currentUser.getCurrentUserID());
 		model.addAttribute("tours", tours);
 		return "tourList";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public String deleteTour(@RequestParam("tourID") int tourID, Model model) {
-		//tourManager.dropTourByID(tourID);
-		return "search";
-		/*TourDaoHibernate tdh = DaoManager.getTourDao();
+		tourOperatorManager.dropTourByID(tourID);
+		TourDaoHibernate tdh = SpringApplicationContext.getTourDao();
 		tdh.dropTourByID(tourID);
-		List<Tour> tours = tourManager.getTours();
+		List<Tour> tours = tourOperatorManager.getTours();
 		model.addAttribute("tours", tours);
-		return "tourList";*/
+		return "tourList";
 	}
-	
-	@Autowired
-	TourManager tourManager;
+
 }
 

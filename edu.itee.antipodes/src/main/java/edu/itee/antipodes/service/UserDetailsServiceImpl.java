@@ -18,21 +18,15 @@ import edu.itee.antipodes.domain.db.AccountUser;
 @Service("userDetailsService")
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-	private static ApplicationContext currentApplicationContext;
+	
 	
 	@Autowired
-	private ApplicationContext applicationContext;
-	
-	@Autowired
-	private AccountManager accountManager;
+	private IAccountManager accountManager;
 
 	public UserDetails loadUserByUsername(String username) {
-		if (currentApplicationContext == null)
-			currentApplicationContext = applicationContext;
-		
-		System.out.println("+++ 90 "+applicationContext);
+
 		// AccountUserDao aud = DaoManager.getAccountUserDao();
-		//AccountManager aud = new SimpleAccountManager();
+		//IAccountManager aud = new SimpleAccountManager();
 
 		AccountUser userEntity = accountManager.getAccountByUsername(username);
 
@@ -51,22 +45,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 		return user;
 	}
-
-
-	public static ApplicationContext getCurrentApplicationContext() {
-		return currentApplicationContext;
-	}
-
-	public static void setCurrentApplicationContext(
-			ApplicationContext currentApplicationContext) {
-		UserDetailsServiceImpl.currentApplicationContext = currentApplicationContext;
-	}
-	
-	public static AccountManager getAccountManager(){
-		if (currentApplicationContext == null)
-			return null;
-		
-		return (AccountManager)currentApplicationContext.getBean("accountUserManager");
-	}
-
 }

@@ -11,30 +11,33 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.service.CurrentUser;
-import edu.itee.antipodes.service.TourManager;
+import edu.itee.antipodes.service.ITourOperatorManager;
 
 @Controller
 @RequestMapping("/operator/alignTourList.html")
 public class alignTourListController {
 	
+	@Autowired
+	private ITourOperatorManager tourOperatorManager;
+	
 	CurrentUser currentUser = new CurrentUser();
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showTour(Model model) {
-		List<Tour> tours = tourManager.getToursByOperatorID(currentUser.getCurrentUserID());
+		System.out.println("+++ 32 " + currentUser);
+		List<Tour> tours = tourOperatorManager.getToursByOperatorID(currentUser.getCurrentUserID());
 		model.addAttribute("tours", tours);
 		return "alignTourList";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public String alignTour(@RequestParam("tourID") int tourID, Model model) {
-		tourManager.dropTourByID(tourID);
-		List<Tour> tours = tourManager.getTours();
+		tourOperatorManager.dropTourByID(tourID);
+		List<Tour> tours = tourOperatorManager.getTours();
 		model.addAttribute("tours", tours);
 		return "alignTourList";
 	}
 	
-	@Autowired
-	TourManager tourManager;
+
 	
 }

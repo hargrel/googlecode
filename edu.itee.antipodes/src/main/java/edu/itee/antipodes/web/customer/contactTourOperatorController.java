@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.view.RedirectView;
 
 import edu.itee.antipodes.domain.pages.ContactOperator;
-import edu.itee.antipodes.service.CustomerManager;
+import edu.itee.antipodes.service.ICustomerManager;
 
 @Controller
 @RequestMapping("/contactTourOperator.html")
@@ -22,7 +22,7 @@ public final class contactTourOperatorController {
 	@Autowired
 	private Validator validator;
 	@Autowired
-	private CustomerManager customerManager;
+	private ICustomerManager customerManager;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public Object showUserForm(HttpServletRequest request, ModelMap model) {
@@ -42,7 +42,7 @@ public final class contactTourOperatorController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String post(
+	public Object post(
 			@ModelAttribute("contactOperator") ContactOperator contactOpt,
 			BindingResult result) {
 
@@ -53,6 +53,6 @@ public final class contactTourOperatorController {
 
 		customerManager.contactOperator(contactOpt);
 
-		return "search";
+		return new RedirectView("search");
 	}
 }

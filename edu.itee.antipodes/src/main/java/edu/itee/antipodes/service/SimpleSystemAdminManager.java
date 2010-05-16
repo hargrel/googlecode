@@ -15,7 +15,7 @@ import edu.itee.antipodes.repository.ActivityDao;
 import edu.itee.antipodes.repository.LocationDao;
 import edu.itee.antipodes.repository.TourOperatorDao;
 
-public class SimpleSystemAdminManager implements SystemAdminManager {
+public class SimpleSystemAdminManager implements ISystemAdminManager {
 
 	private SimpleSystemAdminManager(){}
 	
@@ -24,7 +24,7 @@ public class SimpleSystemAdminManager implements SystemAdminManager {
 	@Autowired
 	private ActivityDao ad;
 	@Autowired
-	private AccountManager accountUserManager;
+	private IAccountManager accountUserManager;
 	@Autowired
 	private TourOperatorDao tourOperatorDao;
 	

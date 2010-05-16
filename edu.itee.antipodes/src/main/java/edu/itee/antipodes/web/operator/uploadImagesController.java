@@ -1,6 +1,8 @@
 package edu.itee.antipodes.web.operator;
 
 import java.security.InvalidParameterException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
 
-import edu.itee.antipodes.service.TourOperatorManager;
+import edu.itee.antipodes.repository.ImageDao;
+import edu.itee.antipodes.service.ITourOperatorManager;
+import edu.itee.antipodes.utils.SpringApplicationContext;
 
 
 @Controller
@@ -26,16 +30,14 @@ public class uploadImagesController {
 	@Autowired
 	private ApplicationContext applicationContext;
 	@Autowired
-	private TourOperatorManager tourOperatorManager;
+	private ITourOperatorManager tourOperatorManager;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUserForm(ModelMap model, HttpServletRequest request,
 			HttpServletResponse response) {
-		return "search";
+		int tourID = Integer.parseInt(request.getParameter("tourID"));
 		
-		/*int tourID = Integer.parseInt(request.getParameter("tourID"));
-		
-		ImageDao imd = DaoManager.getImageDao();
+		ImageDao imd = SpringApplicationContext.getImageDao();
 		List<String> files = new ArrayList();
 		for(int i=1;i <= (4 - imd.getImageByTourID(tourID).size());i++){
 			files.add("file"+i);
@@ -44,7 +46,7 @@ public class uploadImagesController {
 		model.addAttribute("tourID", tourID);
 		model.addAttribute("files", files);
 		model.addAttribute("numberOfFiles", files.size());
-		return "uploadImages";*/
+		return "uploadImages";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)

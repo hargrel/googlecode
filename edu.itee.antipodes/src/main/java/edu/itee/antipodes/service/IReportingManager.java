@@ -6,7 +6,7 @@ import java.util.Map;
 import edu.itee.antipodes.domain.*;
 import edu.itee.antipodes.domain.db.TourOperator;
 
-public interface ReportingManager {
+public interface IReportingManager {
 
 	public Map<String, Object> getBillingTourOperators(int tourOperatorID, Date startDate, Date endDate );
 	public Map<String, Object> getMonitoringSystemUtilisation(Date startDate, Date endDate );

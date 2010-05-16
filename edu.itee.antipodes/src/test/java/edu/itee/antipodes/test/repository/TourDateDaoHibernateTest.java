@@ -1,18 +1,21 @@
 package edu.itee.antipodes.test.repository;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import junit.framework.TestCase;
+
+import org.junit.After;
+import org.junit.Before;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.domain.db.TourDate;
 import edu.itee.antipodes.repository.TourDaoHibernate;
 import edu.itee.antipodes.repository.TourDateDaoHibernate;
 import edu.itee.antipodes.service.UtilityManager;
-import junit.framework.TestCase;
-import org.junit.After;
-import org.junit.Before;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.*;
 
 public class TourDateDaoHibernateTest extends TestCase {
 

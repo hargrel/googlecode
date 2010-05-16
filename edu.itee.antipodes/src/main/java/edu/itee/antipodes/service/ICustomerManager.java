@@ -10,7 +10,7 @@ import org.springframework.dao.DataAccessResourceFailureException;
 import edu.itee.antipodes.domain.db.ListedTour;
 import edu.itee.antipodes.domain.pages.ContactOperator;
 
-public interface CustomerManager extends Serializable {
+public interface ICustomerManager extends Serializable {
 	
 	public ListedTour getListedTour(int id);
 	

@@ -1,5 +1,7 @@
 package edu.itee.antipodes.web.admin;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.itee.antipodes.domain.db.MonthlyFee;
+import edu.itee.antipodes.repository.MonthlyFeeDaoHibernate;
+import edu.itee.antipodes.utils.SpringApplicationContext;
 
 @Controller
 @RequestMapping("/admin/manageFee.html")
@@ -24,14 +28,13 @@ public final class manageFeeController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUserForm(ModelMap model) {
-		return "search";
-		/*
-		MonthlyFeeDaoHibernate mfdh = DaoManager.getMonthlyFeeDao();
+		
+		MonthlyFeeDaoHibernate mfdh = SpringApplicationContext.getMonthlyFeeDao();
 		
 		List<Object[]> listedTours = mfdh.getTotalMonthlyFeeForAllListedTours();
 		model.addAttribute("listedTours", listedTours);
 		return "manageFee";
-		*/
+		
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)

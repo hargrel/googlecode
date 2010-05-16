@@ -8,7 +8,7 @@ import edu.itee.antipodes.domain.db.AccountUser;
 import edu.itee.antipodes.repository.AccountUserDaoHibernate;
 
 @SuppressWarnings("serial")
-public class SimpleAccountManager implements AccountManager {
+public class SimpleAccountManager implements IAccountManager {
 	
 	private SimpleAccountManager(){	}
 

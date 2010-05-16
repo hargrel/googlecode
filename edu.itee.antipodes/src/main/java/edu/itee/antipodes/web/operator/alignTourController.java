@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.itee.antipodes.domain.pages.AlignTour;
-import edu.itee.antipodes.service.TourManager;
+import edu.itee.antipodes.service.ITourOperatorManager;
 
 @Controller
 @RequestMapping("/operator/alignTour.html")
@@ -34,7 +34,7 @@ public class alignTourController {
 	}
 	
 	@Autowired
-	TourManager tourManager;
+	private ITourOperatorManager tourOperatorManager;
 	
 	@InitBinder
 	public void initBinder(final WebDataBinder binder) {
@@ -46,21 +46,11 @@ public class alignTourController {
 			HttpServletResponse response) {
 		String tourID = request.getParameter("tourID");
 		
+		model.addAttribute("locations", tourOperatorManager.getLocationList());
+		model.addAttribute("activities", tourOperatorManager.getActivityList());
+		model.addAttribute("alignTour", tourOperatorManager.getAlignTourByID(tourID));
+		model.addAttribute("tour", tourOperatorManager.getTourByID(tourID));
 		
-		AlignTour alignTour = new AlignTour();
-		/*
-		LocationDao ld = DaoManager.getLocationDao();
-		List<Location> loc = ld.getLocationList();
-		ActivityDao ad = DaoManager.getActivityDao();
-		List<Activity> act = ad.getActivityList();
-
-		alignTour.setTourID(Integer.parseInt(tourID));
-		
-		model.addAttribute("locations", loc);
-		model.addAttribute("activities", act);
-		model.addAttribute("alignTour", alignTour);
-		*/
-		model.addAttribute("tour", tourManager.getTourByID(Integer.parseInt(tourID)));
 		return "alignTour";
 	}
 	
@@ -68,41 +58,15 @@ public class alignTourController {
 	public String post(
 			@RequestParam("startDate") String startDateString,
 			@RequestParam("finishDate") String finishDateString, 
-			@ModelAttribute("alignTour") AlignTour align,
+			@ModelAttribute("alignTour") AlignTour alignTour,
 			BindingResult result) throws Exception {
 		
-		return "search";
-		/*
-		validator.validate(align, result);
+		validator.validate(alignTour, result);
 		if (result.hasErrors()) { return "alignTour"; }
 		
-		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-
-		Date startDate = df.parse(startDateString);
-		Date finishDate = df.parse(finishDateString);
+		tourOperatorManager.alignTour(startDateString, finishDateString, alignTour);
 		
-		ListedTourDaoHibernate ltdh = DaoManager.getListedTourDao();
-		TourDaoHibernate tdh = DaoManager.getTourDao();
-		TourOperatorDaoHibernate todh = DaoManager.getTourOperatorDao();
-		
-		CurrentUser currentUser = new CurrentUser();
-		ListedTour listedTour = new ListedTour();
-		
-		listedTour.setTour(tdh.getTourByID(align.getTourID()));
-		listedTour.setTourID(tdh.getTourByID(align.getTourID()).getTourID());
-		listedTour.setOperator(todh.getTourOperatorByID(currentUser.getCurrentUserID()));
-		if(startDate.getYear() == 0 || finishDate.getYear() == 0){
-			tdh.getTourByID(align.getTourID()).setTotalDays(align.getTotalDays());
-		}
-		
-			listedTour.setListedFrom(startDate);
-			listedTour.setListedTo(finishDate);
-		
-		
-		//ltdh.addListedTour(listedTour);
-		// Use the redirect-after-post pattern to reduce double-submits.
 		return "alignTourList";
-		*/
 	}
 
 }

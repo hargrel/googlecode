@@ -36,7 +36,6 @@ public final class contactUsController {
 		validator.validate(contact, result);
 		if (result.hasErrors()) { return "contactUs"; }
 		
-		// Use the redirect-after-post pattern to reduce double-submits.
 		return "search";
 		
 	}

@@ -10,14 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.itee.antipodes.domain.db.TourOperator;
+import edu.itee.antipodes.repository.TourOperatorDaoHibernate;
 import edu.itee.antipodes.service.CurrentUser;
+import edu.itee.antipodes.utils.SpringApplicationContext;
 
 @Controller
 @RequestMapping("/operator/editCompanyInfo.html")
 public final class editCompanyInfoController {
 
 	CurrentUser currentUser = new CurrentUser();
-	//TourOperatorDaoHibernate tod = DaoManager.getTourOperatorDao();
+	TourOperatorDaoHibernate tod = SpringApplicationContext.getTourOperatorDao();
 	String successMessage;
 	
 	@Autowired
@@ -39,15 +41,14 @@ public final class editCompanyInfoController {
 	@RequestMapping(method = RequestMethod.POST)
 	public Object post(@ModelAttribute("editCompanyInfo") TourOperator operator,
 			BindingResult result, Model model) {
-		return "search";
-		/*
+		
 		validator.validate(operator, result);
 		if (result.hasErrors()) { return "editCompanyInfo"; }
 		operator.setOperatorID(currentUser.getCurrentUserID());
-		//tod.saveTourOperator(operator);
+		tod.saveTourOperator(operator);
 		successMessage = "Update successful!";
 		model.addAttribute("successMessage", successMessage);
 		return "editCompanyInfo";
-		*/
+		
 	}
 }

@@ -5,7 +5,7 @@ import java.util.List;
 
 import edu.itee.antipodes.domain.db.AccountUser;
 
-public interface AccountManager extends Serializable {
+public interface IAccountManager extends Serializable {
 	
 	public List<AccountUser> getAccounts();
 	

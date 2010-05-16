@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.itee.antipodes.domain.pages.BillingTourOperators;
-import edu.itee.antipodes.service.ReportingManager;
+import edu.itee.antipodes.service.IReportingManager;
 
 @Controller
 @RequestMapping("/admin/billTourOperator.html")
@@ -37,7 +37,7 @@ public class billTourOperatorController {
 	}
 
 	@Autowired
-	private ReportingManager reportingManager;
+	private IReportingManager reportingManager;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public Object redirect(Model model) {

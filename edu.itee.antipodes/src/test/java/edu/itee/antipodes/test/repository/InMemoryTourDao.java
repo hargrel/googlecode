@@ -33,4 +33,10 @@ public class InMemoryTourDao implements TourDao {
     	
     }
 
+	@Override
+	public List<Tour> getTourListByOperatorID(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

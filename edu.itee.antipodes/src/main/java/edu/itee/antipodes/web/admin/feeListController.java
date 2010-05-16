@@ -1,5 +1,7 @@
 package edu.itee.antipodes.web.admin;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,22 +11,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import edu.itee.antipodes.domain.db.MonthlyFee;
+import edu.itee.antipodes.repository.MonthlyFeeDaoHibernate;
+import edu.itee.antipodes.utils.SpringApplicationContext;
+
 @Controller
 @RequestMapping("/admin/feeList.html")
 public class feeListController {
-	// MonthlyFeeDaoHibernate mfdh = DaoManager.getMonthlyFeeDao();
+	MonthlyFeeDaoHibernate mfdh = SpringApplicationContext.getMonthlyFeeDao();
+	
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUserForm(Model model, HttpServletRequest request,
 			HttpServletResponse response) {
-		return "search";
-		/*
+		
 		String listID = request.getParameter("listID");
 
 		List<Object[]> listedTourFees = mfdh.getMonthlyFeeForListedTour(Integer
 				.parseInt(listID));
 		model.addAttribute("listedTourFees", listedTourFees);
 		return "feeList";
-		*/
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
@@ -32,8 +38,7 @@ public class feeListController {
 			@RequestParam("listID") int listID,
 			@RequestParam("feeID") int feeID, Model model) {
 
-		return "search";
-		/*
+		
 		MonthlyFee monthlyFee = mfdh.getMonthlyFeeByID(feeID);
 		String errorMessage;
 
@@ -49,7 +54,7 @@ public class feeListController {
 		List<Object[]> listedTourFees = mfdh.getMonthlyFeeForListedTour(listID);
 		model.addAttribute("listedTourFees", listedTourFees);
 		return "feeList";
-		*/
+		
 	}
 
 }

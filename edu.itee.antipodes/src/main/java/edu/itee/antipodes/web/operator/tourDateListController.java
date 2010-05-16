@@ -10,28 +10,29 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.itee.antipodes.domain.db.Tour;
-import edu.itee.antipodes.service.TourManager;
+import edu.itee.antipodes.service.ITourOperatorManager;
 
 @Controller
 @RequestMapping("/operator/tourDateList.html")
 public class tourDateListController {
 	
+	@Autowired
+	private ITourOperatorManager tourOperatorManager;
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showTourDate(Model model) {
-		List<Tour> tours = tourManager.getTours();
+		List<Tour> tours = tourOperatorManager.getTours();
 		model.addAttribute("tourDate", tours);
 		return "tourDateList";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public String deleteTourDate(@RequestParam("dateID") int dateID, Model model) {
-		tourManager.dropTourByID(dateID);
-		List<Tour> tours = tourManager.getTours();
+		tourOperatorManager.dropTourByID(dateID);
+		List<Tour> tours = tourOperatorManager.getTours();
 		model.addAttribute("tourDate", tours);
 		return "tourDateList";
 	}
 	
-	@Autowired
-	TourManager tourManager;
 }
 

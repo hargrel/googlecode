@@ -64,7 +64,13 @@ public class JdbcTourDao extends SimpleJdbcDaoSupport implements TourDao {
             return tr;
         }
 
-    }	
+    }
+
+	@Override
+	public List<Tour> getTourListByOperatorID(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}	
 	
 	
 }

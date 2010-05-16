@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.itee.antipodes.domain.db.ListedTour;
-import edu.itee.antipodes.service.CustomerManager;
+import edu.itee.antipodes.service.ICustomerManager;
 import edu.itee.antipodes.service.SimpleCustomerManager;
 
 @Controller
@@ -18,7 +18,7 @@ import edu.itee.antipodes.service.SimpleCustomerManager;
 public class tourInfoController {
 
 	@Autowired
-	private CustomerManager customerManager;// = new SimpleCustomerManager();
+	private ICustomerManager customerManager;// = new SimpleCustomerManager();
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUserForm(Model model) {

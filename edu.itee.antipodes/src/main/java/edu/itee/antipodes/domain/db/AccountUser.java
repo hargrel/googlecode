@@ -9,7 +9,7 @@ import org.springmodules.validation.bean.conf.loader.annotation.handler.NotNull;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.RegExp;
 import org.springmodules.validation.bean.conf.loader.annotation.handler.ValidationMethod;
 
-import edu.itee.antipodes.service.AccountManager;
+import edu.itee.antipodes.service.IAccountManager;
 import edu.itee.antipodes.service.SimpleAccountManager;
 
 /**
@@ -89,12 +89,12 @@ public class AccountUser implements Serializable {
 				+ ", userName=" + userName + "]";
 	}
 	@Autowired
-	private AccountManager accountUserManager;
+	private IAccountManager accountUserManager;
 	// TODO: Check if compareName works
 	@SuppressWarnings("unused")
 	@ValidationMethod(forProperty = "userName")
     private boolean compareName() {	
-		//AccountManager accManager = new SimpleAccountManager();
+		//IAccountManager accManager = new SimpleAccountManager();
 		if(accountUserManager.getAccountByUsername(userName) != null)
 			return false;
 		else

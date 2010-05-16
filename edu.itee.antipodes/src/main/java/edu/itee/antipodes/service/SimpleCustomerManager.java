@@ -18,7 +18,7 @@ import edu.itee.antipodes.repository.ListedTourDao;
 import edu.itee.antipodes.repository.TourOperatorDao;
 
 @SuppressWarnings("serial")
-public class SimpleCustomerManager implements CustomerManager {
+public class SimpleCustomerManager implements ICustomerManager {
 
 	private SimpleCustomerManager() {
 	}
@@ -88,7 +88,7 @@ public class SimpleCustomerManager implements CustomerManager {
 			this.mailSender.send(msg);
 		} catch (MailException ex) {
 			// simply log it and go on...
-			System.err.println("+++7" + ex.getMessage());
+			System.err.println(ex.getMessage());
 		}
 	}
 

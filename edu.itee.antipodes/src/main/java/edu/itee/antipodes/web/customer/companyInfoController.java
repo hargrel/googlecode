@@ -17,7 +17,7 @@ import edu.itee.antipodes.service.*;
 public class companyInfoController {
 
 	@Autowired
-  	private CustomerManager customerManager;// = new SimpleCustomerManager();
+  	private ICustomerManager customerManager;// = new SimpleCustomerManager();
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUserForm(Model model) {

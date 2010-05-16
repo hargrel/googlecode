@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
 
-import edu.itee.antipodes.service.TourOperatorManager;
+import edu.itee.antipodes.service.ITourOperatorManager;
 
 @Controller
 @RequestMapping("/operator/uploadFile.html")
@@ -21,7 +21,7 @@ public final class uploadFileController {
 	@Autowired
 	private ApplicationContext applicationContext;
 	@Autowired
-	private TourOperatorManager tourOperatorManager;
+	private ITourOperatorManager tourOperatorManager;
 
 	@RequestMapping(method = RequestMethod.POST)
 	public Object upload(@RequestParam("file") MultipartFile multipartFile,

@@ -3,10 +3,12 @@ package edu.itee.antipodes.repository;
 import java.text.ParseException;
 import java.util.Iterator;
 import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.springframework.dao.DataAccessResourceFailureException;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
 import edu.itee.antipodes.service.UtilityManager;
 
 public class CustomerSearchDaoHibernate extends HibernateDaoSupport implements Iterable<Object>{

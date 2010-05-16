@@ -54,11 +54,6 @@
 	</security:authentication-provider>
 
 
-	<!-- tour manager -->
-	<bean id="tourManager" class="edu.itee.antipodes.service.ExampleTourManager">
-		<property name="tourDao" ref="tourDao" />
-	</bean>
-
 	<!-- File upload -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
@@ -95,5 +90,8 @@
 	</bean>
 
 
+	<!-- This application context -->
+	<bean id="springApplicationContext" class="edu.itee.antipodes.utils.SpringApplicationContext"/>
+	
 </beans>
 

@@ -6,7 +6,7 @@ import edu.itee.antipodes.domain.db.AccountUser;
 import edu.itee.antipodes.domain.db.Activity;
 import edu.itee.antipodes.domain.db.Location;
 
-public interface SystemAdminManager {
+public interface ISystemAdminManager {
 	public void removeLocationByID(String locationID);
 	public Location getLocationByID(String locationID);
 	public void saveLocation(Location location);

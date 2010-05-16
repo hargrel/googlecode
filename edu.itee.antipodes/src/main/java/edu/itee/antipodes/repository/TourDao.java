@@ -16,4 +16,6 @@ public interface TourDao {
 	
 	public void addTour(Tour tour);
 
+	public  List<Tour> getTourListByOperatorID(int id);
+	
 }
