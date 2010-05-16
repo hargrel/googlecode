@@ -6,12 +6,34 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<link type="text/css" href="<c:url value="/css/smoothness/jquery-ui-1.7.2.custom.css"/>" rel="stylesheet" />
+<link type="text/css" href="<c:url value="/js/dataTables/demo_table_jui.css"/>" rel="stylesheet" />
+<script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/dataTables/jquery.dataTables.min.js"/>"></script>
+<script type="text/javascript" charset="utf-8">
+			$(document).ready(function() {
+				oTable = $('#tour').dataTable({
+					"bJQueryUI": true,
+					"sPaginationType": "full_numbers",
+					"aoColumns": [ 
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						null,
+						{ "bSortable": false }
+						]
+				});
+			} );
+</script>
 </head>
 <body>
 
 	<h2>Align Tour List</h2>
-	<div id="Table">
-	<table width=100%>
+	<div class="demo_jui">
+	<table cellpadding="0" cellspacing="0" border="0" id="tour" class="display">
 		<thead>
 		<tr>
 			<th>ID</th>
@@ -28,13 +50,13 @@
 		<tbody>
 		<c:forEach items="${tours}" var="tour">
 			
-			<tr>
+			<tr class="gradeA">
 				<td><c:out value="${tour.tourID}" /></td>
 				<td><c:out value="${tour.tourName}" /></td>	
 				<td><c:out value="${location.locationName}" /></td>
 				<td><c:out value="${activity.activityName}" /></td>	
-				<td><c:out value="${tourdate.startDate}" /></td>
-				<td><c:out value="${tourdate.finishDate}" /></td>
+				<td><fmt:formatDate value="${tourDate.startDate}" pattern="d MMM yyyy"/></td>
+				<td><fmt:formatDate value="${tourDate.finishDate}" pattern="d MMM yyyy"/></td>
 				<td><c:out value="${tour.totalDays}" />&nbsp; days</td>		
 				<td>
 					<form style="margin:0px; padding: 0px;" name="align_${tour.tourID}" action="alignTour.html" method="get">

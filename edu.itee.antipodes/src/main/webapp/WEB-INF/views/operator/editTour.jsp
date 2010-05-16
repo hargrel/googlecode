@@ -42,7 +42,7 @@
 	</tr>
 	
 	<tr>
-		<!-- Insert currency -->
+		<!-- Select currency -->
 		<td>Currency:</td>
 		<td><form:select path="currency">
 				<form:option value="USD" label="USD" />
@@ -56,21 +56,21 @@
 	<tr>
 		<!-- Insert price -->
 		<td valign="top">Price:</td>
-		<td><form:input path="price" size="5" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="price"/></div></td>
+		<td><form:input path="price" size="8" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="price"/></div></td>
 	</tr>
 	
 	<tr>
-		<!-- Set on demand value -->
+		<!-- Upload Images -->
 		<td valign="top">Uploaded Images:</td>
 		<td>
 			<c:if test="${numberOfImages < 4}">
-			<a href="<c:url value="uploadImages.html?tourID=" /><c:out value="${editTour.tourID}" />">Add</a>
+			<a href="<c:url value="uploadImages.html?tourID=" /><c:out value="${editTour.tourID}" />" style="color: blue">Add</a>
 			<br/><br/>
 			</c:if>
 			
 			<c:forEach items="${images}" var="image">
-			<img src="<c:url value="/uploads/images/"/><c:out value="${image.url}" />" width="100px"/><br/>
-			<a href="<c:url value="deleteImages.html?imageID="/><c:out value="${image.imageID}" />" />Delete</a><br/><br/>
+			<img src="<c:url value="/uploads/images/"/><c:out value="${image.url}" />" width="180px"/><br/>
+			<a href="<c:url value="deleteImages.html?imageID="/><c:out value="${image.imageID}" />" onclick="return confirm('Are you sure you want to delete this image?')" style="color: blue">Delete</a><br/><br/>
 			</c:forEach>
 			<c:if test="${empty images}">
 			There are no images added.

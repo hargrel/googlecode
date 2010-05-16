@@ -4,8 +4,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAQlV1b2FPUM74rst4A4cFzxT2yXp_ZAY8_ufC3CFXhHIE1NvwkxQSgLSOP2XkswKd7txk3wHZjh27CA&sensor=false" type="text/javascript"></script>
-<script type="text/javascript" src="<c:url value="/js/polylines.js"/>"></script>
+<link type="text/css" href="<c:url value="/css/smoothness/jquery-ui-1.7.2.custom.css"/>" rel="stylesheet" />
+<link type="text/css" href="<c:url value="/js/dataTables/demo_table_jui.css"/>" rel="stylesheet" />
+<script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/dataTables/jquery.dataTables.min.js"/>"></script>
+<script type="text/javascript" charset="utf-8">
+			$(document).ready(function() {
+				oTable = $('#company').dataTable({
+					"bJQueryUI": true,
+					"sPaginationType": "full_numbers",
+					"aoColumns": [ 
+						null,
+						null,
+						null,
+						null,
+						{ "bSortable": false },
+						{ "bSortable": false }
+						]
+				});
+			} );
+</script>
 </head>
 
 <body onunload="GUnload()">
@@ -34,8 +52,8 @@
 </table>
 
 <h3>List of tours:</h3>
-	<div id="Table">
-	<table style="width: 800px;">
+	<div class="demo_jui">
+	<table cellpadding="0" cellspacing="0" border="0" id="company" class="display">
 		<thead>
 		<tr>
 			<th>Tour Name</th>
@@ -50,7 +68,7 @@
 
 		<c:forEach items="${listedTours}" var="listedTour">
 			<c:forEach items="${listedTour.tour.tourDates}" var="tourDate">
-				<tr>
+				<tr class="gradeA">
 					<td><c:out value="${listedTour.tour.tourName}" /></td>
 					<td><c:out value="${listedTour.tour.price}" />&nbsp;<c:out value="${listedTour.tour.currency}" /></td>
 					<td><c:out value="${tourDate.startDate}" /></td>
@@ -71,5 +89,6 @@
 		</tbody>
 	</table>
 	</div>
+	
 </body>
 </html>

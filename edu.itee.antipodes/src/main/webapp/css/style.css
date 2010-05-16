@@ -205,6 +205,14 @@ h4 {
 	color: black;
 }
 
+h5 {
+	font-style:Helvetica;
+	font-size: 30px;
+	font-weight: bold;
+	color: black;
+	margin-bottom: 15px;
+}
+
 p {
 	font-style:Helvetica;
 	font-size: 11px;
@@ -224,7 +232,7 @@ p {
     float: left;
 }
 #menu ul.menu {
-    padding-left: 50px;
+    padding-left: 40px;
 }
 
 #menu li {
@@ -337,7 +345,7 @@ p {
 
 #context {
 	color: #777;
-	font-size: 6pt;
+	font-size: 10pt;
 	line-height: 18pt;
 	padding: 30px 40px;
 }

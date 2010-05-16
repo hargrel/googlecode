@@ -12,17 +12,33 @@
 }
 
 </style>
+<link type="text/css" href="<c:url value="/js/lightbox/jquery.fancybox-1.3.1.css"/>" rel="stylesheet" />
 <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAQlV1b2FPUM74rst4A4cFzxT2yXp_ZAY8_ufC3CFXhHIE1NvwkxQSgLSOP2XkswKd7txk3wHZjh27CA&sensor=false" type="text/javascript"></script>
-<script type="text/javascript" src="<c:url value="/js/tourInfo.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/gmap/tourInfo.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/lightbox/jquery.fancybox-1.3.1.pack.js"/>"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("a.group").fancybox({
+		'transitionIn'	:	'elastic',
+		'transitionOut'	:	'elastic',
+		'speedIn'		:	400, 
+		'speedOut'		:	200, 
+		'overlayShow'	:	false
+	});
+});
+	</script>
 </head>
 
 <body onload="initialize()" onunload="GUnload()">
-<h2><c:out value="${listedTour.tour.tourName}" /></h2>
+<h5><c:out value="${listedTour.tour.tourName}" /></h5>
+
+
 <table border="0" align="center" width=100% style="border-collapse:collapse">
 	
 	<tr>
 		<!-- Google Map -->
-		<td rowspan="5" valign="top" width=35% ><div id="map_canvas" style="width: 500px; height: 300px; margin-right:20px"></div></td>
+		<td rowspan="5" valign="top" width=35% ><div id="map_canvas" style="width: 600px; height: 300px; margin-right:20px"></div></td>
 		
 		<!-- Price -->
 		<td valign="top"><b>Price:</b>&nbsp;&nbsp;<c:out value="${listedTour.tour.price}" />&nbsp;<c:out value="${listedTour.tour.currency}" /></td>
@@ -30,11 +46,15 @@
 		<!-- Dates -->
 	<!-- not working for multiple dates -->
 	<c:forEach items="${listedTour.tour.tourDates}" var="tourDate">
+	
+
 		<tr>
-			<td valign="top"><b>Start Date:</b>&nbsp;&nbsp; <c:out value="${tourDate.startDate}" /></td>
+			<td valign="top"><b>Start Date:</b>&nbsp;&nbsp; <fmt:formatDate value=
+              "${tourDate.startDate}" pattern="d MMM yyyy"/></td>
 		</tr>
 		<tr>
-			<td valign="top"><b>Finish Date:</b>&nbsp;&nbsp;<c:out value="${tourDate.finishDate}" /></td>
+			<td valign="top"><b>Finish Date:</b>&nbsp;&nbsp;<fmt:formatDate value=
+              "${tourDate.finishDate}" pattern="d MMM yyyy"/></td>
 		</tr>
 	</c:forEach>
 	
@@ -56,12 +76,46 @@
 </table>
 
 <div class="desc">
-<h4>Location:</h4>
-<h4>Activity:</h4>
-<h4>Description:</h4>
-<c:out value="${listedTour.tour.tourDesc}" escapeXml="false"/>
 
+<!-- Location -->
+<h4 style="color: #698B22">Location:</h4>
+<ul>
+<c:forEach items="${listedTour.tour.locations}" var="location">
+<li style="display:inline">&#187;&nbsp;<c:out value="${location.locationName}" /></li>
+<input type="hidden" name="latitude" id="latitude" value="<c:out value="${location.latitude}" />"></input>
+<input type="hidden" name="longitude" id="longitude" value="<c:out value="${location.longitude}" />"></input>
+</c:forEach>
+</ul>
+
+<!-- Activity -->
+<h4>Activity:</h4>
+<ul>
+<c:forEach items="${listedTour.tour.activities}" var="activity">
+<li style="display:inline">&#187;&nbsp;<c:out value="${activity.activityName}" />&nbsp;&nbsp;</li>
+</c:forEach>
+</ul>
+<!-- Description -->
+<h4 style="color: #228B22">Description:</h4>
+<p style="width: 400px">
+<c:out value="${listedTour.tour.tourDesc}" escapeXml="false"/>
+</p>
+<!-- Images -->
 <h4>Images:</h4>
+<!--
+<a class="group" rel="group1" href="<c:url value="/img/test.jpg"/>"><img src="<c:url value="/img/test.jpg"/>" width="100px"/></a>
+<a class="group" rel="group1" href="<c:url value="/img/002.jpg"/>"><img src="<c:url value="/img/test.jpg"/>" width="100px"/></a>
+-->
+
+<c:forEach items="${listedTour.tour.images}" var="image">
+<img src="<c:url value="/uploads/images/"/><c:out value="${image.url}" />" width="200px"/>
+<c:out value="${image.url}" />
+</c:forEach>
+
+<!--
+<c:forEach items="${listedTour.tour.images}" var="image">
+<a class="group" rel="images" href="<c:url value="/uploads/images/"/><c:out value="${image.url}" />"><img src="<c:url value="/uploads/images/"/><c:out value="${image.url}" />" width="100px"/></a>
+</c:forEach>
+-->
 </div>
 </body>
 </html>

@@ -14,7 +14,7 @@
 <div id="menu">
     <ul class="menu">
         <li><a href="<c:url value="TOhome.html"/>"><span><img src="<c:url value="/img/Home-icon.png"/>">Home</span></a></li>
-        <li><a href="<c:url value="/search.html"/>"><span><img src="<c:url value="/img/Search-icon.png"/>">Search Tour</span></a></li>
+        <li><a href="<c:url value="/search.html"/>"><span><img src="<c:url value="/img/Search-icon.png"/>">Search Tours</span></a></li>
         <li><a href="<c:url value="editCompanyInfo.html"/>"><span><img src="<c:url value="/img/Company-icon.png"/>">Company Information</span></a></li>
         <li><a class="sub"><span><img src="<c:url value="/img/Tour-icon.png"/>">Tours</span></a>
             <div><ul>

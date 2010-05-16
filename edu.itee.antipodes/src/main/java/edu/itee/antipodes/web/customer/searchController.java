@@ -24,8 +24,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import edu.itee.antipodes.domain.db.Activity;
 import edu.itee.antipodes.domain.db.ListedTour;
 import edu.itee.antipodes.domain.pages.Search;
+import edu.itee.antipodes.repository.ActivityDao;
 import edu.itee.antipodes.service.ICustomerManager;
 import edu.itee.antipodes.service.SimpleCustomerManager;
 
@@ -60,13 +62,16 @@ public class searchController {
 	public String showUserForm(ModelMap model) {
 		Search search = new Search();
 		model.addAttribute("search", search);
+		/*ActivityDao ad = DaoManager.getActivityDao();
+		List<Activity> act = ad.getActivityList();
+		model.addAttribute("activities", act);*/
 		return "search";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
     public String post(@ModelAttribute("search") Search sch, BindingResult result, Model model, 
 		@RequestParam("locationName") String locationName,
-		@RequestParam("activityName") String activityName,
+		@RequestParam(value="activityName",required=false) String activityName,
 		@RequestParam("startDate") String startDate,
 		@RequestParam("finishDate") String finishDate
     	) throws DataAccessResourceFailureException, HibernateException, IllegalStateException, ParseException {

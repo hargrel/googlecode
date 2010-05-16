@@ -46,7 +46,7 @@
 <body>
 
 <!-- Form name: alignTour -->
-<!-- Attribute names: tourID, tourName, startDate, finishDate, totalDays, locationName, activityName -->
+<!-- Attribute names: tourID, tourName, totalDays, locationName, activityName -->
 
 <h2>Align Tour</h2>
 
@@ -56,8 +56,7 @@
 	<tr>
 		<!-- Display tour name -->
 		<td width="120">Tour name:</td>
-		<td><h4><c:out value="${tour.tourName}" />
-		</h4></td>
+		<td><h4><c:out value="${tour.tourName}" /></h4></td>
 	</tr>
 	
 	<tr>
@@ -102,22 +101,26 @@
 	
 </table>
 </form:form>
+
+<!-- Form name: date -->
+<!-- Attribute names: tourID, startDate, finishDate -->
+<c:if test="${tour.onDemand == '0'}">
+<form:form commandName="date">
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
 <tr>
-		<!-- Insert start & finish date -->
-		<c:if test="${tour.onDemand == '0'}">
-		<td colspan="2">Start date:&nbsp;&nbsp;<input name="startDate" size="10" id="datepicker_from"/>&nbsp;&nbsp;
+<td><form:hidden path="tourID"/></td>
+</tr>
+	<tr>
+		<!-- Insert start & finish date -->		
+		<td colspan="2" width="360">Start date:&nbsp;&nbsp;<input name="startDate" size="10" id="datepicker_from"/>&nbsp;&nbsp;
 		Finish date:&nbsp;&nbsp;<input name="finishDate" size="10" id="datepicker_to"/></td>
 		
 		<!-- Add new date -->
-		<td><a class="home" href="<c:url value="addTourDate.html"/>">Add</a><br/></td>
-		</c:if>
-		<c:if test="${tour.onDemand == '1'}">
-		<input name="startDate" type="hidden" size="10" value="01/01/1900"/>
-		<input name="finishDate" type="hidden" size="10" value="01/01/1900"/>
-		</c:if>
+		<td><input type="submit" value="Add" /></td>
 	</tr>
 </table>
+</form:form>
+
 <div id="Table">
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
 <thead>
@@ -144,5 +147,6 @@
 		</tbody>
 </table>
 </div>
+</c:if>
 </body>
 </html>

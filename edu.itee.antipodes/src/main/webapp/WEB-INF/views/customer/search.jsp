@@ -5,6 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<link type="text/css" href="<c:url value="/js/jquery.asmselect.css"/>" rel="stylesheet" />
+<link type="text/css" href="<c:url value="/css/jquery.multiselect.css"/>" rel="stylesheet" />
 <link type="text/css" href="<c:url value="/css/smoothness/jquery-ui-1.7.2.custom.css"/>" rel="stylesheet" />
 		<style>
 			.form-error-field { background-color: #FFC; }
@@ -12,6 +14,9 @@
 		</style>
 <script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/jquery-ui-1.7.2.custom.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/jquery.multiselect.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/jquery.asmselect.js"/>"></script>
+
 <script type="text/javascript">
 	$(function() {
 		$("#datepicker_from,#datepicker_to").datepicker({minDate:0,
@@ -28,8 +33,32 @@
 				
 	});
 </script>
+<script type="text/javascript">
+	$(function() {
+		$("#act").multiSelect({ 
+			minWidth:300,
+			maxHeight:90,
+			selectedList:5,
+			showHeader:false
+		});
+				
+	});
+</script>
+<script type="text/javascript">
+
+		$(document).ready(function() {
+			$("select[multipl]").asmSelect({
+				addItemTarget: 'bottom',
+				animate: true,
+				highlight: true,
+				sortable: true
+			});
+			
+		}); 
+
+	</script>
 <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAQlV1b2FPUM74rst4A4cFzxT2yXp_ZAY8_ufC3CFXhHIE1NvwkxQSgLSOP2XkswKd7txk3wHZjh27CA&sensor=false" type="text/javascript"></script>
-<script type="text/javascript" src="<c:url value="/js/search.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/gmap/search.js"/>"></script>
 </head>
 
 <body onload="initialize()" onunload="GUnload()">
@@ -45,7 +74,7 @@
 <table border="0" width=640 style="border-collapse:collapse; margin-right:30px">
 	<tr>
 		<td rowspan="3" valign="top" width=25%>Locations:</td>
-		<td><span style="font-size: 9px; color: #333;">Type locations, using comma to separate</span></td>
+		<td><span style="font-size: 9px; color: #333;">Choose locations, using comma to separate</span></td>
 	</tr>
 	
 	<tr>
@@ -59,11 +88,17 @@
 					
 	<tr>
 		<td rowspan="2">Activities:</td>
-		<td valign="bottom"><span style="font-size: 9px; color: #333;">Type activities, using comma to separate</span></td>
+		<td valign="bottom"><span style="font-size: 9px; color: #333;">Choose activities, using comma to separate</span></td>
 	</tr>
 	
 	<tr>
-		<td><form:input path="activityName" size="40" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="activityName"/></div></td>
+		<td><form:input path="activityName" size="40" cssErrorClass="form-error-field"/>
+		<!--<form:select path="activityName" multiple="multiple">
+				<form:option value="" label="Select activities"/>
+				<form:options items="${activities}" itemValue="activityName" itemLabel="activityName" />
+			</form:select>-->
+		<div class="form-error-message"><form:errors path="activityName"/></div>
+		</td>
 	</tr>
 	
 	<tr>

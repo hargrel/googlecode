@@ -9,13 +9,31 @@
 	<style>
 		.form-error-message { font-weight: bold; color: #900; font-size: 10px; }
 	</style>
+<link type="text/css" href="<c:url value="/css/smoothness/jquery-ui-1.7.2.custom.css"/>" rel="stylesheet" />
+<link type="text/css" href="<c:url value="/js/dataTables/demo_table_jui.css"/>" rel="stylesheet" />
+<script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/dataTables/jquery.dataTables.min.js"/>"></script>
+<script type="text/javascript" charset="utf-8">
+			$(document).ready(function() {
+				oTable = $('#fee').dataTable({
+					"bJQueryUI": true,
+					"sPaginationType": "full_numbers",
+					"aoColumns": [ 
+						null,
+						null,
+						{ "bSortable": false },
+						{ "bSortable": false }
+						]
+				});
+			} );
+</script>
 </head>
 <body>
 
 <h2>Monthly Fee List</h2>
-	<div id="Table">
+	<div class="demo_jui">
 	<span class="form-error-message"><c:out value="${errorMessage}" /></span>
-	<table style="width: 500px;">
+	<table cellpadding="0" cellspacing="0" border="0" id="fee" class="display">
 		<thead>
 		<tr>
 			<th style="width: 60px;">Fee ID</th>
@@ -28,27 +46,26 @@
 		<tbody>
 		<c:forEach items="${listedTourFees}" var="listedTourFee">
 		<form style="margin:0px; padding: 0px;" name="save_${listedTourFee[3]}" action="feeList.html" method="post">
-			<tr>
-				
+		<tr class="gradeA">
 				<td><c:out value="${listedTourFee[3]}" /></td>
-				<td><c:out value="${listedTourFee[1]}" /></td>
+				<td><fmt:formatDate value="${listedTourFee[1]}" pattern="MMMMM"/></td>
 				<td><input type="text" name="fee" value="${listedTourFee[2]}" size="5" />
 				</td>
 			
-				<td>
+				<td class="center">
 					<input type="hidden" name="listID" value="${listedTourFee[0]}" />
 					<input type="hidden" name="feeID" value="${listedTourFee[3]}" />
 					
 					<a href="#" style="color: blue;" onclick="document['save_${listedTourFee[3]}'].submit()">Save</a>
 				</td>
 				
-			</tr>
+		</tr>
 		</form>
 		</c:forEach>
 		</tbody>
 	
 	</table>
-	<input type="button" value="Cancel" onClick="window.location.href='<c:url value="manageFee.html"/>'" style="float: right; margin-right: 20px; margin-top: 10px;"/>
+	<input type="button" value="Cancel" onClick="window.location.href='<c:url value="manageFee.html"/>'" style="float: right; margin-top: 20px;"/>
 	</div>
 	
 </body>

@@ -6,13 +6,33 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<link type="text/css" href="<c:url value="/css/smoothness/jquery-ui-1.7.2.custom.css"/>" rel="stylesheet" />
+<link type="text/css" href="<c:url value="/js/dataTables/demo_table_jui.css"/>" rel="stylesheet" />
+<script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/dataTables/jquery.dataTables.min.js"/>"></script>
+<script type="text/javascript" charset="utf-8">
+			$(document).ready(function() {
+				oTable = $('#result').dataTable({
+					"bJQueryUI": true,
+					"sPaginationType": "full_numbers",
+					"aoColumns": [ 
+						null,
+						null,
+						null,
+						null,
+						null,
+						{ "bSortable": false }
+						]
+				});
+			} );
+</script>
 </head>
 
 <body>
 
 <h2>Search Results</h2>
-	<div id="Table">
-	<table style="width: 800px;">
+	<div class="demo_jui">
+	<table cellpadding="0" cellspacing="0" border="0" id="result" class="display">
 		<thead>
 		<tr>
 			<th>Tour Name</th>
@@ -27,7 +47,7 @@
 		<tbody>
 		<c:forEach items="${listedTours}" var="listedTour">
 			<c:forEach items="${listedTour.tour.tourDates}" var="tourDate">
-				<tr>
+				<tr class="gradeA">
 					<td><c:out value="${listedTour.tour.tourName}" /></td>
 					<td><c:out value="${listedTour.operator.operatorName}" /></td>
 					<td><c:out value="${tourDate.startDate}" /></td>
@@ -51,7 +71,9 @@
 		</tbody>
 	</table>
 	<input type="button" value="Back" onClick="window.location.href='<c:url value="search.html"/>'" 
-		style="float: right; margin-right: 20px; margin-top: 10px;"/>
+		style="float: right; margin-top: 20px;"/>
 	</div>
+	
+	
 </body>
 </html>

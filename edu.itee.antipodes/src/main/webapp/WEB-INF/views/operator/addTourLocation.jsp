@@ -23,7 +23,7 @@
     }
 </style>
 <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAQlV1b2FPUM74rst4A4cFzxT2yXp_ZAY8_ufC3CFXhHIE1NvwkxQSgLSOP2XkswKd7txk3wHZjh27CA&sensor=false" type="text/javascript"></script>
-<script type="text/javascript" src="<c:url value="/js/routes.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/gmap/routes.js"/>"></script>
 </head>
 <body onload="createMap()" onunload="GUnload()">
 
