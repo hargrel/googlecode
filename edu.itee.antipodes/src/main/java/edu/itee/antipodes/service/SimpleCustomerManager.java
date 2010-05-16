@@ -20,23 +20,17 @@ import edu.itee.antipodes.repository.TourOperatorDao;
 @SuppressWarnings("serial")
 public class SimpleCustomerManager implements ICustomerManager {
 
-	private SimpleCustomerManager() {
-	}
-
 	@Autowired
 	private ListedTourDao listedTourDao;// = DaoManager.getListedTourDao();
 	@Autowired
 	private TourOperatorDao tourOperatorDao;
 
 	public void setListedTourDao(ListedTourDao listedTourDao) {
-		System.out.println("+++ 44 " + listedTourDao);
 		this.listedTourDao = listedTourDao;
 	}
 
 	@Autowired
-	private CustomerSearchDaoHibernate tourSearchDao;// =
-
-	// DaoManager.getTourSearchDao();
+	private CustomerSearchDaoHibernate tourSearchDao;
 
 	public ListedTour getListedTour(int id) {
 		return listedTourDao.getListedTourByID(id);
@@ -54,7 +48,6 @@ public class SimpleCustomerManager implements ICustomerManager {
 			String locationNames, String startDate, String finishDate)
 			throws DataAccessResourceFailureException, HibernateException,
 			IllegalStateException, ParseException {
-		System.out.println("+++ 43 " + listedTourDao);
 		return tourSearchDao.findListedTours(activityNames, locationNames,
 				startDate, finishDate);
 	}

@@ -31,9 +31,9 @@ public final class editCompanyInfoController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUserForm(Model model) {
-		//TourOperator operator = tod.getTourOperatorByID(currentUser.getCurrentUserID());
+		TourOperator operator = tod.getTourOperatorByID(currentUser.getCurrentUserID());
 		successMessage = "";
-		//model.addAttribute("editCompanyInfo", operator);
+		model.addAttribute("editCompanyInfo", operator);
 		model.addAttribute("successMessage", successMessage);
 		return "editCompanyInfo";
 	}

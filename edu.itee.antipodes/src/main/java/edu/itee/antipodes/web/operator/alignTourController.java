@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.view.RedirectView;
 
 import edu.itee.antipodes.domain.pages.AlignTour;
 import edu.itee.antipodes.service.ITourOperatorManager;
@@ -55,7 +56,7 @@ public class alignTourController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String post(
+	public Object post(
 			@RequestParam("startDate") String startDateString,
 			@RequestParam("finishDate") String finishDateString, 
 			@ModelAttribute("alignTour") AlignTour alignTour,
@@ -64,9 +65,10 @@ public class alignTourController {
 		validator.validate(alignTour, result);
 		if (result.hasErrors()) { return "alignTour"; }
 		
+		
 		tourOperatorManager.alignTour(startDateString, finishDateString, alignTour);
 		
-		return "alignTourList";
+		return new RedirectView("alignTourList.html");
 	}
 
 }
