@@ -61,29 +61,6 @@
 	</tr>
 	
 	<tr>
-		<!-- Insert start & finish date -->
-		<c:if test="${tour.onDemand == '0'}">
-		<td colspan="2">Start date:&nbsp;&nbsp;<input name="startDate" size="10" id="datepicker_from"/>&nbsp;&nbsp;
-		Finish date:&nbsp;&nbsp;<input name="finishDate" size="10" id="datepicker_to"/></td>
-		
-		<!-- Add new date -->
-		<td><a class="home" href="<c:url value="addTourDate.html"/>">Add new date</a><br/></td>
-		</c:if>
-		<c:if test="${tour.onDemand == '1'}">
-		<input name="startDate" type="hidden" size="10" value="01/01/1900"/>
-		<input name="finishDate" type="hidden" size="10" value="01/01/1900"/>
-		</c:if>
-	</tr>
-
-	<tr>
-		<!-- Insert duration -->
-		<c:if test="${tour.onDemand == '1'}">
-		<td>Duration:</td>
-		<td><form:input path="totalDays" size="3" cssErrorClass="form-error-field"/>&nbsp;<span style="font-size: 10px; color: black;">day(s)</span><div class="form-error-message"><form:errors path="totalDays"/></div></td>
-		</c:if>
-	</tr>
-	
-	<tr>
 		<!-- Choose location from drop-down list -->
 		<td valign="top">Choose location:</td>
 		<td width="240"><form:select path="locationID" id="loc" multiple="multiple" size="3">
@@ -109,6 +86,14 @@
 		<!-- Add new activity to the global list -->
 		<td><a class="home" href="<c:url value="addTourActivity.html"/>" >Add new activity</a><br/></td>
 	</tr>
+	
+	<tr>
+		<!-- Insert duration -->
+		<c:if test="${tour.onDemand == '1'}">
+		<td>Duration:</td>
+		<td><form:input path="totalDays" size="3" cssErrorClass="form-error-field"/>&nbsp;<span style="font-size: 10px; color: black;">day(s)</span><div class="form-error-message"><form:errors path="totalDays"/></div></td>
+		</c:if>
+	</tr>
 
 	<tr>
 		<!-- Cancel or submit -->
@@ -117,5 +102,47 @@
 	
 </table>
 </form:form>
+<table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
+<tr>
+		<!-- Insert start & finish date -->
+		<c:if test="${tour.onDemand == '0'}">
+		<td colspan="2">Start date:&nbsp;&nbsp;<input name="startDate" size="10" id="datepicker_from"/>&nbsp;&nbsp;
+		Finish date:&nbsp;&nbsp;<input name="finishDate" size="10" id="datepicker_to"/></td>
+		
+		<!-- Add new date -->
+		<td><a class="home" href="<c:url value="addTourDate.html"/>">Add</a><br/></td>
+		</c:if>
+		<c:if test="${tour.onDemand == '1'}">
+		<input name="startDate" type="hidden" size="10" value="01/01/1900"/>
+		<input name="finishDate" type="hidden" size="10" value="01/01/1900"/>
+		</c:if>
+	</tr>
+</table>
+<div id="Table">
+<table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
+<thead>
+		<tr>
+			<th>Start Date</th>
+			<th>End Date</th>
+			<th></th>
+		</tr>
+		</thead>
+		<tbody>
+		<c:forEach items="${dates}" var="date">
+			
+			<tr>
+				<td><c:out value="${date.startDate}" /></td>
+				<td><c:out value="${date.finishDate}" /></td>			
+				<td class="center">
+					<form style="margin:0px; padding: 0px;" name="delete_${date.dateID}" action="" method="post">
+						<input type="hidden" name="dateID" value="${date.dateID}" />
+					</form>
+					<a href="#" style="color: blue;" onclick="return confirmDelete(${date.dateID});">Delete</a>
+				</td>
+			</tr>
+		</c:forEach>
+		</tbody>
+</table>
+</div>
 </body>
 </html>
