@@ -8,7 +8,7 @@ function initialize() {
         map.setCenter(new GLatLng(23.324, 65.039), 2);
 
         geocoder = new GClientGeocoder();
-		GDownloadUrl("gmap/search.jsp", function(data) {
+		GDownloadUrl("xml/search.jsp", function(data) {
           var xml = GXml.parse(data);
           var markers = xml.documentElement.getElementsByTagName("marker");
           for (var i = 0; i < markers.length; i++) {

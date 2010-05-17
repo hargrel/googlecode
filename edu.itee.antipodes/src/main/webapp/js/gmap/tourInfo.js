@@ -14,7 +14,7 @@ function initialize() {
 		//map.setCenter(new GLatLng(23.324, 65.039), 2);
 		map.addControl(new GSmallMapControl());
 		geocoder = new GClientGeocoder();
-			GDownloadUrl('gmap/poly.jsp'+url, function(data) {
+			GDownloadUrl('xml/routes.jsp'+url, function(data) {
 	          var xml = GXml.parse(data);
 	          var markers = xml.documentElement.getElementsByTagName("marker");
 	          for (var i = 0; i < markers.length; i++) {

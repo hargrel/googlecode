@@ -43,21 +43,23 @@ $(document).ready(function() {
 		<!-- Price -->
 		<td valign="top"><b>Price:</b>&nbsp;&nbsp;<c:out value="${listedTour.tour.price}" />&nbsp;<c:out value="${listedTour.tour.currency}" /></td>
 	</tr>
+	
 		<!-- Dates -->
-	<!-- not working for multiple dates -->
-	<c:forEach items="${listedTour.tour.tourDates}" var="tourDate">
 	
+		<tr>
+			
+			<td valign="top"><b>Departures:</b><select>
+			<c:forEach items="${listedTour.tour.tourDates}" var="tourDate">
+			<option><fmt:formatDate value=
+              "${tourDate.startDate}" pattern="d MMM yyyy"/> - <fmt:formatDate value=
+              "${tourDate.finishDate}" pattern="d MMM yyyy"/></option>
+            </c:forEach>
+            </select>
+            </td>
+		</tr>
 
-		<tr>
-			<td valign="top"><b>Start Date:</b>&nbsp;&nbsp; <fmt:formatDate value=
-              "${tourDate.startDate}" pattern="d MMM yyyy"/></td>
-		</tr>
-		<tr>
-			<td valign="top"><b>Finish Date:</b>&nbsp;&nbsp;<fmt:formatDate value=
-              "${tourDate.finishDate}" pattern="d MMM yyyy"/></td>
-		</tr>
-	</c:forEach>
 	
+		<!-- Tour Operator -->
 	<tr>
 		<td valign="top">
 			<b>Tour Operator:</b>&nbsp;&nbsp;

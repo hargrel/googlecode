@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <%@ page contentType="text/xml;charset=ISO-8859-1" %>
-<%@ page language="java" import="java.util.List,edu.itee.antipodes.domain.db.Location,edu.itee.antipodes.repository.DaoManager,org.springframework.beans.factory.annotation.Autowired,edu.itee.antipodes.repository.LocationDao" %>
+<%@ page language="java" import="java.util.List,edu.itee.antipodes.domain.db.Location,edu.itee.antipodes.utils.SpringApplicationContext,edu.itee.antipodes.repository.LocationDao" %>
 <markers>
 <%
-@Autowired
-private LocationDao ld;
-//LocationDao ld = DaoManager.getLocationDao();
+LocationDao ld = SpringApplicationContext.getLocationDao();
 List<Location> ll = ld.getLocationList();
 for (Location location : ll){
 %>

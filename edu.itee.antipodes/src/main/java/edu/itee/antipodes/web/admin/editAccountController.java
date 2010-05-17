@@ -51,9 +51,10 @@ public final class editAccountController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public Object post(@RequestParam("membershipExpiry") String membershipExpiry, @ModelAttribute("accountUser") AccountUser accountUser,
+	public Object post(HttpServletRequest request, @ModelAttribute("accountUser") AccountUser accountUser,
 			BindingResult result, ModelMap model) throws Exception {
 		
+		//@RequestParam("membershipExpiry") String membershipExpiry
 		validator.validate(accountUser, result);
 		if (!accountUser.getUserName().equalsIgnoreCase(accountManager.getAccountByID(accountUser.getUserID()).getUserName()) && result.hasErrors()) { 
 			return "editAccount"; 
@@ -62,11 +63,12 @@ public final class editAccountController {
 		TourOperator operator = tod.getTourOperatorByID(accountUser.getUserID());
 		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 		
-		Date membershipExpiryDate = df.parse(membershipExpiry);
 		
 		accountManager.updateAccount(accountUser);
 		
 		if(accountUser.getUserType().equalsIgnoreCase("operator")){
+			String membershipExpiry = request.getParameter("membershipExpiry");
+			Date membershipExpiryDate = df.parse(membershipExpiry);
 			//operator.setOperatorID(accountUser.getUserID());
 			//operator.setMembershipExpired(membershipExpiryDate);
 			//tod.saveTourOperator(operator);

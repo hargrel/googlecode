@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <%@ page contentType="text/xml;charset=ISO-8859-1" %>
-<%@ page language="java" import="java.util.*,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,org.springframework.beans.factory.annotation.Autowired,edu.itee.antipodes.repository.ListedTourDaoHibernate" %>
+<%@ page language="java" import="java.util.*,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,edu.itee.antipodes.utils.SpringApplicationContext,edu.itee.antipodes.repository.ListedTourDaoHibernate" %>
 <markers>
 <%
 int listID = Integer.parseInt(request.getParameter("listID"));
-ListedTourDaoHibernate lt = DaoManager.getListedTourDao();
+ListedTourDaoHibernate lt = SpringApplicationContext.getListedTourDao();
 List<Object[]> map = lt.getLocationDetailsByListedTourID(listID);
 List<Object[]> img = lt.getImageDetailsByListedTourID(listID);
 %>

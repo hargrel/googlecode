@@ -50,8 +50,8 @@
 				<tr class="gradeA">
 					<td><c:out value="${listedTour.tour.tourName}" /></td>
 					<td><c:out value="${listedTour.operator.operatorName}" /></td>
-					<td><c:out value="${tourDate.startDate}" /></td>
-					<td><c:out value="${tourDate.finishDate}" /></td>
+					<td><fmt:formatDate value="${tourDate.startDate}" pattern="d MMM yyyy"/></td>
+					<td><fmt:formatDate value="${tourDate.finishDate}" pattern="d MMM yyyy"/></td>
 					<td><c:out value="${listedTour.tour.price}" />&nbsp;<c:out value="${listedTour.tour.currency}"/></td>
 					
 					<!-- This is a currency sample 
