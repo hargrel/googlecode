@@ -11,6 +11,7 @@ import org.springmodules.validation.bean.conf.loader.annotation.handler.Validati
 
 import edu.itee.antipodes.service.IAccountManager;
 import edu.itee.antipodes.service.SimpleAccountManager;
+import edu.itee.antipodes.utils.SpringApplicationContext;
 
 /**
  * A persistence class that stores user login details from the User table in DB. 
@@ -88,13 +89,14 @@ public class AccountUser implements Serializable {
 		return "AccountUser [userID=" + userID + ", password=" + password + ", userType=" + userType
 				+ ", userName=" + userName + "]";
 	}
-	@Autowired
+	//@Autowired
 	private IAccountManager accountUserManager;
 	// TODO: Check if compareName works
 	@SuppressWarnings("unused")
 	@ValidationMethod(forProperty = "userName")
     private boolean compareName() {	
 		//IAccountManager accManager = new SimpleAccountManager();
+		accountUserManager = SpringApplicationContext.getAccountManager();
 		if(accountUserManager.getAccountByUsername(userName) != null)
 			return false;
 		else
