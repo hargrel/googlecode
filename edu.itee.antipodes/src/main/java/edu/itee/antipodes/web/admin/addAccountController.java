@@ -1,5 +1,8 @@
 package edu.itee.antipodes.web.admin;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.itee.antipodes.domain.db.AccountUser;
+import edu.itee.antipodes.domain.db.TourOperator;
+import edu.itee.antipodes.repository.TourOperatorDao;
 import edu.itee.antipodes.service.IAccountManager;
+import edu.itee.antipodes.utils.SpringApplicationContext;
 
 @Controller
 @RequestMapping("/admin/addAccount.html")
@@ -21,6 +27,9 @@ public final class addAccountController {
 	
 	@Autowired
 	private Validator validator;
+	
+	@Autowired
+	IAccountManager accountManager;
 	
 	public void setValidator(Validator validator) {
 		this.validator = validator;
@@ -35,16 +44,31 @@ public final class addAccountController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public String post(@RequestParam("membershipExpiry") String membershipExpiry, @ModelAttribute("accountUser") AccountUser accountUser,
-			BindingResult result, ModelMap model) throws Exception {
-
-		validator.validate(accountUser, result);
-		if (result.hasErrors()) { return "addAccount"; }
+			BindingResult result, ModelMap model) throws Exception {		
 		
-		List<AccountUser> newAccounts = accountManager.getAccounts();
-		model.addAttribute("accounts", newAccounts);
-		return "accountList";
+		TourOperator operator = new TourOperator();
+        TourOperatorDao tod = SpringApplicationContext.getTourOperatorDao();
+        
+        validator.validate(accountUser, result);
+        if (result.hasErrors()) { return "addAccount"; }
+        
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        
+        Date membershipExpiryDate = df.parse(membershipExpiry);
+
+        accountManager.addAccount(accountUser);
+        if(accountUser.getUserType().equalsIgnoreCase("operator")){
+                //operator.setOperatorID(accountUser.getUserID());
+                operator.setAccountUser(accountUser);
+                operator.setMembershipExpired(membershipExpiryDate);
+                tod.addTourOperator(operator);
+        }
+        // Use the redirect-after-post pattern to reduce double-submits.
+        List<AccountUser> newAccounts = accountManager.getAccounts();
+        model.addAttribute("accounts", newAccounts);
+        return "accountList";
+
 	}
 
-	@Autowired
-	IAccountManager accountManager;
+	
 }
