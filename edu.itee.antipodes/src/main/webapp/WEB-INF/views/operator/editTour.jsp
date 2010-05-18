@@ -44,13 +44,7 @@
 	<tr>
 		<!-- Select currency -->
 		<td>Currency:</td>
-		<td><form:select path="currency">
-				<form:option value="USD" label="USD" />
-				<form:option value="AUD" label="AUD" />
-				<form:option value="EUR" label="EUR" />
-				<form:option value="GBP" label="GBP" />
-				<form:option value="YEN" label="YEN" />
-			</form:select></td>
+		<td><form:select path="currency" items="${currencyList}" /></td>
 	</tr>	
 	
 	<tr>

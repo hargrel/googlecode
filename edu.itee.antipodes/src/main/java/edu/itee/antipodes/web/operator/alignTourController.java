@@ -51,7 +51,6 @@ public class alignTourController {
 		model.addAttribute("activities", tourOperatorManager.getActivityList());
 		model.addAttribute("alignTour", tourOperatorManager.getAlignTourByID(tourID));
 		model.addAttribute("tour", tourOperatorManager.getTourByID(tourID));
-		
 		return "alignTour";
 	}
 	

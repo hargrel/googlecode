@@ -19,6 +19,7 @@ import edu.itee.antipodes.domain.db.Image;
 import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.repository.ImageDao;
 import edu.itee.antipodes.repository.TourOperatorDaoHibernate;
+import edu.itee.antipodes.service.Currency;
 import edu.itee.antipodes.service.CurrentUser;
 import edu.itee.antipodes.service.ITourOperatorManager;
 import edu.itee.antipodes.utils.SpringApplicationContext;
@@ -48,6 +49,7 @@ public final class editTourController {
 		model.addAttribute("editTour", updateTourInfo);
 		model.addAttribute("images", images);
 		model.addAttribute("numberOfImages", images.size());
+		model.addAttribute("currencyList", Currency.getCurrencyTest());
 		return "editTour";
 		
 	}

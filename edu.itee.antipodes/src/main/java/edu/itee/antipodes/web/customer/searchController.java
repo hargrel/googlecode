@@ -29,6 +29,7 @@ import edu.itee.antipodes.domain.db.Activity;
 import edu.itee.antipodes.domain.db.ListedTour;
 import edu.itee.antipodes.domain.pages.Search;
 import edu.itee.antipodes.repository.ActivityDao;
+import edu.itee.antipodes.service.Currency;
 import edu.itee.antipodes.service.ICustomerManager;
 import edu.itee.antipodes.service.SimpleCustomerManager;
 
@@ -60,6 +61,7 @@ public class searchController {
 		model.addAttribute("search", search);
 		List<Activity> act = ad.getActivityList();
 		model.addAttribute("activities", act);
+		model.addAttribute("currencyList", Currency.getCurrencyTest());
 		return "search";
 	}
 	
@@ -68,18 +70,18 @@ public class searchController {
 		@RequestParam("locationName") String locationName,
 		@RequestParam(value="activityName",required=false) String activityName,
 		@RequestParam("startDate") String startDate,
-		@RequestParam("finishDate") String finishDate
+		@RequestParam("finishDate") String finishDate,
+		@RequestParam("currency") String currency
     	) throws DataAccessResourceFailureException, HibernateException, IllegalStateException, ParseException {
 
 		validator.validate(sch, result);
 		if (result.hasErrors()) { return "search"; }
-
+	
 		Set<ListedTour> ListedTours = new HashSet<ListedTour>();
-		// ICustomerManager cm = new SimpleCustomerManager();
+		//ICustomerManager cm = new SimpleCustomerManager();
 		// should name activityNames, locationNames
 		List<Object> ls = customerManager.searchListedTours(activityName,
-				locationName, startDate, finishDate);
-		
+				locationName, startDate, finishDate, currency);
 		if (ls != null) {
 			Iterator<Object> it = ls.iterator();
 			// tour[0] is the listedTour

@@ -18,7 +18,7 @@ public interface ICustomerManager extends Serializable {
 	
 	public List<ListedTour> getListedToursByOpID(int id);
 
-	public List<Object> searchListedTours(String activityNames, String locationNames, String startDate, String finishDate) throws DataAccessResourceFailureException, HibernateException, IllegalStateException, ParseException;
+	public List<Object> searchListedTours(String activityNames, String locationNames, String startDate, String finishDate, String currency) throws DataAccessResourceFailureException, HibernateException, IllegalStateException, ParseException;
 	
 	public void contactOperator(ContactOperator contactOperator);
 	

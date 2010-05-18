@@ -13,7 +13,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import edu.itee.antipodes.domain.db.AccountUser;
 
 public class AccountUserDaoHibernate extends HibernateDaoSupport implements AccountUserDao {
-
+	
 	public void addAccountUser(AccountUser accUser){
 		getHibernateTemplate().save(accUser);
 	}

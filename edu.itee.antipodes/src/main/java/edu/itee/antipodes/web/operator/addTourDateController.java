@@ -36,12 +36,12 @@ public final class addTourDateController {
 		binder.registerCustomEditor(Date.class, null, new CustomDateEditor(new SimpleDateFormat("dd/MM/yyyy"), true));
 	}
 
-	@RequestMapping(method = RequestMethod.GET)
-	public String showUserForm(ModelMap model) {
-		TourDate td = new TourDate();
-		model.addAttribute("addTourDate", td);
-		return "addTourDate";
-	}
+//	@RequestMapping(method = RequestMethod.GET)
+//	public String showUserForm(ModelMap model) {
+//		TourDate td = new TourDate();
+//		model.addAttribute("addTourDate", td);
+//		return "addTourDate";
+//	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	public Object post(@ModelAttribute("addTourDate") TourDate td, BindingResult result) {

@@ -106,13 +106,12 @@
 
 	 <tr>
          <td valign="top">Currency:</td>
-         <td><select name="currency"><option value="AUD">AUD</option>
-                        			<option value="USD">USD</option>
-                        			<option value="EUR">EUR</option>
-                        			<option value="GBP">GBP</option>
-                        			<option value="YEN">YEN</option>
-                        			
-              </select></td>
+         <td>
+         <select name="currency">
+		 <c:forEach items="${currencyList}" var="curr">      
+	         <option value="${curr}"><c:out value="${curr}" /></option>
+         </c:forEach>
+         </select></td>
         </tr>	
 	<tr>
 		<!-- Search -->

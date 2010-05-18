@@ -143,9 +143,10 @@ public class SimpleTourOperatorManager implements ITourOperatorManager {
 		CurrentUser currentUser = new CurrentUser();
 		TourOperator tourOperator = tourOperatorDao
 				.getTourOperatorByID(currentUser.getCurrentUserID());
-		
-		if (tour.getOperator() != tourOperator)
+
+		if (tour.getOperator().equals(tourOperator))
 			return null;
+		
 		
 		AlignTour alignTour = new AlignTour();
 		alignTour.setTourID(id);
@@ -179,7 +180,7 @@ public class SimpleTourOperatorManager implements ITourOperatorManager {
 		TourOperator tourOperator = tourOperatorDao
 				.getTourOperatorByID(currentUser.getCurrentUserID());
 
-		if (tour.getOperator() != tourOperator)
+		if (!tour.getOperator().equals(tourOperator))
 			return;
 		
 		// LOCATIONS

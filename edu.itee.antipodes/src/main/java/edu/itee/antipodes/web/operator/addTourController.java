@@ -12,6 +12,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.repository.TourOperatorDaoHibernate;
+import edu.itee.antipodes.service.Currency;
 import edu.itee.antipodes.service.CurrentUser;
 import edu.itee.antipodes.service.ITourOperatorManager;
 import edu.itee.antipodes.utils.SpringApplicationContext;
@@ -34,6 +35,7 @@ public final class addTourController {
 	public String showUserForm(ModelMap model) {
 		Tour tourInfo = new Tour();
 		model.addAttribute("addTour", tourInfo);
+		model.addAttribute("currencyList", Currency.getCurrencyTest());
 		return "addTour";
 	}
 

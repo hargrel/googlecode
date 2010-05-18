@@ -38,7 +38,7 @@
       </function-class>
 
       <function-signature>
-         double convert(double, java.lang.String, java.lang.String)
+         java.lang.String convert(double, java.lang.String)
       </function-signature>
 
    </function>

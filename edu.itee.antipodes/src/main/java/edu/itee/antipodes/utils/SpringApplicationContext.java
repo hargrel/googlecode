@@ -4,11 +4,10 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
+import edu.itee.antipodes.domain.SessionHolder;
 import edu.itee.antipodes.repository.AccountUserDaoHibernate;
-import edu.itee.antipodes.repository.ActivityDao;
 import edu.itee.antipodes.repository.ActivityDaoHibernate;
 import edu.itee.antipodes.repository.CustomerSearchDaoHibernate;
-import edu.itee.antipodes.repository.ImageDao;
 import edu.itee.antipodes.repository.ImageDaoHibernate;
 import edu.itee.antipodes.repository.ListedTourDaoHibernate;
 import edu.itee.antipodes.repository.LocationDao;
@@ -119,4 +118,10 @@ public class SpringApplicationContext implements ApplicationContextAware {
 		return (MonthlyFeeDaoHibernate) CONTEXT.getBean("monthlyFeeDao");
 	}
 
+	
+	/* Session holder */
+	public static SessionHolder getSessionHolder() {
+		return (SessionHolder) CONTEXT.getBean("userBean");
+	}
+	
 }

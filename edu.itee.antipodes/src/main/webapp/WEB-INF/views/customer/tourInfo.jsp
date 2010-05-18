@@ -41,7 +41,7 @@ $(document).ready(function() {
 		<td rowspan="5" valign="top" width=35% ><div id="map_canvas" style="width: 600px; height: 300px; margin-right:20px"></div></td>
 		
 		<!-- Price -->
-		<td valign="top"><b>Price:</b>&nbsp;&nbsp;<c:out value="${listedTour.tour.price}" />&nbsp;<c:out value="${listedTour.tour.currency}" /></td>
+		<td valign="top"><b>Price:</b>&nbsp;&nbsp;<c:out value="${cur:convert(listedTour.tour.price,listedTour.tour.currency)}" /></td>
 	</tr>
 	
 		<!-- Dates -->

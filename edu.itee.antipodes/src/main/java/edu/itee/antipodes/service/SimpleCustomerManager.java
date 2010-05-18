@@ -16,6 +16,7 @@ import edu.itee.antipodes.domain.pages.ContactOperator;
 import edu.itee.antipodes.repository.CustomerSearchDaoHibernate;
 import edu.itee.antipodes.repository.ListedTourDao;
 import edu.itee.antipodes.repository.TourOperatorDao;
+import edu.itee.antipodes.utils.SpringApplicationContext;
 
 @SuppressWarnings("serial")
 public class SimpleCustomerManager implements ICustomerManager {
@@ -43,12 +44,15 @@ public class SimpleCustomerManager implements ICustomerManager {
 	public List<ListedTour> getListedToursByOpID(int id) {
 		return listedTourDao.getListedToursByOpID(id);
 	}
-
+	
 	public List<Object> searchListedTours(String activityNames,
-			String locationNames, String startDate, String finishDate)
+			String locationNames, String startDate, String finishDate, String currency)
 			throws DataAccessResourceFailureException, HibernateException,
 			IllegalStateException, ParseException {
-		return tourSearchDao.findListedTours(activityNames, locationNames,
+		
+		SpringApplicationContext.getSessionHolder().setCurrency(currency);
+		
+		return tourSearchDao.findListedTours( activityNames, locationNames,
 				startDate, finishDate);
 	}
 

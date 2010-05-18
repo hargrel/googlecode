@@ -93,5 +93,7 @@
 	<!-- This application context -->
 	<bean id="springApplicationContext" class="edu.itee.antipodes.utils.SpringApplicationContext"/>
 	
+	
+	<bean id="userBean" class="edu.itee.antipodes.domain.SessionHolder" scope="session"/>
 </beans>
 

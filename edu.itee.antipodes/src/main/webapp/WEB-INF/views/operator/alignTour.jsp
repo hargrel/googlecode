@@ -131,7 +131,7 @@
 		</tr>
 		</thead>
 		<tbody>
-		<c:forEach items="${dates}" var="date">
+		<c:forEach items="${tour.tourDates}" var="date">
 			
 			<tr>
 				<td><c:out value="${date.startDate}" /></td>

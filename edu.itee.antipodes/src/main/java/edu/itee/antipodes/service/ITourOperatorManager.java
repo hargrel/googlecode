@@ -8,6 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.itee.antipodes.domain.db.Activity;
+import edu.itee.antipodes.domain.db.ListedTour;
 import edu.itee.antipodes.domain.db.Location;
 import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.domain.db.TourOperator;
@@ -51,4 +52,5 @@ public interface ITourOperatorManager extends Serializable{
 	public AlignTour getAlignTourByID(String tourID);
 
 	public Tour getTourByID(String id);
+	
 }

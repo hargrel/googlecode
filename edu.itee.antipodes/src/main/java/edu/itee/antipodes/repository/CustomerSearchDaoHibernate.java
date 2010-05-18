@@ -34,7 +34,7 @@ public class CustomerSearchDaoHibernate extends HibernateDaoSupport implements I
 	@SuppressWarnings("unchecked")
 	public List<Object> findListedTours(String activityNames, String locationNames, String startDate, String finishDate) 
 	throws DataAccessResourceFailureException, HibernateException, IllegalStateException, ParseException{
-
+		
 		// dummy values to avoid passing null to database
 		String activityNamesTemp = "dummy";
 		String locationNamesTemp = "dummy";
