@@ -56,7 +56,7 @@ public class monitorSystemUtilController {
 			return new ModelAndView("monitorSystemUtil");
 		}
 
-		try {
+//		try {
 			String format = bto.getExportFormat();
 			Date fromDate = bto.getFromDate();
 			Date toDate = bto.getToDate();
@@ -66,8 +66,8 @@ public class monitorSystemUtilController {
 			model.put("format", format);
 
 			return new ModelAndView("reportMonitoringSystemUtilisation", model);
-		} catch (Exception e) {
-			return new ModelAndView("monitorSystemUtil");
-		}
+//		} catch (Exception e) {
+//			return new ModelAndView("monitorSystemUtil");
+//		}
 	}
 }

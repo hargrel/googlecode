@@ -10,10 +10,13 @@ import java.util.List;
 import org.hibernate.Query;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import edu.itee.antipodes.domain.db.Tour;
+
 
 @SuppressWarnings("unchecked")
 public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterable{
 	Object[] tuple=null;
+	List list=null;
 	/*
 	 * For Monitoring search criteria utilisation report--activity
 	 * @param id the activityID
@@ -26,21 +29,18 @@ public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterab
 	
 	public List<Object[]> getNumToursAsscWithActivityByActivityID(int id){
 		List<Object[]> list = new ArrayList<Object[]>();		
-		String select="select a, COUNT(l.listID) ";
+		String select="select a.activityID, a.activityName, COUNT(l.listID) ";
 		String from="from ListedTour as l join l.tour as t join t.activities as a ";	
 		String where="where a.activityID=:activityID ";
-		if ((Integer)id != null){
-			String sql= select+ from+where+"group by a.activityID, a.activityName ";
-			Query query= getSession().createQuery(sql);
-			query.setParameter("activityID", id);
-			int i=0;
-			 for (Iterator it= query.iterate(); it.hasNext(); i++ ) {
-		            list.add((Object[]) it.next());
-			 }
-		}
 
+		if (id == 0) return null;
+		String sql= select+ from+where+"group by a.activityID, a.activityName ";
+		list = getHibernateTemplate().findByNamedParam(sql, "activityID", id);
+		if (list.size()==0) return null;
 		return list;
+//		return (list.size() != 0)? list:null;
 	}
+
 	/* 
 	 * For Monitoring search criteria utilisation report--all activities
 	 * @return list of tuples(actually one) in the form of Object[], in which 
@@ -50,18 +50,18 @@ public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterab
 	 */
 	public List<Object[]> getNumToursAsscWithActivity(){
 		List<Object[]> list = new ArrayList<Object[]>();		
-		String select="select a, COUNT(l.listID) ";
-		String from="from ListedTour as l join l.tour as t join t.activities as a ";	
-		
-		
+		String select="select a.activityID, a.activityName, COUNT(l.listID) ";
+		String from="from ListedTour as l join l.tour as t join t.activities as a ";			
 		String sql= select+ from+"group by a.activityID, a.activityName ";
-		Query query= getSession().createQuery(sql);
-		
-		int i=0;
-		 for (Iterator it= query.iterate(); it.hasNext(); i++ ) {
-	            list.add((Object[]) it.next());
-		 }
+		list = getHibernateTemplate().find(sql);
+//		Query query= getSession().createQuery(sql);
+//		int i=0;
+//		 for (Iterator it= query.iterate(); it.hasNext(); i++ ) {
+//	            list.add((Object[]) it.next());
+//		 }
+		if (list.size()==0) return null;
 		return list;
+//		return (list.size() != 0)? list:null;
 	}
 	
 	/*
@@ -76,20 +76,25 @@ public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterab
 	
 	public List<Object[]> getNumToursAsscWithLocationByLocationID(int id){
 		List<Object[]> list = new ArrayList<Object[]>();				
-		String select="select c, COUNT(l.listID) ";
+		String select="select c.locationID, c.locationName, COUNT(l.listID) ";
 		String from="from ListedTour as l join l.tour as t join t.locations as c ";
 		String where="where c.locationID=:locationID ";
-		if ((Integer)id != null){
-			String sql= select+ from+where+ "group by c.locationID, c.locationName ";
-			Query query= getSession().createQuery(sql);
-			query.setParameter("locationID", id);
-			int i=0;
-			 for (Iterator it= query.iterate(); it.hasNext(); i++ ) {
-		            list.add((Object[]) it.next());
-			 }
-		}
+		
+		if (id == 0) return null;
+		String sql= select+ from+where+ "group by c.locationID, c.locationName ";
 
+//			Query query= getSession().createQuery(sql);
+//			query.setParameter("locationID", id);
+//			int i=0;
+//			 for (Iterator it= query.iterate(); it.hasNext(); i++ ) {
+//		            list.add((Object[]) it.next());
+//			 }
+
+		list = getHibernateTemplate().findByNamedParam(sql, "locationID", id);
+		
+		if (list.size()==0) return null;
 		return list;
+//		return (list.size() != 0)? list:null;
 	}
 	
 	/*
@@ -100,17 +105,22 @@ public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterab
 	 * @author 41931527
 	 */
 	public List<Object[]> getNumToursAsscWithLocation(){
-		List<Object[]> list = new ArrayList<Object[]>();				
-		String select="select c, COUNT(l.listID) ";
+				
+		String select="select c.locationID, c.locationName, COUNT(l.listID) ";
 		String from="from ListedTour as l join l.tour as t join t.locations as c ";
 		
-			String sql= select+ from+"group by c.locationID, c.locationName ";
-			Query query= getSession().createQuery(sql);
-			int i=0;
-			 for (Iterator it= query.iterate(); it.hasNext(); i++ ) {
-		            list.add((Object[]) it.next());
-		     }
-			 return list;	
+		String sql= select+ from+"group by c.locationID, c.locationName ";
+//			Query query= getSession().createQuery(sql);
+//			int i=0;
+//			 for (Iterator it= query.iterate(); it.hasNext(); i++ ) {
+//		            list.add((Object[]) it.next());
+//		     }
+//			 return list;	
+		
+		list = getHibernateTemplate().find(sql);
+		if (list.size()==0) return null;
+		return list;
+//		return (list.size() != 0)? list:null;
 	}
 	
 	
@@ -125,22 +135,47 @@ public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterab
 	 * @author 41931527 
 	 */
 	public List<Object[]> getSumOfActivitiesAndLocationsForToursByMinNum(int minNum){
-		List<Object[]> list = new ArrayList<Object[]>();
-				
-		String select="select t, COUNT(DISTINCT a.activityID)+COUNT(DISTINCT c.locationID)  ";
-		String from="from ListedTour as l join l.tour as t join t.activities as a join t.locations as c ";
-		if ((Integer)minNum != null){
-			String sql= select+ from+"group by t "+"having COUNT(DISTINCT a.activityID)+COUNT(DISTINCT c.locationID) >= :minNum";
-			Query query= getSession().createQuery(sql);
-			query.setParameter("minNum", Long.valueOf(minNum));
-			int i=0;
-			 for (Iterator it= query.iterate(); it.hasNext(); i++ ) {
-		            list.add((Object[]) it.next());
-			 }
-		}
 
+		
+		String select = "select t.tourID,  t.tourName, COUNT(DISTINCT a.activityID) + COUNT(DISTINCT c.locationID) ";
+		String from = "from ListedTour as l join l.tour as t join t.activities as a join t.locations as c ";
+		String sql = select+from+"group by t.tourID, t.tourName "+
+			"having COUNT(DISTINCT a.activityID)+COUNT(DISTINCT c.locationID) >= :minNum "+"order by t.tourID";
+		
+		list = getHibernateTemplate().findByNamedParam(sql, "minNum", (long)minNum);
+		
+
+		
+		if (list.size()==0) return null;
 		return list;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//(list.size() != 0)? list:null;
+//			Query query= getSession().createQuery(sql);
+//			query.setParameter("minNum", Long.valueOf(minNum));
+//			int i=0;
+//			 for (Iterator it= query.iterate(); it.hasNext(); i++ ) {
+//		            list.add((Object[]) it.next());
+//			 }
+//		}
+//
+//		return list;
 	}
+	
+	
 	/*
 	 * Monitoring system utilisation
 	 * @param operatorID the specified operatorID
@@ -155,24 +190,40 @@ public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterab
 	 * Object[4]= total price of the month = (tour# listed in the month)*(monthly fee) 
 	 */
 	public List<Object[]> getNumOfToursAndTotalPricePerMonthForAllTourOperator(Date fromD, Date toD) {
+
+		//o-> id, name
 		List<Object[]> list = new ArrayList<Object[]>();
-		//Date fromD = StringToDate(fromDate);
-		//Date toD = StringToDate(toDate);
-		String select="select  m.monthYearStart,o, m.fee, COUNT(t.tourID), COUNT(t.tourID)*m.fee ";
+		String select="select  m.monthYearStart,o.operatorID,o.operatorName, m.fee, COUNT(t.tourID), COUNT(t.tourID)*m.fee ";
 		String from="from TourOperator as o join o.listedTour as l join l.tour as t, MonthlyFee as m ";
+		
 		// l.listedFrom-30 since we want to include the previous month, ex. for 12/05/2010, we want to charge 05/2010's fee as well
 		String where="where m.monthYearStart between :from and :to and m.monthYearStart between (l.listedFrom-30) and l.listedTo and (l.listedTo-l.listedFrom)>=1  ";
+		String sql= select+ from+ where+"group by  m.monthYearStart,o.operatorID,o.operatorName, m.fee "+"order by m.monthYearStart desc";
 		
-		String sql= select+ from+ where+"group by  m.monthYearStart,o, m.fee "+"order by m.monthYearStart desc";
-		Query query= getSession().createQuery(sql);
-		query.setParameter("from", fromD).setParameter("to", toD);
-		int i=0;
-		 for (Iterator it= query.iterate(); it.hasNext(); i++ ) {
-	            list.add((Object[]) it.next());
-		 }
+		String[] params = new String[2];
+		params[0] = "from";
+		params[1] = "to";
 		
+		Object[] vals = new Object[2];
+		vals[0] = fromD;
+		vals[1] = toD;
+		
+		list = (List<Object[]>)getHibernateTemplate().findByNamedParam(sql, params, vals);
+		
+		if (list.size()==0) return null;
 		return list;
+
+		//		return (list.size() != 0)? list:null;
+//		Query query= getSession().createQuery(sql);
+//		query.setParameter("from", fromD).setParameter("to", toD);
+//		int i=0;
+//		 for (Iterator it= query.iterate(); it.hasNext(); i++ ) {
+//	            list.add((Object[]) it.next());
+//		 }
+//		
+//		return list;
 	}
+
 	/*
 	 * Billing Tour Operators
 	 * @param fromDate
@@ -183,21 +234,39 @@ public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterab
 	 * Object[2]= fee of the month
 	 */
 	public List<Object[]> getListedToursPerMonthByOperatorID(int operatorID, Date fromD, Date toD){
+		
+		//t->id, name
 		List<Object[]> list = new ArrayList<Object[]>();
-		//Date fromD = StringToDate(fromDate);
-		//Date toD = StringToDate(toDate);
-		String select="select m.monthYearStart, t, m.fee ";
+		String select="select m.monthYearStart, t.tourID, t.tourName, m.fee ";
 		String from="from TourOperator as o join o.listedTour as l join l.tour as t, MonthlyFee as m ";
 		String where="where o.operatorID=:operatorID and m.monthYearStart between :from and :to and m.monthYearStart between (l.listedFrom-30) and l.listedTo and (l.listedTo-l.listedFrom)>=1 ";
 		String sql= select+ from+ where+"order by m.monthYearStart desc";
-		Query query= getSession().createQuery(sql);
-		query.setParameter("operatorID",operatorID).setParameter("from", fromD).setParameter("to", toD);
-		int i=0;
-		 for (Iterator it= query.iterate(); it.hasNext(); i++ ) {
-	            list.add((Object[]) it.next());
-		 }
 		
+		String[] params = new String[3];
+		params[0]="operatorID";
+		params[1]="from";
+		params[2]="to";
+		
+		Object[] vals = new Object[3];
+		vals[0]=operatorID;
+		vals[1]=fromD;
+		vals[2]=toD;
+		
+		list = (List<Object[]>)getHibernateTemplate().findByNamedParam(sql, params, vals);
+		
+		if (list.size()==0) return null;
 		return list;
+//		return (list.size() != 0)? list:null;
+		
+		
+//		Query query= getSession().createQuery(sql);
+//		query.setParameter("operatorID",operatorID).setParameter("from", fromD).setParameter("to", toD);
+//		int i=0;
+//		 for (Iterator it= query.iterate(); it.hasNext(); i++ ) {
+//	            list.add((Object[]) it.next());
+//		 }
+//		
+//		return list;
 	}
 	
 	
