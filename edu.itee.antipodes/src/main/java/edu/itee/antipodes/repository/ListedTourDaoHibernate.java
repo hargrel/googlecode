@@ -6,6 +6,7 @@ import java.util.List;
 import org.hibernate.Query;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import edu.itee.antipodes.domain.db.AccountUser;
 import edu.itee.antipodes.domain.db.ListedTour;
 
 public class ListedTourDaoHibernate extends HibernateDaoSupport implements ListedTourDao {
@@ -44,30 +45,51 @@ public class ListedTourDaoHibernate extends HibernateDaoSupport implements Liste
 	 * Object[4]=levels
 	 */
 	
+	@SuppressWarnings("unchecked")
 	public List<Object[]> getLocationDetailsByListedTourID(int id){
+		
+//		List<Object[]> list = new ArrayList<Object[]>();		
+//		String select="select c, c.latitude,c.longitude, c.points, c.levels ";
+//		String from="from ListedTour as l join l.tour as t join t.locations as c ";	
+//		String where="where l.listID=:listID ";
+//		String sql=select+from+where;
+//		Query query = getSession().createQuery(sql);
+//		list= query.setParameter("listID", id).list();
+//		return list;
+
+		if (id == 0) return null;
 		List<Object[]> list = new ArrayList<Object[]>();		
-		String select="select c, c.latitude,c.longitude, c.points, c.levels ";
-		String from="from ListedTour as l join l.tour as t join t.locations as c ";	
-		String where="where l.listID=:listID ";
-		String sql=select+from+where;
-		Query query = getSession().createQuery(sql);
-		list= query.setParameter("listID", id).list();
+		String sql = "select c, c.latitude,c.longitude, c.points, c.levels "+
+			"from ListedTour as l join l.tour as t join t.locations as c "+
+			"where l.listID = :listID ";
+		list = (List<Object[]>)getHibernateTemplate().findByNamedParam(sql, "listID", id);
+		if (list.size() == 0) return null;
 		return list;
 	}
+	
 	/*
 	 * For Google map function
 	 * @return a list of tuples in which
 	 * Object[0]= image object
 	 * Object[1]= url
 	 * */
+	@SuppressWarnings("unchecked")
 	public List<Object[]> getImageDetailsByListedTourID(int id){
+
+//		List<Object[]> list = new ArrayList<Object[]>();		
+//		String select="select i, i.url ";
+//		String from="from ListedTour as l join l.tour as t join t.images as i ";	
+//		String where="where l.listID=:listID ";
+//		String sql=select+from+where;
+//		Query query = getSession().createQuery(sql);
+//		list = query.setParameter("listID", id).list();
+//		return list;
+		
+		if (id == 0) return null;
 		List<Object[]> list = new ArrayList<Object[]>();		
-		String select="select i, i.url ";
-		String from="from ListedTour as l join l.tour as t join t.images as i ";	
-		String where="where l.listID=:listID ";
-		String sql=select+from+where;
-		Query query = getSession().createQuery(sql);
-		list = query.setParameter("listID", id).list();
+		String sql = "select i, i.url "+"from ListedTour as l join l.tour as t join t.images as i "+"where l.listID = :listID";
+		list = (List<Object[]>)getHibernateTemplate().findByNamedParam(sql, "listID", id);
+		if (list.size() == 0) return null;
 		return list;
 	}
 }
