@@ -104,6 +104,16 @@
 		<div class="form-error-message"><form:errors path="finishDate" /></div></td>
 	</tr>
 
+	 <tr>
+         <td valign="top">Currency:</td>
+         <td><select name="currency"><option value="AUD">AUD</option>
+                        			<option value="USD">USD</option>
+                        			<option value="EUR">EUR</option>
+                        			<option value="GBP">GBP</option>
+                        			<option value="YEN">YEN</option>
+                        			
+              </select></td>
+        </tr>	
 	<tr>
 		<!-- Search -->
 		<td colspan="2" align="right"><input type="submit" value="Search" /></td>
