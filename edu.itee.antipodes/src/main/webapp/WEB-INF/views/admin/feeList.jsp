@@ -21,7 +21,6 @@
 					"aoColumns": [ 
 						null,
 						null,
-						{ "bSortable": false },
 						{ "bSortable": false }
 						]
 				});
@@ -39,33 +38,33 @@
 			<th style="width: 60px;">Fee ID</th>
 			<th>Month</th>
 			<th>Fee</th>
-			<th></th>
 		</tr>
 		</thead>
 
 		<tbody>
 		<c:forEach items="${listedTourFees}" var="listedTourFee">
-		<form style="margin:0px; padding: 0px;" name="save_${listedTourFee[3]}" action="feeList.html" method="post">
-		<tr class="gradeA">
+		
+			<tr class="gradeA">
+				
 				<td><c:out value="${listedTourFee[3]}" /></td>
 				<td><fmt:formatDate value="${listedTourFee[1]}" pattern="MMMMM"/></td>
-				<td><input type="text" name="fee" value="${listedTourFee[2]}" size="5" />
-				</td>
 			
-				<td class="center">
+				<td>
+				<form style="margin:0px; padding: 0px;" name="save_${listedTourFee[3]}" action="feeList.html" method="post">
+					<input type="text" name="fee" value="${listedTourFee[2]}" size="5" />
 					<input type="hidden" name="listID" value="${listedTourFee[0]}" />
 					<input type="hidden" name="feeID" value="${listedTourFee[3]}" />
 					
 					<a href="#" style="color: blue;" onclick="document['save_${listedTourFee[3]}'].submit()">Save</a>
+				</form>
 				</td>
 				
-		</tr>
-		</form>
+			</tr>
 		</c:forEach>
 		</tbody>
 	
 	</table>
-	<input type="button" value="Cancel" onClick="window.location.href='<c:url value="manageFee.html"/>'" style="float: right; margin-top: 20px;"/>
+	<input type="button" value="Cancel" onClick="window.location.href='<c:url value="manageFee.html"/>'" style="float: right; margin-right: 20px; margin-top: 10px;"/>
 	</div>
 	
 </body>
