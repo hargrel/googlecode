@@ -17,13 +17,16 @@ import edu.itee.antipodes.domain.db.Image;
 import edu.itee.antipodes.domain.db.ListedTour;
 import edu.itee.antipodes.domain.db.Location;
 import edu.itee.antipodes.domain.db.Tour;
+import edu.itee.antipodes.domain.db.TourDate;
 import edu.itee.antipodes.domain.db.TourOperator;
 import edu.itee.antipodes.domain.pages.AlignTour;
+import edu.itee.antipodes.domain.pages.AlignTourDate;
 import edu.itee.antipodes.repository.ActivityDao;
 import edu.itee.antipodes.repository.ImageDao;
 import edu.itee.antipodes.repository.ListedTourDao;
 import edu.itee.antipodes.repository.LocationDao;
 import edu.itee.antipodes.repository.TourDao;
+import edu.itee.antipodes.repository.TourDateDao;
 import edu.itee.antipodes.repository.TourOperatorDao;
 import edu.itee.antipodes.repository.TourOperatorDaoHibernate;
 
@@ -48,6 +51,8 @@ public class SimpleTourOperatorManager implements ITourOperatorManager {
 	private ListedTourDao listedTourDao;
 	@Autowired
 	private TourOperatorDao tourOperatorDao;
+	@Autowired
+	private TourDateDao tourDateDao;
 
 	public TourOperator getTourOperatorByID(int id) {
 		return operatorDao.getTourOperatorByID(id);
@@ -117,6 +122,11 @@ public class SimpleTourOperatorManager implements ITourOperatorManager {
 	}
 
 	public void updateTour(Tour tour) {
+		Tour dbTour = tourDao.getTourByID(tour.getTourID());
+		
+		tour.setActivities(dbTour.getActivities());
+		tour.setLocations(dbTour.getLocations());
+		
 		tourDao.saveTour(tour);
 	}
 
@@ -139,15 +149,14 @@ public class SimpleTourOperatorManager implements ITourOperatorManager {
 	public AlignTour getAlignTourByID(String tourID) {
 		int id = Integer.parseInt(tourID);
 		Tour tour = tourDao.getTourByID(id);
-		
+
 		CurrentUser currentUser = new CurrentUser();
 		TourOperator tourOperator = tourOperatorDao
 				.getTourOperatorByID(currentUser.getCurrentUserID());
 
 		if (tour.getOperator().equals(tourOperator))
 			return null;
-		
-		
+
 		AlignTour alignTour = new AlignTour();
 		alignTour.setTourID(id);
 		alignTour.setTotalDays(tour.getTotalDays());
@@ -171,83 +180,99 @@ public class SimpleTourOperatorManager implements ITourOperatorManager {
 		return tourDao.getTourByID(Integer.parseInt(id));
 	}
 
-	public void alignTour(String startDateString, String finishDateString,
-			AlignTour alignTour) throws ParseException {
+	public void alignTour(AlignTour alignTour) throws ParseException {
 
 		CurrentUser currentUser = new CurrentUser();
 
 		Tour tour = tourDao.getTourByID(alignTour.getTourID());
+
 		TourOperator tourOperator = tourOperatorDao
 				.getTourOperatorByID(currentUser.getCurrentUserID());
 
-		if (!tour.getOperator().equals(tourOperator))
+		if (tour.getOperator().getOperatorID() != tourOperator.getOperatorID())
 			return;
-		
-		// LOCATIONS
-		List<Integer> locationIds = alignTour.getLocationID();
-		// Remove locations, that not selected
-		Object[] tourLocations = tour.getLocations().toArray();
-		List<Integer> tourLocationIds = new ArrayList<Integer>();
-		for (Object obj : tourLocations) {
-			Location location = (Location) obj;
-			Integer locationId = location.getLocationID();
-			tourLocationIds.add(locationId);
-			if (!locationIds.contains(locationId)) {
-				tour.getLocations().remove(location);
-			}
-		}
-		// Add new locations
-		for (Integer locationId : locationIds) {
-			if (!tourLocationIds.contains(locationId)) {
-				// Tour doesn't have location, add one
-				Location newLocation = locationDao.getLocationByID(locationId);
-				tour.getLocations().add(newLocation);
-			}
-		}
 
-		// ACTIVITIES
-		List<Integer> activityIds = alignTour.getActivityID();
-		// Remove activities, that not selected
-		Object[] tourActivities = tour.getActivities().toArray();
-		List<Integer> tourActivityIds = new ArrayList<Integer>();
-		for (Object obj : tourActivities) {
-			Activity activity = (Activity) obj;
-			Integer activityId = activity.getActivityID();
-			tourActivityIds.add(activityId);
-			if (!activityIds.contains(activityId)) {
-				tour.getActivities().remove(activity);
+		if (alignTour.getLocationID() != null) {
+			// LOCATIONS
+			List<Integer> locationIds = alignTour.getLocationID();
+			// Remove locations, that not selected
+			Object[] tourLocations = tour.getLocations().toArray();
+			List<Integer> tourLocationIds = new ArrayList<Integer>();
+			for (Object obj : tourLocations) {
+				Location location = (Location) obj;
+				Integer locationId = location.getLocationID();
+				tourLocationIds.add(locationId);
+				if (!locationIds.contains(locationId)) {
+					tour.getLocations().remove(location);
+				}
 			}
-		}
-		// Add new activities
-		for (Integer activityId : activityIds) {
-			if (!tourActivityIds.contains(activityId)) {
-				// Tour doesn't have activity, add one
-				Activity newActivity = activityDao.getActivityByID(activityId);
-				tour.getActivities().add(newActivity);
+			// Add new locations
+			for (Integer locationId : locationIds) {
+				if (!tourLocationIds.contains(locationId)) {
+					// Tour doesn't have location, add one
+					Location newLocation = locationDao
+							.getLocationByID(locationId);
+					tour.getLocations().add(newLocation);
+				}
 			}
 		}
 
-		// DATES
-		if (tour.getOnDemand() == 1) {
-			tour.setTotalDays(alignTour.getTotalDays());
-		} else {
-			// Listed tour
-			/*Date startDate = UtilityManager.stringToDate(startDateString);
-			Date finishDate = UtilityManager.stringToDate(finishDateString);
-
-			ListedTour listedTour = new ListedTour();
-			listedTour.setTour(tour);
-			listedTour.setTourID(tour.getTourID());
-
-			listedTour.setOperator(tourOperator);
-
-			listedTour.setListedFrom(startDate);
-			listedTour.setListedTo(finishDate);
-			listedTourDao.addListedTour(listedTour);
-			*/
+		if (alignTour.getActivityID() != null) {
+			// ACTIVITIES
+			List<Integer> activityIds = alignTour.getActivityID();
+			// Remove activities, that not selected
+			Object[] tourActivities = tour.getActivities().toArray();
+			List<Integer> tourActivityIds = new ArrayList<Integer>();
+			for (Object obj : tourActivities) {
+				Activity activity = (Activity) obj;
+				Integer activityId = activity.getActivityID();
+				tourActivityIds.add(activityId);
+				if (!activityIds.contains(activityId)) {
+					tour.getActivities().remove(activity);
+				}
+			}
+			// Add new activities
+			for (Integer activityId : activityIds) {
+				if (!tourActivityIds.contains(activityId)) {
+					// Tour doesn't have activity, add one
+					Activity newActivity = activityDao
+							.getActivityByID(activityId);
+					tour.getActivities().add(newActivity);
+				}
+			}
 		}
 
 		tourDao.saveTour(tour);
+	}
+
+	@Override
+	public void alignTourDate(AlignTourDate alignTourDate) {
+		Tour tour = tourDao.getTourByID(alignTourDate.getTourID());
+
+		TourDate tourDate = new TourDate();
+		tourDate.setTour(tour);
+		tourDate.setStartDate(alignTourDate.getStartDate());
+		tourDate.setFinishDate(alignTourDate.getFinishDate());
+		tourDate.setTourID(tour.getTourID());
+
+		tourDateDao.saveTourDate(tourDate);
+	}
+
+	@Override
+	public AlignTourDate getAlignTourDateByID(String tourID) {
+		int id = Integer.parseInt(tourID);
+
+		AlignTourDate atd = new AlignTourDate();
+		atd.setTourID(id);
+		return atd;
+	}
+
+	@Override
+	public void deleteTourDate(String dateID) {
+		int id = Integer.parseInt(dateID);
+		
+		TourDate tourDate = tourDateDao.getTourDateByID(id);
+		tourDateDao.dropTourDate(tourDate);
 	}
 
 }

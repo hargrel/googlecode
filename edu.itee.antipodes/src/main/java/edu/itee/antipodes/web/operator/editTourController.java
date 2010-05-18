@@ -60,7 +60,7 @@ public final class editTourController {
 		
 		validator.validate(info, result);
 		if (result.hasErrors()) { return "editTour"; }
-		
+		 
 		TourOperatorDaoHibernate todh = SpringApplicationContext.getTourOperatorDao();
 		CurrentUser currentUser = new CurrentUser();
 		

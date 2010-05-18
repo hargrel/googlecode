@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
@@ -18,56 +19,99 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import edu.itee.antipodes.domain.pages.AlignTour;
+import edu.itee.antipodes.domain.pages.AlignTourDate;
 import edu.itee.antipodes.service.ITourOperatorManager;
 
 @Controller
-@RequestMapping("/operator/alignTour.html")
+// @RequestMapping("/operator/alignTour.html")
 public class alignTourController {
-	
+
 	@Autowired
 	private Validator validator;
-	
+
 	public void setValidator(Validator validator) {
 		this.validator = validator;
 	}
-	
+
 	@Autowired
 	private ITourOperatorManager tourOperatorManager;
-	
+
 	@InitBinder
 	public void initBinder(final WebDataBinder binder) {
-		binder.registerCustomEditor(Date.class, null, new CustomDateEditor(new SimpleDateFormat("dd/MM/yyyy"), true));
+		binder.registerCustomEditor(Date.class, null, new CustomDateEditor(
+				new SimpleDateFormat("dd/MM/yyyy"), true));
 	}
-	
-	@RequestMapping(method = RequestMethod.GET)
+
+	private void setData(ModelMap model, String tourID) {
+		model.addAttribute("locations", tourOperatorManager.getLocationList());
+		model.addAttribute("activities", tourOperatorManager.getActivityList());
+		model.addAttribute("tour", tourOperatorManager.getTourByID(tourID));
+	}
+
+	@RequestMapping(value = "/operator/alignTour.html", method = RequestMethod.GET)
 	public String showUserForm(ModelMap model, HttpServletRequest request,
 			HttpServletResponse response) {
 		String tourID = request.getParameter("tourID");
-		
-		model.addAttribute("locations", tourOperatorManager.getLocationList());
-		model.addAttribute("activities", tourOperatorManager.getActivityList());
-		model.addAttribute("alignTour", tourOperatorManager.getAlignTourByID(tourID));
-		model.addAttribute("tour", tourOperatorManager.getTourByID(tourID));
+
+		setData(model, tourID);
+		model.addAttribute("alignTourDate", tourOperatorManager
+				.getAlignTourDateByID(tourID));
+		model.addAttribute("alignTour", tourOperatorManager
+				.getAlignTourByID(tourID));
+
 		return "alignTour";
 	}
-	
-	@RequestMapping(method = RequestMethod.POST)
-	public Object post(
-			@RequestParam("startDate") String startDateString,
-			@RequestParam("finishDate") String finishDateString, 
+
+	@RequestMapping(value = "/operator/alignTour.html", method = RequestMethod.POST)
+	public Object post(ModelMap model,
 			@ModelAttribute("alignTour") AlignTour alignTour,
+			@ModelAttribute("alignTourDate") AlignTourDate alignTourDate,
 			BindingResult result) throws Exception {
+
+		setData(model, String.valueOf(alignTour.getTourID()));
 		
 		validator.validate(alignTour, result);
-		if (result.hasErrors()) { return "alignTour"; }
-		
-		
-		tourOperatorManager.alignTour(startDateString, finishDateString, alignTour);
-		
-		return new RedirectView("alignTourList.html");
+		if (result.hasErrors()) {
+			return "alignTour";
+		}
+
+		tourOperatorManager.alignTour(alignTour);
+
+		return  new RedirectView("alignTour.html?tourID="+alignTourDate.getTourID());
 	}
 
+	@RequestMapping(value = "/operator/alignTourDate.html", method = RequestMethod.POST)
+	public Object addDate(ModelMap model, HttpServletRequest request,
+			HttpServletResponse response,
+			@ModelAttribute("alignTourDate") AlignTourDate alignTourDate,
+			
+			BindingResult result) throws Exception {
+		
+		setData(model, String.valueOf(alignTourDate.getTourID()));
+		model.addAttribute("alignTour",
+				tourOperatorManager.getAlignTourByID(String
+						.valueOf(alignTourDate.getTourID())));
+		
+		validator.validate(alignTourDate, result);
+		if (result.hasErrors()) {
+			return "alignTour";
+		}
+
+		tourOperatorManager.alignTourDate(alignTourDate);
+		
+		return new RedirectView("alignTour.html?tourID="+alignTourDate.getTourID()) ;
+	}
+	
+	@RequestMapping(value = "/operator/deleteTourDate.html", method = RequestMethod.POST)
+	public Object deleteDate(@RequestParam("tourID") String tourID,
+			@RequestParam("dateID") String dateID) throws Exception {
+		
+		tourOperatorManager.deleteTourDate(dateID);
+		
+		return new RedirectView("alignTour.html?tourID="+tourID) ;
+	}
 }

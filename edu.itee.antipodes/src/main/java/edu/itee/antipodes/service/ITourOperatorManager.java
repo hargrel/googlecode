@@ -8,11 +8,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.itee.antipodes.domain.db.Activity;
-import edu.itee.antipodes.domain.db.ListedTour;
 import edu.itee.antipodes.domain.db.Location;
 import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.domain.db.TourOperator;
 import edu.itee.antipodes.domain.pages.AlignTour;
+import edu.itee.antipodes.domain.pages.AlignTourDate;
 
 public interface ITourOperatorManager extends Serializable{
 	
@@ -42,8 +42,7 @@ public interface ITourOperatorManager extends Serializable{
 	
 	public void addTour(Tour tour);
 
-	public void alignTour(String startDateString, String finishDateString,
-			AlignTour alignTour) throws ParseException;
+	public void alignTour(AlignTour alignTour) throws ParseException;
 
 	public List<Location> getLocationList();
 
@@ -53,4 +52,9 @@ public interface ITourOperatorManager extends Serializable{
 
 	public Tour getTourByID(String id);
 	
+	public void alignTourDate(AlignTourDate alignTourDate);
+	
+	public AlignTourDate getAlignTourDateByID(String tourID);
+	
+	public void deleteTourDate(String dateID);
 }

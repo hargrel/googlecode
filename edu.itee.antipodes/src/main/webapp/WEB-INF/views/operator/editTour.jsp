@@ -46,7 +46,6 @@
 		<td>Currency:</td>
 		<td><form:select path="currency" items="${currencyList}" /></td>
 	</tr>	
-	
 	<tr>
 		<!-- Insert price -->
 		<td valign="top">Price:</td>

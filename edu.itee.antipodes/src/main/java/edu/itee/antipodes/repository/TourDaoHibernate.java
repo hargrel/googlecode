@@ -25,6 +25,7 @@ public class TourDaoHibernate extends HibernateDaoSupport implements TourDao {
    
     public void saveTour(Tour tour) throws HibernateException{
 		getHibernateTemplate().saveOrUpdate(tour);
+		
     }
        
     public void dropTour(Tour tour) throws HibernateException{
