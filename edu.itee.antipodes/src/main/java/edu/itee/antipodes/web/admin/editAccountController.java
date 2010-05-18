@@ -31,6 +31,9 @@ public final class editAccountController {
 	@Autowired
 	private Validator validator;
 	
+
+	TourOperatorDao tod = SpringApplicationContext.getTourOperatorDao();
+	
 	public void setValidator(Validator validator) {
 		this.validator = validator;
 	}
@@ -45,8 +48,17 @@ public final class editAccountController {
 		AccountUser accountUser = accountManager.getAccountByID(Integer.parseInt(userID));
 		if (accountUser == null)
 			return new RedirectView("editAccountList.html");
-		
+
+		TourOperator operator = tod.getTourOperatorByID(accountUser.getUserID());
 		model.addAttribute("accountUser", accountUser);
+		if(accountUser.getUserType().equalsIgnoreCase("admin")){
+			model.addAttribute("hide", "none");
+		}
+		else {
+			model.addAttribute("hide", "");
+			DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+			model.addAttribute("membershipExpiry", df.format(operator.getMembershipExpired()));
+		}
 		return "editAccount";
 	}
 	
@@ -59,19 +71,18 @@ public final class editAccountController {
 		if (!accountUser.getUserName().equalsIgnoreCase(accountManager.getAccountByID(accountUser.getUserID()).getUserName()) && result.hasErrors()) { 
 			return "editAccount"; 
 			}
-		TourOperatorDao tod = SpringApplicationContext.getTourOperatorDao();
-		TourOperator operator = tod.getTourOperatorByID(accountUser.getUserID());
-		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-		
+
 		
 		accountManager.updateAccount(accountUser);
+		String membershipExpiry = request.getParameter("membershipExpiry");
 		
-		if(accountUser.getUserType().equalsIgnoreCase("operator")){
-			String membershipExpiry = request.getParameter("membershipExpiry");
-			Date membershipExpiryDate = df.parse(membershipExpiry);
-			//operator.setOperatorID(accountUser.getUserID());
-			//operator.setMembershipExpired(membershipExpiryDate);
-			//tod.saveTourOperator(operator);
+		if(accountUser.getUserType().equalsIgnoreCase("operator") && !membershipExpiry.isEmpty()){
+				TourOperator operator = tod.getTourOperatorByID(accountUser.getUserID());
+				operator.setOperatorID(accountUser.getUserID());
+				DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+				Date membershipExpiryDate = df.parse(membershipExpiry);
+				operator.setMembershipExpired(membershipExpiryDate);
+				tod.saveTourOperator(operator);
 		}
 		return new RedirectView("accountList.html");
 		

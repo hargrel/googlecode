@@ -12,10 +12,10 @@
 		</style>
 <script type="text/javascript">
 function dispText() {
-	document.getElementById("hide").style.display = '';
+	document.getElementById("hide").style.visibility = 'visible';
 }
 function hideText() {
-	document.getElementById("hide").style.display = 'none';
+	document.getElementById("hide").style.visibility = 'hidden';
 }
 </script>
 <link type="text/css" href="<c:url value="/css/smoothness/jquery-ui-1.7.2.custom.css"/>" rel="stylesheet" />
@@ -56,7 +56,7 @@ function hideText() {
 		<td width="200"><form:password path="password" size="20" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="password"/></div></td>
 	</tr>
 
-	<tr id="hide" style="display: none">
+	<tr id="hide" style="visibility:hidden">
 		<td valign="top">Membership Expiry:</td>
 		<td><input name="membershipExpiry" size="20" id="datepicker"/></td>
 	</tr>

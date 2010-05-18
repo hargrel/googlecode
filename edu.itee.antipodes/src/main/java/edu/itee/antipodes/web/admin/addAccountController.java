@@ -5,6 +5,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -43,22 +46,22 @@ public final class addAccountController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String post(@RequestParam("membershipExpiry") String membershipExpiry, @ModelAttribute("accountUser") AccountUser accountUser,
+	public String post(@RequestParam("membershipExpiry") String membershipExpiry,@ModelAttribute("accountUser") AccountUser accountUser,
 			BindingResult result, ModelMap model) throws Exception {		
-		
 		TourOperator operator = new TourOperator();
         TourOperatorDao tod = SpringApplicationContext.getTourOperatorDao();
         
         validator.validate(accountUser, result);
         if (result.hasErrors()) { return "addAccount"; }
         
-        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         
-        Date membershipExpiryDate = df.parse(membershipExpiry);
 
         accountManager.addAccount(accountUser);
         if(accountUser.getUserType().equalsIgnoreCase("operator")){
                 //operator.setOperatorID(accountUser.getUserID());
+	        	DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+	            
+	            Date membershipExpiryDate = df.parse(membershipExpiry);
                 operator.setAccountUser(accountUser);
                 operator.setMembershipExpired(membershipExpiryDate);
                 tod.addTourOperator(operator);

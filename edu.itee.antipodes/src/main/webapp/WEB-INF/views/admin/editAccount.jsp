@@ -10,14 +10,6 @@
 			.form-error-field { background-color: #FFC; }
 			.form-error-message { font-weight: bold; color: #900; font-size: 10px; }
 		</style>
-<script type="text/javascript">
-function dispText() {
-	document.getElementById("hide").style.display = '';
-}
-function hideText() {
-	document.getElementById("hide").style.display = 'none';
-}
-</script>
 <link type="text/css" href="<c:url value="/css/smoothness/jquery-ui-1.7.2.custom.css"/>" rel="stylesheet" />
 <script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/jquery-ui-1.7.2.custom.min.js"/>"></script>
@@ -41,8 +33,8 @@ function hideText() {
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
 	<tr>
 		<td width="150" valign="top">User type:</td>
-		<td><form:radiobutton path="userType" value="admin" cssErrorClass="form-error-field" onclick="hideText()"/>&nbsp;Admin&nbsp;&nbsp;
-			<form:radiobutton path="userType" value="operator" cssErrorClass="form-error-field" onclick="dispText()"/>&nbsp;Operator
+		<td><form:hidden path="userType"/>
+			<c:out value="${accountUser.userType}"/>
 			<div class="form-error-message"><form:errors path="userType"/></div></td>
 	</tr>
 	
@@ -56,9 +48,9 @@ function hideText() {
 		<td width="200"><form:password path="password" size="20" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="password"/></div></td>
 	</tr>
 
-	<tr id="hide" style="display: none">
+	<tr style="display: <c:out value="${hide}"/>">
 		<td valign="top">Membership Expiry:</td>
-		<td><input name="membershipExpiry" size="20" id="datepicker"/></td>
+		<td><input name="membershipExpiry" size="20" id="datepicker" value="<c:out value="${membershipExpiry}"/>"/></td>
 	</tr>
 	
 	<tr>
