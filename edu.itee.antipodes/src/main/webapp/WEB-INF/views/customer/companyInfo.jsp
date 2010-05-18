@@ -40,7 +40,7 @@
 	<tr>
 		<!-- Membership Expired -->
 		<td valign="top"><b>Membership Expired: </b></td>
-		<td valign="top"><c:out value="${listedTours[0].operator.membershipExpired}" /></td>
+		<td valign="top"><fmt:formatDate value="${listedTours[0].operator.membershipExpired}" pattern="d MMM yyyy"/></td>
 	</tr>
 		
 	<tr>
@@ -71,10 +71,10 @@
 				<tr class="gradeA">
 					<td><c:out value="${listedTour.tour.tourName}" /></td>
 					<td><c:out value="${listedTour.tour.price}" />&nbsp;<c:out value="${listedTour.tour.currency}" /></td>
-					<td><c:out value="${tourDate.startDate}" /></td>
-					<td><c:out value="${tourDate.finishDate}" /></td>
+					<td><fmt:formatDate value="${tourDate.startDate}" pattern="d MMM yyyy"/></td>
+					<td><fmt:formatDate value="${tourDate.finishDate}" pattern="d MMM yyyy"/></td>
 					<td><c:out value="${listedTour.tour.totalDays}" />&nbsp;days</td>
-					<td>
+					<td class="center">
 						<form style="margin:0px; padding: 0px;" name="info_${listedTour.listID}" 
 							action="tourInfo.html" method="post">
 							<input type="hidden" name="listID" value="${listedTour.listID}" />

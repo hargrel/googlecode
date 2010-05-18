@@ -6,6 +6,7 @@ import java.util.Date;
 import java.text.ParseException;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import org.hibernate.HibernateException;
@@ -38,20 +39,15 @@ public class searchController {
 	@Autowired
 	private Validator validator;
 	
-	@Autowired
-	private ICustomerManager customerManager;
-	
 	public void setValidator(Validator validator) {
 		this.validator = validator;
 	}
 	
-	/*@InitBinder
-	protected void initBinder(HttpServletBean request, ServletRequestDataBinder binder) throws Exception {
-	    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yy");
-	    dateFormat.setLenient(false);
-	    CustomDateEditor editor = new CustomDateEditor(dateFormat, false);
-	    binder.registerCustomEditor(Date.class, editor);
-	  }*/
+	@Autowired
+	private ActivityDao ad;
+	
+	@Autowired
+	private ICustomerManager customerManager;
 	
 	@InitBinder
 	public void initBinder(final WebDataBinder binder) {
@@ -62,9 +58,8 @@ public class searchController {
 	public String showUserForm(ModelMap model) {
 		Search search = new Search();
 		model.addAttribute("search", search);
-		/*ActivityDao ad = DaoManager.getActivityDao();
 		List<Activity> act = ad.getActivityList();
-		model.addAttribute("activities", act);*/
+		model.addAttribute("activities", act);
 		return "search";
 	}
 	
