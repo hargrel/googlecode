@@ -10,8 +10,7 @@
   	<property name="locationName" column="LOCATION_NAME"/>
   	<property name="longitude" column="LONGITUDE"/>
   	<property name="latitude" column="LATITUDE"/>
-  	<property name="points" column="POINTS"/>
-  	<property name="levels" column="LEVELS"/>
+  	
   	<!-- bidirectional one-to-many mapping to tourDate table -->
   	<!-- remove cascade="all" to avoid re-save deleted object to Tour table when delete activity? -->
   	<!--<set name="tours" table="TourLocation" cascade="all" lazy="false">-->

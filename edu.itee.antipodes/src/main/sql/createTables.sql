@@ -21,7 +21,9 @@ CREATE TABLE Tour (
 	total_Days NUMBER,
 	on_Demand NUMBER(1),
 	currency CHAR(3),
-	operator_ID NUMBER references TourOperator(operator_ID)
+	operator_ID NUMBER references TourOperator(operator_ID),
+	points VARCHAR2(256),
+	levels VARCHAR2(256)
 	
 );
 
@@ -48,9 +50,7 @@ CREATE TABLE Location (
 	location_ID NUMBER PRIMARY KEY,
 	location_Name VARCHAR2(256),
 	latitude FLOAT,
-	longitude FLOAT,
-	points VARCHAR2(256),
-	levels VARCHAR2(256)
+	longitude FLOAT
 );
 
 CREATE TABLE TourLocation (

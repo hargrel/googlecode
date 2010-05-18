@@ -22,8 +22,7 @@ public class Location implements Serializable{
 	
 	private double longitude;
 	private double latitude;
-	private String points;
-	private String levels;
+	
 	private Set<Tour> tours = new HashSet<Tour>(0);
 
 	public Location(){}
@@ -56,18 +55,7 @@ public class Location implements Serializable{
 		return latitude;
 	}
 	
-	public String getPoints() {
-		return points;
-	}
-	public void setPoints(String points) {
-		this.points = points;
-	}
-	public String getLevels() {
-		return levels;
-	}
-	public void setLevels(String levels) {
-		this.levels = levels;
-	}
+	
 	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
@@ -79,11 +67,11 @@ public class Location implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "Location [latitude=" + latitude + ", levels=" + levels
-				+ ", locationID=" + locationID + ", locationName="
-				+ locationName + ", longitude=" + longitude + ", points="
-				+ points + "]";
+		return "Location [latitude=" + latitude + ", locationID=" + locationID
+				+ ", locationName=" + locationName + ", longitude=" + longitude
+				+ "]";
 	}
+	
 	
 }
 

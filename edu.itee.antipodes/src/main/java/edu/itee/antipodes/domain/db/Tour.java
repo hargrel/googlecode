@@ -13,6 +13,8 @@ import org.springmodules.validation.bean.conf.loader.annotation.handler.Validati
 public class Tour implements Serializable {
 	
 	private int tourID; 
+	private String points;
+	private String levels;
 	
 	@NotBlank
 	@Length(max = 40)
@@ -146,16 +148,36 @@ public class Tour implements Serializable {
 	public void setCurrency(String currency) {
 		this.currency = currency;
 	}
+	
 
 	
 	
 	
+	public String getPoints() {
+		return points;
+	}
+
+	public void setPoints(String points) {
+		this.points = points;
+	}
+
+	public String getLevels() {
+		return levels;
+	}
+
+	public void setLevels(String levels) {
+		this.levels = levels;
+	}
+
+	
+
 	@Override
 	public String toString() {
-		return "Tour [currency=" + currency + ", locations=" + locations
+		return "Tour [currency=" + currency + ", levels=" + levels
 				+ ", onDemand=" + onDemand + ", operator=" + operator
-				+ ", price=" + price + ", tourDesc=" + tourDesc + ", tourID="
-				+ tourID + ", tourName=" + tourName + "]";
+				+ ", points=" + points + ", price=" + price + ", totalDays="
+				+ totalDays + ", tourDesc=" + tourDesc + ", tourID=" + tourID
+				+ ", tourName=" + tourName + "]";
 	}
 
 	@SuppressWarnings("unused")

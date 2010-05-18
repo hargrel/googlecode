@@ -13,6 +13,8 @@
   	<property name="totalDays" column="TOTAL_DAYS"/>
   	<property name="onDemand" column="ON_DEMAND"/>
   	<property name="currency" column="CURRENCY"/>
+  	<property name="points" column="POINTS"/>
+  	<property name="levels" column="LEVELS"/>
   	<many-to-one name="operator" class="TourOperator" column="OPERATOR_ID" cascade="save-update" />
   	<set name="activities" table="TourActivity" lazy="false">
 	  	<key column="TOUR_ID"></key>
