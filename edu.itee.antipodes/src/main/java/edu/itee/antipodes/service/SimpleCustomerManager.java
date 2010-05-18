@@ -76,7 +76,7 @@ public class SimpleCustomerManager implements ICustomerManager {
 		msg.setTo(operator.getEmail());
 		msg.setReplyTo(contactOperator.getEmail());
 		msg.setSubject("Antipodes - " + contactOperator.getSubject());
-		msg.setText("Dear " + operator.getAccountUser() + ",\n"
+		msg.setText("Dear " + operator.getAccountUser().getUserName() + ",\n"
 				+ "You have been contacted by customer "
 				+ contactOperator.getName() + ": \n"
 				+ contactOperator.getText());

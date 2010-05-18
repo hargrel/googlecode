@@ -36,46 +36,52 @@ import edu.itee.antipodes.service.SimpleCustomerManager;
 @Controller
 @RequestMapping("/search.html")
 public class searchController {
-	
+
 	@Autowired
 	private Validator validator;
-	
+
 	public void setValidator(Validator validator) {
 		this.validator = validator;
 	}
-	
+
 	@Autowired
 	private ActivityDao ad;
-	
+
 	@Autowired
 	private ICustomerManager customerManager;
-	
+
 	@InitBinder
 	public void initBinder(final WebDataBinder binder) {
-		binder.registerCustomEditor(Date.class, null, new CustomDateEditor(new SimpleDateFormat("dd/MM/yyyy"), true));
+		binder.registerCustomEditor(Date.class, null, new CustomDateEditor(
+				new SimpleDateFormat("dd/MM/yyyy"), true));
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUserForm(ModelMap model) {
 		Search search = new Search();
+		setData(model, search);
+		return "search";
+	}
+
+	private void setData(ModelMap model, Search search) {
 		model.addAttribute("search", search);
 		List<Activity> act = ad.getActivityList();
 		model.addAttribute("activities", act);
 		model.addAttribute("currencyList", Currency.getCurrencyTest());
-		return "search";
 	}
-	
+
 	@RequestMapping(method = RequestMethod.POST)
-    public String post(@ModelAttribute("search") Search sch, BindingResult result, Model model, 
-		@RequestParam("locationName") String locationName,
-		@RequestParam(value="activityName",required=false) String activityName,
-		@RequestParam("startDate") String startDate,
-		@RequestParam("finishDate") String finishDate,
-		@RequestParam("currency") String currency
+    public String post(ModelMap modelMap,
+    		@ModelAttribute("search") Search sch, BindingResult result, Model model, 
+			@RequestParam("locationName") String locationName,
+			@RequestParam(value="activityName",required=false) String activityName,
+			@RequestParam("startDate") String startDate,
+			@RequestParam("finishDate") String finishDate,
+			@RequestParam("currency") String currency
     	) throws DataAccessResourceFailureException, HibernateException, IllegalStateException, ParseException {
 
 		validator.validate(sch, result);
-		if (result.hasErrors()) { return "search"; }
+		if (result.hasErrors()) { setData(modelMap, sch); return "search"; }
 	
 		Set<ListedTour> ListedTours = new HashSet<ListedTour>();
 		//ICustomerManager cm = new SimpleCustomerManager();
@@ -95,5 +101,3 @@ public class searchController {
 		return "searchResult";
     }
 }
-
-
