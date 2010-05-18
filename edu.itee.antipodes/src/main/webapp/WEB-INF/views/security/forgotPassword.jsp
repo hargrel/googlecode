@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body onload='document.f.j_username.focus();'>
-<h2>Login</h2>
+<h2>Forgotten your password?</h2>
 <form action='forgotPassword.html' method='POST'>
 
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
