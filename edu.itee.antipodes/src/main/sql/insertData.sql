@@ -89,7 +89,7 @@ INSERT INTO TourOperator VALUES (
 );
 
 INSERT INTO TourOperator VALUES (
-	0012, 'OperatorExample', 'Operator example for testing!', TO_DATE('13122020', 'DDMMYYYY'), 'operator@example.com'  
+	0012, 'OperatorExample', 'Operator example for testing!', TO_DATE('13122020', 'DDMMYYYY'), 'seannysr@gmail.com'  
 );
 
 -- Tour ------------------------------------------------------------------------

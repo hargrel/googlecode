@@ -215,6 +215,10 @@
 		<put-attribute name="body" value="/WEB-INF/views/security/login.jsp"/>
 	</definition>
 	
+	<definition name="forgotPassword" extends="baseLayoutGeneral">
+		<put-attribute name="body" value="/WEB-INF/views/security/forgotPassword.jsp"/>
+	</definition>
+
 	<definition name="accessDenied" extends="baseLayoutCustomer">
 		<put-attribute name="body" value="/WEB-INF/views/security/accessDenied.jsp"/>
 	</definition>

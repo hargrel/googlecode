@@ -41,4 +41,8 @@ public class SimpleAccountManager implements IAccountManager {
 	public AccountUser getAccountByUsername(String userName) {
 		return accountDao.getAccountUserByUsername(userName);
 	}
+	@Override
+	public AccountUser getAccountByEmail(String email) {
+		return accountDao.getAccountUserByEmail(email);
+	}
 }

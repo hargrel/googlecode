@@ -27,7 +27,7 @@
 	<tr>
 		<td></td>
 		<td style="font-size:8pt"><input type="checkbox" size="30" name="_spring_security_remember_me" />&nbsp;&nbsp;Keep me logged in</td>
-		<td style="font-size:8pt" align="right">Forgotten your password?</td>
+		<td style="font-size:8pt" align="right"><a href="<c:url value="/forgotPassword.html"/>" >Forgotten your password?</a></td>
 	</tr>
 
 	<tr>

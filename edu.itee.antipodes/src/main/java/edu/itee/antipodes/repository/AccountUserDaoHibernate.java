@@ -1,5 +1,6 @@
 package edu.itee.antipodes.repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -28,7 +29,7 @@ public class AccountUserDaoHibernate extends HibernateDaoSupport implements Acco
 	
 	@Autowired
 	SessionFactory mySessionFactory;
-	
+
 	@SuppressWarnings("unchecked")
 	public AccountUser getAccountUserByUsername(String userName) {
 
@@ -38,6 +39,23 @@ public class AccountUserDaoHibernate extends HibernateDaoSupport implements Acco
 		
 		if (userName == null || userName.equalsIgnoreCase("roleAnonymous")) return null;
 		List<AccountUser> list = (List<AccountUser>)getHibernateTemplate().findByNamedParam("select u from AccountUser as u where u.userName=:userName", "userName", userName); 
+		if (list.size() == 0) return null;
+		return (AccountUser)list.get(0);
+	}
+	@SuppressWarnings("unchecked")
+	public AccountUser getAccountUserByEmail(String email) {
+
+//		Query query = getSession().createQuery("select u from AccountUser as u where u.userName=:userName");
+//		query.setParameter("userName", userName);
+//		return (AccountUser)query.uniqueResult();	
+		
+		String sql = "select u "+
+			"from AccountUser as u join u.operator as o "+
+			"where o.email=:email ";
+		List<AccountUser> list = (List<AccountUser>)getHibernateTemplate().findByNamedParam(sql, "email", email);
+		
+		
+		
 		if (list.size() == 0) return null;
 		return (AccountUser)list.get(0);
 	}

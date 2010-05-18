@@ -53,6 +53,6 @@ public final class contactTourOperatorController {
 
 		customerManager.contactOperator(contactOpt);
 
-		return new RedirectView("search");
+		return new RedirectView("search.html");
 	}
 }

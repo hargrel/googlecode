@@ -13,6 +13,8 @@ public interface IAccountManager extends Serializable {
 
 	public AccountUser getAccountByID(int id);
 
+	public AccountUser getAccountByEmail(String email);
+	
 	public AccountUser getAccountByUsername(String userName);
 	
 	public void updateAccount(AccountUser account) throws Exception;

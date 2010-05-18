@@ -12,6 +12,8 @@ public interface AccountUserDao {
 
 	public AccountUser getAccountUserByID(int id);
 	
+	public AccountUser getAccountUserByEmail(String email);
+	
 	public AccountUser getAccountUserByUsername(String username);
 	
 	public void saveAccountUser(AccountUser accUser);

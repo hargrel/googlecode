@@ -73,7 +73,7 @@ $(document).ready(function() {
 		</td>
 	</tr>
 	<tr>
-		<td><input type="button" value="Contact Tour Operator" style="margin-top: 50px" onClick="window.location.href='<c:url value="contactTourOperator.html"/>'"/></td>
+		<td><input type="button" value="Contact Tour Operator" style="margin-top: 50px" onClick="window.location.href='<c:url value="contactTourOperator.html?operatorID=${listedTour.operator.operatorID}"/>'"/></td>
 	</tr>
 </table>
 
