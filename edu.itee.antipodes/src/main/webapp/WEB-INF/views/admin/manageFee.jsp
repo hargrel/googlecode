@@ -65,7 +65,7 @@
 	</tbody>
 
 </table>
-<input type="button" value="Cancel" onClick="window.location.href='<c:url value="SAhome.html"/>'" style="float: right; margin-top: 20px;"/>
+
 </div>
 </body>
 </html>

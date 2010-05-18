@@ -18,7 +18,6 @@
 					"aoColumns": [ 
 						null,
 						null,
-						{ "bSortable": false },
 						null,
 						{ "bSortable": false },
 						{ "bSortable": false }
@@ -47,7 +46,6 @@ function confirmDelete(id)
 		<tr>
 			<th>ID</th>
 			<th>Username</th>
-			<th>Password</th>
 			<th>User Type</th>
 			<th></th>
 			<th></th>
@@ -60,7 +58,6 @@ function confirmDelete(id)
 			<tr class="gradeA">
 				<td><c:out value="${account.userID}" /></td>
 				<td><c:out value="${account.userName}" /></td>
-				<td><c:out value="${account.password}" /></td>
 				<td><c:out value="${account.userType}" /></td>
 			
 				<td class="center">
