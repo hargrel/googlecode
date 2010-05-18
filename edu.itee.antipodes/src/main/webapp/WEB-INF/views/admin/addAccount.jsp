@@ -62,7 +62,7 @@ function hideText() {
 	</tr>
 	
 	<tr>
-		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="SAhome.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Add" style="margin-right: 50px"/></td>
+		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="accountList.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Add" style="margin-right: 50px"/></td>
 	</tr>
 
 </table>
