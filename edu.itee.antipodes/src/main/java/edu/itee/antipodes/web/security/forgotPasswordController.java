@@ -3,6 +3,7 @@ package edu.itee.antipodes.web.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,10 +22,13 @@ public class forgotPasswordController {
 		return "forgotPassword";
 	}
 	@RequestMapping(method = RequestMethod.POST)
-	public Object getMessage(@RequestParam("email") String email) throws Exception
+	public Object getMessage(Model model,@RequestParam("email") String email) throws Exception
 	{
 		systemAdminManager.regeneratePassword(email);
-		return new RedirectView("search.html");
+		
+		model.addAttribute("errorheader", "Thank you");
+		model.addAttribute("errormessage", "New password have been sent to " + email);
+		return "error";
 	}
 	@Autowired
 	private ISystemAdminManager systemAdminManager;
