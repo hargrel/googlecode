@@ -53,16 +53,16 @@ public class MonthlyFeeDaoHibernate extends HibernateDaoSupport implements Month
 		String sql = select+ from+ where+"group by  l.listID, l.tourID, l.operator.operatorID, l.listedFrom, l.listedTo "+"order by l.listID ASC";
 		
 		// --------------------- START: original version ------------------------------------------------------------
-		Query query = getSession().createQuery(sql);		
-		int i=0;
-		for (Iterator it = query.iterate(); it.hasNext(); i++ ) {
-			list.add((Object[]) it.next());
-		}
-		return list;
+//		Query query = getSession().createQuery(sql);		
+//		int i=0;
+//		for (Iterator it = query.iterate(); it.hasNext(); i++ ) {
+//			list.add((Object[]) it.next());
+//		}
+//		return list;
 		// --------------------- END: original version ------------------------------------------------------------
 		
-//		list = (List<Object[]>)getHibernateTemplate().find(sql);
-//		return list;
+		list = (List<Object[]>)getHibernateTemplate().find(sql);
+		return list;
 	}
 	
 	/*
@@ -84,20 +84,20 @@ public class MonthlyFeeDaoHibernate extends HibernateDaoSupport implements Month
 		String sql= select+ from+ where;
 		
 		// --------------------- START: original version ------------------------------------------------------------
-		if ((Integer)id != null){
-			Query query= getSession().createQuery(sql);		
-			query.setParameter("listID", id);
-			int i=0;
-			for (Iterator it = query.iterate(); it.hasNext(); i++ ) {
-				list.add((Object[]) it.next());
-			}
-		}
-		return list;
+//		if ((Integer)id != null){
+//			Query query= getSession().createQuery(sql);		
+//			query.setParameter("listID", id);
+//			int i=0;
+//			for (Iterator it = query.iterate(); it.hasNext(); i++ ) {
+//				list.add((Object[]) it.next());
+//			}
+//		}
+//		return list;
 		// --------------------- END: original version ------------------------------------------------------------
 
-//		if (id == 0) return null;
-//		list = (List<Object[]>)getHibernateTemplate().findByNamedParam(sql, "listID", id);
-//		return list;
+		if (id == 0) return null;
+		list = (List<Object[]>)getHibernateTemplate().findByNamedParam(sql, "listID", id);
+		return list;
 	}
 }
 
