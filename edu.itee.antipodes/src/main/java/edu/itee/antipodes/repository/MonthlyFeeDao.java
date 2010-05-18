@@ -13,5 +13,9 @@ public interface MonthlyFeeDao {
 	public void saveMonthlyFee(MonthlyFee monthlyFee);
 	
 	public void dropMonthlyFee(MonthlyFee monthlyFee);		
+	
+	public List<Object[]> getTotalMonthlyFeeForAllListedTours();
+	
+	public List<Object[]> getMonthlyFeeForListedTour(int id);
 }
 
