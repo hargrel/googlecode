@@ -110,6 +110,8 @@ public class SimpleReportingManager implements IReportingManager {
 		 * list.add(ub); }
 		 */
 		model.put("dataSource", list);
+		
+		
 		return model;
 	}
 

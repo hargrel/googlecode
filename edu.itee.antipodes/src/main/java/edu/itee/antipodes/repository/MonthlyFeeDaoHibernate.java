@@ -45,12 +45,12 @@ public class MonthlyFeeDaoHibernate extends HibernateDaoSupport implements Month
 
 		List<Object[]> list = new ArrayList<Object[]>();
 		
-		String select="select  l.listID, l.tourID, l.operator.operatorID, l.listedFrom, l.listedTo, SUM(m.fee) ";
+		String select="select  l.listID, l.tourID, l.operator.operatorName, l.listedFrom, l.listedTo, SUM(m.fee) ";
 		String from="from ListedTour as l, MonthlyFee as m ";
 		
 		// l.listedFrom-30 since we want to include the previous month, ex. for 12/05/2010, we want to charge 05/2010's fee as well
 		String where="where m.monthYearStart between (l.listedFrom-30) and l.listedTo   ";		
-		String sql = select+ from+ where+"group by  l.listID, l.tourID, l.operator.operatorID, l.listedFrom, l.listedTo "+"order by l.listID ASC";
+		String sql = select+ from+ where+"group by  l.listID, l.tourID, l.operator.operatorName, l.listedFrom, l.listedTo "+"order by l.listID ASC";
 		
 		// --------------------- START: original version ------------------------------------------------------------
 //		Query query = getSession().createQuery(sql);		

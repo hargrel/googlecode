@@ -114,7 +114,11 @@ public class SimpleTourOperatorManager implements ITourOperatorManager {
 	}
 
 	public void dropTourByID(int id) {
-		tourDao.dropTour(tourDao.getTourByID(id));
+		
+		Tour tour = tourDao.getTourByID(id);
+		tourDao.dropTour(tour);
+		
+		// TODO: SET LISTED TOUR FINISH DATE TO NOW 
 	}
 
 	public Tour getTourByID(int id) {
@@ -132,6 +136,14 @@ public class SimpleTourOperatorManager implements ITourOperatorManager {
 
 	public void addTour(Tour tour) {
 		tourDao.addTour(tour);
+		
+		ListedTour listedTour = new ListedTour();
+		listedTour.setListedFrom(new Date());
+		listedTour.setTour(tour);
+		listedTour.setTourID(tour.getTourID());
+		listedTour.setOperator(tour.getOperator());
+		listedTour.setListedTo(null);
+		listedTourDao.saveListedTour(listedTour);
 	}
 
 	public List<Tour> getToursByOperatorID(int operatorID) {
