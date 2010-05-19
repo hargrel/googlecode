@@ -31,8 +31,8 @@ public class forgotPasswordController {
 			return "forgotPassword";
 		}
 		
-		model.addAttribute("errorheader", "Thank you");
-		model.addAttribute("errormessage", "New password have been sent to " + email);
+		model.addAttribute("headermessage", "Thank you");
+		model.addAttribute("message", "New password have been sent to " + email);
 		return "success";
 	}
 	@Autowired
