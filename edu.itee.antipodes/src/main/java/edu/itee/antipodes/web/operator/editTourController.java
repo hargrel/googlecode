@@ -28,6 +28,9 @@ import edu.itee.antipodes.utils.SpringApplicationContext;
 @RequestMapping("/operator/editTour.html")
 public final class editTourController {
 
+
+	CurrentUser currentUser = new CurrentUser();
+
 	@Autowired
 	private Validator validator;
 
@@ -47,11 +50,14 @@ public final class editTourController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String showUserForm(ModelMap model, HttpServletRequest request,
+	public Object showUserForm(ModelMap model, HttpServletRequest request,
 			HttpServletResponse response) {
 
 		int tourID = Integer.parseInt(request.getParameter("tourID"));
 
+		if(tourOperatorManager.getTourByID(tourID).getOperator().getOperatorID() != currentUser.getCurrentUserID()) {
+			return new RedirectView("/antipodes/accessDenied.html");
+		}
 		Tour updateTourInfo = tourOperatorManager.getTourByID(tourID);
 		model.addAttribute("editTour", updateTourInfo);
 

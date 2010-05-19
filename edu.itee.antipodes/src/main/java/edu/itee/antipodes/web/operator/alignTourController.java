@@ -24,12 +24,15 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import edu.itee.antipodes.domain.pages.AlignTour;
 import edu.itee.antipodes.domain.pages.AlignTourDate;
+import edu.itee.antipodes.service.CurrentUser;
 import edu.itee.antipodes.service.ITourOperatorManager;
 
 @Controller
 // @RequestMapping("/operator/alignTour.html")
 public class alignTourController {
 
+	CurrentUser currentUser = new CurrentUser();
+	
 	@Autowired
 	private Validator validator;
 
@@ -53,10 +56,13 @@ public class alignTourController {
 	}
 
 	@RequestMapping(value = "/operator/alignTour.html", method = RequestMethod.GET)
-	public String showUserForm(ModelMap model, HttpServletRequest request,
+	public Object showUserForm(ModelMap model, HttpServletRequest request,
 			HttpServletResponse response) {
 		String tourID = request.getParameter("tourID");
 
+		if(tourOperatorManager.getTourByID(tourID).getOperator().getOperatorID() != currentUser.getCurrentUserID()) {
+			return new RedirectView("/antipodes/accessDenied.html");
+		}
 		model.addAttribute("errordate", request.getParameter("errordate"));
 
 		setData(model, tourID);
