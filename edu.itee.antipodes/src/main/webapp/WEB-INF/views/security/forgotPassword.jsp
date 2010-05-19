@@ -19,7 +19,7 @@
 		<td><input type="text" size="40" name="email" value=''/></td>
 	</tr>
 	<tr>
-		<td colspan="2" align="right"><input type="submit" value="Generate Password" name="submit"/></td>
+		<td colspan="2" align="right"><input type="submit" value="Continue" name="submit"/></td>
 	</tr>
 
 </table>

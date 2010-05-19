@@ -75,11 +75,12 @@ public class SimpleCustomerManager implements ICustomerManager {
 
 		msg.setTo(operator.getEmail());
 		msg.setReplyTo(contactOperator.getEmail());
-		msg.setSubject("Antipodes - " + contactOperator.getSubject());
-		msg.setText("Dear " + operator.getAccountUser().getUserName() + ",\n"
-				+ "You have been contacted by customer "
-				+ contactOperator.getName() + ": \n"
-				+ contactOperator.getText());
+		msg.setSubject("Antipodes - Message - " + contactOperator.getSubject());
+		msg.setText("Dear " + operator.getAccountUser().getUserName() + ",\n\n"
+				+ "You have been contacted by a customer, "
+				+ contactOperator.getName() + ".\n\nMessage: \n"
+				+ contactOperator.getText() + "\n\nPlease reply him at " 
+				+ contactOperator.getEmail() + "\n\nAntipodes\nOnline Eco-adventure Tours Directory");
 
 		try {
 			this.mailSender.send(msg);

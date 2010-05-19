@@ -130,10 +130,10 @@ public class SimpleSystemAdminManager implements ISystemAdminManager {
 		TourOperator operator = tourOperatorDao.getTourOperatorByID(accUser.getUserID());
 
 		msg.setTo(email);
-		msg.setSubject("Antipodes - Password Regeneration");
-		msg.setText("Dear " + operator.getOperatorName() + ",\n"
-				+ "Your new password is: "
-				+ newPassword);
+		msg.setSubject("Antipodes - Password Reset");
+		msg.setText("Dear " + operator.getOperatorName() + ",\n\n"
+				+ "Your new password is:\n"
+				+ newPassword + "\n\nAntipodes\nOnline Eco-adventure Tours Directory");
 
 		try {
 			this.mailSender.send(msg);
