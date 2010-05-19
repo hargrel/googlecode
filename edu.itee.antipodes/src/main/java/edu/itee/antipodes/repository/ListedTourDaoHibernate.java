@@ -21,6 +21,12 @@ public class ListedTourDaoHibernate extends HibernateDaoSupport implements Liste
 	public List<ListedTour> getListedToursByOpID(int id) {
 		return getHibernateTemplate().find("from ListedTour as LT where LT.operator.operatorID="+id);
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<ListedTour> getListedToursByTourID(int id) {
+		return getHibernateTemplate().find("from ListedTour as LT join LT.tour as T where T.tourID="+id);
+	}
+	
 	public ListedTour getListedTourByID(int id){
 		return (ListedTour)getHibernateTemplate().get(ListedTour.class, id);
 	}
