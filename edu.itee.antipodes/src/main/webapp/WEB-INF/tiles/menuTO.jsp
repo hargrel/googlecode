@@ -15,7 +15,12 @@
     <ul class="menu">
         <li><a href="<c:url value="TOhome.html"/>"><span><img src="<c:url value="/img/Home-icon.png"/>">Home</span></a></li>
         <li><a href="<c:url value="/search.html"/>"><span><img src="<c:url value="/img/Search-icon.png"/>">Search Tours</span></a></li>
-        <li><a href="<c:url value="editCompanyInfo.html"/>"><span><img src="<c:url value="/img/Company-icon.png"/>">Company Information</span></a></li>
+        <li><a class="sub"><span><img src="<c:url value="/img/Company-icon.png"/>">My Account</span></a>
+        	<div><ul>
+                <li><a href="<c:url value="editCompanyInfo.html"/>"><span>Edit Company Information</span></a></li>
+                <li><a href="<c:url value="changePassword.html"/>"><span>Change Password</span></a></li>
+            </ul></div>
+        </li>
         <li><a class="sub"><span><img src="<c:url value="/img/Tour-icon.png"/>">Tours</span></a>
             <div><ul>
                 <li><a href="<c:url value="addTour.html"/>"><span>Add</span></a></li>
