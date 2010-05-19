@@ -24,7 +24,7 @@
 <body>
 
 <h2>Upload Images</h2>
-<p>You may upload up to four images.</p>
+<p>You may upload up to <c:out value="${numberOfFiles}"/> images.</p>
 <!-- Form name: uploadImages -->
 <!-- Attribute names: tourID -->
 <form method="post" action="uploadImages.html" enctype="multipart/form-data">
