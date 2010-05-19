@@ -66,13 +66,11 @@
 
 	<!-- Mail -->
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-		<property name="host" value="smtp.gmail.com" />
-		<property name="username" value="antulik@gmail.com" />
-		<property name="password" value="antulik@gmail.com" />
+		<property name="host" value="mail.uq.edu.au" />
 	</bean>
 
 	<bean id="templateMessage" class="org.springframework.mail.SimpleMailMessage">
-		<property name="from" value="antulik@gmail.com" />
+		<property name="from" value="csse3005a2009@googlegroups.com" />
 	</bean>
 
 	<!-- Service layer -->
