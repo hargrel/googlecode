@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
 
 import edu.itee.antipodes.repository.ImageDao;
+import edu.itee.antipodes.service.CurrentUser;
 import edu.itee.antipodes.service.ITourOperatorManager;
 import edu.itee.antipodes.utils.SpringApplicationContext;
 
@@ -27,15 +28,22 @@ import edu.itee.antipodes.utils.SpringApplicationContext;
 @RequestMapping("/operator/uploadImages.html")
 public class uploadImagesController {
 	
+	CurrentUser currentUser = new CurrentUser();
+	
 	@Autowired
 	private ApplicationContext applicationContext;
 	@Autowired
 	private ITourOperatorManager tourOperatorManager;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public String showUserForm(ModelMap model, HttpServletRequest request,
+	public Object showUserForm(ModelMap model, HttpServletRequest request,
 			HttpServletResponse response) {
 		int tourID = Integer.parseInt(request.getParameter("tourID"));
+		String addorEdit = request.getParameter("state");
+		
+		if(tourOperatorManager.getTourByID(tourID).getOperator().getOperatorID() != currentUser.getCurrentUserID()) {
+			return new RedirectView("/antipodes/accessDenied.html");
+		}
 		
 		ImageDao imd = SpringApplicationContext.getImageDao();
 		List<String> files = new ArrayList();
@@ -45,6 +53,7 @@ public class uploadImagesController {
 
 		model.addAttribute("tourID", tourID);
 		model.addAttribute("files", files);
+		model.addAttribute("addorEdit", addorEdit);
 		model.addAttribute("numberOfFiles", files.size());
 		return "uploadImages";
 	}
@@ -55,8 +64,11 @@ public class uploadImagesController {
 			@RequestParam("file3") MultipartFile multipartFile3,
 			@RequestParam("file4") MultipartFile multipartFile4,
 			@RequestParam("tourID") int tourID,
+			@RequestParam("addorEdit") String addorEdit,
 			Model model) {
-
+		
+		
+		
 		if (!multipartFile1.isEmpty()) {
 			try {
 				tourOperatorManager.UploadFile(applicationContext, multipartFile1, tourID);
@@ -93,7 +105,9 @@ public class uploadImagesController {
 				return "error";
 			}
 		}
-
-		return new RedirectView("tourList.html");
+		if(addorEdit.equalsIgnoreCase("add"))
+			return new RedirectView("tourList.html");
+		else
+			return new RedirectView("editTour.html?tourID=" + tourID);
 	}
 }

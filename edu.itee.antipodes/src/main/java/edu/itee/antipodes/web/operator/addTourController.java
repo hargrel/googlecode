@@ -59,7 +59,8 @@ public final class addTourController {
 		// Use the redirect-after-post pattern to reduce double-submits.
 		return new RedirectView("uploadImages.html?tourID="
 				+ tourOperatorManager.getTourByID(
-						tourOperatorManager.getTours().size()).getTourID());
+						tourOperatorManager.getTours().size()).getTourID()
+						+ "&state=add");
 
 	}
 

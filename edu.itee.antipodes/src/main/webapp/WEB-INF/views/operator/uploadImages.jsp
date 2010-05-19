@@ -51,6 +51,7 @@
 	</c:choose>  
     </span>
     <br/>
+    <input type="hidden" name="addorEdit" value="<c:out value="${addorEdit}"/>" />
     <input type="submit" value="Done" />
     </td>
 </tr>
