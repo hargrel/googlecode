@@ -9,6 +9,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessResourceFailureException;
@@ -31,7 +34,6 @@ import edu.itee.antipodes.domain.pages.Search;
 import edu.itee.antipodes.repository.ActivityDao;
 import edu.itee.antipodes.service.Currency;
 import edu.itee.antipodes.service.ICustomerManager;
-import edu.itee.antipodes.service.SimpleCustomerManager;
 
 @Controller
 @RequestMapping("/search.html")
@@ -71,7 +73,8 @@ public class searchController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-    public String post(ModelMap modelMap,
+    public String post(HttpServletRequest request,
+			HttpServletResponse response, ModelMap modelMap,
     		@ModelAttribute("search") Search sch, BindingResult result, Model model, 
 			@RequestParam("locationName") String locationName,
 			@RequestParam(value="activityName",required=false) String activityName,
@@ -82,18 +85,21 @@ public class searchController {
 
 		validator.validate(sch, result);
 		if (result.hasErrors()) { setData(modelMap, sch); return "search"; }
-	
+		
+		try{
+			activityName.isEmpty();
+		}catch(NullPointerException npe){
+			activityName = "";
+		}
+		
 		Set<ListedTour> ListedTours = new HashSet<ListedTour>();
-		//ICustomerManager cm = new SimpleCustomerManager();
-		// should name activityNames, locationNames
 		List<Object> ls = customerManager.searchListedTours(activityName,
 				locationName, startDate, finishDate, currency);
 		if (ls != null) {
 			Iterator<Object> it = ls.iterator();
-			// tour[0] is the listedTour
 			while (it.hasNext()) {
 				Object[] tour = (Object[]) it.next();
-				ListedTours.add((ListedTour) tour[0]);
+				ListedTours.add((ListedTour) tour[0]); // tour[0] is the listedTour
 			}
 		}
 		
