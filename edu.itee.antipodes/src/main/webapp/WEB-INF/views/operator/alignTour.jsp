@@ -74,7 +74,7 @@ function confirmDelete(id)
 
 <h2>Align Tour</h2>
 
-<form:form commandName="alignTour">
+<form:form commandName="alignTour" >
 	<table border="0" cellspacing="2"
 		style="border-collapse: collapse; padding: 5px">
 
@@ -147,6 +147,7 @@ function confirmDelete(id)
 <!-- Form name: date -->
 <!-- Attribute names: tourID, startDate, finishDate -->
 <c:if test="${tour.onDemand == '0'}">
+	<span class="error-message"><c:out value="${errordate}" /></span>
 	<form:form commandName="alignTourDate" action="alignTourDate.html">
 		<table border="0" cellspacing="2"
 			style="border-collapse: collapse; padding: 5px; margin-top:20px">

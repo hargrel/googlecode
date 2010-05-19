@@ -33,16 +33,19 @@ public final class addTourController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUserForm(ModelMap model) {
-		Tour tourInfo = new Tour();
-		model.addAttribute("addTour", tourInfo);
+		Tour tour = new Tour();
+		model.addAttribute("addTour", tour);
 		model.addAttribute("currencyList", Currency.getCurrencyTest());
 		return "addTour";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Object post(@ModelAttribute("addTour") Tour info,
+	public Object post(ModelMap model,
+			@ModelAttribute("addTour") Tour info,
 			BindingResult result) {
 
+		model.addAttribute("currencyList", Currency.getCurrencyTest());
+		
 		TourOperatorDaoHibernate todh = SpringApplicationContext
 				.getTourOperatorDao();
 		CurrentUser currentUser = new CurrentUser();

@@ -13,9 +13,9 @@
 </style>
 </head>
 <body>
-	<h2><img style="margin-bottom: -10px" src="img/Success-icon.png"/>&nbsp;&nbsp;<c:out value="${errorheader}" />!</h2>
-	<h3><c:out value="${errormessage}" />.</h3>
-	<p class="error"><c:out value="${errordetails}" /></p>
+	<h2><img style="margin-bottom: -10px" src="img/Success-icon.png"/>&nbsp;&nbsp;<c:out value="${headermessage}" /></h2>
+	<h3><c:out value="${message}" />.</h3>
+	<p class="error"><c:out value="${detailedmessage}" /></p>
 
 	
 </body>

@@ -23,4 +23,6 @@ public interface ICustomerManager extends Serializable {
 	public void contactOperator(ContactOperator contactOperator);
 	
 	public ContactOperator getContactOperator(String operatorID);
+
+	public void contactUs(ContactOperator contact);
 }

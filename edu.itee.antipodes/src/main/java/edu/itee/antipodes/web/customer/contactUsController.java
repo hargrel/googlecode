@@ -10,30 +10,41 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.itee.antipodes.domain.pages.ContactOperator;
+import edu.itee.antipodes.service.ICustomerManager;
 
 @Controller
 @RequestMapping("/contactUs.html")
 public final class contactUsController {
-	
+
 	@Autowired
 	private Validator validator;
-	
+	@Autowired
+	private ICustomerManager customerManager;
+
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUserForm(ModelMap model) {
 		ContactOperator contactUs = new ContactOperator();
 		model.addAttribute("contactUs", contactUs);
 		return "contactUs";
 	}
-	
+
 	@RequestMapping(method = RequestMethod.POST)
-	public String post(@ModelAttribute("contactOperator") ContactOperator contact,
+	public String post(ModelMap model,
+			@ModelAttribute("contactOperator") ContactOperator contact,
 			BindingResult result) {
-		
+
 		validator.validate(contact, result);
-		if (result.hasErrors()) { return "contactUs"; }
-		
-		return "search";
-		
+		if (result.hasErrors()) {
+			return "contactUs";
+		}
+
+		customerManager.contactUs(contact);
+
+		model.addAttribute("headermessage", "Thank you.");
+		model.addAttribute("message",
+				"Your message have been sent. Thank you for your time");
+		return "success";
+
 	}
 
 }

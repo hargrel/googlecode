@@ -57,6 +57,8 @@ public class alignTourController {
 			HttpServletResponse response) {
 		String tourID = request.getParameter("tourID");
 
+		model.addAttribute("errordate", request.getParameter("errordate"));
+
 		setData(model, tourID);
 		model.addAttribute("alignTourDate", tourOperatorManager
 				.getAlignTourDateByID(tourID));
@@ -73,7 +75,7 @@ public class alignTourController {
 			BindingResult result) throws Exception {
 
 		setData(model, String.valueOf(alignTour.getTourID()));
-		
+
 		validator.validate(alignTour, result);
 		if (result.hasErrors()) {
 			return "alignTour";
@@ -81,37 +83,40 @@ public class alignTourController {
 
 		tourOperatorManager.alignTour(alignTour);
 
-		return  new RedirectView("alignTour.html?tourID="+alignTourDate.getTourID());
+		return new RedirectView("alignTour.html?tourID="
+				+ alignTourDate.getTourID());
 	}
 
 	@RequestMapping(value = "/operator/alignTourDate.html", method = RequestMethod.POST)
 	public Object addDate(ModelMap model, HttpServletRequest request,
 			HttpServletResponse response,
 			@ModelAttribute("alignTourDate") AlignTourDate alignTourDate,
-			
 			BindingResult result) throws Exception {
-		
+
 		setData(model, String.valueOf(alignTourDate.getTourID()));
-		model.addAttribute("alignTour",
-				tourOperatorManager.getAlignTourByID(String
-						.valueOf(alignTourDate.getTourID())));
-		
+
+		model.addAttribute("alignTour", tourOperatorManager
+				.getAlignTourByID(String.valueOf(alignTourDate.getTourID())));
+
 		validator.validate(alignTourDate, result);
 		if (result.hasErrors()) {
-			return "alignTour";
+			return new RedirectView("alignTour.html?tourID="
+					+ alignTourDate.getTourID()
+					+ "&errordate=Please enter correct dates");
 		}
 
 		tourOperatorManager.alignTourDate(alignTourDate);
-		
-		return new RedirectView("alignTour.html?tourID="+alignTourDate.getTourID()) ;
+
+		return new RedirectView("alignTour.html?tourID="
+				+ alignTourDate.getTourID());
 	}
-	
+
 	@RequestMapping(value = "/operator/deleteTourDate.html", method = RequestMethod.POST)
 	public Object deleteDate(@RequestParam("tourID") String tourID,
 			@RequestParam("dateID") String dateID) throws Exception {
-		
+
 		tourOperatorManager.deleteTourDate(dateID);
-		
-		return new RedirectView("alignTour.html?tourID="+tourID) ;
+
+		return new RedirectView("alignTour.html?tourID=" + tourID);
 	}
 }

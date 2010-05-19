@@ -73,10 +73,15 @@
 		<property name="from" value="csse3005a2009@googlegroups.com" />
 	</bean>
 
+	<bean id="contactUsMessage" class="org.springframework.mail.SimpleMailMessage">
+		<property name="to" value="antulik@gmail.com" />
+	</bean>
+
 	<!-- Service layer -->
 	<bean id="customerManager" class="edu.itee.antipodes.service.SimpleCustomerManager">
 		<property name="mailSender" ref="mailSender" />
 		<property name="templateMessage" ref="templateMessage" />
+		<property name="contactUsMessage" ref="contactUsMessage" />
 	</bean>
 	<bean id="accountUserManager" class="edu.itee.antipodes.service.SimpleAccountManager">
 	</bean>
@@ -91,9 +96,10 @@
 
 
 	<!-- This application context -->
-	<bean id="springApplicationContext" class="edu.itee.antipodes.utils.SpringApplicationContext"/>
-	
-	
-	<bean id="userBean" class="edu.itee.antipodes.domain.SessionHolder" scope="session"/>
+	<bean id="springApplicationContext" class="edu.itee.antipodes.utils.SpringApplicationContext" />
+
+
+	<bean id="userBean" class="edu.itee.antipodes.domain.SessionHolder"
+		scope="session" />
 </beans>
 

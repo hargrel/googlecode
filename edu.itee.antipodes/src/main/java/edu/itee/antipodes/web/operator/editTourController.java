@@ -27,47 +27,59 @@ import edu.itee.antipodes.utils.SpringApplicationContext;
 @Controller
 @RequestMapping("/operator/editTour.html")
 public final class editTourController {
-	
+
 	@Autowired
 	private Validator validator;
-	
+
 	public void setValidator(Validator validator) {
 		this.validator = validator;
 	}
 
 	@Autowired
 	private ITourOperatorManager tourOperatorManager;
-	
-	@RequestMapping(method = RequestMethod.GET)
-	public String showUserForm(ModelMap model, HttpServletRequest request,
-			HttpServletResponse response) {
-		
-		int tourID = Integer.parseInt(request.getParameter("tourID"));
-		Tour updateTourInfo = tourOperatorManager.getTourByID(tourID);
+
+	private void setData(ModelMap model, int tourID) {
 		ImageDao idh = SpringApplicationContext.getImageDao();
 		List<Image> images = idh.getImageByTourID(tourID);
-		model.addAttribute("editTour", updateTourInfo);
 		model.addAttribute("images", images);
 		model.addAttribute("numberOfImages", images.size());
 		model.addAttribute("currencyList", Currency.getCurrencyTest());
-		return "editTour";
-		
 	}
-	
+
+	@RequestMapping(method = RequestMethod.GET)
+	public String showUserForm(ModelMap model, HttpServletRequest request,
+			HttpServletResponse response) {
+
+		int tourID = Integer.parseInt(request.getParameter("tourID"));
+
+		Tour updateTourInfo = tourOperatorManager.getTourByID(tourID);
+		model.addAttribute("editTour", updateTourInfo);
+
+		setData(model, tourID);
+		return "editTour";
+
+	}
+
 	@RequestMapping(method = RequestMethod.POST)
-	public Object post(@ModelAttribute("editTour") Tour info,
+	public Object post(ModelMap model, @ModelAttribute("editTour") Tour info,
 			BindingResult result) {
+
+		setData(model, info.getTourID());
 		
 		validator.validate(info, result);
-		if (result.hasErrors()) { return "editTour"; }
-		 
-		TourOperatorDaoHibernate todh = SpringApplicationContext.getTourOperatorDao();
+		if (result.hasErrors()) {
+			return "editTour";
+		}
+
+		TourOperatorDaoHibernate todh = SpringApplicationContext
+				.getTourOperatorDao();
 		CurrentUser currentUser = new CurrentUser();
-		
-		info.setOperator(todh.getTourOperatorByID(currentUser.getCurrentUserID()));
+
+		info.setOperator(todh.getTourOperatorByID(currentUser
+				.getCurrentUserID()));
 		tourOperatorManager.updateTour(info);
 		return new RedirectView("tourList.html");
-		
+
 	}
 
 }
