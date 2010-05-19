@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 	<style>
 		.form-error-message { font-weight: bold; color: #900; font-size: 10px; }
+		.success-message { font-weight: bold; color: #900; font-size: 12px; }
 	</style>
 <link type="text/css" href="<c:url value="/css/smoothness/jquery-ui-1.7.2.custom.css"/>" rel="stylesheet" />
 <link type="text/css" href="<c:url value="/js/dataTables/demo_table_jui.css"/>" rel="stylesheet" />
@@ -29,11 +30,13 @@
 </head>
 <body>
 
-<h2>Monthly Fee List</h2>
+<h2>Monthly Fee List
+<span class="success-message"><c:out value="${successMessage}" /></span></h2>
 	<div class="demo_jui">
 	<span class="form-error-message"><c:out value="${errorMessage}" /></span>
 	<table cellpadding="0" cellspacing="0" border="0" id="fee" class="display">
 		<thead>
+			
 		<tr>
 			<th style="width: 60px;">Fee ID</th>
 			<th>Month</th>
@@ -43,7 +46,6 @@
 
 		<tbody>
 		<c:forEach items="${listedTourFees}" var="listedTourFee">
-		
 			<tr class="gradeA">
 				
 				<td><c:out value="${listedTourFee[3]}" /></td>

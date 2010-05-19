@@ -19,7 +19,7 @@ import edu.itee.antipodes.utils.SpringApplicationContext;
 @RequestMapping("/admin/feeList.html")
 public class feeListController {
 	MonthlyFeeDaoHibernate mfdh = SpringApplicationContext.getMonthlyFeeDao();
-	
+	String successMessage;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUserForm(Model model, HttpServletRequest request,
@@ -29,7 +29,9 @@ public class feeListController {
 
 		List<Object[]> listedTourFees = mfdh.getMonthlyFeeForListedTour(Integer
 				.parseInt(listID));
+		successMessage = "";
 		model.addAttribute("listedTourFees", listedTourFees);
+		model.addAttribute("successMessage", successMessage);
 		return "feeList";
 	}
 
@@ -51,8 +53,10 @@ public class feeListController {
 			model.addAttribute("errorMessage", errorMessage);
 		}
 
+		successMessage = "Update successful!";
 		List<Object[]> listedTourFees = mfdh.getMonthlyFeeForListedTour(listID);
 		model.addAttribute("listedTourFees", listedTourFees);
+		model.addAttribute("successMessage", successMessage);
 		return "feeList";
 		
 	}
