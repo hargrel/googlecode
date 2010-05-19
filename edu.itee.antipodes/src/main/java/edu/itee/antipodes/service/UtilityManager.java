@@ -7,19 +7,19 @@ import java.util.*;
 
 public class UtilityManager {
 
-	public static String dateToString(Date date, String pattern) {
+	public String dateToString(Date date, String pattern) {
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 		String myDate = simpleDateFormat.format(date);
 		return myDate;
 	} 	
 
-	public static Date stringToDate(String date, String pattern) throws ParseException {
+	public Date stringToDate(String date, String pattern) throws ParseException {
 		DateFormat df = new SimpleDateFormat(pattern);
 		Date myDate = df.parse(date);
 		return myDate;
 	}
 	
-	public static Date stringToDate(String date) throws ParseException {
+	public Date stringToDate(String date) throws ParseException {
 		return stringToDate(date, "dd/MM/yyyy");
 	}
 }
