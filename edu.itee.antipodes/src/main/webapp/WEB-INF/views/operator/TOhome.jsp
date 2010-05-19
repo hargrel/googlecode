@@ -18,5 +18,6 @@
 <a class="home" href="<c:url value="alignTourList.html"/>" >Align tour</a><br/>
 <a class="home" href="<c:url value="tourList.html"/>" >Edit/Delete tour</a><br/>
 <a class="home" href="<c:url value="userManual.html"/>" >View user manual</a><br/>
+<a class="home" href="<c:url value="changePassword.html"/>" >Change Password</a><br/>
 </body>
 </html>

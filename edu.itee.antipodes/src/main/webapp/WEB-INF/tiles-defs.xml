@@ -68,10 +68,15 @@
 	</definition>
 	
 	<!-- Tour Operator -->	
+	changePassword
 	<definition name="TOhome" extends="baseLayoutTO">
 		<put-attribute name="body" value="/WEB-INF/views/operator/TOhome.jsp"/>
 	</definition>
 	
+	<definition name="changePassword" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/changePassword.jsp"/>
+	</definition>
+
 	<definition name="editCompanyInfo" extends="baseLayoutTO">
 		<put-attribute name="body" value="/WEB-INF/views/operator/editCompanyInfo.jsp"/>
 	</definition>

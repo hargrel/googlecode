@@ -39,7 +39,7 @@
 			
 		<tr>
 			<th style="width: 60px;">Fee ID</th>
-			<th>Month</th>
+			<th>Month - Year</th>
 			<th>Fee</th>
 		</tr>
 		</thead>
@@ -49,7 +49,7 @@
 			<tr class="gradeA">
 				
 				<td><c:out value="${listedTourFee[3]}" /></td>
-				<td><fmt:formatDate value="${listedTourFee[1]}" pattern="MMMMM"/></td>
+				<td><fmt:formatDate value="${listedTourFee[1]}" pattern="MMMMM - yyyy"/></td>
 			
 				<td>
 				<form style="margin:0px; padding: 0px;" name="save_${listedTourFee[3]}" action="feeList.html" method="post">
