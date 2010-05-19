@@ -80,7 +80,7 @@ $(document).ready(function() {
 <div class="desc">
 
 <!-- Location -->
-<h4 style="color: #698B22">Location:</h4>
+<h4>Location:</h4>
 <ul>
 <c:forEach items="${listedTour.tour.locations}" var="location">
 <li style="display:inline">&#187;&nbsp;<c:out value="${location.locationName}" /></li>
@@ -97,7 +97,7 @@ $(document).ready(function() {
 </c:forEach>
 </ul>
 <!-- Description -->
-<h4 style="color: #228B22">Description:</h4>
+<h4>Description:</h4>
 <p style="width: 400px">
 <c:out value="${listedTour.tour.tourDesc}" escapeXml="false"/>
 </p>
@@ -107,17 +107,17 @@ $(document).ready(function() {
 <a class="group" rel="group1" href="<c:url value="/img/test.jpg"/>"><img src="<c:url value="/img/test.jpg"/>" width="100px"/></a>
 <a class="group" rel="group1" href="<c:url value="/img/002.jpg"/>"><img src="<c:url value="/img/test.jpg"/>" width="100px"/></a>
 -->
-
+<!--
 <c:forEach items="${listedTour.tour.images}" var="image">
 <img src="<c:url value="/uploads/images/"/><c:out value="${image.url}" />" width="200px"/>
 <c:out value="${image.url}" />
 </c:forEach>
+-->
 
-<!--
 <c:forEach items="${listedTour.tour.images}" var="image">
 <a class="group" rel="images" href="<c:url value="/uploads/images/"/><c:out value="${image.url}" />"><img src="<c:url value="/uploads/images/"/><c:out value="${image.url}" />" width="100px"/></a>
 </c:forEach>
--->
+
 </div>
 </body>
 </html>

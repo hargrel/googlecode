@@ -11,7 +11,6 @@ function initialize() {
 		map.setMapType(G_SATELLITE_MAP);
 		var latlng = new GLatLng(document.getElementById("latitude").value, document.getElementById("longitude").value);
 		map.setCenter(latlng, 12);
-		//map.setCenter(new GLatLng(23.324, 65.039), 2);
 		map.addControl(new GSmallMapControl());
 		geocoder = new GClientGeocoder();
 			GDownloadUrl('xml/routes.jsp'+url, function(data) {
@@ -45,11 +44,7 @@ function createPolyline(point,level) {
 
 function createMarker(point,img) {
     var marker = new GMarker(point);
-    GEvent.addListener(marker, "click", function(){   	
-    	//marker.openInfoWindowHtml('<img src="img/test.jpg"/>'); 
-    	alert(img);
-    	marker.openInfoWindowHtml('<img src="uploads/images/' + img + '" width="250px"/>'); 
-    	});
-	map.addOverlay(marker);
+    marker.openInfoWindowHtml('<img src="uploads/images/' + img + '" width="250px"/>'); 
+    map.addOverlay(marker);
     return marker;
   }

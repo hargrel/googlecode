@@ -113,9 +113,6 @@ public class Tour implements Serializable {
 		this.locations = locations;
 	}
 	
-	
-	
-	
 	public TourOperator getOperator() {
 		return operator;
 	}
@@ -139,7 +136,6 @@ public class Tour implements Serializable {
 	public void setImages(Set<Image> images) {
 		this.images = images;
 	}
-	
 
 	public String getCurrency() {
 		return currency;
@@ -148,10 +144,6 @@ public class Tour implements Serializable {
 	public void setCurrency(String currency) {
 		this.currency = currency;
 	}
-	
-
-	
-	
 	
 	public String getPoints() {
 		return points;
@@ -168,8 +160,6 @@ public class Tour implements Serializable {
 	public void setLevels(String levels) {
 		this.levels = levels;
 	}
-
-	
 
 	@Override
 	public String toString() {

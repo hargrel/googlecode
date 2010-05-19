@@ -9,5 +9,5 @@ List<Object[]> map = lt.getLocationDetailsByListedTourID(listID);
 List<Object[]> img = lt.getImageDetailsByListedTourID(listID);
 %>
 
-<marker lat="<%out.print(map.get(0)[1].toString()); %>" lng="<%out.print(map.get(0)[2].toString());%>" pt="<%out.print(map.get(0)[3].toString());%>" lvl="<%out.print(map.get(0)[4].toString());%>" img="<%out.print(img.get(0)[1].toString());%>"></marker>
+<marker lat="<%out.print(map.get(0)[1].toString()); %>" lng="<%out.print(map.get(0)[2].toString());%>" pt="<%out.print(lt.getListedTourByID(listID).getTour().getPoints().toString());%>" lvl="<%out.print(lt.getListedTourByID(listID).getTour().getLevels().toString());%>" img="<%out.print(img.get(0)[1].toString());%>"></marker>
 </markers>

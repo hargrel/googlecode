@@ -29,8 +29,8 @@ public final class addTourLocationController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUserForm(ModelMap model) {
-		//Location loc = new Location();
-		//model.addAttribute("location", loc);
+		Location loc = new Location();
+		model.addAttribute("loc", loc);
 		return "addTourLocation";
 	}
 

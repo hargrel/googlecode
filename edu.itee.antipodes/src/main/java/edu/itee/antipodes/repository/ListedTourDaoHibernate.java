@@ -59,7 +59,7 @@ public class ListedTourDaoHibernate extends HibernateDaoSupport implements Liste
 
 		if (id == 0) return null;
 		List<Object[]> list = new ArrayList<Object[]>();		
-		String sql = "select c, c.latitude,c.longitude, c.points, c.levels "+
+		String sql = "select c, c.latitude, c.longitude "+
 			"from ListedTour as l join l.tour as t join t.locations as c "+
 			"where l.listID = :listID ";
 		list = (List<Object[]>)getHibernateTemplate().findByNamedParam(sql, "listID", id);

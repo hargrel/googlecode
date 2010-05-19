@@ -63,6 +63,10 @@
 		<put-attribute name="body" value="/WEB-INF/views/customer/aboutUs.jsp"/>
 	</definition>
 	
+	<definition name="browseTours" extends="baseLayoutCustomer">
+		<put-attribute name="body" value="/WEB-INF/views/customer/browseTours.jsp"/>
+	</definition>
+	
 	<!-- Tour Operator -->	
 	<definition name="TOhome" extends="baseLayoutTO">
 		<put-attribute name="body" value="/WEB-INF/views/operator/TOhome.jsp"/>
@@ -233,6 +237,10 @@
 	
 	<definition name="error" extends="baseLayoutGeneral">
 		<put-attribute name="body" value="/WEB-INF/views/security/error.jsp"/>
+	</definition>
+	
+	<definition name="success" extends="baseLayoutGeneral">
+		<put-attribute name="body" value="/WEB-INF/views/security/success.jsp"/>
 	</definition>
 	
 </tiles-definitions>

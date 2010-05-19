@@ -18,10 +18,6 @@ public final class contactUsController {
 	@Autowired
 	private Validator validator;
 	
-	public void setValidator(Validator validator) {
-		this.validator = validator;
-	}
-	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUserForm(ModelMap model) {
 		ContactOperator contactUs = new ContactOperator();

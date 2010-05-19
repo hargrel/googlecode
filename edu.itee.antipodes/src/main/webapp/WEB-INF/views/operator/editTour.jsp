@@ -9,6 +9,10 @@
 		<style>
 			.form-error-field { background-color: #FFC; }
 			.form-error-message { font-weight: bold; color: #900; font-size: 10px; }
+			#pointList {
+      		width: 255px;
+      		font-size: 10px;
+    		}
 		</style>
 <link rel="stylesheet" href="<c:url value="/js/jwysiwyg/jquery.wysiwyg.css"/>" />
 <script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js"/>"></script>
@@ -19,8 +23,10 @@
       $('#tourDesc').wysiwyg();
   });
 </script>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAQlV1b2FPUM74rst4A4cFzxT2yXp_ZAY8_ufC3CFXhHIE1NvwkxQSgLSOP2XkswKd7txk3wHZjh27CA&sensor=false" type="text/javascript"></script>
+<script type="text/javascript" src="<c:url value="/js/gmap/routes.js"/>"></script>
 </head>
-<body>
+<body onload="createMap();decode()" onunload="GUnload()">
 
 <h2>Edit Tour</h2>
 
@@ -38,7 +44,7 @@
 	<tr>
 		<!-- Insert tour description -->
 		<td valign="top">Tour description:</td>
-		<td width="500"><form:textarea path="tourDesc" cols="70" rows="12" id="tourDesc" /><div class="form-error-message"><form:errors path="tourDesc"/></div></td>
+		<td width="500"><form:textarea path="tourDesc" cssStyle="width:500px" id="tourDesc" /><div class="form-error-message"><form:errors path="tourDesc"/></div></td>
 	</tr>
 	
 	<tr>
@@ -46,6 +52,7 @@
 		<td>Currency:</td>
 		<td><form:select path="currency" items="${currencyList}" /></td>
 	</tr>	
+	
 	<tr>
 		<!-- Insert price -->
 		<td valign="top">Price:</td>
@@ -80,8 +87,28 @@
 	</tr>
 	
 	<tr>
+		<!-- Set tour route -->
+		<td valign="top" rowspan="2">Tour Routes:</td>
+		<td><input type="button" value="Add Point" onclick="addPoint()"/>&nbsp;&nbsp;<input type="button" value="Delete Selected Point" onclick="deletePoint()"/>&nbsp;&nbsp;<input type="button" value="Delete All Points" onclick="deleteAllPoints()"/></td>
+	</tr>
+	
+	<tr>
+		<td><div id="map_canvas" style="width: 500px; overflow: hidden; height: 250px; margin:10px 20px 0 0"></div>
+		<input id="txtLevel" type="hidden" size=3 value="3"/>
+		<input id="latitude" type="hidden"/>
+		<input id="longitude" type="hidden" />
+		<form:hidden path="points"/>
+		<form:hidden path="levels"/>
+		</td>
+	</tr>
+	
+	<tr id="hide" style="display:none">
+		<td><select id="pointList" size="8" onchange="highlight(this.selectedIndex)" ondblclick="jumpToPoint()"></select></td>
+  	</tr>
+	
+	<tr>
 		<!-- Cancel or submit -->
-		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="TOhome.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Edit" /></td>
+		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="TOhome.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Edit" style="margin-top:30px; margin-right:20px"/></td>
 	</tr>
 </table>
 </form:form>

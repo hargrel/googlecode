@@ -16,74 +16,52 @@
 	color: #900;
 	font-size: 10px;
 }
-
-#pointList {
-      width: 255px;
-      font-size: 10px;
-    }
 </style>
 <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAQlV1b2FPUM74rst4A4cFzxT2yXp_ZAY8_ufC3CFXhHIE1NvwkxQSgLSOP2XkswKd7txk3wHZjh27CA&sensor=false" type="text/javascript"></script>
-<script type="text/javascript" src="<c:url value="/js/gmap/routes.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/js/gmap/maintainLink.js"/>"></script>
 </head>
-<body onload="createMap()" onunload="GUnload()">
+<body onload="initialize()" onunload="GUnload()">
 
-<h2>Add Location</h2>
+<h2>Add Tour Location</h2>
 
-<!-- Form name: location -->
+<!-- Form name: loc -->
 <!-- Attribute names: locationID, locationName, latitude, longitude -->
 
-<form:form commandName="location">
+<form:form commandName="loc">
 	<table border="0" cellspacing="2"
 		style="border-collapse: collapse; padding: 5px">
+
 		<tr>
-			<td width="150" valign="top">Location:&nbsp;&nbsp;&nbsp;&nbsp;<form:input path="locationName" size="20"
-				cssErrorClass="form-error-field" />&nbsp;&nbsp;<input type="button" value="Search" onclick="centerMap()">
+			<td width="150" valign="top">Location Name:</td>
+			<td width="150"><form:input path="locationName" size="20"
+				cssErrorClass="form-error-field" />&nbsp;&nbsp;<input type="button" value="Search" onclick="showAddress(document.forms['loc'].locationName.value); return false">
 			<div class="form-error-message"><form:errors
-				path="locationName" /></div></td>
+				path="locationName" /></div>
+			</td>
 		</tr>
 		
 		
 		<tr>
-			<td width="150" valign="top">Latitude:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<form:input path="latitude" size="20"
+			<td width="150" valign="top">Latitude:</td>
+			<td width="150"><form:input path="latitude" size="20"
 				cssErrorClass="form-error-field" />
 			<div class="form-error-message"><form:errors
-				path="latitude" /></div></td>
-		</tr>
-		
-		<tr>
-			<td width="150" valign="top">Longitude:&nbsp;&nbsp;<form:input path="longitude" size="20"
-				cssErrorClass="form-error-field" />&nbsp;&nbsp;<input type="button" value="Add Point" onclick="addPoint()"/>
-			<div class="form-error-message"><form:errors
-				path="longitude" /></div></td>
-		</tr>
-		
-		<tr>
-			<td><input id="txtLevel" type="hidden" size=3 value="3"/></td>
-		</tr>
-		
-		<tr>
-			<td rowspan="4"><div id="map_canvas" style="width: 400px; overflow: hidden; height: 250px; margin:10px 20px 0 0"></div></td>
-		</tr>
-		
-		<tr>
-			<td>Point List</td>
-		</tr>
-		
-		<tr>
-			<td><select id="pointList" size="8" onchange="highlight(this.selectedIndex)"
-  			ondblclick="jumpToPoint()"></select></td>
-  		</tr>
-  		
-  		<tr>
- 			 <td valign="top"><input type="button" value="Delete Selected Point" onclick="deletePoint()"/>&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="button" value="Delete All Points" onclick="deleteAllPoints()"/></td>
-  		</tr>
-  			
-		<tr>
-			<td>
-			<form:hidden path="points"/>
-			<form:hidden path="levels"/>
+				path="latitude" /></div>
 			</td>
+		</tr>
+		
+		<tr>
+			<td width="150" valign="top">Longitude:</td>
+			<td width="150"><form:input path="longitude" size="20"
+				cssErrorClass="form-error-field" />
+			<div class="form-error-message"><form:errors
+				path="longitude" /></div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td><div id="map" style="width: 400px; height: 250px; margin:10px 0"></div></td>
 		</tr>
 
 		<tr>

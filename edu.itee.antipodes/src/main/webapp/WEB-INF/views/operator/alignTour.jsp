@@ -149,33 +149,29 @@ function confirmDelete(id)
 <c:if test="${tour.onDemand == '0'}">
 	<form:form commandName="alignTourDate" action="alignTourDate.html">
 		<table border="0" cellspacing="2"
-			style="border-collapse: collapse; padding: 5px">
+			style="border-collapse: collapse; padding: 5px; margin-top:20px">
 			<tr>
 				<td><form:hidden path="tourID" /></td>
 			</tr>
 			<tr>
 				<!-- Insert start & finish date -->
 
-				<td><form:input path="startDate"
+				<td>From:&nbsp;&nbsp;<form:input path="startDate"
 					cssErrorClass="form-error-field" id="datepicker_from" />
 				<div class="form-error-message"><form:errors path="startDate" /></div>
 				</td>
 
-				<td><form:input path="finishDate"
-					cssErrorClass="form-error-field" id="datepicker_to" />
+				<td>To:&nbsp;&nbsp;<form:input path="finishDate"
+					cssErrorClass="form-error-field" id="datepicker_to" />&nbsp;&nbsp;<input type="submit" value="Add" />
 				<div class="form-error-message"><form:errors path="finishDate" /></div>
 				</td>
-				
-
-				<!-- Add new date -->
-				<td><input type="submit" value="Add" /></td>
 			</tr>
 		</table>
 	</form:form>
 
 	<div id="Table">
 	<table border="0" cellspacing="2"
-		style="border-collapse: collapse; padding: 5px">
+		style="border-collapse: collapse; padding: 5px; margin-top:10px">
 		<thead>
 			<tr>
 				<th>Start Date</th>

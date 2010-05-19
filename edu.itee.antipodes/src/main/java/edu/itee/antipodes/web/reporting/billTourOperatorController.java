@@ -2,12 +2,14 @@ package edu.itee.antipodes.web.reporting;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
 import org.springframework.web.bind.WebDataBinder;
@@ -17,7 +19,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import edu.itee.antipodes.domain.db.Activity;
 import edu.itee.antipodes.domain.pages.BillingTourOperators;
+import edu.itee.antipodes.domain.pages.Search;
+import edu.itee.antipodes.service.Currency;
 import edu.itee.antipodes.service.IReportingManager;
 
 @Controller
@@ -40,21 +45,28 @@ public class billTourOperatorController {
 	private IReportingManager reportingManager;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public Object redirect(Model model) {
+	public Object redirect(ModelMap model) {
 		BillingTourOperators bto = new BillingTourOperators();
-		model.addAttribute("touroperators", reportingManager.getTourOperators());
+		setData(model, bto);
 		model.addAttribute("billOperator", new BillingTourOperators());
-
 		return "billTourOperator";
+	}
+	
+	private void setData(ModelMap model, BillingTourOperators bto) {
+
+		model.addAttribute("touroperators", reportingManager.getTourOperators());
+		
+
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	public Object post(
 			@ModelAttribute("billOperator") BillingTourOperators bto,
-			BindingResult result) {
+			BindingResult result, ModelMap map) {
 
 		validator.validate(bto, result);
 		if (result.hasErrors()) {
+			setData(map, bto);
 			return "billTourOperator";
 		}
 

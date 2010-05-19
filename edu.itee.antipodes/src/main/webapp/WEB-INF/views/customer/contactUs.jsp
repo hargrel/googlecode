@@ -13,7 +13,11 @@
 </head>
 <body>
 <h2>Contact Us</h2>
-
+<p style="width: 520px; margin-bottom: 20px;">
+We appreciate you taking the time to contact us with your questions or comments. 
+If you would like to contact us by email, please complete the form below, which will 
+allow us to answer any questions in a timely and efficient manner.
+</p>
 <!-- Form name: contactUs -->
 <!-- Attribute names: name, email, telephone, subject, content -->
 
@@ -45,7 +49,7 @@
 
 	<tr>
 		<!-- Cancel or submit -->
-		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="tourInfo.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Submit" /></td></td>
+		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="search.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Submit" /></td>
 	</tr>
 	</table>
 </form:form>

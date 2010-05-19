@@ -28,7 +28,7 @@ public class forgotPasswordController {
 		
 		model.addAttribute("errorheader", "Thank you");
 		model.addAttribute("errormessage", "New password have been sent to " + email);
-		return "error";
+		return "success";
 	}
 	@Autowired
 	private ISystemAdminManager systemAdminManager;
