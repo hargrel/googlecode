@@ -118,7 +118,7 @@ public class SimpleSystemAdminManager implements ISystemAdminManager {
 	@Override
 	public void regeneratePassword(String email) throws Exception {
 		SecureRandom random = new SecureRandom();
-	    String newPassword = new BigInteger(130, random).toString(16);
+	    String newPassword = new BigInteger(130, random).toString(32);
 	    
 	    
 	    AccountUser accUser = accountUserManager.getAccountByEmail(email);

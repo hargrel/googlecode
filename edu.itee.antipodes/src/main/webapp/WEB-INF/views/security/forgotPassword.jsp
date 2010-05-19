@@ -14,6 +14,12 @@
 <form action='forgotPassword.html' method='POST'>
 
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
+	<c:if test="${!empty errorMessage}">
+	<tr>
+		<td width="100"></td>
+		<td align="left" style="color:red;font-size:8pt"><c:out value="${errorMessage}"/></td>
+	</tr>
+	</c:if>
 	<tr>
 		<td width="100"><h4>Email:</h4></td>
 		<td><input type="text" size="40" name="email" value=''/></td>

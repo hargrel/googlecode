@@ -16,12 +16,12 @@
 <table border="0" cellspacing="2" style="border-collapse:collapse; padding: 5px">
 	<tr>
 		<td width="100"><h4>Username:</h4></td>
-		<td colspan="2"><input type="text" size="40" name="j_username" value=''/></td>
+		<td colspan="2"><input type="text" size="45" name="j_username" value=''/></td>
 	</tr>
 
 	<tr>
 		<td><h4>Password:</h4></td>
-		<td colspan="2" width="250"><input type="password" size="40" name="j_password" /></td>
+		<td colspan="2" width="250"><input type="password" size="45" name="j_password" /></td>
 	</tr>
 	
 	<tr>
