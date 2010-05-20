@@ -45,6 +45,10 @@ public final class editCompanyInfoController {
 		validator.validate(operator, result);
 		if (result.hasErrors()) { return "editCompanyInfo"; }
 		operator.setOperatorID(currentUser.getCurrentUserID());
+		
+		TourOperator DBoperator = tod.getTourOperatorByID(currentUser.getCurrentUserID());
+		operator.setListedTour(DBoperator.getListedTour());
+		
 		tod.saveTourOperator(operator);
 		successMessage = "Update successful!";
 		model.addAttribute("successMessage", successMessage);
