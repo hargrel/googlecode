@@ -32,6 +32,8 @@ public class SpringApplicationContext implements ApplicationContextAware {
 	public SpringApplicationContext() {
 		System.out.println("+++ 33 ");
 	}
+	
+	private static String currencyConversion;
 
 	/**
 	 * This method is called from within the ApplicationContext once it is done
@@ -119,6 +121,19 @@ public class SpringApplicationContext implements ApplicationContextAware {
 	/* Session holder */
 	public static SessionHolder getSessionHolder() {
 		return (SessionHolder) CONTEXT.getBean("userBean");
+	}
+
+	public static String getCurrencyConversion() {
+		return currencyConversion;
+	}
+
+	public void setCurrencyConversion(String _currencyConversion) {
+		System.out.println("+++ 99 "+ _currencyConversion);
+		currencyConversion = _currencyConversion;
+	}
+	
+	public static boolean IsCurrencyConversion(){
+		return currencyConversion.equalsIgnoreCase("true");
 	}
 
 }

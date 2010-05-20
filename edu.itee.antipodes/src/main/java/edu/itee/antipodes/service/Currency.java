@@ -5,6 +5,9 @@ import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.List;
 
+import de.istec.CurrencyConverter.CurrencyConverter.CurrencyConverterSoapProxy;
+
+import NET.webserviceX.www.CurrencyConvertorLocator;
 import NET.webserviceX.www.CurrencyConvertorSoapProxy;
 import edu.itee.antipodes.utils.SpringApplicationContext;
 
@@ -33,8 +36,6 @@ public class Currency {
 		return currencyList;
 	}
 
-	private static Hashtable<String, Double> cachedRates = new Hashtable<String, Double>();
-
 	/**
 	 * Converts amount from one currency to another
 	 */
@@ -43,28 +44,43 @@ public class Currency {
 		// web service. Here, we simply return a
 		// plausible calculated value.
 
+		if (!SpringApplicationContext.IsCurrencyConversion()) {
+			String result = String.format("%(,.2f %s", amount, fromCurStr);
+			return result;
+		}
+
 		double rate = 1;
+
+		Hashtable<String, Double> cachedRates = SpringApplicationContext
+				.getSessionHolder().getCachedRates();
 
 		String toCurStr = SpringApplicationContext.getSessionHolder()
 				.getCurrency();
-
+		String resultCurrencyStr = toCurStr;
 		Double cachedRate = cachedRates.get(fromCurStr + toCurStr);
-		if (fromCurStr.equalsIgnoreCase(toCurStr)) {
+
+		if (toCurStr == null || toCurStr.equals("")) {
+			resultCurrencyStr = fromCurStr;
+		} else if (fromCurStr.equalsIgnoreCase(toCurStr)) {
 
 		} else if (cachedRate != null) {
 			rate = cachedRate;
 		} else {
+			resultCurrencyStr = fromCurStr;
 			try {
+
 				NET.webserviceX.www.Currency toCur = NET.webserviceX.www.Currency
 						.fromString(toCurStr);
 				NET.webserviceX.www.Currency fromCur = NET.webserviceX.www.Currency
 						.fromString(fromCurStr);
 				CurrencyConvertorSoapProxy ccsp = new CurrencyConvertorSoapProxy();
-
 				rate = ccsp.conversionRate(fromCur, toCur);
+
 				cachedRates.put(fromCurStr + toCurStr, rate);
+				SpringApplicationContext.getSessionHolder().setCachedRates(
+						cachedRates);
+				resultCurrencyStr = toCurStr;
 			} catch (IllegalArgumentException ex) {
-				toCurStr = fromCurStr;
 			} catch (RemoteException ex) {
 			} catch (Exception ex) {
 				System.out.println("+++ 21 " + ex.getMessage());
@@ -72,8 +88,9 @@ public class Currency {
 		}
 		amount *= rate;
 
-		String result = String.format("%(,.2f %s", amount, toCurStr);
+		String result = String.format("%(,.2f %s", amount, resultCurrencyStr);
 
 		return result;
+
 	}
 }
