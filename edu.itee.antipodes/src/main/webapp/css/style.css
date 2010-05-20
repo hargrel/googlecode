@@ -369,3 +369,28 @@ ul, li {
 	color: #333;
 	text-shadow: 0px 1px 0px white;
 }
+
+#manual a{
+	color: blue;
+}
+
+#manual h3{
+	font-size: 20px;
+}
+
+#manual h4{
+	font-size: 16px;
+}
+
+#manual p{
+	font-size: 12px;
+}
+
+#manual ul{
+	list-style: none;
+	}
+
+#manual li{
+	list-style: none;
+	margin-right:10px;
+	}

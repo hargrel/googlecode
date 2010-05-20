@@ -10,7 +10,7 @@ function initialize() {
 		map = new GMap2(document.getElementById("map_canvas"));
 		map.setMapType(G_SATELLITE_MAP);
 		var latlng = new GLatLng(document.getElementById("latitude").value, document.getElementById("longitude").value);
-		map.setCenter(latlng, 12);
+		map.setCenter(latlng, 2);
 		map.addControl(new GSmallMapControl());
 		geocoder = new GClientGeocoder();
 			GDownloadUrl('xml/routes.jsp'+url, function(data) {

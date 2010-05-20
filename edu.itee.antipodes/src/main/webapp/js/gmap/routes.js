@@ -434,7 +434,7 @@ function createMap() {
   }
 
   document.map = new GMap2(document.getElementById("map_canvas"));
-  document.map.setCenter(new GLatLng(0, 0), 12);
+  document.map.setCenter(new GLatLng(23.324, 65.039), 2);
   document.map.addControl(new GSmallMapControl());
 
   GEvent.addListener(document.map, "click", function(overlay, point) {
