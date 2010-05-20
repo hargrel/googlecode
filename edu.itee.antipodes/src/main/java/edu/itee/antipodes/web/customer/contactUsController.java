@@ -42,7 +42,7 @@ public final class contactUsController {
 
 		model.addAttribute("headermessage", "Thank you.");
 		model.addAttribute("message",
-				"Your message have been sent. Thank you for your time");
+				"Your message has been sent. Thank you for your time");
 		return "success";
 
 	}
