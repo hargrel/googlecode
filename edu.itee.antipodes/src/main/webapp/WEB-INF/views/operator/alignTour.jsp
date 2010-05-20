@@ -100,7 +100,7 @@ function confirmDelete(id)
 			</td>
 
 			<!-- Add new location to the global list -->
-			<td><a class="home" href="<c:url value="addTourLocation.html"/>">Add
+			<td><a class="home" href="<c:url value="addTourLocation.html?tourID="/><c:out value="${tour.tourID}"/>">Add
 			new location</a><br />
 			</td>
 
@@ -118,7 +118,7 @@ function confirmDelete(id)
 			</td>
 
 			<!-- Add new activity to the global list -->
-			<td><a class="home" href="<c:url value="addTourActivity.html"/>">Add
+			<td><a class="home" href="<c:url value="addTourActivity.html?tourID="/><c:out value="${tour.tourID}"/>">Add
 			new activity</a><br />
 			</td>
 		</tr>
