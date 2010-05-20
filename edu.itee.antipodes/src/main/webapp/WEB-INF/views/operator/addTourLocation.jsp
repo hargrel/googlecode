@@ -67,7 +67,7 @@
 		<tr>
 			<td colspan="2" align="right"><input type="button"
 				value="Cancel"
-				onClick="window.location.href='<c:url value="alignTour.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;
+				onClick="window.location.href='<c:url value="alignTour.html?tourID="/><c:out value="${tourID}"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;
 				
 				<input 
 				type="submit" value="Add" />
