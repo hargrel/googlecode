@@ -75,7 +75,9 @@ function confirmDelete(id)
 
 <h2>Align Tour
 <span class="success-message"><c:out value="${successMessage}" /></span></h2>
-
+<table>
+<tr>
+<td valign="top">
 <form:form commandName="alignTour" >
 	<table border="0" cellspacing="2"
 		style="border-collapse: collapse; padding: 5px">
@@ -97,30 +99,26 @@ function confirmDelete(id)
 					itemLabel="locationName" />
 			</form:select>
 			<div class="form-error-message"><form:errors path="locationID" /></div>
-			</td>
-
-			<!-- Add new location to the global list -->
-			<td><a class="home" href="<c:url value="addTourLocation.html?tourID="/><c:out value="${tour.tourID}"/>">Add
+			<a class="home" href="<c:url value="addTourLocation.html?tourID="/><c:out value="${tour.tourID}"/>">Add
 			new location</a><br />
 			</td>
+
 
 		</tr>
 
 		<tr>
 			<!-- Choose activity from drop-down list -->
-			<td>Choose activity:</td>
+			<td valign="top">Choose activity:</td>
 			<td><form:select path="activityID" id="act" multiple="multiple"
 				size="3">
 				<form:options items="${activities}" itemValue="activityID"
 					itemLabel="activityName" />
 			</form:select>
 			<div class="form-error-message"><form:errors path="activityID" /></div>
-			</td>
-
-			<!-- Add new activity to the global list -->
-			<td><a class="home" href="<c:url value="addTourActivity.html?tourID="/><c:out value="${tour.tourID}"/>">Add
+			<a class="home" href="<c:url value="addTourActivity.html?tourID="/><c:out value="${tour.tourID}"/>">Add
 			new activity</a><br />
 			</td>
+
 		</tr>
 
 		<tr>
@@ -137,7 +135,7 @@ function confirmDelete(id)
 
 		<tr>
 			<!-- Cancel or submit -->
-			<td colspan="3" align="right"><input type="button"
+			<td colspan="2" align="right"><input type="button"
 				value="Cancel"
 				onClick="window.location.href='<c:url value="TOhome.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input
 				type="submit" value="Align" /></td>
@@ -145,7 +143,8 @@ function confirmDelete(id)
 
 	</table>
 </form:form>
-
+</td>
+<td style="padding-left:5px">
 <!-- Form name: date -->
 <!-- Attribute names: tourID, startDate, finishDate -->
 <c:if test="${tour.onDemand == '0'}">
@@ -154,12 +153,9 @@ function confirmDelete(id)
 		<table border="0" cellspacing="2"
 			style="border-collapse: collapse; padding: 5px; margin-top:20px">
 			<tr>
-				<td><form:hidden path="tourID" /></td>
-			</tr>
-			<tr>
 				<!-- Insert start & finish date -->
 
-				<td>From:&nbsp;&nbsp;<form:input path="startDate"
+				<td><form:hidden path="tourID" />From:&nbsp;&nbsp;<form:input path="startDate"
 					cssErrorClass="form-error-field" id="datepicker_from" />
 				<div class="form-error-message"><form:errors path="startDate" /></div>
 				</td>
@@ -174,7 +170,7 @@ function confirmDelete(id)
 
 	<div id="Table">
 	<table border="0" cellspacing="2"
-		style="border-collapse: collapse; padding: 5px; margin-top:10px">
+		style="border-collapse: collapse; padding: 5px; margin-top:10px; width:100%">
 		<thead>
 			<tr>
 				<th>Start Date</th>
@@ -202,5 +198,8 @@ function confirmDelete(id)
 	</table>
 	</div>
 </c:if>
+</td>
+</tr>
+</table>
 </body>
 </html>
