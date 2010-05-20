@@ -1,5 +1,6 @@
 package edu.itee.antipodes.repository;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -234,7 +235,6 @@ public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterab
 	 * Object[2]= fee of the month
 	 */
 	public List<Object[]> getListedToursPerMonthByOperatorID(int operatorID, Date fromD, Date toD){
-		
 		//t->id, name
 		List<Object[]> list = new ArrayList<Object[]>();
 		String select="select m.monthYearStart, t.tourID, t.tourName, m.fee ";
@@ -256,17 +256,39 @@ public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterab
 		
 		if (list.size()==0) return null;
 		return list;
-//		return (list.size() != 0)? list:null;
 		
 		
-//		Query query= getSession().createQuery(sql);
-//		query.setParameter("operatorID",operatorID).setParameter("from", fromD).setParameter("to", toD);
-//		int i=0;
-//		 for (Iterator it= query.iterate(); it.hasNext(); i++ ) {
-//	            list.add((Object[]) it.next());
-//		 }
+		
+//		Date currentDate = new Date();
 //		
+//		//t->id, name
+//		List<Object[]> list = new ArrayList<Object[]>();
+//		String select="select m.monthYearStart, t.tourID, t.tourName, m.fee ";
+//		String from="from TourOperator as o join o.listedTour as l join l.tour as t, MonthlyFee as m ";
+//		String where="where o.operatorID=:operatorID and m.monthYearStart between :from and :to and " +
+//				"((l.listedTo is null and m.monthYearStart between (l.listedFrom-30) and :currentDate " +
+//				"and (:currentDate-l.listedFrom)>=1)) or (l.listedTo is not null and m.monthYearStart " +
+//				"between (l.listedFrom-30) and l.listedTo and (l.listedTo-l.listedFrom)>=1))  ";
+//		String sql= select+ from+ where+"order by m.monthYearStart desc";
+//		
+//		String[] params = new String[4];
+//		params[0]="operatorID";
+//		params[1]="from";
+//		params[2]="to";
+//		params[3]="currentDate";
+//		
+//		Object[] vals = new Object[4];
+//		vals[0]=operatorID;
+//		vals[1]=fromD;
+//		vals[2]=toD;
+//		vals[3]=currentDate;
+//		
+//		
+//		list = (List<Object[]>)getHibernateTemplate().findByNamedParam(sql, params, vals);
+//		
+//		if (list.size()==0) return null;
 //		return list;
+
 	}
 	
 	
