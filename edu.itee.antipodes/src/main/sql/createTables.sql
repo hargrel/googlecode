@@ -30,7 +30,7 @@ CREATE TABLE Tour (
 CREATE TABLE ListedTour (
 	list_ID NUMBER PRIMARY KEY,
 	operator_ID NUMBER references TourOperator(operator_ID),
-	tour_ID NUMBER references Tour(tour_ID),
+	tour_ID NUMBER,
 	listed_From DATE,
 	listed_To DATE
 );
