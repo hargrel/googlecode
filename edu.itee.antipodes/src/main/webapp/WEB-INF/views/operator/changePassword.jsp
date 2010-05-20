@@ -40,7 +40,7 @@
 	</tr>
 	
 	<tr>
-		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="TOhome.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Change" style="margin-right: 50px"/></td>
+		<td colspan="2" align="right"><input type="button" value="Back" onClick="window.location.href='<c:url value="TOhome.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Change" style="margin-right: 50px"/></td>
 	</tr>
 
 </table>

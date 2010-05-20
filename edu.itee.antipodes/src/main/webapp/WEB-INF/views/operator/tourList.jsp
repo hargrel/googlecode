@@ -62,7 +62,7 @@ function confirmDelete(id)
 			<tr class="gradeA">
 				<td valign="top"><c:out value="${tour.tourID}" /></td>
 				<td valign="top"><c:out value="${tour.tourName}" /></td>	
-				<td valign="top"><c:out value="${tour.tourDesc}" /></td>
+				<td valign="top"><c:out value="${tour.tourDesc}" escapeXml="false"/></td>
 				<td valign="top"><c:out value="${tour.price}" />&nbsp;<c:out value="${tour.currency}" /></td>
 				<td valign="top" class="center"><c:out value="${tour.onDemand}" /></td>
 				<td valign="top">
