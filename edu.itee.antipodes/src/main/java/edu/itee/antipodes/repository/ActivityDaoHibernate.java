@@ -23,7 +23,7 @@ public class ActivityDaoHibernate extends HibernateDaoSupport implements Activit
 		getHibernateTemplate().save(activity);
 	}
 	public void saveActivity(Activity activity) {
-		activity.setActivityName(activity.getActivityName().toUpperCase());
+		//activity.setActivityName(activity.getActivityName().toUpperCase());
 		getHibernateTemplate().saveOrUpdate(activity);	
 	}	
 
