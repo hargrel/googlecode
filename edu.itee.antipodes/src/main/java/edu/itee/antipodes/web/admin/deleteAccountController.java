@@ -25,11 +25,12 @@ public class deleteAccountController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String post(@RequestParam("userID") int userID) {
+	public String post(@RequestParam("userID") int userID, ModelMap model) {
 
 		accountManager.dropAccountByID(userID);
-		return "thanks"; //}
-		
+		List<AccountUser> accounts = accountManager.getAccounts();
+		model.addAttribute("accounts", accounts);
+		return "accountList"; 		
 	}
 
 	@Autowired
