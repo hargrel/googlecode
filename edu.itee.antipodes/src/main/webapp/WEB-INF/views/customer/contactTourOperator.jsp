@@ -45,7 +45,7 @@
 
 	<tr>
 		<!-- Cancel or submit -->
-		<td colspan="2" align="right"><input type="button" value="Cancel" onClick="window.location.href='<c:url value="tourInfo.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Submit" /></td></td>
+		<td colspan="2" align="right"><input type="button" value="Back" onClick="window.location.href='<c:url value="tourInfo.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Submit" /></td></td>
 	</tr>
 	</table>
 </form:form>

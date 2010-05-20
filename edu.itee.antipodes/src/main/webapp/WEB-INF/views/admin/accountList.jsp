@@ -78,7 +78,7 @@ function confirmDelete(id)
 		</tbody>
 	</table>
 </div>
-	<input type="button" value="Cancel" onClick="window.location.href='<c:url value="SAhome.html"/>'" style="float: right; margin-top: 20px;"/>
+	<input type="button" value="Back" onClick="window.location.href='<c:url value="SAhome.html"/>'" style="float: right; margin-top: 20px;"/>
 
 	
 </body>

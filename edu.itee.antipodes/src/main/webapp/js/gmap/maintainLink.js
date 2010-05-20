@@ -74,7 +74,7 @@ function point2address(flag) {
             document.forms['loc'].latitude.value = lat;
             document.forms['loc'].longitude.value = lng;
         }
-        map.setZoom( tabAccuracy[address.AddressDetails.Accuracy] );
+       
     });
 }
 

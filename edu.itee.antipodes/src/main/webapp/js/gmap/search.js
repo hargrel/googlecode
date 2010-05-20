@@ -15,7 +15,6 @@ function initialize() {
             var latlng = new GLatLng(parseFloat(markers[i].getAttribute("lat")),
                                     parseFloat(markers[i].getAttribute("lng")));
             var location = markers[i].getAttribute("loc");
-            alert(point);
 			var marker = createMarker(latlng,location)
           }//for
         });//GDownload
@@ -23,7 +22,6 @@ function initialize() {
 }
 
 function createMarker(point,loc) {
-		alert(point);
         var marker = new GMarker(point);
         GEvent.addListener(marker, "click", function() {
         		if (document.forms['search'].locationName.value == ""){

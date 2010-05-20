@@ -67,6 +67,7 @@
 	
 	</table>
 	</div>
+	<input type="button" value="Back" onClick="window.location.href='<c:url value="manageFee.html"/>'" style="float: right; margin-top: 20px;"/>
 	
 </body>
 </html>

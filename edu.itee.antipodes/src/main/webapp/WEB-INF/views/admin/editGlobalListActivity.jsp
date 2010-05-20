@@ -46,7 +46,7 @@
 
 		<tr>
 			<td colspan="2" align="right"><input type="button"
-				value="Cancel"
+				value="Back"
 				onClick="window.location.href='<c:url value="globalListActivity.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;
 				<input
 				type="submit" value="Edit" />
