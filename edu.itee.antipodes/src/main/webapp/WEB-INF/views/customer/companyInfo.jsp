@@ -46,7 +46,7 @@
 	<tr>
 		<!-- Email -->
 		<td valign="top"><b>Email: </b></td>
-		<td valign="top"><a style="color: blue;" href='<c:url value="contactTourOperator.html"/>'><c:out value="${listedTours[0].operator.email}" /></a></td>
+		<td valign="top"><a style="color: blue;" href='<c:url value="contactTourOperator.html?operatorID="/><c:out value="${listedTours[0].operator.operatorID}"/>'><c:out value="${listedTours[0].operator.email}" /></a></td>
 	</tr>
 	
 </table>
