@@ -115,10 +115,17 @@ public class SimpleTourOperatorManager implements ITourOperatorManager {
 
 	public void dropTourByID(int id) {
 		
+		List<ListedTour> listedTours = listedTourDao.getListedToursByTourID(id);
+		
+		if (listedTours.size()>0){
+			ListedTour listedTour = listedTours.get(0);
+			Date listedTo = new Date();
+			listedTour.setListedTo(listedTo);
+			listedTourDao.saveListedTour(listedTour);
+		}
+		
 		Tour tour = tourDao.getTourByID(id);
 		tourDao.dropTour(tour);
-		
-		// TODO: SET LISTED TOUR FINISH DATE TO NOW 
 	}
 
 	public Tour getTourByID(int id) {

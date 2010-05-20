@@ -18,4 +18,6 @@ public interface ListedTourDao {
 	
 	public void dropListedTour(ListedTour listedTour);
 
+	public List<ListedTour> getListedToursByTourID(int id);
+
 }

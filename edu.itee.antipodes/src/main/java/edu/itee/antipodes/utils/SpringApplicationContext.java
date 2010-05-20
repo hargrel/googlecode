@@ -29,6 +29,10 @@ public class SpringApplicationContext implements ApplicationContextAware {
 
 	private static ApplicationContext CONTEXT;
 
+	public SpringApplicationContext() {
+		System.out.println("+++ 33 ");
+	}
+
 	/**
 	 * This method is called from within the ApplicationContext once it is done
 	 * starting up, it will stick a reference to itself into this bean.
@@ -60,18 +64,12 @@ public class SpringApplicationContext implements ApplicationContextAware {
 	public static ApplicationContext getApplicationContext() {
 		return CONTEXT;
 	}
-	
-	
-	
-	
+
 	public static IAccountManager getAccountManager() {
 		return (IAccountManager) SpringApplicationContext
 				.getBean("accountUserManager");
 	}
-	
-	
-	
-	
+
 	/*
 	 * Manual loading of Dao beans, you shouldn't be using them, use autowired
 	 * instead
@@ -118,10 +116,9 @@ public class SpringApplicationContext implements ApplicationContextAware {
 		return (MonthlyFeeDaoHibernate) CONTEXT.getBean("monthlyFeeDao");
 	}
 
-	
 	/* Session holder */
 	public static SessionHolder getSessionHolder() {
 		return (SessionHolder) CONTEXT.getBean("userBean");
 	}
-	
+
 }
