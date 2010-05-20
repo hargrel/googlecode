@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.hibernate.HibernateException;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
@@ -70,6 +71,9 @@ public class JdbcTourDao extends SimpleJdbcDaoSupport implements TourDao {
 	public List<Tour> getTourListByOperatorID(int id) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void dropTourByID(int tourID) throws HibernateException {
 	}	
 	
 	

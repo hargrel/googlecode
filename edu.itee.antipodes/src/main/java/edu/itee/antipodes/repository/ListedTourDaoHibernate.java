@@ -24,7 +24,7 @@ public class ListedTourDaoHibernate extends HibernateDaoSupport implements Liste
 	
 	@SuppressWarnings("unchecked")
 	public List<ListedTour> getListedToursByTourID(int id) {
-		return getHibernateTemplate().find("from ListedTour as LT join LT.tour as T where T.tourID="+id);
+		return getHibernateTemplate().find("select LT from ListedTour as LT join LT.tour as T where T.tourID="+id);
 	}
 	
 	public ListedTour getListedTourByID(int id){

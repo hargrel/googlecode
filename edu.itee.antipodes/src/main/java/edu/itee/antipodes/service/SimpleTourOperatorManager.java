@@ -52,6 +52,8 @@ public class SimpleTourOperatorManager implements ITourOperatorManager {
 	private TourOperatorDao tourOperatorDao;
 	@Autowired
 	private TourDateDao tourDateDao;
+	@Autowired
+	private ImageDao imageDao;
 
 	public TourOperator getTourOperatorByID(int id) {
 		return operatorDao.getTourOperatorByID(id);
@@ -113,18 +115,24 @@ public class SimpleTourOperatorManager implements ITourOperatorManager {
 	}
 
 	public void dropTourByID(int id) {
-		
 		List<ListedTour> listedTours = listedTourDao.getListedToursByTourID(id);
-		
-		if (listedTours.size()>0){
+		if (listedTours.size() > 0) {
 			ListedTour listedTour = listedTours.get(0);
 			Date listedTo = new Date();
 			listedTour.setListedTo(listedTo);
 			listedTourDao.saveListedTour(listedTour);
 		}
-		
-		Tour tour = tourDao.getTourByID(id);
-		tourDao.dropTour(tour);
+
+		List<Image> imgList = imageDao.getImageByTourID(id);
+
+		if (imgList != null) {
+			Object[] imgA = imgList.toArray();
+			for (Object objImage : imgA) {
+				Image img = (Image) objImage;
+				imageDao.dropImage(img);
+			}
+		}
+		tourDao.dropTourByID(id);
 	}
 
 	public Tour getTourByID(int id) {
@@ -133,26 +141,26 @@ public class SimpleTourOperatorManager implements ITourOperatorManager {
 
 	public void updateTour(Tour tour) {
 		Tour dbTour = tourDao.getTourByID(tour.getTourID());
-		
+
 		tour.setActivities(dbTour.getActivities());
 		tour.setLocations(dbTour.getLocations());
-		
+
 		tourDao.saveTour(tour);
 	}
 
 	@SuppressWarnings("deprecation")
 	public void addTour(Tour tour) {
 		tourDao.addTour(tour);
-		
+
 		ListedTour listedTour = new ListedTour();
 		listedTour.setListedFrom(new Date());
 		listedTour.setTour(tour);
 		listedTour.setTourID(tour.getTourID());
 		listedTour.setOperator(tour.getOperator());
-		
-		//THIS SHOULD BE NULL IDEALLY
+
+		// THIS SHOULD BE NULL IDEALLY
 		listedTour.setListedTo(new Date(2030, 1, 1, 1, 1, 1));
-		//listedTour.setListedTo(null);
+		// listedTour.setListedTo(null);
 		listedTourDao.saveListedTour(listedTour);
 	}
 
@@ -292,7 +300,7 @@ public class SimpleTourOperatorManager implements ITourOperatorManager {
 	@Override
 	public void deleteTourDate(String dateID) {
 		int id = Integer.parseInt(dateID);
-		
+
 		TourDate tourDate = tourDateDao.getTourDateByID(id);
 		tourDateDao.dropTourDate(tourDate);
 	}

@@ -2,6 +2,8 @@ package edu.itee.antipodes.test.repository;
 
 import java.util.List;
 
+import org.hibernate.HibernateException;
+
 import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.repository.TourDao;
 
@@ -37,6 +39,9 @@ public class InMemoryTourDao implements TourDao {
 	public List<Tour> getTourListByOperatorID(int id) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void dropTourByID(int tourID) throws HibernateException {
 	}
 
 }

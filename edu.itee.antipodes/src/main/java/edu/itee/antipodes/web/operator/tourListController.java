@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.view.RedirectView;
 
 import edu.itee.antipodes.domain.db.Tour;
 import edu.itee.antipodes.repository.TourDaoHibernate;
@@ -32,13 +33,10 @@ public class tourListController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String deleteTour(@RequestParam("tourID") int tourID, Model model) {
+	public Object deleteTour(@RequestParam("tourID") int tourID, Model model) {
 		tourOperatorManager.dropTourByID(tourID);
-		TourDaoHibernate tdh = SpringApplicationContext.getTourDao();
-		tdh.dropTourByID(tourID);
-		List<Tour> tours = tourOperatorManager.getTours();
-		model.addAttribute("tours", tours);
-		return "tourList";
+
+		return new RedirectView("tourList.html");
 	}
 
 }
