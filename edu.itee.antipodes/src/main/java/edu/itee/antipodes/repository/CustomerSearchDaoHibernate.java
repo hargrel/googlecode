@@ -59,8 +59,21 @@ public class CustomerSearchDaoHibernate extends HibernateDaoSupport implements I
 			params[3] = "finishDate";
 			
 			Object[] vals = new Object[4];
-			vals[0] = activityNamesTemp.toUpperCase().split(",");
-			vals[1] = locationNamesTemp.toUpperCase().split(",");
+			
+			// Trim variables
+			String[] locations = locationNamesTemp.toUpperCase().split(",");
+			for (int i = 0; i < locations.length; i++) {
+				locations[i] = locations[i].trim();
+			}
+			
+			// Trim variables
+			String[] activities = activityNamesTemp.toUpperCase().split(",");
+			for (int i = 0; i < activities.length; i++) {
+				activities[i] = activities[i].trim();
+			}
+			
+			vals[0] = activities;
+			vals[1] = locations;
 			vals[2] = um.stringToDate(startDateTemp, pattern);
 			vals[3] = um.stringToDate(finishDateTemp, pattern);
 
