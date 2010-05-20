@@ -73,6 +73,16 @@ public class ListedTourDaoHibernate extends HibernateDaoSupport implements Liste
 		return list;
 	}
 	
+	public List<Object[]> getLocationDetailsAssociatedWithListedTour(){
+			
+		List<Object[]> list = new ArrayList<Object[]>();		
+		String sql = "select c, c.locationName, c.latitude, c.longitude "+
+			"from ListedTour as l join l.tour as t join t.locations as c ";
+		list = (List<Object[]>)getHibernateTemplate().find(sql);
+		if (list.size() == 0) return null;
+		return list;
+	}
+	
 	/*
 	 * For Google map function
 	 * @return a list of tuples in which
