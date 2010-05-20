@@ -2,7 +2,6 @@ package edu.itee.antipodes.service;
 
 import org.springframework.security.context.SecurityContextHolder;
 
-import edu.itee.antipodes.domain.SessionHolder;
 import edu.itee.antipodes.utils.SpringApplicationContext;
 
 public class CurrentUser {

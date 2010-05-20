@@ -5,9 +5,6 @@ import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.List;
 
-import de.istec.CurrencyConverter.CurrencyConverter.CurrencyConverterSoapProxy;
-
-import NET.webserviceX.www.CurrencyConvertorLocator;
 import NET.webserviceX.www.CurrencyConvertorSoapProxy;
 import edu.itee.antipodes.utils.SpringApplicationContext;
 
