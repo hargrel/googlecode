@@ -9,11 +9,9 @@ import org.springmodules.validation.bean.conf.loader.annotation.handler.Validati
 public class Search {
 	
 	
-	@Length(max = 30)
 	@RegExp(value = "[a-zA-Z ,]*")
 	private String locationName;
 	
-	@Length(max = 30)
 	@RegExp(value = "[a-zA-Z ,]*")
 	private String activityName;
 	
