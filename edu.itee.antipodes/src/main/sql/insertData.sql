@@ -40,34 +40,34 @@ INSERT INTO AccountUser VALUES (
 -- TourOperator: 10 Operator ----------------------------------------------------------------
 
 INSERT INTO TourOperator VALUES (
-	0001, 'Austravel', 'Austravel is a leading travel centre representing Australia''s major tour operators. We offer a comprehensive travel planning and reservation service for all tours.', TO_DATE('13122020', 'DDMMYYYY'), 'austravel@gmail.com'  
+	0001, 'Austravel', 'Austravel is a leading travel centre representing Australia''s major tour operators. We offer a comprehensive travel planning and reservation service for all tours.', TO_DATE('13122020', 'DDMMYYYY'), 'tay.booncheen@gmail.com'  
 );
 INSERT INTO TourOperator VALUES (
-	0002, 'Ecotrans', 'Ecotrans offers exhilarating outdoor adventures to Africa, Asia, Caribbean, Europe, Latin America, and the South Pacific. Whether it''s an eco adventure or a jungle safari, you can count on us to make your travel dreams come true.', TO_DATE('14122020', 'DDMMYYYY'), 'ecotrans@yahoo.com' 
+	0002, 'Ecotrans', 'Ecotrans offers exhilarating outdoor adventures to Africa, Asia, Caribbean, Europe, Latin America, and the South Pacific. Whether it''s an eco adventure or a jungle safari, you can count on us to make your travel dreams come true.', TO_DATE('14122020', 'DDMMYYYY'), 'tay.booncheen@gmail.com' 
 );
 INSERT INTO TourOperator VALUES (
-	0003, 'Adventours', 'Adventours is a long established specialist tour operator offering tailor-made adventure holidays to clients throughout the world.', TO_DATE('14122020', 'DDMMYYYY'), 'adventours@aol.com' 
+	0003, 'Adventours', 'Adventours is a long established specialist tour operator offering tailor-made adventure holidays to clients throughout the world.', TO_DATE('14122020', 'DDMMYYYY'), 'tay.booncheen@gmail.com' 
 );
 INSERT INTO TourOperator VALUES (
-	0004, 'Travelscene', 'Travelscene offers great service, great deals and the best prices on all types of travel products. Our product range includes eco tours, harbour cruises, & extended adventures.', TO_DATE('13122020', 'DDMMYYYY'), 'travel.scene@live.com'  
+	0004, 'Travelscene', 'Travelscene offers great service, great deals and the best prices on all types of travel products. Our product range includes eco tours, harbour cruises, & extended adventures.', TO_DATE('13122020', 'DDMMYYYY'), 'tay.booncheen@gmail.com'  
 );
 INSERT INTO TourOperator VALUES (
-	0005, 'Ecotravel', 'An eco friendly company based in Brisbane moving responsible travel to natural areas that conserve the environment and improves the well-being of local people.', TO_DATE('13122020', 'DDMMYYYY'), 'eco.travel@gmail.com'  
+	0005, 'Ecotravel', 'An eco friendly company based in Brisbane moving responsible travel to natural areas that conserve the environment and improves the well-being of local people.', TO_DATE('13122020', 'DDMMYYYY'), 'tay.booncheen@gmail.com'  
 );
 INSERT INTO TourOperator VALUES (
-	0006, 'Travelink', 'Travelink pioneers small, group adventure holidays around the world. Travelink''s responsible tourism policy is the cornerstone of the company''s approach to tour operating.', TO_DATE('14122020', 'DDMMYYYY'), 'travelink@gmail.com' 
+	0006, 'Travelink', 'Travelink pioneers small, group adventure holidays around the world. Travelink''s responsible tourism policy is the cornerstone of the company''s approach to tour operating.', TO_DATE('14122020', 'DDMMYYYY'), 'tay.booncheen@gmail.com' 
 );
 INSERT INTO TourOperator VALUES (
-	0007, 'Scenictours', 'Scenic tours is an independent travel agency selling escorted treks and tours, adventure and activity travel, safari and wildlife trips and tailor-made holidays to customers who desire impeccable and personalised service.', TO_DATE('13122020', 'DDMMYYYY'), 'scenic.tours@aol.com'  
+	0007, 'Scenictours', 'Scenic tours is an independent travel agency selling escorted treks and tours, adventure and activity travel, safari and wildlife trips and tailor-made holidays to customers who desire impeccable and personalised service.', TO_DATE('13122020', 'DDMMYYYY'), 'tay.booncheen@gmail.com'  
 );
 INSERT INTO TourOperator VALUES (
-	0008, 'Travelous', 'Travelous provides advice, information and bookings for holidays, eco trips, and package tours to anywhere in the world. We ensure customers thoroughly enjoy the style in which their pre trip experience is delivered.', TO_DATE('13122020', 'DDMMYYYY'), 'travelous@gmail.com'  
+	0008, 'Travelous', 'Travelous provides advice, information and bookings for holidays, eco trips, and package tours to anywhere in the world. We ensure customers thoroughly enjoy the style in which their pre trip experience is delivered.', TO_DATE('13122020', 'DDMMYYYY'), 'tay.booncheen@gmail.com'  
 );
 INSERT INTO TourOperator VALUES (
-	0009, 'Travelocity', 'A small, independent Travel Agency based in Chicago, United Travel offers discount holidays and travel services with financial protection to customers throughout the world.', TO_DATE('14122020', 'DDMMYYYY'), 'travelocity@aol.com' 
+	0009, 'Travelocity', 'A small, independent Travel Agency based in Chicago, United Travel offers discount holidays and travel services with financial protection to customers throughout the world.', TO_DATE('14122020', 'DDMMYYYY'), 'tay.booncheen@gmail.com' 
 );
 INSERT INTO TourOperator VALUES (
-	0010, 'Safari Link', 'Safari Link is an established safari and holiday operator dedicated to offering high quality, bespoke and innovative safaris and holidays to Africa.', TO_DATE('13122020', 'DDMMYYYY'), 'safari.link@gmail.com'  
+	0010, 'Safari Link', 'Safari Link is an established safari and holiday operator dedicated to offering high quality, bespoke and innovative safaris and holidays to Africa.', TO_DATE('13122020', 'DDMMYYYY'), 'tay.booncheen@gmail.com'  
 );
 
 
