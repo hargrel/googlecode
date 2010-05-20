@@ -30,7 +30,7 @@ public final class contactUsController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public String post(ModelMap model,
-			@ModelAttribute("contactOperator") ContactOperator contact,
+			@ModelAttribute("contactUs") ContactOperator contact,
 			BindingResult result) {
 
 		validator.validate(contact, result);
