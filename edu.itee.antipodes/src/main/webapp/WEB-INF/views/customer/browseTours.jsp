@@ -19,8 +19,6 @@
 						null,
 						null,
 						null,
-						null,
-						null,
 						{ "bSortable": false }
 						]
 				});
@@ -37,8 +35,6 @@
 		<tr>
 			<th>Tour Name</th>
 			<th>Operator Name</th>
-			<th>Start Date</th>
-			<th>Finish Date</th>
 			<th>Tour Price</th>
 			<th></th>
 		</tr>
@@ -50,14 +46,12 @@
 				<tr class="gradeA">
 					<td><c:out value="${listedTour.tour.tourName}" /></td>
 					<td><c:out value="${listedTour.operator.operatorName}" /></td>
-					<td><fmt:formatDate value="${tourDate.startDate}" pattern="d MMM yyyy"/></td>
-					<td><fmt:formatDate value="${tourDate.finishDate}" pattern="d MMM yyyy"/></td>
 					<!--  <td><c:out value="${listedTour.tour.price}" />&nbsp;<c:out value="${listedTour.tour.currency}"/></td> -->
 					
 					<!-- This is a currency sample -->
 					<td><c:out value="${cur:convert(listedTour.tour.price,listedTour.tour.currency)}" /> </td>
 					
-					<td>
+					<td class="center">
 						<form style="margin:0px; padding: 0px;" name="info_${listedTour.listID}" 
 							action="tourInfo.html?listID=${listedTour.listID}" method="post">
 							<input type="hidden" name="listID" value="${listedTour.listID}" />
