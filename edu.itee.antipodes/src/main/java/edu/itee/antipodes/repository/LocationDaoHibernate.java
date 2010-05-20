@@ -30,6 +30,7 @@ public class LocationDaoHibernate extends HibernateDaoSupport implements Locatio
 	}
 
 	public void saveLocation(Location location) {
+		location.setLocationName(location.getLocationName().toUpperCase());
 		getHibernateTemplate().saveOrUpdate(location);	
 	}		
 	public Set<Tour> getToursByLocationId(int locationID){
