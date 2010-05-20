@@ -90,231 +90,230 @@ INSERT INTO TourOperator VALUES (
 -- Tour(tour_ID, tour_Name, tour_Desc, price, total_Days, on_Demand, currency, operator_ID, points, levels)	
 	
 INSERT INTO Tour VALUES (
-	0001, 'Everest Adventure', 'Everest Base Camp conjures up visions of sheer awe and beauty, and this epic journey will not disappoint! Trek through the Himalayan foothills on the way to the base of the highest mountain in the world.',
-	1269.55, 2, 0,'USD',1, '_pqkDekhiOktDf~vAy{bAuqGxyQhtcAk~~@dvpBm_jArwg@j~Mf~vAy{cBpwnC', 'BBBBBBBB'
+	0001, 'Europe Adventure', 'Trek the Alps from France to Italy, France, UK, and Russia; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
+	1269.55, 2, 0,'USD',1, 'erknGsgm`A}jaSlg{fAiofi@|sxJx`vKm|moAel`V_op{N', 'BBBBB'
 );
 INSERT INTO Tour VALUES (
-	0002, 'Inca Discovery', 'Follow in the steps of the Incas on this trip to the "must-see" highlight of Peru - the Inca Trail to Machu Picchu! The 4-day trek from Cuzco is spectacular and the first glimpse of Machu Picchu will leave memories.',
-	1289.75, 2, 0,'USD',1, 'xrtoAb~uxLjnAbiGoy@nwDyvDtcA|l@l{B}aD|nDprAtjD', 'BBBBBBB'
+	0002, 'Asia Trekking', 'Follow in the steps of the Incas on this trip to the "must-see" highlight of Asia - from China to Thailand! This tour is spectacular and the first glimpse of Asia will leave memories.',
+	1289.75, 2, 0,'USD',1, 'qmutCovjmGvrxJqmquE_entA_pihCnofeCoihC', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0003, 'Trekking Mont Blanc', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
-	1399.35, 2, 0,'AUD',1, 'shyvGyjgi@koKpaMtfA~nD', 'BBB'
+	1399.35, 2, 0,'AUD',1, 's{tvFufl}Aqi{g@|{p_B', 'BB'
 );
 INSERT INTO Tour VALUES (
-	0004, 'Atlas Mountain Trekking', 'Love to hike? Then this 8-day active adventure in Morocco is for you! Enjoy mountain treks offering magnificent views, encounters with Berber villagers and the opportunity to explore bustling Marrakech.',
-	1679.95, 2, 0,'AUD',1, 'ej}|Dnmtm@jcThdPb{Kxl[l~D~vXqzQnuP', 'BBBBB'
+	0004, 'Himalaya Mountain Trekking', 'Love to hike? Then this 8-day active adventure in Nepal is for you! Enjoy mountain treks offering magnificent views, encounters with Berber villagers and the opportunity to explore bustling Marrakech.',
+	1679.95, 2, 0,'AUD',1, 'o}dhHcnhuOxnfi@cfvpBinwW{f~vAny_{A~pchB', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0005, 'Sicilian Volcano Trail', 'Exhilarating hiking on the edge! A week of unforgettable hikes over three active volcanoes: Vulcano; Stromboli, one of the most active volcanoes in the world; and mighty Etna, Europe highest active volcano.',
-	1899.95, 2, 0,'AUD',1, '{}xkFkn_|AcX~MoK`]wTtW', 'BBBB'
+	1899.95, 2, 0,'AUD',1, '{zqrFsrst@wibf@ftcA|on@aswg@', 'BBB'
 );
 INSERT INTO Tour VALUES (
-	0006, 'Turkey Multi Sport', 'Turkey''s rocky, mountainous coastline is perfect for the active adventurer. Hike, bike and paddle through the steep canyons, traditional villages, ancient ruins and olive groves of the southern Turkish countryside.',
-	1519.95, 2, 0,'AUD',1, 'eor~EmyvpD{^fB_^qGq`@rW', 'BBBB'
+	0006, 'Nomadic Mongolia', 'An incredible journey to the land of blue skies, green hills and nomadic people. Get out and explore the city of Ulaan Baatar and lush green countryside, which is dotted with ancient monasteries.',
+	2099.95, 2, 0,'AUD',1, 'o}dhHcnhuOi`fCgroaAdyxA}gxv@eyxAmra{@', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0007, 'Thailand Sailing Adventure', 'Island hop in Southern Thailand to some of the best snorkeling and diving locations in the world. Enjoy a week aboard a sailing catamaran, while swimming in deserted waters among turtles.',
-	1899.95, 2, 0,'AUD',1, '_wto@{nzvQgCqd@{Umb@kEia@', 'BBBB'
+	1899.95, 2, 0,'AUD',1, 'bCcmnuPmzuRwh', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0008, 'Bali Village Cycling', 'Riding in quiet villages expose the heart of bali about 17 km and set of after a tasty morning tea overlooking Batukaru, Batur and Agung Mountain.',
-	999.95, 2, 0,'EUR',1, '`bhr@o{o`U_xBg}@~OwX{uBmTu`BsV', 'BBBBB'
+	0008, 'Roam India', 'India is home to great food, fascinating culture, alluring sights and friendly and inviting people. Discover the charms and mystery that makes up this incredible country.',
+	1999.95, 2, 0,'AUD',1, '_d{jCsqzgLaqbk@ms{Z`acLyren@~n~]os{Z', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0009, 'Maldives Cruise', 'Take a relaxing voyage through many of the least developed atolls that make up the Maldives. On our traditional Dhoni we will visit isolated beaches, small towns and traditional fishing villages.',
-	1899.95, 2, 0,'EUR',1, '~ldCalq}LucAu_CmbF_mE', 'BBB'
+	0009, 'China Hike, Bike & Raft', 'From rural roads through endless rice fields in southern China to the bustling streets of Beijing, over the Great Wall of China and down the Li River, see China in a unique way!',
+	1599.95, 2, 0,'EUR',1, '_{xaFsespMm~gi@chjp@xuvNogtcAjezCufl}Acucd@ugf}@|pnL}gxv@', 'BBBBBB'
 );
 INSERT INTO Tour VALUES (
-	0010, 'Kenya Wildlife Adventure', 'Wildlife is one of the big draws of Kenya, and this trip has it all! Track down the Big 5 as you roam the savannah discovering the unique wildlife of Samburu, observe millions of flamingos at Lake Nakuru.',
-	1999.95, 2, 0,'EUR',1, 'l~fAqtl{Emc@fQkp@sHqs@bAkp@hC', 'BBBBB'
+	0010, 'Trekking Alpen', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
+	1399.35, 2, 0,'AUD',1, 's{tvFufl}Aqi{g@|{p_B', 'BB'
 );
 INSERT INTO Tour VALUES (
-	0011, 'Nigeria Expedition', 'An eco-tourism expedition to the two major sectors of the Gashaka-Gumpti National Park, Nigeria''s largest park. The expedition offers an unparalleled experience to explore the remote wilderness areas of Nigeria.',
-	2899.95, 2, 0,'AUD',1, 'k|{k@qx{fAgi]yeX{w\xeXcgCxs^i_PhvI', 'BBBBB'
+	0011, 'Europe Adventure', 'Trek the Alps from France to Italy, France, UK, and Russia; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
+	1269.55, 2, 0,'USD',1, 'erknGsgm`A}jaSlg{fAiofi@|sxJx`vKm|moAel`V_op{N', 'BBBBB'
 );
 INSERT INTO Tour VALUES (
-	0012, 'Ethiopia Explorer', 'Explore captivating Ethiopia! Experience ancient monasteries, castles, and rock-hewn churches, including the famous Saint George Church in Lalibela, which is carved out of one single rock.',
-	2699.95, 2, 0,'AUD',1, '_}ihA{mjmFgo@mEiZb^eX_Nyz@npA', 'BBBBB'
+	0012, 'Asia Trekking', 'Follow in the steps of the Incas on this trip to the "must-see" highlight of Asia - from China to Thailand! This tour is spectacular and the first glimpse of Asia will leave memories.',
+	1289.75, 2, 0,'USD',1, 'qmutCovjmGvrxJqmquE_entA_pihCnofeCoihC', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0013, 'Cycle Tasmania', 'Join a group of like-minded adventure people for an active ride through some of the hidden treasures on Tasmania''s coastlines and mountains.',
-	1099.95, 2, 0,'AUD',1, '~oegGardyZczMrqGylOxpNuyF~sH', 'BBBB'
+	0013, 'Trekking Mont Blanc', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
+	1399.35, 2, 0,'AUD',1, 's{tvFufl}Aqi{g@|{p_B', 'BB'
 );
 INSERT INTO Tour VALUES (
-	0014, 'Roam India', 'India is home to great food, fascinating culture, alluring sights and friendly and inviting people. Discover the charms and mystery that makes up this incredible country.',
-	1999.95, 2, 0,'AUD',1, 'wi{dD}wk{M~CbDfD~I|DzOtEnFvDfJ|ErD', 'BBBBBBB'
+	0014, 'Himalaya Mountain Trekking', 'Love to hike? Then this 8-day active adventure in Nepal is for you! Enjoy mountain treks offering magnificent views, encounters with Berber villagers and the opportunity to explore bustling Marrakech.',
+	1679.95, 2, 0,'AUD',1, 'o}dhHcnhuOxnfi@cfvpBinwW{f~vAny_{A~pchB', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0015, 'Borneo Rainforest Walk', 'Explore one of the 2km jungle trails and learn about some of the unique medicinal plants, tropical hardwood trees, coastal vegetation, tropical dipterocarp rainforest and the ecology of the mangrove forest.',
-	1099.95, 2, 0,'AUD',1, 'ygnPmadjTs{Dox`@iiKguf@q{Dcv_@', 'BBBB'
+	0015, 'Sicilian Volcano Trail', 'Exhilarating hiking on the edge! A week of unforgettable hikes over three active volcanoes: Vulcano; Stromboli, one of the most active volcanoes in the world; and mighty Etna, Europe highest active volcano.',
+	1899.95, 2, 0,'AUD',1, '{zqrFsrst@wibf@ftcA|on@aswg@', 'BBB'
 );
 INSERT INTO Tour VALUES (
-	0016, 'China Hike, Bike & Raft', 'From rural roads through endless rice fields in southern China to the bustling streets of Beijing, over the Great Wall of China and down the Li River, see China in a unique way!',
-	1599.95, 2, 0,'EUR',1, 'uhfvCi|paTba@udAtIi`@c_@urA', 'BBBB'
+	0016, 'Nomadic Mongolia', 'An incredible journey to the land of blue skies, green hills and nomadic people. Get out and explore the city of Ulaan Baatar and lush green countryside, which is dotted with ancient monasteries.',
+	2099.95, 2, 0,'AUD',1, 'o}dhHcnhuOi`fCgroaAdyxA}gxv@eyxAmra{@', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0017, 'Nomadic Mongolia', 'An incredible journey to the land of blue skies, green hills and nomadic people. Get out and explore the city of Ulaan Baatar and lush green countryside, which is dotted with ancient monasteries.',
-	2099.95, 2, 0,'AUD',1, 'slgfG{i|}Qg|{@fhjBtbBff}@cyaA~hR_iYria@m`d@fzcB', 'BBBBBB'
+	0017, 'Thailand Sailing Adventure', 'Island hop in Southern Thailand to some of the best snorkeling and diving locations in the world. Enjoy a week aboard a sailing catamaran, while swimming in deserted waters among turtles.',
+	1899.95, 2, 0,'AUD',1, 'bCcmnuPmzuRwh', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0018, 'Madagascar Experience', 'The fascinating island of Madagascar awaits. Escape the everyday routine on this 10-day journey encompassing natural beauty, stunning landscapes, Malgache history and culture, and of course, a wide variety of lemurs.',
-	2999.95, 2, 0,'AUD',1, 'td}aCkyp`HwfEbPynDflA}ZeuCyzE_mE', 'BBBBB'
+	0018, 'Roam India', 'India is home to great food, fascinating culture, alluring sights and friendly and inviting people. Discover the charms and mystery that makes up this incredible country.',
+	1999.95, 2, 0,'AUD',1, '_d{jCsqzgLaqbk@ms{Z`acLyren@~n~]os{Z', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0019, 'Uluru Walk', 'An absorbing exposition of Uluru''s (Ayers Rock) natural history and deep significance to the Aboriginal people. Short walks bring you close to this powerful place, view rock art, waterholes, flora and fauna of Uluru.',
-	1099.95, 2, 0,'AUD',1, 'f|wyCgkl}WgVqqRslAybHooFquEgyDpnB', 'BBBBB'
+	0019, 'China Hike, Bike & Raft', 'From rural roads through endless rice fields in southern China to the bustling streets of Beijing, over the Great Wall of China and down the Li River, see China in a unique way!',
+	1599.95, 2, 0,'EUR',1, '_{xaFsespMm~gi@chjp@xuvNogtcAjezCufl}Acucd@ugf}@|pnL}gxv@', 'BBBBBB'
 );
 INSERT INTO Tour VALUES (
-	0020, 'Japan Adventure', 'Japan is blessed with some of the most pristine scenery in Asia. With beautiful rivers, lakes and mountains, Japan really is the perfect place for a multi-sport adventure!',
-	1899.95, 2, 0,'EUR',1, 'a}k~EssjhYgPsV}Qa]i\{K', 'BBBB'
+	0020, 'Trekking Alpen', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
+	1399.35, 2, 0,'AUD',1, 's{tvFufl}Aqi{g@|{p_B', 'BB'
 );
 INSERT INTO Tour VALUES (
-	0021, 'Nigeria Adventure', 'An eco-tourism expedition to the two major sectors of the Gashaka-Gumpti National Park, Nigeria''s largest park. The expedition offers an unparalleled experience to explore the remote wilderness areas of Nigeria.',
-	2599.95, 2, 0,'AUD',1, 'k|{k@qx{fAgi]yeX{wDDDS1', 'BBBBBBBB'
+	0021, 'Europe Adventure', 'Trek the Alps from France to Italy, France, UK, and Russia; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
+	1269.55, 2, 0,'USD',1, 'erknGsgm`A}jaSlg{fAiofi@|sxJx`vKm|moAel`V_op{N', 'BBBBB'
 );
 INSERT INTO Tour VALUES (
-	0022, 'Ethiopia Advanture', 'Explore captivating Ethiopia! Experience ancient monasteries, castles, and rock-hewn churches, including the famous Saint George Church in Lalibela, which is carved out of one single rock.',
-	2199.95, 2, 0,'AUD',1, '_}ihA{mjmFgo@mEiZb^eXdsfs_Nyz@npA', 'BBBBBBB'
+	0022, 'Asia Trekking', 'Follow in the steps of the Incas on this trip to the "must-see" highlight of Asia - from China to Thailand! This tour is spectacular and the first glimpse of Asia will leave memories.',
+	1289.75, 2, 0,'USD',1, 'qmutCovjmGvrxJqmquE_entA_pihCnofeCoihC', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0023, 'Cycle Tasmania', 'Join a group of like-minded adventure people for an active ride through some of the hidden treasures on Tasmania''s coastlines and mountains.',
-	1099.95,2, 0,'AUD',1, '~oegGardyZczMrqGylOxpNuyF~sH', 'BBBB'
+	0023, 'Trekking Mont Blanc', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
+	1399.35, 2, 0,'AUD',1, 's{tvFufl}Aqi{g@|{p_B', 'BB'
 );
 INSERT INTO Tour VALUES (
-	0024, 'Roam India', 'India is home to great food, fascinating culture, alluring sights and friendly and inviting people. Discover the charms and mystery that makes up this incredible country.',
-	1999.95, 2, 0,'AUD',1, 'wi{dD}wk{M~CbDfD~I|DzOtEnFvDfJ|ErD', 'BBBBBBB'
+	0024, 'Himalaya Mountain Trekking', 'Love to hike? Then this 8-day active adventure in Nepal is for you! Enjoy mountain treks offering magnificent views, encounters with Berber villagers and the opportunity to explore bustling Marrakech.',
+	1679.95, 2, 0,'AUD',1, 'o}dhHcnhuOxnfi@cfvpBinwW{f~vAny_{A~pchB', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0025, 'Borneo Rainforest Walk', 'Explore one of the 2km jungle trails and learn about some of the unique medicinal plants, tropical hardwood trees, coastal vegetation, tropical dipterocarp rainforest and the ecology of the mangrove forest.',
-	1099.95, 2, 0,'AUD',1, 'ygnPmadjTs{Dox`@iiKguf@q{Dcv_@', 'BBBB'
+	0025, 'Sicilian Volcano Trail', 'Exhilarating hiking on the edge! A week of unforgettable hikes over three active volcanoes: Vulcano; Stromboli, one of the most active volcanoes in the world; and mighty Etna, Europe highest active volcano.',
+	1899.95, 2, 0,'AUD',1, '{zqrFsrst@wibf@ftcA|on@aswg@', 'BBB'
 );
 INSERT INTO Tour VALUES (
-	0026, 'China Advanture, Bike & Raft', 'From rural roads through endless rice fields in southern China to the bustling streets of Beijing, over the Great Wall of China and down the Li River, see China in a unique way!',
-	1599.95, 2, 0,'EUR',1, 'uhfvCi|paTba@udAtIi`@c_@urA', 'BBBB'
+	0026, 'Nomadic Mongolia', 'An incredible journey to the land of blue skies, green hills and nomadic people. Get out and explore the city of Ulaan Baatar and lush green countryside, which is dotted with ancient monasteries.',
+	2099.95, 2, 0,'AUD',1, 'o}dhHcnhuOi`fCgroaAdyxA}gxv@eyxAmra{@', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0027, 'Nomadic Mongolia', 'An incredible journey to the land of blue skies, green hills and nomadic people. Get out and explore the city of Ulaan Baatar and lush green countryside, which is dotted with ancient monasteries.',
-	2099.95, 2, 0,'AUD',1, 'slgfG}Qg|{@fhjBtbBff}@cyaA~hR_iYria@m`d@fzcB', 'BBBBBB'
+	0027, 'Thailand Sailing Adventure', 'Island hop in Southern Thailand to some of the best snorkeling and diving locations in the world. Enjoy a week aboard a sailing catamaran, while swimming in deserted waters among turtles.',
+	1899.95, 2, 0,'AUD',1, 'bCcmnuPmzuRwh', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0028, 'Madagascar Adventure', 'The fascinating island of Madagascar awaits. Escape the everyday routine on this 10-day journey encompassing natural beauty, stunning landscapes, Malgache history and culture, and of course, a wide variety of lemurs.',
-	2999.95, 2, 0,'AUD',1, 'td}aCkyp`HwfEbPynDflA}ZeuCyzE_mE', 'BBBBB'
+	0028, 'Roam India', 'India is home to great food, fascinating culture, alluring sights and friendly and inviting people. Discover the charms and mystery that makes up this incredible country.',
+	1999.95, 2, 0,'AUD',1, '_d{jCsqzgLaqbk@ms{Z`acLyren@~n~]os{Z', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0029, 'Uluru Adventure', 'An absorbing exposition of Uluru''s (Ayers Rock) natural history and deep significance to the Aboriginal people. Short walks bring you close to this powerful place, view rock art, waterholes, flora and fauna of Uluru.',
-	1099.95, 2, 0,'AUD',1, 'f|wyCgklqRslAybHfdsfdsooFquEgyDpnB', 'BBBBB'
+	0029, 'China Hike, Bike & Raft', 'From rural roads through endless rice fields in southern China to the bustling streets of Beijing, over the Great Wall of China and down the Li River, see China in a unique way!',
+	1599.95, 2, 0,'EUR',1, '_{xaFsespMm~gi@chjp@xuvNogtcAjezCufl}Acucd@ugf}@|pnL}gxv@', 'BBBBBB'
 );
 INSERT INTO Tour VALUES (
-	0030, 'Japan Adventure', 'Japan is blessed with some of the most pristine scenery in Asia. With beautiful rivers, lakes and mountains, Japan really is the perfect place for a multi-sport adventure!',
-	1899.95, 2, 0,'EUR',1, 'a}k~EssjhYgPsV}Qaewrew]i\{K', 'BBBB'
+	0030, 'Trekking Alpen', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
+	1399.35, 2, 0,'AUD',1, 's{tvFufl}Aqi{g@|{p_B', 'BB'
 );
 INSERT INTO Tour VALUES (
-	0031, 'Everest Adventure', 'Everest Base Camp conjures up visions of sheer awe and beauty, and this epic journey will not disappoint! Trek through the Himalayan foothills on the way to the base of the highest mountain in the world.',
-	1269.55, 2, 0,'USD',2, '_pqkDekhiOktDf~vAy{bAuqGxyQhtcAk~~@dvpBm_jArwg@j~Mf~vAy{cBpwnC', 'BBBBBBBB'
+	0031, 'Europe Adventure', 'Trek the Alps from France to Italy, France, UK, and Russia; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
+	1269.55, 2, 0,'USD',1, 'erknGsgm`A}jaSlg{fAiofi@|sxJx`vKm|moAel`V_op{N', 'BBBBB'
 );
 INSERT INTO Tour VALUES (
-	0032, 'Inca Discovery', 'Follow in the steps of the Incas on this trip to the "must-see" highlight of Peru - the Inca Trail to Machu Picchu! The 4-day trek from Cuzco is spectacular and the first glimpse of Machu Picchu will leave memories.',
-	1289.75, 2, 0,'USD',2, 'xrtoAb~uxLjnAbiGoy@nwDyvDtcA|l@l{B}aD|nDprAtjD', 'BBBBBBB'
+	0032, 'Asia Trekking', 'Follow in the steps of the Incas on this trip to the "must-see" highlight of Asia - from China to Thailand! This tour is spectacular and the first glimpse of Asia will leave memories.',
+	1289.75, 2, 0,'USD',1, 'qmutCovjmGvrxJqmquE_entA_pihCnofeCoihC', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0033, 'Trekking Mont Blanc', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
-	1399.35, 2, 0,'AUD',2, 'shyvGyjgi@koKpaMtfA~nD', 'BBB'
+	1399.35, 2, 0,'AUD',1, 's{tvFufl}Aqi{g@|{p_B', 'BB'
 );
 INSERT INTO Tour VALUES (
-	0034, 'Atlas Mountain Trekking', 'Love to hike? Then this 8-day active adventure in Morocco is for you! Enjoy mountain treks offering magnificent views, encounters with Berber villagers and the opportunity to explore bustling Marrakech.',
-	1679.95, 2, 0,'AUD',2, 'ej}|Dnmtm@jcThdPb{Kxl[l~D~vXqzQnuP', 'BBBBB'
+	0034, 'Himalaya Mountain Trekking', 'Love to hike? Then this 8-day active adventure in Nepal is for you! Enjoy mountain treks offering magnificent views, encounters with Berber villagers and the opportunity to explore bustling Marrakech.',
+	1679.95, 2, 0,'AUD',1, 'o}dhHcnhuOxnfi@cfvpBinwW{f~vAny_{A~pchB', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0035, 'Sicilian Volcano Trail', 'Exhilarating hiking on the edge! A week of unforgettable hikes over three active volcanoes: Vulcano; Stromboli, one of the most active volcanoes in the world; and mighty Etna, Europe highest active volcano.',
-	1899.95, 2, 0,'AUD',2, '{}xkFkn_|AcX~MoK`]wTtW', 'BBBB'
+	1899.95, 2, 0,'AUD',1, '{zqrFsrst@wibf@ftcA|on@aswg@', 'BBB'
 );
 INSERT INTO Tour VALUES (
-	0036, 'Turkey Multi Sport', 'Turkey''s rocky, mountainous coastline is perfect for the active adventurer. Hike, bike and paddle through the steep canyons, traditional villages, ancient ruins and olive groves of the southern Turkish countryside.',
-	1519.95, 2, 0,'AUD',3, 'eor~EmyvpD{^fB_^qGq`@rW', 'BBBB'
+	0036, 'Nomadic Mongolia', 'An incredible journey to the land of blue skies, green hills and nomadic people. Get out and explore the city of Ulaan Baatar and lush green countryside, which is dotted with ancient monasteries.',
+	2099.95, 2, 0,'AUD',1, 'o}dhHcnhuOi`fCgroaAdyxA}gxv@eyxAmra{@', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0037, 'Thailand Sailing Adventure', 'Island hop in Southern Thailand to some of the best snorkeling and diving locations in the world. Enjoy a week aboard a sailing catamaran, while swimming in deserted waters among turtles.',
-	1899.95, 2, 0,'AUD',3, '_wto@{nzvQgCqd@{Umb@kEia@', 'BBBB'
+	1899.95, 2, 0,'AUD',1, 'bCcmnuPmzuRwh', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0038, 'Bali Village Cycling', 'Riding in quiet villages expose the heart of bali about 17 km and set of after a tasty morning tea overlooking Batukaru, Batur and Agung Mountain.',
-	999.95, 2, 0,'EUR',3, '`bhr@o{o`U_xBg}@~OwX{uBmTu`BsV', 'BBBBB'
+	0038, 'Roam India', 'India is home to great food, fascinating culture, alluring sights and friendly and inviting people. Discover the charms and mystery that makes up this incredible country.',
+	1999.95, 2, 0,'AUD',1, '_d{jCsqzgLaqbk@ms{Z`acLyren@~n~]os{Z', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0039, 'Maldives Cruise', 'Take a relaxing voyage through many of the least developed atolls that make up the Maldives. On our traditional Dhoni we will visit isolated beaches, small towns and traditional fishing villages.',
-	1899.95, 2, 0,'EUR',3, '~ldCalq}LucAu_CmbF_mE', 'BBB'
+	0039, 'China Hike, Bike & Raft', 'From rural roads through endless rice fields in southern China to the bustling streets of Beijing, over the Great Wall of China and down the Li River, see China in a unique way!',
+	1599.95, 2, 0,'EUR',1, '_{xaFsespMm~gi@chjp@xuvNogtcAjezCufl}Acucd@ugf}@|pnL}gxv@', 'BBBBBB'
 );
 INSERT INTO Tour VALUES (
-	0040, 'Kenya Wildlife Adventure', 'Wildlife is one of the big draws of Kenya, and this trip has it all! Track down the Big 5 as you roam the savannah discovering the unique wildlife of Samburu, observe millions of flamingos at Lake Nakuru.',
-	1999.95, 2, 0,'EUR',3, 'l~fAqtl{Emc@fQkp@sHqs@bAkp@hC', 'BBBBB'
+	0040, 'Trekking Alpen', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
+	1399.35, 2, 0,'AUD',1, 's{tvFufl}Aqi{g@|{p_B', 'BB'
 );
 INSERT INTO Tour VALUES (
-	0041, 'Nigeria Expedition', 'An eco-tourism expedition to the two major sectors of the Gashaka-Gumpti National Park, Nigeria''s largest park. The expedition offers an unparalleled experience to explore the remote wilderness areas of Nigeria.',
-	2899.95, 2, 0,'AUD',4, 'k|{k@qx{fAgi]yeX{w\xeXcgCxs^i_PhvI', 'BBBBB'
+	0041, 'Europe Adventure', 'Trek the Alps from France to Italy, France, UK, and Russia; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
+	1269.55, 2, 0,'USD',1, 'erknGsgm`A}jaSlg{fAiofi@|sxJx`vKm|moAel`V_op{N', 'BBBBB'
 );
 INSERT INTO Tour VALUES (
-	0042, 'Ethiopia Explorer', 'Explore captivating Ethiopia! Experience ancient monasteries, castles, and rock-hewn churches, including the famous Saint George Church in Lalibela, which is carved out of one single rock.',
-	2699.95, 2, 0,'AUD',4, '_}ihA{mjmFgo@mEiZb^eX_Nyz@npA', 'BBBBB'
+	0042, 'Asia Trekking', 'Follow in the steps of the Incas on this trip to the "must-see" highlight of Asia - from China to Thailand! This tour is spectacular and the first glimpse of Asia will leave memories.',
+	1289.75, 2, 0,'USD',1, 'qmutCovjmGvrxJqmquE_entA_pihCnofeCoihC', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0043, 'Cycle Tasmania', 'Join a group of like-minded adventure people for an active ride through some of the hidden treasures on Tasmania''s coastlines and mountains.',
-	1099.95, 2, 0,'AUD',4, '~oegGardyZczMrqGylOxpNuyF~sH', 'BBBB'
+	0043, 'Trekking Mont Blanc', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
+	1399.35, 2, 0,'AUD',1, 's{tvFufl}Aqi{g@|{p_B', 'BB'
 );
 INSERT INTO Tour VALUES (
-	0044, 'Roam India', 'India is home to great food, fascinating culture, alluring sights and friendly and inviting people. Discover the charms and mystery that makes up this incredible country.',
-	1999.95, 2, 0,'AUD',4, 'wi{dD}wk{M~CbDfD~I|DzOtEnFvDfJ|ErD', 'BBBBBBB'
+	0044, 'Himalaya Mountain Trekking', 'Love to hike? Then this 8-day active adventure in Nepal is for you! Enjoy mountain treks offering magnificent views, encounters with Berber villagers and the opportunity to explore bustling Marrakech.',
+	1679.95, 2, 0,'AUD',1, 'o}dhHcnhuOxnfi@cfvpBinwW{f~vAny_{A~pchB', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0045, 'Borneo Rainforest Walk', 'Explore one of the 2km jungle trails and learn about some of the unique medicinal plants, tropical hardwood trees, coastal vegetation, tropical dipterocarp rainforest and the ecology of the mangrove forest.',
-	1099.95, 2, 0,'AUD',4, 'ygnPmadjTs{Dox`@iiKguf@q{Dcv_@', 'BBBB'
+	0045, 'Sicilian Volcano Trail', 'Exhilarating hiking on the edge! A week of unforgettable hikes over three active volcanoes: Vulcano; Stromboli, one of the most active volcanoes in the world; and mighty Etna, Europe highest active volcano.',
+	1899.95, 2, 0,'AUD',1, '{zqrFsrst@wibf@ftcA|on@aswg@', 'BBB'
 );
 INSERT INTO Tour VALUES (
-	0046, 'China Hike, Bike & Raft', 'From rural roads through endless rice fields in southern China to the bustling streets of Beijing, over the Great Wall of China and down the Li River, see China in a unique way!',
-	1599.95, 2, 0,'EUR',5, 'uhfvCi|paTba@udAtIi`@c_@urA', 'BBBB'
+	0046, 'Nomadic Mongolia', 'An incredible journey to the land of blue skies, green hills and nomadic people. Get out and explore the city of Ulaan Baatar and lush green countryside, which is dotted with ancient monasteries.',
+	2099.95, 2, 0,'AUD',1, 'o}dhHcnhuOi`fCgroaAdyxA}gxv@eyxAmra{@', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0047, 'Nomadic Mongolia', 'An incredible journey to the land of blue skies, green hills and nomadic people. Get out and explore the city of Ulaan Baatar and lush green countryside, which is dotted with ancient monasteries.',
-	2099.95, 2, 0,'AUD',5, 'slgfG{i|}Qg|{@fhjBtbBff}@cyaA~hR_iYria@m`d@fzcB', 'BBBBBB'
+	0047, 'Thailand Sailing Adventure', 'Island hop in Southern Thailand to some of the best snorkeling and diving locations in the world. Enjoy a week aboard a sailing catamaran, while swimming in deserted waters among turtles.',
+	1899.95, 2, 0,'AUD',1, 'bCcmnuPmzuRwh', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0048, 'Madagascar Experience', 'The fascinating island of Madagascar awaits. Escape the everyday routine on this 10-day journey encompassing natural beauty, stunning landscapes, Malgache history and culture, and of course, a wide variety of lemurs.',
-	2999.95, 2, 0,'AUD',5, 'td}aCkyp`HwfEbPynDflA}ZeuCyzE_mE', 'BBBBB'
+	0048, 'Roam India', 'India is home to great food, fascinating culture, alluring sights and friendly and inviting people. Discover the charms and mystery that makes up this incredible country.',
+	1999.95, 2, 0,'AUD',1, '_d{jCsqzgLaqbk@ms{Z`acLyren@~n~]os{Z', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0049, 'Uluru Walk', 'An absorbing exposition of Uluru''s (Ayers Rock) natural history and deep significance to the Aboriginal people. Short walks bring you close to this powerful place, view rock art, waterholes, flora and fauna of Uluru.',
-	1099.95, 2, 0,'AUD',5, 'f|wyCgkl}WgVqqRslAybHooFquEgyDpnB', 'BBBBB'
+	0049, 'China Hike, Bike & Raft', 'From rural roads through endless rice fields in southern China to the bustling streets of Beijing, over the Great Wall of China and down the Li River, see China in a unique way!',
+	1599.95, 2, 0,'EUR',1, '_{xaFsespMm~gi@chjp@xuvNogtcAjezCufl}Acucd@ugf}@|pnL}gxv@', 'BBBBBB'
 );
 INSERT INTO Tour VALUES (
-	0050, 'Japan Adventure', 'Japan is blessed with some of the most pristine scenery in Asia. With beautiful rivers, lakes and mountains, Japan really is the perfect place for a multi-sport adventure!',
-	1899.95, 2, 0,'EUR',5, 'a}k~EssjhYgPsV}Qa]i\{K', 'BBBB'
+	0050, 'Trekking Alpen', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
+	1399.35, 2, 0,'AUD',1, 's{tvFufl}Aqi{g@|{p_B', 'BB'
 );
-
 -- Tour 51 is NOT on demand (i.e. on_Demand = 0), it has MULTIPLE start date, finish date
 
 INSERT INTO Tour VALUES (
-	0051, 'Nigeria Adventure', 'An eco-tourism expedition to the two major sectors of the Gashaka-Gumpti National Park, Nigeria''s largest park. The expedition offers an unparalleled experience to explore the remote wilderness areas of Nigeria.',
-	2599.95, 2, 0,'AUD',6, 'k|{k@qx{fAgi]yeX{wDDDS1', 'BBBBBBBB'
+	0051, 'China Hike, Bike & Raft', 'From rural roads through endless rice fields in southern China to the bustling streets of Beijing, over the Great Wall of China and down the Li River, see China in a unique way!',
+	1599.95, 2, 0,'EUR',1, '_{xaFsespMm~gi@chjp@xuvNogtcAjezCufl}Acucd@ugf}@|pnL}gxv@', 'BBBBBB'
 );
 
 -- On demand tours 52,53,54,55 (i.e. on_Demand = 1 hence NO tourDate)
 -- Tour(tour_ID, tour_Name, tour_Desc, price, total_Days, on_Demand, currency, operator_ID, points, levels)
 
 INSERT INTO Tour VALUES (
-	0052, 'Ethiopia Advanture', 'Explore captivating Ethiopia! Experience ancient monasteries, castles, and rock-hewn churches, including the famous Saint George Church in Lalibela, which is carved out of one single rock.',
-	2199.95, 1, 1,'AUD',7, '_}ihA{mjmFgo@mEiZb^eXdsfs_Nyz@npA', 'BBBBBBB'
+	0052, 'Europe Adventure', 'Trek the Alps from France to Italy, France, UK, and Russia; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
+	1269.55, 2, 0,'USD',1, 'erknGsgm`A}jaSlg{fAiofi@|sxJx`vKm|moAel`V_op{N', 'BBBBB'
 );
 INSERT INTO Tour VALUES (
-	0053, 'Cycle Tasmania', 'Join a group of like-minded adventure people for an active ride through some of the hidden treasures on Tasmania''s coastlines and mountains.',
-	1099.95,1, 1,'AUD',8, '~oegGardyZczMrqGylOxpNuyF~sH', 'BBBB'
+	0053, 'Asia Trekking', 'Follow in the steps of the Incas on this trip to the "must-see" highlight of Asia - from China to Thailand! This tour is spectacular and the first glimpse of Asia will leave memories.',
+	1289.75, 2, 0,'USD',1, 'qmutCovjmGvrxJqmquE_entA_pihCnofeCoihC', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0054, 'Roam India', 'India is home to great food, fascinating culture, alluring sights and friendly and inviting people. Discover the charms and mystery that makes up this incredible country.',
-	1999.95, 1, 1,'AUD',9, 'wi{dD}wk{M~CbDfD~I|DzOtEnFvDfJ|ErD', 'BBBBBBB'
+	0054, 'Trekking Mont Blanc', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
+	1399.35, 2, 0,'AUD',1, 's{tvFufl}Aqi{g@|{p_B', 'BB'
 );
 INSERT INTO Tour VALUES (
-	0055, 'Borneo Rainforest Walk', 'Explore one of the 2km jungle trails and learn about some of the unique medicinal plants, tropical hardwood trees, coastal vegetation, tropical dipterocarp rainforest and the ecology of the mangrove forest.',
-	1099.95, 1, 1,'AUD',10, 'ygnPmadjTs{Dox`@iiKguf@q{Dcv_@', 'BBBB'
+	0055, 'Himalaya Mountain Trekking', 'Love to hike? Then this 8-day active adventure in Nepal is for you! Enjoy mountain treks offering magnificent views, encounters with Berber villagers and the opportunity to explore bustling Marrakech.',
+	1679.95, 2, 0,'AUD',1, 'o}dhHcnhuOxnfi@cfvpBinwW{f~vAny_{A~pchB', 'BBBB'
 );
 
 
@@ -599,22 +598,54 @@ INSERT INTO TourActivity VALUES (0004, 0055);
 
 -- Location -----------------------------------------------------------------------
 
--- Location 'TASMANIA' linked to Tour 1-50
--- Multiple locations 'FRANCE','ITALY','TURKEY' linked to Tour 51-55 
+-- Location 'UK' linked to Tour 1,11,21,31,41
+-- Location 'SAUDI ARABIA' linked to Tour 2,12,22,32,42
+-- Location 'FRANCE' linked to Tour 3,13,23,33,43
+-- Location 'NEPAL' linked to Tour 4,14,24,34,44
+-- Location 'ITALY' linked to Tour 5,15,25,35,45
+-- Location 'CHINA' linked to Tour 6,16,26,36,46
+-- Location 'THAILAND' linked to Tour 7,17,27,37,47
+-- Location 'INDIA' linked to Tour 8,18,28,38,48
+-- Location 'CHINA' linked to Tour 9,19,29,39,49
+-- Location 'ITALY' linked to Tour 10,20,30,40,50
+
+-- Multiple locations 'NEPAL','CHINA' linked to Tour 51
+-- Multiple locations 'UK','ITALY','FRANCE','DENMARK','RUSSIA' linked to Tour 52
+-- Multiple locations 'SAUDI ARABIA','INDIA','CHINA','THAILAND' linked to Tour 53
+-- Multiple locations 'ITALY','FRANCE' linked to Tour 54
+-- Multiple locations 'NEPAL','CHINA' linked to Tour 55
 
 -- Location(location_ID, location_Name, lati, longi)
 
 INSERT INTO Location VALUES (
-	0001, 'TASMANIA', -43.30119623257964, 145.83526611328125
+	0001, 'UNITED KINGDOM', 55.378051, -3.435973
 );
 INSERT INTO Location VALUES (
-	0002, 'FRANCE', 45.84602106744843, 6.92413330078125
+	0002, 'FRANCE', 46.227638, 2.213749
 );
 INSERT INTO Location VALUES (
-	0003, 'ITALY', 38.7991826637395, 15.239582061767578
+	0003, 'ITALY', 41.87194, 12.56738
 );
 INSERT INTO Location VALUES (
-	0004, 'TURKEY', 36.63619261281252, 29.121665954589844
+	0004, 'DENMARK', 56.26392, 9.501785
+);
+INSERT INTO Location VALUES (
+	0005, 'RUSSIA', 50.51342652633956, 88.06640625
+);
+INSERT INTO Location VALUES (
+	0006, 'SAUDI ARABIA', 23.885942, 45.079162
+);
+INSERT INTO Location VALUES (
+	0007, 'INDIA', 20.593684, 78.96288
+);
+INSERT INTO Location VALUES (
+	0008, 'CHINA', 35.86166, 104.195397
+);
+INSERT INTO Location VALUES (
+	0009, 'THAILAND', 15.870032, 100.992541
+);
+INSERT INTO Location VALUES (
+	0010, 'NEPAL', 28.394857, 84.124008
 );
 
 
@@ -622,78 +653,96 @@ INSERT INTO Location VALUES (
 
 -- TourLocation -----------------------------------------------------------------------
 
--- Location 'TASMANIA' linked to Tour 1-50
--- Multiple locations 'FRANCE','ITALY','TURKEY' linked to Tour 51-55 
+-- Location 'UK' linked to Tour 1,11,21,31,41
+-- Location 'SAUDI ARABIA' linked to Tour 2,12,22,32,42
+-- Location 'FRANCE' linked to Tour 3,13,23,33,43
+-- Location 'NEPAL' linked to Tour 4,14,24,34,44
+-- Location 'ITALY' linked to Tour 5,15,25,35,45
+-- Location 'CHINA' linked to Tour 6,16,26,36,46
+-- Location 'THAILAND' linked to Tour 7,17,27,37,47
+-- Location 'INDIA' linked to Tour 8,18,28,38,48
+-- Location 'CHINA' linked to Tour 9,19,29,39,49
+-- Location 'ITALY' linked to Tour 10,20,30,40,50
+
+-- Multiple locations 'NEPAL','CHINA' linked to Tour 51
+-- Multiple locations 'UK','ITALY','FRANCE','DENMARK','RUSSIA' linked to Tour 52
+-- Multiple locations 'SAUDI ARABIA','INDIA','CHINA','THAILAND' linked to Tour 53
+-- Multiple locations 'ITALY','FRANCE' linked to Tour 54
+-- Multiple locations 'NEPAL','CHINA' linked to Tour 55
 
 -- TourLocation(location_ID, tour_ID)
 
 INSERT INTO TourLocation VALUES (0001, 0001);
-INSERT INTO TourLocation VALUES (0001, 0002);
-INSERT INTO TourLocation VALUES (0001, 0003);
-INSERT INTO TourLocation VALUES (0001, 0004);
-INSERT INTO TourLocation VALUES (0001, 0005);
-INSERT INTO TourLocation VALUES (0001, 0006);
-INSERT INTO TourLocation VALUES (0001, 0007);
-INSERT INTO TourLocation VALUES (0001, 0008);
-INSERT INTO TourLocation VALUES (0001, 0009);
-INSERT INTO TourLocation VALUES (0001, 0010);
+INSERT INTO TourLocation VALUES (0006, 0002);
+INSERT INTO TourLocation VALUES (0002, 0003);
+INSERT INTO TourLocation VALUES (0010, 0004);
+INSERT INTO TourLocation VALUES (0003, 0005);
+INSERT INTO TourLocation VALUES (0008, 0006);
+INSERT INTO TourLocation VALUES (0009, 0007);
+INSERT INTO TourLocation VALUES (0007, 0008);
+INSERT INTO TourLocation VALUES (0008, 0009);
+INSERT INTO TourLocation VALUES (0003, 0010);
+
 INSERT INTO TourLocation VALUES (0001, 0011);
-INSERT INTO TourLocation VALUES (0001, 0012);
-INSERT INTO TourLocation VALUES (0001, 0013);
-INSERT INTO TourLocation VALUES (0001, 0014);
-INSERT INTO TourLocation VALUES (0001, 0015);
-INSERT INTO TourLocation VALUES (0001, 0016);
-INSERT INTO TourLocation VALUES (0001, 0017);
-INSERT INTO TourLocation VALUES (0001, 0018);
-INSERT INTO TourLocation VALUES (0001, 0019);
-INSERT INTO TourLocation VALUES (0001, 0020);
+INSERT INTO TourLocation VALUES (0006, 0012);
+INSERT INTO TourLocation VALUES (0002, 0013);
+INSERT INTO TourLocation VALUES (0010, 0014);
+INSERT INTO TourLocation VALUES (0003, 0015);
+INSERT INTO TourLocation VALUES (0008, 0016);
+INSERT INTO TourLocation VALUES (0009, 0017);
+INSERT INTO TourLocation VALUES (0007, 0018);
+INSERT INTO TourLocation VALUES (0008, 0019);
+INSERT INTO TourLocation VALUES (0003, 0020);
+
 INSERT INTO TourLocation VALUES (0001, 0021);
-INSERT INTO TourLocation VALUES (0001, 0022);
-INSERT INTO TourLocation VALUES (0001, 0023);
-INSERT INTO TourLocation VALUES (0001, 0024);
-INSERT INTO TourLocation VALUES (0001, 0025);
-INSERT INTO TourLocation VALUES (0001, 0026);
-INSERT INTO TourLocation VALUES (0001, 0027);
-INSERT INTO TourLocation VALUES (0001, 0028);
-INSERT INTO TourLocation VALUES (0001, 0029);
-INSERT INTO TourLocation VALUES (0001, 0030);
+INSERT INTO TourLocation VALUES (0006, 0022);
+INSERT INTO TourLocation VALUES (0002, 0023);
+INSERT INTO TourLocation VALUES (0010, 0024);
+INSERT INTO TourLocation VALUES (0003, 0025);
+INSERT INTO TourLocation VALUES (0008, 0026);
+INSERT INTO TourLocation VALUES (0009, 0027);
+INSERT INTO TourLocation VALUES (0007, 0028);
+INSERT INTO TourLocation VALUES (0008, 0029);
+INSERT INTO TourLocation VALUES (0003, 0030);
+
 INSERT INTO TourLocation VALUES (0001, 0031);
-INSERT INTO TourLocation VALUES (0001, 0032);
-INSERT INTO TourLocation VALUES (0001, 0033);
-INSERT INTO TourLocation VALUES (0001, 0034);
-INSERT INTO TourLocation VALUES (0001, 0035);
-INSERT INTO TourLocation VALUES (0001, 0036);
-INSERT INTO TourLocation VALUES (0001, 0037);
-INSERT INTO TourLocation VALUES (0001, 0038);
-INSERT INTO TourLocation VALUES (0001, 0039);
-INSERT INTO TourLocation VALUES (0001, 0040);
+INSERT INTO TourLocation VALUES (0006, 0032);
+INSERT INTO TourLocation VALUES (0002, 0033);
+INSERT INTO TourLocation VALUES (0010, 0034);
+INSERT INTO TourLocation VALUES (0003, 0035);
+INSERT INTO TourLocation VALUES (0008, 0036);
+INSERT INTO TourLocation VALUES (0009, 0037);
+INSERT INTO TourLocation VALUES (0007, 0038);
+INSERT INTO TourLocation VALUES (0008, 0039);
+INSERT INTO TourLocation VALUES (0003, 0040);
+
 INSERT INTO TourLocation VALUES (0001, 0041);
-INSERT INTO TourLocation VALUES (0001, 0042);
-INSERT INTO TourLocation VALUES (0001, 0043);
-INSERT INTO TourLocation VALUES (0001, 0044);
-INSERT INTO TourLocation VALUES (0001, 0045);
-INSERT INTO TourLocation VALUES (0001, 0046);
-INSERT INTO TourLocation VALUES (0001, 0047);
-INSERT INTO TourLocation VALUES (0001, 0048);
-INSERT INTO TourLocation VALUES (0001, 0049);
-INSERT INTO TourLocation VALUES (0001, 0050);
+INSERT INTO TourLocation VALUES (0006, 0042);
+INSERT INTO TourLocation VALUES (0002, 0043);
+INSERT INTO TourLocation VALUES (0010, 0044);
+INSERT INTO TourLocation VALUES (0003, 0045);
+INSERT INTO TourLocation VALUES (0008, 0046);
+INSERT INTO TourLocation VALUES (0009, 0047);
+INSERT INTO TourLocation VALUES (0007, 0048);
+INSERT INTO TourLocation VALUES (0008, 0049);
+INSERT INTO TourLocation VALUES (0003, 0050);
 
-INSERT INTO TourLocation VALUES (0002, 0051);
+INSERT INTO TourLocation VALUES (0008, 0051);
+INSERT INTO TourLocation VALUES (0009, 0051);
+INSERT INTO TourLocation VALUES (0001, 0052);
 INSERT INTO TourLocation VALUES (0002, 0052);
-INSERT INTO TourLocation VALUES (0002, 0053);
-INSERT INTO TourLocation VALUES (0002, 0054);
-INSERT INTO TourLocation VALUES (0002, 0055);
-INSERT INTO TourLocation VALUES (0003, 0051);
 INSERT INTO TourLocation VALUES (0003, 0052);
-INSERT INTO TourLocation VALUES (0003, 0053);
-INSERT INTO TourLocation VALUES (0003, 0054);
-INSERT INTO TourLocation VALUES (0003, 0055);
-INSERT INTO TourLocation VALUES (0004, 0051);
 INSERT INTO TourLocation VALUES (0004, 0052);
-INSERT INTO TourLocation VALUES (0004, 0053);
-INSERT INTO TourLocation VALUES (0004, 0054);
-INSERT INTO TourLocation VALUES (0004, 0055);
-
+INSERT INTO TourLocation VALUES (0005, 0052);
+INSERT INTO TourLocation VALUES (0006, 0053);
+INSERT INTO TourLocation VALUES (0007, 0053);
+INSERT INTO TourLocation VALUES (0008, 0053);
+INSERT INTO TourLocation VALUES (0009, 0053);
+INSERT INTO TourLocation VALUES (0010, 0053);
+INSERT INTO TourLocation VALUES (0002, 0054);
+INSERT INTO TourLocation VALUES (0003, 0054);
+INSERT INTO TourLocation VALUES (0008, 0055);
+INSERT INTO TourLocation VALUES (0010, 0055);
 
 
 
@@ -925,10 +974,10 @@ INSERT INTO TourDate VALUES (
 
 -- TOUR 51: MULTIPLE start date, finish date; total_Days = 2 days for tour 51 
 INSERT INTO TourDate VALUES (
-	0051, 0051, TO_DATE('25/11/2010', 'DD/MM/YYYY'), TO_DATE('27/11/2010', 'DD/MM/YYYY')  
+	0051, 0051, TO_DATE('12/11/2010', 'DD/MM/YYYY'), TO_DATE('14/11/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0052, 0051, TO_DATE('25/11/2010', 'DD/MM/YYYY'), TO_DATE('27/11/2010', 'DD/MM/YYYY')  
+	0052, 0051, TO_DATE('20/11/2010', 'DD/MM/YYYY'), TO_DATE('22/11/2010', 'DD/MM/YYYY')  
 );
 
 -- NO start date, finish date; total_Days = 1 day for on demand tours 52,53,54,55
