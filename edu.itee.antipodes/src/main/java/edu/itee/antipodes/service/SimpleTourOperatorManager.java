@@ -37,12 +37,11 @@ public class SimpleTourOperatorManager implements ITourOperatorManager {
 	}
 
 	@Autowired
-	private ImageDao imd;// = DaoManager.getImageDao();
+	private ImageDao imd;
 	@Autowired
-	TourDao tourDao;// = DaoManager.getTourDao();
+	TourDao tourDao;
 	@Autowired
-	private TourOperatorDaoHibernate operatorDao;// =
-	// DaoManager.getTourOperatorDao();
+	private TourOperatorDaoHibernate operatorDao;
 	@Autowired
 	LocationDao locationDao;
 	@Autowired
@@ -141,6 +140,7 @@ public class SimpleTourOperatorManager implements ITourOperatorManager {
 		tourDao.saveTour(tour);
 	}
 
+	@SuppressWarnings("deprecation")
 	public void addTour(Tour tour) {
 		tourDao.addTour(tour);
 		
@@ -149,7 +149,10 @@ public class SimpleTourOperatorManager implements ITourOperatorManager {
 		listedTour.setTour(tour);
 		listedTour.setTourID(tour.getTourID());
 		listedTour.setOperator(tour.getOperator());
-		listedTour.setListedTo(null);
+		
+		//THIS SHOULD BE NULL IDEALLY
+		listedTour.setListedTo(new Date(2030, 1, 1, 1, 1, 1));
+		//listedTour.setListedTo(null);
 		listedTourDao.saveListedTour(listedTour);
 	}
 
