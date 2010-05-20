@@ -19,10 +19,6 @@
 						null,
 						null,
 						null,
-						null,
-						null,
-						null,
-						null,
 						{ "bSortable": false }
 						]
 				});
@@ -38,10 +34,6 @@
 		<tr>
 			<th>ID</th>
 			<th>Tour Name</th>
-			<th>Location</th>
-			<th>Activity</th>
-			<th>Start Date</th>
-			<th>Finish Date</th>
 			<th>Duration</th>
 			<th></th>	
 		</tr>
@@ -53,10 +45,6 @@
 			<tr class="gradeA">
 				<td><c:out value="${tour.tourID}" /></td>
 				<td><c:out value="${tour.tourName}" /></td>	
-				<td><c:out value="${location.locationName}" /></td>
-				<td><c:out value="${activity.activityName}" /></td>	
-				<td><fmt:formatDate value="${tourDate.startDate}" pattern="d MMM yyyy"/></td>
-				<td><fmt:formatDate value="${tourDate.finishDate}" pattern="d MMM yyyy"/></td>
 				<td><c:out value="${tour.totalDays}" />&nbsp; days</td>		
 				<td>
 					<form style="margin:0px; padding: 0px;" name="align_${tour.tourID}" action="alignTour.html" method="get">
