@@ -29,7 +29,7 @@ public class Currency {
 			"TTD", "TND", "TRL", "AED", "UGX", "UAH", "UYU", "VUV", "VEB",
 			"VND", "YER", "YUM", "ZMK", "ZWD", "TRY");
 
-	public static List<String> getCurrencyTest() {
+	public static List<String> getCurrencyList() {
 		return currencyList;
 	}
 

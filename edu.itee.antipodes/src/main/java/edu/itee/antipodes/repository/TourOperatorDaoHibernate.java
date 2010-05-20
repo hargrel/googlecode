@@ -11,6 +11,10 @@ public class TourOperatorDaoHibernate extends HibernateDaoSupport implements Tou
 	public List<TourOperator> getTourOperatorList() {
 		return getHibernateTemplate().find("from TourOperator");
 	}
+	/*
+	 * (non-Javadoc)
+	 * @see edu.itee.antipodes.repository.TourOperatorDao#getTourOperatorByID(int)
+	 */
 	public TourOperator getTourOperatorByID(int id){
 		return (TourOperator)getHibernateTemplate().get(TourOperator.class, id);
 	}

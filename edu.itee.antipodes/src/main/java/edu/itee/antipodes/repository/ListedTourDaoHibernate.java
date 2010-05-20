@@ -3,10 +3,8 @@ package edu.itee.antipodes.repository;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.Query;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import edu.itee.antipodes.domain.db.AccountUser;
 import edu.itee.antipodes.domain.db.ListedTour;
 
 public class ListedTourDaoHibernate extends HibernateDaoSupport implements ListedTourDao {
@@ -30,6 +28,11 @@ public class ListedTourDaoHibernate extends HibernateDaoSupport implements Liste
 	public ListedTour getListedTourByID(int id){
 		return (ListedTour)getHibernateTemplate().get(ListedTour.class, id);
 	}
+	
+	/*
+	 * (non-Javadoc)
+	 * @see edu.itee.antipodes.repository.ListedTourDao#saveListedTour(edu.itee.antipodes.domain.db.ListedTour)
+	 */
 	public void saveListedTour(ListedTour listedTour) {
 		getHibernateTemplate().saveOrUpdate(listedTour);	
 	}			

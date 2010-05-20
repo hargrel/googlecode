@@ -4,6 +4,7 @@ import java.util.List;
 
 import edu.itee.antipodes.domain.db.ListedTour;
 
+
 public interface ListedTourDao {
 
 	public void addListedTour(ListedTour listedTour);
@@ -14,6 +15,10 @@ public interface ListedTourDao {
 	
 	public ListedTour getListedTourByID(int id);
 	
+	/**
+	 * Save a listed tour to database
+	 * @param listedTour Listed tour object
+	 */
 	public void saveListedTour(ListedTour listedTour);
 	
 	public void dropListedTour(ListedTour listedTour);

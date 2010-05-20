@@ -18,13 +18,12 @@ public class SimpleHandlerExceptionResolver extends SimpleMappingExceptionResolv
 	@Override
 	public ModelAndView resolveException(HttpServletRequest request,
 			HttpServletResponse response, Object handler, Exception ex) {
-		// TODO Auto-generated method stub
 		log.warn("An Exception has occured in the application", ex);
 		
 		Map<String, Object> model = new HashMap<String, Object>();
 		model.put("errorheader", "Warning");
 		model.put("errormessage", "The system is currently not available, please try again later");
-		model.put("errordetails", ex.toString());
+		//model.put("errordetails", ex.toString());
 				
 		return new ModelAndView("error",model);
 	}

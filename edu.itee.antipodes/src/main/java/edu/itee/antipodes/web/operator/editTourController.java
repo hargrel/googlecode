@@ -47,7 +47,7 @@ public final class editTourController {
 		List<Image> images = idh.getImageByTourID(tourID);
 		model.addAttribute("images", images);
 		model.addAttribute("numberOfImages", images.size());
-		model.addAttribute("currencyList", Currency.getCurrencyTest());
+		model.addAttribute("currencyList", Currency.getCurrencyList());
 	}
 
 	@RequestMapping(method = RequestMethod.GET)

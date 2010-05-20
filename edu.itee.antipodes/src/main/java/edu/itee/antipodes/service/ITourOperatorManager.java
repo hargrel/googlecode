@@ -14,32 +14,43 @@ import edu.itee.antipodes.domain.db.TourOperator;
 import edu.itee.antipodes.domain.pages.AlignTour;
 import edu.itee.antipodes.domain.pages.AlignTourDate;
 
-public interface ITourOperatorManager extends Serializable{
-	
+/**
+ * A tour operator interface contains all the necessary functionality required
+ * by tour operator. It links directly to Tour Operator use case group in the
+ * software requirements specification.
+ * 
+ */
+public interface ITourOperatorManager extends Serializable {
+
 	public List<TourOperator> getOperators();
-	
+
 	public void dropTourOperator(int id);
-	
+
 	public TourOperator getTourOperatorByID(int id);
-	
+
 	public void updateTourOperator(TourOperator operator);
 
 	public void addTourOperator(TourOperator operator);
-	
+
 	public void UploadFile(ApplicationContext applicationContext,
 			MultipartFile multipartFile, int tourID);
-	
-	
+
 	public List<Tour> getTours();
-	
+
 	public List<Tour> getToursByOperatorID(int id);
-	
+
 	public void dropTourByID(int id);
-	
+
 	public Tour getTourByID(int id);
-	
+
 	public void updateTour(Tour tour);
-	
+
+	/**
+	 * Add a new tour to the database with the linked listed tour
+	 * 
+	 * @param tour
+	 *            tour Object
+	 */
 	public void addTour(Tour tour);
 
 	public void alignTour(AlignTour alignTour) throws ParseException;
@@ -51,10 +62,10 @@ public interface ITourOperatorManager extends Serializable{
 	public AlignTour getAlignTourByID(String tourID);
 
 	public Tour getTourByID(String id);
-	
+
 	public void alignTourDate(AlignTourDate alignTourDate);
-	
+
 	public AlignTourDate getAlignTourDateByID(String tourID);
-	
+
 	public void deleteTourDate(String dateID);
 }

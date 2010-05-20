@@ -11,7 +11,6 @@ import org.springmodules.validation.bean.conf.loader.annotation.handler.Validati
 
 @SuppressWarnings("serial")
 public class Tour implements Serializable {
-	
 	private int tourID; 
 	private String points;
 	private String levels;

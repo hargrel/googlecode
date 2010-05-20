@@ -16,6 +16,10 @@ public interface TourDao {
 	
 	public void dropTour(Tour tour);
 	
+	/**
+	 * Adds new tour to database
+	 * @param tour new tour object
+	 */
 	public void addTour(Tour tour);
 
 	public  List<Tour> getTourListByOperatorID(int id);

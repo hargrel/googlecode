@@ -69,7 +69,7 @@ public class searchController {
 		model.addAttribute("search", search);
 		List<Activity> act = ad.getActivityList();
 		model.addAttribute("activities", act);
-		model.addAttribute("currencyList", Currency.getCurrencyTest());
+		model.addAttribute("currencyList", Currency.getCurrencyList());
 	}
 
 	@RequestMapping(method = RequestMethod.POST)

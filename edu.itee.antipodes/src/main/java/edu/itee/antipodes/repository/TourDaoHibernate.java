@@ -2,14 +2,19 @@ package edu.itee.antipodes.repository;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.springframework.orm.hibernate3.support.*;
-import edu.itee.antipodes.domain.db.*;
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
+import edu.itee.antipodes.domain.db.Tour;
 
 
 public class TourDaoHibernate extends HibernateDaoSupport implements TourDao {
 
+	/*
+	 * (non-Javadoc)
+	 * @see edu.itee.antipodes.repository.TourDao#addTour(edu.itee.antipodes.domain.db.Tour)
+	 */
 	public void addTour(Tour tour) throws HibernateException{
 		getHibernateTemplate().save(tour);
 	}	

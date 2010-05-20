@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.security.InvalidParameterException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -28,24 +29,16 @@ import edu.itee.antipodes.repository.LocationDao;
 import edu.itee.antipodes.repository.TourDao;
 import edu.itee.antipodes.repository.TourDateDao;
 import edu.itee.antipodes.repository.TourOperatorDao;
-import edu.itee.antipodes.repository.TourOperatorDaoHibernate;
 
 @SuppressWarnings("serial")
 public class SimpleTourOperatorManager implements ITourOperatorManager {
 
-	private SimpleTourOperatorManager() {
-	}
-
 	@Autowired
-	private ImageDao imd;
+	private TourDao tourDao;
 	@Autowired
-	TourDao tourDao;
+	private LocationDao locationDao;
 	@Autowired
-	private TourOperatorDaoHibernate operatorDao;
-	@Autowired
-	LocationDao locationDao;
-	@Autowired
-	ActivityDao activityDao;
+	private ActivityDao activityDao;
 	@Autowired
 	private ListedTourDao listedTourDao;
 	@Autowired
@@ -55,24 +48,27 @@ public class SimpleTourOperatorManager implements ITourOperatorManager {
 	@Autowired
 	private ImageDao imageDao;
 
+	private SimpleTourOperatorManager() {
+	}
+
 	public TourOperator getTourOperatorByID(int id) {
-		return operatorDao.getTourOperatorByID(id);
+		return tourOperatorDao.getTourOperatorByID(id);
 	}
 
 	public void updateTourOperator(TourOperator operator) {
-		operatorDao.saveTourOperator(operator);
+		tourOperatorDao.saveTourOperator(operator);
 	}
 
 	public void addTourOperator(TourOperator operator) {
-		operatorDao.addTourOperator(operator);
+		tourOperatorDao.addTourOperator(operator);
 	}
 
 	public void dropTourOperator(int id) {
-		operatorDao.dropTourOperatorByID(id);
+		tourOperatorDao.dropTourOperatorByID(id);
 	}
 
 	public List<TourOperator> getOperators() {
-		return operatorDao.getTourOperatorList();
+		return tourOperatorDao.getTourOperatorList();
 	}
 
 	@Override
@@ -98,11 +94,11 @@ public class SimpleTourOperatorManager implements ITourOperatorManager {
 			img.setTourID(tourID);
 			img.setUrl(extension);
 			img.setTour(tourDao.getTourByID(tourID));
-			imd.saveImage(img);
+			imageDao.saveImage(img);
 
 			String fileName = img.getImageID() + extension;
 			img.setUrl(img.getImageID() + extension);
-			imd.saveImage(img);
+			imageDao.saveImage(img);
 			File file = new File(dir, fileName);
 			multipartFile.transferTo(file);
 		} catch (IOException e1) {
@@ -148,19 +144,38 @@ public class SimpleTourOperatorManager implements ITourOperatorManager {
 		tourDao.saveTour(tour);
 	}
 
-	@SuppressWarnings("deprecation")
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * edu.itee.antipodes.service.ITourOperatorManager#addTour(edu.itee.antipodes
+	 * .domain.db.Tour)
+	 */
 	public void addTour(Tour tour) {
+
+		// Get currently logged user and assign it as the owner of the created
+		// tour
+		CurrentUser currentUser = new CurrentUser();
+		TourOperator currentOperator = tourOperatorDao
+				.getTourOperatorByID(currentUser.getCurrentUserID());
+		tour.setOperator(currentOperator);
+
+		// Add new tour to database
 		tourDao.addTour(tour);
 
+		// Create a listed tour for the created tour
 		ListedTour listedTour = new ListedTour();
 		listedTour.setListedFrom(new Date());
 		listedTour.setTour(tour);
 		listedTour.setTourID(tour.getTourID());
 		listedTour.setOperator(tour.getOperator());
 
-		// THIS SHOULD BE NULL IDEALLY
-		listedTour.setListedTo(new Date(2030, 1, 1, 1, 1, 1));
-		// listedTour.setListedTo(null);
+		// Set the finish date of the listed tour for some year ahead
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(3000, 1, 1);
+		listedTour.setListedTo(calendar.getTime());
+
+		// Save tour
 		listedTourDao.saveListedTour(listedTour);
 	}
 
