@@ -70,11 +70,11 @@
 	</bean>
 
 	<bean id="templateMessage" class="org.springframework.mail.SimpleMailMessage">
-		<property name="from" value="csse3005a2009@googlegroups.com" />
+		<property name="from" value="antipodes@uq.edu.au" />
 	</bean>
 
 	<bean id="contactUsMessage" class="org.springframework.mail.SimpleMailMessage">
-		<property name="to" value="antulik@gmail.com" />
+		<property name="to" value="tay.booncheen@gmail.com" />
 	</bean>
 
 	<!-- Service layer -->
