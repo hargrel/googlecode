@@ -42,7 +42,7 @@ public final class contactTourOperatorController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Object post(
+	public Object post(ModelMap model,
 			@ModelAttribute("contactOperator") ContactOperator contactOpt,
 			BindingResult result) {
 
@@ -53,6 +53,9 @@ public final class contactTourOperatorController {
 
 		customerManager.contactOperator(contactOpt);
 
-		return new RedirectView("search.html");
+		model.addAttribute("headermessage", "Thank you.");
+		model.addAttribute("message",
+				"Your message has been sent. Thank you for your time");
+		return "success";
 	}
 }
