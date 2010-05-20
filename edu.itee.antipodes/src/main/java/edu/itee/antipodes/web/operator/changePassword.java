@@ -18,6 +18,7 @@ import edu.itee.antipodes.service.IAccountManager;
 @Controller
 @RequestMapping("/operator/changePassword.html")
 public class changePassword {
+	String successMessage;
 
 	@Autowired
 	private Validator validator;
@@ -28,6 +29,8 @@ public class changePassword {
 	@RequestMapping(method = RequestMethod.GET)
 	public String showUserForm(ModelMap model) {
 		ChangeNewPassword changeNewPassword = new ChangeNewPassword();
+		successMessage = "";
+		model.addAttribute("successMessage", successMessage);
 		model.addAttribute("changeNewPassword", changeNewPassword);
 		return "changePassword";
 	}
@@ -46,8 +49,10 @@ public class changePassword {
 		accUser.setPassword(changeNewPassword.getNewPassword());
 		
 		accountManager.updateAccount(accUser);
+		successMessage = "Update successful!";
+		model.addAttribute("successMessage", successMessage);
 		
-		
-		return new RedirectView("TOhome.html");
+
+		return "changePassword";
 	}
 }

@@ -16,11 +16,13 @@
 	color: #900;
 	font-size: 10px;
 }
+			.success-message { font-weight: bold; color: #900; font-size: 12px; }
 </style>
 </head>
 <body>
 
-<h2>Edit Global List of Activities</h2>
+<h2>Edit Global List of Activities
+<span class="success-message"><c:out value="${successMessage}" /></span></h2>
 
 <!-- Form name: activity -->
 <!-- Attribute names: activityID, activityName -->

@@ -21,6 +21,7 @@ import edu.itee.antipodes.service.ISystemAdminManager;
 @RequestMapping("/admin/editGlobalListLocation.html")
 public final class editGlobalListLocationController {
 
+	String successMessage;
 	@Autowired
 	private Validator validator;
 	@Autowired
@@ -42,11 +43,13 @@ public final class editGlobalListLocationController {
 			return new RedirectView("globalListLocation.html");
 
 		model.addAttribute("loc", loc);
+		successMessage = "";
+		model.addAttribute("successMessage", successMessage);
 		return "editGlobalListLocation";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Object post(@ModelAttribute("loc") Location loc, BindingResult result) {
+	public Object post(ModelMap model, @ModelAttribute("loc") Location loc, BindingResult result) {
 
 		validator.validate(loc, result);
 		if (result.hasErrors()) {
@@ -54,6 +57,10 @@ public final class editGlobalListLocationController {
 		}
 
 		systemAdminManager.saveLocation(loc);
-		return new RedirectView("globalListLocation.html");
+
+		model.addAttribute("loc", loc);
+		successMessage = "Update successful!";
+		model.addAttribute("successMessage", successMessage);
+		return "editGlobalListLocation";
 	}
 }

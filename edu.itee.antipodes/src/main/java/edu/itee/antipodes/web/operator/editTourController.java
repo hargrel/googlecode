@@ -37,6 +37,7 @@ public final class editTourController {
 	public void setValidator(Validator validator) {
 		this.validator = validator;
 	}
+	String successMessage;
 
 	@Autowired
 	private ITourOperatorManager tourOperatorManager;
@@ -59,6 +60,8 @@ public final class editTourController {
 			return new RedirectView("/antipodes/accessDenied.html");
 		}
 		Tour updateTourInfo = tourOperatorManager.getTourByID(tourID);
+		successMessage = "";
+		model.addAttribute("successMessage", successMessage);
 		model.addAttribute("editTour", updateTourInfo);
 
 		setData(model, tourID);
@@ -84,7 +87,10 @@ public final class editTourController {
 		info.setOperator(todh.getTourOperatorByID(currentUser
 				.getCurrentUserID()));
 		tourOperatorManager.updateTour(info);
-		return new RedirectView("tourList.html");
+		successMessage = "Update successful!";
+		model.addAttribute("successMessage", successMessage);
+		model.addAttribute("editTour", info);
+		return "editTour";
 
 	}
 

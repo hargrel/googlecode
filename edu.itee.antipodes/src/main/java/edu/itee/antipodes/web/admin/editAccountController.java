@@ -27,7 +27,8 @@ import edu.itee.antipodes.utils.SpringApplicationContext;
 @Controller
 @RequestMapping("/admin/editAccount.html")
 public final class editAccountController {
-	
+
+	String successMessage;
 	@Autowired
 	private Validator validator;
 	
@@ -59,6 +60,8 @@ public final class editAccountController {
 			DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 			model.addAttribute("membershipExpiry", df.format(operator.getMembershipExpired()));
 		}
+		successMessage = "";
+		model.addAttribute("successMessage", successMessage);
 		return "editAccount";
 	}
 	
@@ -69,22 +72,36 @@ public final class editAccountController {
 		//@RequestParam("membershipExpiry") String membershipExpiry
 		validator.validate(accountUser, result);
 		if (!accountUser.getUserName().equalsIgnoreCase(accountManager.getAccountByID(accountUser.getUserID()).getUserName()) && result.hasErrors()) { 
-			return "editAccount"; 
-			}
 
-		
+			successMessage = "";
+			model.addAttribute("successMessage", successMessage);
+			return "editAccount"; 
+		}
+
+		TourOperator operator = new TourOperator();
 		accountManager.updateAccount(accountUser);
 		String membershipExpiry = request.getParameter("membershipExpiry");
 		
 		if(accountUser.getUserType().equalsIgnoreCase("operator") && !membershipExpiry.isEmpty()){
-				TourOperator operator = tod.getTourOperatorByID(accountUser.getUserID());
+				operator = tod.getTourOperatorByID(accountUser.getUserID());
 				operator.setOperatorID(accountUser.getUserID());
 				DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 				Date membershipExpiryDate = df.parse(membershipExpiry);
 				operator.setMembershipExpired(membershipExpiryDate);
 				tod.saveTourOperator(operator);
 		}
-		return new RedirectView("accountList.html");
+		if(accountUser.getUserType().equalsIgnoreCase("admin")){
+			model.addAttribute("hide", "none");
+		}
+		else {
+			model.addAttribute("hide", "");
+			DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+			model.addAttribute("membershipExpiry", df.format(operator.getMembershipExpired()));
+		}
+		successMessage = "Update successful!";
+		model.addAttribute("accountUser", accountUser);
+		model.addAttribute("successMessage", successMessage);
+		return "editAccount"; 
 		
 	}
 	@Autowired

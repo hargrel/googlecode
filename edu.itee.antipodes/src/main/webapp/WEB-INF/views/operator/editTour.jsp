@@ -9,6 +9,7 @@
 		<style>
 			.form-error-field { background-color: #FFC; }
 			.form-error-message { font-weight: bold; color: #900; font-size: 10px; }
+			.success-message { font-weight: bold; color: #900; font-size: 12px; }
 			#pointList {
       		width: 255px;
       		font-size: 10px;
@@ -28,7 +29,8 @@
 </head>
 <body onload="createMap();decode()" onunload="GUnload()">
 
-<h2>Edit Tour</h2>
+<h2>Edit Tour
+<span class="success-message"><c:out value="${successMessage}" /></span></h2>
 
 <!-- Form name: editTour -->
 <!-- Attribute names: tourID, tourName, tourDesc, price, image -->

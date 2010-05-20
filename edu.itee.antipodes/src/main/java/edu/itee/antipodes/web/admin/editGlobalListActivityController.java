@@ -21,6 +21,7 @@ import edu.itee.antipodes.service.ISystemAdminManager;
 @RequestMapping("/admin/editGlobalListActivity.html")
 public final class editGlobalListActivityController {
 
+	String successMessage;
 	@Autowired
 	private Validator validator;
 	@Autowired
@@ -41,12 +42,14 @@ public final class editGlobalListActivityController {
 		if (ac == null)
 			return new RedirectView("globalListActivity.html");
 
+		successMessage = "";
+		model.addAttribute("successMessage", successMessage);
 		model.addAttribute("act", ac);
 		return "editGlobalListActivity";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Object post(@ModelAttribute("act") Activity ac, BindingResult result) {
+	public Object post(ModelMap model, @ModelAttribute("act") Activity ac, BindingResult result) {
 
 		validator.validate(ac, result);
 		if (result.hasErrors()) {
@@ -54,6 +57,9 @@ public final class editGlobalListActivityController {
 		}
 
 		systemAdminManager.saveActivity(ac);
-		return new RedirectView("globalListActivity.html");
+		successMessage = "Update successful!";
+		model.addAttribute("successMessage", successMessage);
+		model.addAttribute("act", ac);
+		return "editGlobalListActivity";
 	}
 }

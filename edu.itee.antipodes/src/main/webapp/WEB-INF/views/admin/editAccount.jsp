@@ -9,6 +9,7 @@
 		<style>
 			.form-error-field { background-color: #FFC; }
 			.form-error-message { font-weight: bold; color: #900; font-size: 10px; }
+			.success-message { font-weight: bold; color: #900; font-size: 12px; }
 		</style>
 <link type="text/css" href="<c:url value="/css/smoothness/jquery-ui-1.7.2.custom.css"/>" rel="stylesheet" />
 <script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js"/>"></script>
@@ -24,7 +25,8 @@
 	</script>
 </head>
 <body>
-<h2>Edit Account</h2>
+<h2>Edit Account
+<span class="success-message"><c:out value="${successMessage}" /></span></h2>
 
 <!-- Form name: accountUser -->
 <!-- Attribute names: userID, userType, userName, password -->
@@ -40,7 +42,7 @@
 	
 	<tr>
 		<td>Username:</td>
-		<td><form:input path="userName" size="20" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="userName"/></div></td>
+		<td><form:input path="userName" size="20"/></div></td>
 	</tr>
 
 	<tr>

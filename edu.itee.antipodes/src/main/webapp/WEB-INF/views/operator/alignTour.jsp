@@ -16,6 +16,7 @@
 	color: #900;
 	font-size: 10px;
 }
+			.success-message { font-weight: bold; color: #900; font-size: 12px; }
 </style>
 <link type="text/css"
 	href="<c:url value="/css/smoothness/jquery-ui-1.7.2.custom.css"/>"
@@ -72,7 +73,8 @@ function confirmDelete(id)
 <!-- Form name: alignTour -->
 <!-- Attribute names: tourID, tourName, totalDays, locationName, activityName -->
 
-<h2>Align Tour</h2>
+<h2>Align Tour
+<span class="success-message"><c:out value="${successMessage}" /></span></h2>
 
 <form:form commandName="alignTour" >
 	<table border="0" cellspacing="2"

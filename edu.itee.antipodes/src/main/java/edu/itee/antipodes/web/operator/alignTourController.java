@@ -32,6 +32,7 @@ import edu.itee.antipodes.service.ITourOperatorManager;
 public class alignTourController {
 
 	CurrentUser currentUser = new CurrentUser();
+	String successMessage;
 	
 	@Autowired
 	private Validator validator;
@@ -64,6 +65,7 @@ public class alignTourController {
 			return new RedirectView("/antipodes/accessDenied.html");
 		}
 		model.addAttribute("errordate", request.getParameter("errordate"));
+		model.addAttribute("successMessage", request.getParameter("successMessage"));
 
 		setData(model, tourID);
 		model.addAttribute("alignTourDate", tourOperatorManager
@@ -87,10 +89,11 @@ public class alignTourController {
 			return "alignTour";
 		}
 
+		successMessage = "Update successful!";
 		tourOperatorManager.alignTour(alignTour);
 
 		return new RedirectView("alignTour.html?tourID="
-				+ alignTourDate.getTourID());
+				+ alignTourDate.getTourID() + "&successMessage=" + successMessage);
 	}
 
 	@RequestMapping(value = "/operator/alignTourDate.html", method = RequestMethod.POST)
@@ -118,7 +121,7 @@ public class alignTourController {
 	}
 
 	@RequestMapping(value = "/operator/deleteTourDate.html", method = RequestMethod.POST)
-	public Object deleteDate(@RequestParam("tourID") String tourID,
+	public Object deleteDate(ModelMap model,@RequestParam("tourID") String tourID,
 			@RequestParam("dateID") String dateID) throws Exception {
 
 		tourOperatorManager.deleteTourDate(dateID);

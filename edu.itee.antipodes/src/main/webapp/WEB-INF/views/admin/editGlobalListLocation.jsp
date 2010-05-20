@@ -16,13 +16,15 @@
 	color: #900;
 	font-size: 10px;
 }
+			.success-message { font-weight: bold; color: #900; font-size: 12px; }
 </style>
 <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAQlV1b2FPUM74rst4A4cFzxT2yXp_ZAY8_ufC3CFXhHIE1NvwkxQSgLSOP2XkswKd7txk3wHZjh27CA&sensor=false" type="text/javascript"></script>
 <script type="text/javascript" src="<c:url value="/js/gmap/maintainLink.js"/>"></script>
 </head>
 <body onload="initialize()" onunload="GUnload()">
 
-<h2>Edit Global List of Locations</h2>
+<h2>Edit Global List of Locations
+<span class="success-message"><c:out value="${successMessage}" /></span></h2>
 
 <!-- Form name: loc -->
 <!-- Attribute names: locationID, locationName, latitude, longitude -->

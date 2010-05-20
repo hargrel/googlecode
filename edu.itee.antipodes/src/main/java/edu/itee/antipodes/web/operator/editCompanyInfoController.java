@@ -33,8 +33,8 @@ public final class editCompanyInfoController {
 	public String showUserForm(Model model) {
 		TourOperator operator = tod.getTourOperatorByID(currentUser.getCurrentUserID());
 		successMessage = "";
-		model.addAttribute("editCompanyInfo", operator);
 		model.addAttribute("successMessage", successMessage);
+		model.addAttribute("editCompanyInfo", operator);
 		return "editCompanyInfo";
 	}
 	
