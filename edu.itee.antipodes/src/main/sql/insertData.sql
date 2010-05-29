@@ -122,7 +122,7 @@ INSERT INTO Tour VALUES (
 	1999.95, 2, 0,'AUD',1, '_d{jCsqzgLaqbk@ms{Z`acLyren@~n~]os{Z', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0009, 'China Hike, Bike & Raft', 'From rural roads through endless rice fields in southern China to the bustling streets of Beijing, over the Great Wall of China and down the Li River, see China in a unique way!',
+	0009, 'Discover China', 'From rural roads through endless rice fields in southern China to the bustling streets of Beijing, over the Great Wall of China and down the Li River, see China in a unique way!',
 	1599.95, 2, 0,'EUR',1, '_{xaFsespMm~gi@chjp@xuvNogtcAjezCufl}Acucd@ugf}@|pnL}gxv@', 'BBBBBB'
 );
 INSERT INTO Tour VALUES (
@@ -258,7 +258,7 @@ INSERT INTO Tour VALUES (
 	1289.75, 2, 0,'USD',4, 'qmutCovjmGvrxJqmquE_entA_pihCnofeCoihC', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0043, 'Trekking Mont Blanc', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
+	0043, 'Hiking Mont Blanc', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
 	1399.35, 2, 0,'AUD',4, 's{tvFufl}Aqi{g@|{p_B', 'BB'
 );
 INSERT INTO Tour VALUES (
@@ -292,7 +292,7 @@ INSERT INTO Tour VALUES (
 -- Tour 51 is NOT on demand (i.e. on_Demand = 0), it has MULTIPLE start date, finish date
 
 INSERT INTO Tour VALUES (
-	0051, 'China Hike, Bike & Raft', 'From rural roads through endless rice fields in southern China to the bustling streets of Beijing, over the Great Wall of China and down the Li River, see China in a unique way!',
+	0051, 'China Adventure', 'From rural roads through endless rice fields in southern China to the bustling streets of Beijing, over the Great Wall of China and down the Li River, see China in a unique way!',
 	1599.95, 2, 0,'EUR',6, '_{xaFsespMm~gi@chjp@xuvNogtcAjezCufl}Acucd@ugf}@|pnL}gxv@', 'BBBBBB'
 );
 
@@ -300,15 +300,15 @@ INSERT INTO Tour VALUES (
 -- Tour(tour_ID, tour_Name, tour_Desc, price, total_Days, on_Demand, currency, operator_ID, points, levels)
 
 INSERT INTO Tour VALUES (
-	0052, 'Europe Adventure', 'Trek the Alps from France to Italy, France, UK, and Russia; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
+	0052, 'Discover Europe', 'Trek the Alps from France to Italy, France, UK, and Russia; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
 	1269.55, 2, 0,'USD',7, 'erknGsgm`A}jaSlg{fAiofi@|sxJx`vKm|moAel`V_op{N', 'BBBBB'
 );
 INSERT INTO Tour VALUES (
-	0053, 'Asia Trekking', 'Follow in the steps of the Incas on this trip to the "must-see" highlight of Asia - from China to Thailand! This tour is spectacular and the first glimpse of Asia will leave memories.',
+	0053, 'Discover Asia', 'Follow in the steps of the Incas on this trip to the "must-see" highlight of Asia - from China to Thailand! This tour is spectacular and the first glimpse of Asia will leave memories.',
 	1289.75, 2, 0,'USD',8, 'qmutCovjmGvrxJqmquE_entA_pihCnofeCoihC', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0054, 'Trekking Mont Blanc', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
+	0054, 'Mont Blanc Adventure', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
 	1399.35, 2, 0,'AUD',9, 's{tvFufl}Aqi{g@|{p_B', 'BB'
 );
 INSERT INTO Tour VALUES (
@@ -499,7 +499,7 @@ INSERT INTO ListedTour VALUES (
 
 -- Activity --------------------------------------------------------------------
 
--- Stored in databse in UPPERCASE
+-- Stored in database in UPPERCASE
 -- Search multiple activities seperated by comma WITHOUT space, any case accepted
 -- peRU,NepAL without space will work
 -- peRU, NepAL with space will not work
@@ -992,29 +992,26 @@ INSERT INTO TourDate VALUES (
 	0050, 0050, TO_DATE('20/10/2010', 'DD/MM/YYYY'), TO_DATE('22/10/2010', 'DD/MM/YYYY')  
 );
 
--- TOUR 51: MULTIPLE start date, finish date; total_Days = 2 days for tour 51 
 INSERT INTO TourDate VALUES (
 	0051, 0051, TO_DATE('12/11/2010', 'DD/MM/YYYY'), TO_DATE('14/11/2010', 'DD/MM/YYYY')  
 );
-INSERT INTO TourDate VALUES (
-	0052, 0051, TO_DATE('20/11/2010', 'DD/MM/YYYY'), TO_DATE('22/11/2010', 'DD/MM/YYYY')  
-);
+
 
 -- NO start date, finish date; total_Days = 1 day for on demand tours 52,53,54,55
 
 -- *** start date, finish date will be removed later *** 
 
 INSERT INTO TourDate VALUES (
-	0053, 0052, TO_DATE('25/12/2010', 'DD/MM/YYYY'), TO_DATE('26/12/2010', 'DD/MM/YYYY')  
+	0052, 0052, TO_DATE('25/12/2010', 'DD/MM/YYYY'), TO_DATE('26/12/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0054, 0053, TO_DATE('25/12/2010', 'DD/MM/YYYY'), TO_DATE('26/12/2010', 'DD/MM/YYYY')  
+	0053, 0053, TO_DATE('25/12/2010', 'DD/MM/YYYY'), TO_DATE('26/12/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0055, 0054, TO_DATE('25/12/2010', 'DD/MM/YYYY'), TO_DATE('26/12/2010', 'DD/MM/YYYY')  
+	0054, 0054, TO_DATE('25/12/2010', 'DD/MM/YYYY'), TO_DATE('26/12/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0056, 0055, TO_DATE('25/12/2010', 'DD/MM/YYYY'), TO_DATE('26/12/2010', 'DD/MM/YYYY')  
+	0055, 0055, TO_DATE('25/12/2010', 'DD/MM/YYYY'), TO_DATE('26/12/2010', 'DD/MM/YYYY')  
 );
 
 
