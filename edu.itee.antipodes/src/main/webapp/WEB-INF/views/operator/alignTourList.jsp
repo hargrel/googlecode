@@ -45,10 +45,10 @@
 			<tr class="gradeA">
 				<td><c:out value="${tour.tourID}" /></td>
 				<td><c:out value="${tour.tourName}" /></td>	
-				<c:if test="${tour.onDemand == '0'}">
+				<c:if test="${tour.onDemand == '1'}">
 				<td><c:out value="${tour.totalDays}" />&nbsp; days</td>	
 				</c:if>
-				<c:if test="${tour.onDemand == '1'}">
+				<c:if test="${tour.onDemand == '0'}">
 				<td></td>	
 				</c:if>
 				<td class="center">
