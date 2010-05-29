@@ -23,31 +23,59 @@ public class CustomerSearchDaoHibernate extends HibernateDaoSupport implements
 			throws DataAccessResourceFailureException, HibernateException,
 			IllegalStateException, ParseException {
 
-		// default values for search criteria which will not search anything
-		String activityNamesTemp = "xxx";
-		String locationNamesTemp = "xxx";
-		String startDateTemp = "22/11/2000";
-		String finishDateTemp = "22/11/9000";
-		String sqlCustomerSearchQuery = "";
-		String superFlag = "super";
+		// some default values for easier coding but bad for query optimisation
+		String activityNamesTemp = "xxx";		// assumed we don't have activity with name "xxx"
+		String locationNamesTemp = "xxx";		// assumed we don't have location with name "xxx"
+		String startDateTemp = "22/11/2000";	// get any start dates
+		String finishDateTemp = "22/11/9000";   // get any finish dates
+		String sqlCustomerSearchQuery = "";		// the sql query
+		String superFlag = "super";				// simply a flag used for query
 		List<Object> list = new ArrayList<Object>();
 
-		// search all listed tours if NONE of the criteria provided
-		if (activityNames.isEmpty()) {
-			if (locationNames.isEmpty()) {
-				if (startDate.isEmpty()) {
-					if (finishDate.isEmpty()) {
-
-						superFlag = "not super";
-						sqlCustomerSearchQuery = "from ListedTour as l join l.tour as t join t.locations as "
-								+ "c join t.activities as a join t.tourDates as d";
-						list = (List<Object>) getHibernateTemplate().find(
-								sqlCustomerSearchQuery);
-					}
-				}
+		// search all listed tours
+		if (activityNames.isEmpty() && locationNames.isEmpty()) {
+			if (startDate.isEmpty() && finishDate.isEmpty()) {
+				superFlag = "not super";
+				sqlCustomerSearchQuery = "from ListedTour as l join l.tour as t join t.locations as "
+						+ "c join t.activities as a join t.tourDates as d";
+				list = (List<Object>) getHibernateTemplate().find(
+						sqlCustomerSearchQuery);
 			}
 		}
-		// search listed tours based on any search criteria provided
+
+		// search based on dates only
+		if (activityNames.isEmpty() && locationNames.isEmpty()) {
+			if (startDate != "" || finishDate != "") {
+				
+				superFlag = "not super";
+				
+				if (startDate != "") {
+					startDateTemp = startDate;
+				}
+				if (finishDate != "") {
+					finishDateTemp = finishDate;
+				}
+
+				String[] params = new String[2];
+				params[0] = "startDate";
+				params[1] = "finishDate";
+
+				Object[] vals = new Object[2];
+
+				vals[0] = um.stringToDate(startDateTemp, pattern);
+				vals[1] = um.stringToDate(finishDateTemp, pattern);
+				
+				sqlCustomerSearchQuery = "from ListedTour as l join l.tour as t "
+					+ "join t.locations as c join t.activities as a left outer join t.tourDates as d "
+					+ "where (d.startDate >= :startDate and d.finishDate <= :finishDate) or t.onDemand = 1)";
+
+				list = (List<Object>) getHibernateTemplate().findByNamedParam(
+						sqlCustomerSearchQuery, params, vals);
+				
+			}
+		}		
+				
+		// search listed tours based on criteria
 		if (superFlag == "super") {
 
 			// update default search criteria
