@@ -238,6 +238,9 @@ public class SimpleTourOperatorManager implements ITourOperatorManager {
 
 		if (tour.getOperator().getOperatorID() != tourOperator.getOperatorID())
 			return;
+		
+		if (tour == null)
+			return;
 
 		if (alignTour.getLocationID() != null) {
 			// LOCATIONS
@@ -287,6 +290,10 @@ public class SimpleTourOperatorManager implements ITourOperatorManager {
 					tour.getActivities().add(newActivity);
 				}
 			}
+		}
+		
+		if (tour.getOnDemand() == 1){
+			tour.setTotalDays(alignTour.getTotalDays());
 		}
 
 		tourDao.saveTour(tour);
