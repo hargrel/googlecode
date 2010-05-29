@@ -64,7 +64,13 @@ function confirmDelete(id)
 				<td valign="top"><c:out value="${tour.tourName}" /></td>	
 				<td valign="top"><c:out value="${tour.tourDesc}" escapeXml="false"/></td>
 				<td valign="top"><c:out value="${tour.price}" />&nbsp;<c:out value="${tour.currency}" /></td>
-				<td valign="top" class="center"><c:out value="${tour.onDemand}" /></td>
+				<td valign="top" class="center">
+				<c:if test="${tour.onDemand == '0'}">
+				<c:out value="No" /></c:if>
+				<c:if test="${tour.onDemand == '1'}">
+				<c:out value="Yes" /></c:if>
+				</td>
+				
 				<td valign="top">
 					<form style="margin:0px; padding: 0px;" name="edit_${tour.tourID}" action="editTour.html" method="get">
 						<input type="hidden" name="tourID" value="${tour.tourID}" />

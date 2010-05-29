@@ -136,8 +136,8 @@ function confirmDelete(id)
 		<tr>
 			<!-- Cancel or submit -->
 			<td colspan="2" align="right"><input type="button"
-				value="Cancel"
-				onClick="window.location.href='<c:url value="TOhome.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input
+				value="Back"
+				onClick="window.location.href='<c:url value="alignTourList.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input
 				type="submit" value="Align" style="margin-right:40px; margin-top:10px"/></td>
 		</tr>
 
