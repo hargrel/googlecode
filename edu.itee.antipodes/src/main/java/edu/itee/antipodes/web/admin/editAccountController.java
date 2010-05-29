@@ -31,79 +31,97 @@ public final class editAccountController {
 	String successMessage;
 	@Autowired
 	private Validator validator;
-	
 
 	TourOperatorDao tod = SpringApplicationContext.getTourOperatorDao();
-	
+
 	public void setValidator(Validator validator) {
 		this.validator = validator;
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET)
 	public Object showUserForm(ModelMap model, HttpServletRequest request,
 			HttpServletResponse response) {
 		String userID = request.getParameter("userID");
 		if (userID == null)
 			return new RedirectView("editAccountList.html");
-		
-		AccountUser accountUser = accountManager.getAccountByID(Integer.parseInt(userID));
+
+		AccountUser accountUser = accountManager.getAccountByID(Integer
+				.parseInt(userID));
 		if (accountUser == null)
 			return new RedirectView("editAccountList.html");
 
-		TourOperator operator = tod.getTourOperatorByID(accountUser.getUserID());
+		TourOperator operator = tod
+				.getTourOperatorByID(accountUser.getUserID());
 		model.addAttribute("accountUser", accountUser);
-		if(accountUser.getUserType().equalsIgnoreCase("admin")){
+		if (accountUser.getUserType().equalsIgnoreCase("admin")) {
 			model.addAttribute("hide", "none");
-		}
-		else {
+		} else {
 			model.addAttribute("hide", "");
 			DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-			model.addAttribute("membershipExpiry", df.format(operator.getMembershipExpired()));
+			model.addAttribute("membershipExpiry", df.format(operator
+					.getMembershipExpired()));
 		}
 		successMessage = "";
 		model.addAttribute("successMessage", successMessage);
 		return "editAccount";
 	}
-	
-	@RequestMapping(method = RequestMethod.POST)
-	public Object post(HttpServletRequest request, @ModelAttribute("accountUser") AccountUser accountUser,
-			BindingResult result, ModelMap model) throws Exception {
-		
-		//@RequestParam("membershipExpiry") String membershipExpiry
-		validator.validate(accountUser, result);
-		if (!accountUser.getUserName().equalsIgnoreCase(accountManager.getAccountByID(accountUser.getUserID()).getUserName()) && result.hasErrors()) { 
 
-			successMessage = "";
-			model.addAttribute("successMessage", successMessage);
-			return "editAccount"; 
+	@RequestMapping(method = RequestMethod.POST)
+	public Object post(HttpServletRequest request,
+			@ModelAttribute("accountUser") AccountUser accountUser,
+			BindingResult result, ModelMap model) throws Exception {
+
+		// @RequestParam("membershipExpiry") String membershipExpiry
+		validator.validate(accountUser, result);
+
+		if (result.hasErrors()) {
+			if (accountUser.getUserType().equalsIgnoreCase("admin")) {
+				model.addAttribute("hide", "none");
+			} else {
+				model.addAttribute("hide", "");
+				model.addAttribute("membershipExpiry", request
+						.getParameter("membershipExpiry"));
+			}
+			model.addAttribute("successMessage", "");
+			return "editAccount";
 		}
 
 		TourOperator operator = new TourOperator();
 		accountManager.updateAccount(accountUser);
 		String membershipExpiry = request.getParameter("membershipExpiry");
+		Date membershipExpiryDate = null;
 		
-		if(accountUser.getUserType().equalsIgnoreCase("operator") && !membershipExpiry.isEmpty()){
+		try {
+			DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+			membershipExpiryDate = df.parse(membershipExpiry);
+			
+			if (accountUser.getUserType().equalsIgnoreCase("operator")
+					&& !membershipExpiry.isEmpty()) {
 				operator = tod.getTourOperatorByID(accountUser.getUserID());
 				operator.setOperatorID(accountUser.getUserID());
-				DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-				Date membershipExpiryDate = df.parse(membershipExpiry);
+
 				operator.setMembershipExpired(membershipExpiryDate);
 				tod.saveTourOperator(operator);
+			}
+			if (accountUser.getUserType().equalsIgnoreCase("admin")) {
+				model.addAttribute("hide", "none");
+			} else {
+				model.addAttribute("hide", "");
+				model.addAttribute("membershipExpiry", df.format(operator
+						.getMembershipExpired()));
+			}
+			successMessage = "Update successful!";
+		} catch (Exception ex) {
+			successMessage = "Incorrect expiry date";
 		}
-		if(accountUser.getUserType().equalsIgnoreCase("admin")){
-			model.addAttribute("hide", "none");
-		}
-		else {
-			model.addAttribute("hide", "");
-			DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-			model.addAttribute("membershipExpiry", df.format(operator.getMembershipExpired()));
-		}
-		successMessage = "Update successful!";
+
+		
 		model.addAttribute("accountUser", accountUser);
 		model.addAttribute("successMessage", successMessage);
-		return "editAccount"; 
-		
+		return "editAccount";
+
 	}
+
 	@Autowired
 	IAccountManager accountManager;
 

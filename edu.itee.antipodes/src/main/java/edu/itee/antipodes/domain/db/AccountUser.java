@@ -14,36 +14,37 @@ import edu.itee.antipodes.service.SimpleAccountManager;
 import edu.itee.antipodes.utils.SpringApplicationContext;
 
 /**
- * A persistence class that stores user login details from the User table in DB. 
- *
+ * A persistence class that stores user login details from the User table in DB.
+ * 
  */
 
 @SuppressWarnings("serial")
 public class AccountUser implements Serializable {
 	private int userID;
-	
+
 	@NotBlank
 	@Length(max = 20)
 	@RegExp(value = "[a-zA-Z0-9_.]*")
 	private String userName;
-	
+
 	@NotBlank
 	@Length(max = 20)
 	private String password;
-	
+
 	@NotNull
 	private String userType;
-	
+
 	private TourOperator operator;
-	
-	public AccountUser(){}		
-	
-	public AccountUser(String name, String pwd, String userType){
+
+	public AccountUser() {
+	}
+
+	public AccountUser(String name, String pwd, String userType) {
 		this.userName = name;
 		this.password = pwd;
 		this.userType = userType;
 	}
-	
+
 	public int getUserID() {
 		return userID;
 	}
@@ -75,7 +76,7 @@ public class AccountUser implements Serializable {
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}
-	
+
 	public TourOperator getOperator() {
 		return operator;
 	}
@@ -86,20 +87,32 @@ public class AccountUser implements Serializable {
 
 	@Override
 	public String toString() {
-		return "AccountUser [userID=" + userID + ", password=" + password + ", userType=" + userType
-				+ ", userName=" + userName + "]";
+		return "AccountUser [userID=" + userID + ", password=" + password
+				+ ", userType=" + userType + ", userName=" + userName + "]";
 	}
-	//@Autowired
+
+	// @Autowired
 	private IAccountManager accountUserManager;
+
 	// TODO: Check if compareName works
 	@SuppressWarnings("unused")
 	@ValidationMethod(forProperty = "userName")
-    private boolean compareName() {	
-		//IAccountManager accManager = new SimpleAccountManager();
+	private boolean compareName() {
+		// IAccountManager accManager = new SimpleAccountManager();
 		accountUserManager = SpringApplicationContext.getAccountManager();
-		if(accountUserManager.getAccountByUsername(userName) != null)
+		AccountUser dbUserByID = null;
+		if (this.getUserID() > 0) {
+			dbUserByID = accountUserManager.getAccountByID(this.getUserID());
+		}
+
+		AccountUser dbUserByName = accountUserManager
+				.getAccountByUsername(userName);
+
+		if ((dbUserByName != null && dbUserByID == null)
+				|| (dbUserByName != null && dbUserByName.getUserID() != dbUserByID
+						.getUserID()))
 			return false;
 		else
 			return true;
-    }
+	}
 }
