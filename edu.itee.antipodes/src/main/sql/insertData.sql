@@ -95,35 +95,35 @@ INSERT INTO Tour VALUES (
 );
 INSERT INTO Tour VALUES (
 	0002, 'Asia Trekking', 'Follow in the steps of the Incas on this trip to the "must-see" highlight of Asia - from China to Thailand! This tour is spectacular and the first glimpse of Asia will leave memories.',
-	1289.75, 2, 0,'USD',1, 'qmutCovjmGvrxJqmquE_entA_pihCnofeCoihC', 'BBBB'
+	1289.75,3, 0,'USD',1, 'qmutCovjmGvrxJqmquE_entA_pihCnofeCoihC', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0003, 'Trekking Mont Blanc', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
-	1399.35, 2, 0,'AUD',1, 's{tvFufl}Aqi{g@|{p_B', 'BB'
+	1399.35, 4, 0,'AUD',1, 's{tvFufl}Aqi{g@|{p_B', 'BB'
 );
 INSERT INTO Tour VALUES (
 	0004, 'Himalaya Mountain Trekking', 'Love to hike? Then this 8-day active adventure in Nepal is for you! Enjoy mountain treks offering magnificent views, encounters with Berber villagers and the opportunity to explore bustling Marrakech.',
-	1679.95, 2, 0,'AUD',1, 'o}dhHcnhuOxnfi@cfvpBinwW{f~vAny_{A~pchB', 'BBBB'
+	1679.95, 6, 0,'AUD',1, 'o}dhHcnhuOxnfi@cfvpBinwW{f~vAny_{A~pchB', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0005, 'Sicilian Volcano Trail', 'Exhilarating hiking on the edge! A week of unforgettable hikes over three active volcanoes: Vulcano; Stromboli, one of the most active volcanoes in the world; and mighty Etna, Europe highest active volcano.',
-	1899.95, 2, 0,'AUD',1, '{zqrFsrst@wibf@ftcA|on@aswg@', 'BBB'
+	1899.95, 6, 0,'AUD',1, '{zqrFsrst@wibf@ftcA|on@aswg@', 'BBB'
 );
 INSERT INTO Tour VALUES (
 	0006, 'Nomadic Mongolia', 'An incredible journey to the land of blue skies, green hills and nomadic people. Get out and explore the city of Ulaan Baatar and lush green countryside, which is dotted with ancient monasteries.',
-	2099.95, 2, 0,'AUD',1, 'o}dhHcnhuOi`fCgroaAdyxA}gxv@eyxAmra{@', 'BBBB'
+	2099.95, 7, 0,'AUD',1, 'o}dhHcnhuOi`fCgroaAdyxA}gxv@eyxAmra{@', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0007, 'Thailand Sailing Adventure', 'Island hop in Southern Thailand to some of the best snorkeling and diving locations in the world. Enjoy a week aboard a sailing catamaran, while swimming in deserted waters among turtles.',
-	1899.95, 2, 0,'AUD',1, 'bCcmnuPmzuRwh', 'BBBB'
+	1899.95, 8, 0,'AUD',1, 'bCcmnuPmzuRwh', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0008, 'Roam India', 'India is home to great food, fascinating culture, alluring sights and friendly and inviting people. Discover the charms and mystery that makes up this incredible country.',
-	1999.95, 2, 0,'AUD',1, '_d{jCsqzgLaqbk@ms{Z`acLyren@~n~]os{Z', 'BBBB'
+	1999.95, 4, 0,'AUD',1, '_d{jCsqzgLaqbk@ms{Z`acLyren@~n~]os{Z', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0009, 'Discover China', 'From rural roads through endless rice fields in southern China to the bustling streets of Beijing, over the Great Wall of China and down the Li River, see China in a unique way!',
-	1599.95, 2, 0,'EUR',1, '_{xaFsespMm~gi@chjp@xuvNogtcAjezCufl}Acucd@ugf}@|pnL}gxv@', 'BBBBBB'
+	0009, 'China Hike, Bike & Raft', 'From rural roads through endless rice fields in southern China to the bustling streets of Beijing, over the Great Wall of China and down the Li River, see China in a unique way!',
+	1599.95, 6, 0,'EUR',1, '_{xaFsespMm~gi@chjp@xuvNogtcAjezCufl}Acucd@ugf}@|pnL}gxv@', 'BBBBBB'
 );
 INSERT INTO Tour VALUES (
 	0010, 'Trekking Alpen', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
@@ -131,31 +131,31 @@ INSERT INTO Tour VALUES (
 );
 INSERT INTO Tour VALUES (
 	0011, 'The Old Woods', 'Trek the Alps from France to Italy, France, UK, and Russia; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
-	1269.55, 2, 0,'USD',1, 'erknGsgm`A}jaSlg{fAiofi@|sxJx`vKm|moAel`V_op{N', 'BBBBB'
+	1269.55, 3, 0,'USD',1, 'erknGsgm`A}jaSlg{fAiofi@|sxJx`vKm|moAel`V_op{N', 'BBBBB'
 );
 INSERT INTO Tour VALUES (
 	0012, 'Asia Magic', 'Follow in the steps of the Incas on this trip to the "must-see" highlight of Asia - from China to Thailand! This tour is spectacular and the first glimpse of Asia will leave memories.',
-	1289.75, 2, 0,'USD',1, 'qmutCovjmGvrxJqmquE_entA_pihCnofeCoihC', 'BBBB'
+	1289.75, 4, 0,'USD',1, 'qmutCovjmGvrxJqmquE_entA_pihCnofeCoihC', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0013, 'More Winter Walks', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
-	1399.35, 2, 0,'AUD',1, 's{tvFufl}Aqi{g@|{p_B', 'BB'
+	1399.35, 5, 0,'AUD',1, 's{tvFufl}Aqi{g@|{p_B', 'BB'
 );
 INSERT INTO Tour VALUES (
 	0014, 'Trek Himalaya', 'Love to hike? Then this 8-day active adventure in Nepal is for you! Enjoy mountain treks offering magnificent views, encounters with Berber villagers and the opportunity to explore bustling Marrakech.',
-	1679.95, 2, 0,'AUD',1, 'o}dhHcnhuOxnfi@cfvpBinwW{f~vAny_{A~pchB', 'BBBB'
+	1679.95, 4, 0,'AUD',1, 'o}dhHcnhuOxnfi@cfvpBinwW{f~vAny_{A~pchB', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0015, 'Volcano Sicily', 'Exhilarating hiking on the edge! A week of unforgettable hikes over three active volcanoes: Vulcano; Stromboli, one of the most active volcanoes in the world; and mighty Etna, Europe highest active volcano.',
-	1899.95, 2, 0,'AUD',1, '{zqrFsrst@wibf@ftcA|on@aswg@', 'BBB'
+	1899.95, 3, 0,'AUD',1, '{zqrFsrst@wibf@ftcA|on@aswg@', 'BBB'
 );
 INSERT INTO Tour VALUES (
 	0016, 'Mongolian Lamb', 'An incredible journey to the land of blue skies, green hills and nomadic people. Get out and explore the city of Ulaan Baatar and lush green countryside, which is dotted with ancient monasteries.',
-	2099.95, 2, 0,'AUD',1, 'o}dhHcnhuOi`fCgroaAdyxA}gxv@eyxAmra{@', 'BBBB'
+	2099.95, 5, 0,'AUD',1, 'o}dhHcnhuOi`fCgroaAdyxA}gxv@eyxAmra{@', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0017, 'Adventure Thailand', 'Island hop in Southern Thailand to some of the best snorkeling and diving locations in the world. Enjoy a week aboard a sailing catamaran, while swimming in deserted waters among turtles.',
-	1899.95, 2, 0,'AUD',1, 'bCcmnuPmzuRwh', 'BBBB'
+	1899.95,5, 0,'AUD',1, 'bCcmnuPmzuRwh', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0018, 'Good India', 'India is home to great food, fascinating culture, alluring sights and friendly and inviting people. Discover the charms and mystery that makes up this incredible country.',
@@ -163,11 +163,11 @@ INSERT INTO Tour VALUES (
 );
 INSERT INTO Tour VALUES (
 	0019, 'Hike China, Bike & Raft', 'From rural roads through endless rice fields in southern China to the bustling streets of Beijing, over the Great Wall of China and down the Li River, see China in a unique way!',
-	1599.95, 2, 0,'EUR',1, '_{xaFsespMm~gi@chjp@xuvNogtcAjezCufl}Acucd@ugf}@|pnL}gxv@', 'BBBBBB'
+	1599.95, 3, 0,'EUR',1, '_{xaFsespMm~gi@chjp@xuvNogtcAjezCufl}Acucd@ugf}@|pnL}gxv@', 'BBBBBB'
 );
 INSERT INTO Tour VALUES (
 	0020, 'Alps Trek', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
-	1399.35, 2, 0,'AUD',1, 's{tvFufl}Aqi{g@|{p_B', 'BB'
+	1399.35, 4, 0,'AUD',1, 's{tvFufl}Aqi{g@|{p_B', 'BB'
 );
 INSERT INTO Tour VALUES (
 	0021, 'Here Be Europe', 'Trek the Alps from France to Italy, France, UK, and Russia; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
@@ -175,23 +175,23 @@ INSERT INTO Tour VALUES (
 );
 INSERT INTO Tour VALUES (
 	0022, 'Asia Adventure', 'Follow in the steps of the Incas on this trip to the "must-see" highlight of Asia - from China to Thailand! This tour is spectacular and the first glimpse of Asia will leave memories.',
-	1289.75, 2, 0,'USD',1, 'qmutCovjmGvrxJqmquE_entA_pihCnofeCoihC', 'BBBB'
+	1289.75, 3, 0,'USD',1, 'qmutCovjmGvrxJqmquE_entA_pihCnofeCoihC', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0023, 'Silent Night', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
-	1399.35, 2, 0,'AUD',1, 's{tvFufl}Aqi{g@|{p_B', 'BB'
+	1399.35, 4, 0,'AUD',1, 's{tvFufl}Aqi{g@|{p_B', 'BB'
 );
 INSERT INTO Tour VALUES (
 	0024, 'Go Himalayas', 'Love to hike? Then this 8-day active adventure in Nepal is for you! Enjoy mountain treks offering magnificent views, encounters with Berber villagers and the opportunity to explore bustling Marrakech.',
-	1679.95, 2, 0,'AUD',1, 'o}dhHcnhuOxnfi@cfvpBinwW{f~vAny_{A~pchB', 'BBBB'
+	1679.95, 5, 0,'AUD',1, 'o}dhHcnhuOxnfi@cfvpBinwW{f~vAny_{A~pchB', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0025, 'Trail Volcano', 'Exhilarating hiking on the edge! A week of unforgettable hikes over three active volcanoes: Vulcano; Stromboli, one of the most active volcanoes in the world; and mighty Etna, Europe highest active volcano.',
-	1899.95, 2, 0,'AUD',1, '{zqrFsrst@wibf@ftcA|on@aswg@', 'BBB'
+	1899.95, 4, 0,'AUD',1, '{zqrFsrst@wibf@ftcA|on@aswg@', 'BBB'
 );
 INSERT INTO Tour VALUES (
 	0026, 'I Love Mongolia', 'An incredible journey to the land of blue skies, green hills and nomadic people. Get out and explore the city of Ulaan Baatar and lush green countryside, which is dotted with ancient monasteries.',
-	2099.95, 2, 0,'AUD',1, 'o}dhHcnhuOi`fCgroaAdyxA}gxv@eyxAmra{@', 'BBBB'
+	2099.95, 3, 0,'AUD',1, 'o}dhHcnhuOi`fCgroaAdyxA}gxv@eyxAmra{@', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0027, 'Sail Thailand', 'Island hop in Southern Thailand to some of the best snorkeling and diving locations in the world. Enjoy a week aboard a sailing catamaran, while swimming in deserted waters among turtles.',
@@ -258,7 +258,7 @@ INSERT INTO Tour VALUES (
 	1289.75, 2, 0,'USD',4, 'qmutCovjmGvrxJqmquE_entA_pihCnofeCoihC', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0043, 'Hiking Mont Blanc', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
+	0043, 'Trekking Mont Blanc', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
 	1399.35, 2, 0,'AUD',4, 's{tvFufl}Aqi{g@|{p_B', 'BB'
 );
 INSERT INTO Tour VALUES (
@@ -292,7 +292,7 @@ INSERT INTO Tour VALUES (
 -- Tour 51 is NOT on demand (i.e. on_Demand = 0), it has MULTIPLE start date, finish date
 
 INSERT INTO Tour VALUES (
-	0051, 'China Adventure', 'From rural roads through endless rice fields in southern China to the bustling streets of Beijing, over the Great Wall of China and down the Li River, see China in a unique way!',
+	0051, 'China Hike, Bike & Raft', 'From rural roads through endless rice fields in southern China to the bustling streets of Beijing, over the Great Wall of China and down the Li River, see China in a unique way!',
 	1599.95, 2, 0,'EUR',6, '_{xaFsespMm~gi@chjp@xuvNogtcAjezCufl}Acucd@ugf}@|pnL}gxv@', 'BBBBBB'
 );
 
@@ -300,15 +300,15 @@ INSERT INTO Tour VALUES (
 -- Tour(tour_ID, tour_Name, tour_Desc, price, total_Days, on_Demand, currency, operator_ID, points, levels)
 
 INSERT INTO Tour VALUES (
-	0052, 'Discover Europe', 'Trek the Alps from France to Italy, France, UK, and Russia; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
+	0052, 'Europe Adventure', 'Trek the Alps from France to Italy, France, UK, and Russia; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
 	1269.55, 2, 0,'USD',7, 'erknGsgm`A}jaSlg{fAiofi@|sxJx`vKm|moAel`V_op{N', 'BBBBB'
 );
 INSERT INTO Tour VALUES (
-	0053, 'Discover Asia', 'Follow in the steps of the Incas on this trip to the "must-see" highlight of Asia - from China to Thailand! This tour is spectacular and the first glimpse of Asia will leave memories.',
+	0053, 'Asia Trekking', 'Follow in the steps of the Incas on this trip to the "must-see" highlight of Asia - from China to Thailand! This tour is spectacular and the first glimpse of Asia will leave memories.',
 	1289.75, 2, 0,'USD',8, 'qmutCovjmGvrxJqmquE_entA_pihCnofeCoihC', 'BBBB'
 );
 INSERT INTO Tour VALUES (
-	0054, 'Mont Blanc Adventure', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
+	0054, 'Trekking Mont Blanc', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
 	1399.35, 2, 0,'AUD',9, 's{tvFufl}Aqi{g@|{p_B', 'BB'
 );
 INSERT INTO Tour VALUES (
@@ -499,7 +499,7 @@ INSERT INTO ListedTour VALUES (
 
 -- Activity --------------------------------------------------------------------
 
--- Stored in database in UPPERCASE
+-- Stored in databse in UPPERCASE
 -- Search multiple activities seperated by comma WITHOUT space, any case accepted
 -- peRU,NepAL without space will work
 -- peRU, NepAL with space will not work
@@ -845,76 +845,76 @@ INSERT INTO TourDate VALUES (
 	0001, 0001, TO_DATE('01/06/2010', 'DD/MM/YYYY'), TO_DATE('03/06/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0002, 0002, TO_DATE('01/06/2010', 'DD/MM/YYYY'), TO_DATE('03/06/2010', 'DD/MM/YYYY')  
+	0002, 0002, TO_DATE('01/06/2010', 'DD/MM/YYYY'), TO_DATE('04/06/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0003, 0003, TO_DATE('01/06/2010', 'DD/MM/YYYY'), TO_DATE('03/06/2010', 'DD/MM/YYYY')  
+	0003, 0003, TO_DATE('01/06/2010', 'DD/MM/YYYY'), TO_DATE('05/06/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0004, 0004, TO_DATE('01/06/2010', 'DD/MM/YYYY'), TO_DATE('03/06/2010', 'DD/MM/YYYY')  
+	0004, 0004, TO_DATE('01/06/2010', 'DD/MM/YYYY'), TO_DATE('07/06/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0005, 0005, TO_DATE('01/06/2010', 'DD/MM/YYYY'), TO_DATE('03/06/2010', 'DD/MM/YYYY')  
+	0005, 0005, TO_DATE('01/06/2010', 'DD/MM/YYYY'), TO_DATE('07/06/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0006, 0006, TO_DATE('01/06/2010', 'DD/MM/YYYY'), TO_DATE('03/06/2010', 'DD/MM/YYYY')  
+	0006, 0006, TO_DATE('01/06/2010', 'DD/MM/YYYY'), TO_DATE('08/06/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0007, 0007, TO_DATE('01/06/2010', 'DD/MM/YYYY'), TO_DATE('03/06/2010', 'DD/MM/YYYY')  
+	0007, 0007, TO_DATE('01/06/2010', 'DD/MM/YYYY'), TO_DATE('09/06/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0008, 0008, TO_DATE('01/06/2010', 'DD/MM/YYYY'), TO_DATE('03/06/2010', 'DD/MM/YYYY')  
+	0008, 0008, TO_DATE('01/06/2010', 'DD/MM/YYYY'), TO_DATE('05/06/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0009, 0009, TO_DATE('01/06/2010', 'DD/MM/YYYY'), TO_DATE('03/06/2010', 'DD/MM/YYYY')  
+	0009, 0009, TO_DATE('01/06/2010', 'DD/MM/YYYY'), TO_DATE('07/06/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
 	0010, 0010, TO_DATE('05/07/2010', 'DD/MM/YYYY'), TO_DATE('07/07/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0011, 0011, TO_DATE('05/07/2010', 'DD/MM/YYYY'), TO_DATE('07/07/2010', 'DD/MM/YYYY')  
+	0011, 0011, TO_DATE('05/07/2010', 'DD/MM/YYYY'), TO_DATE('08/07/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0012, 0012, TO_DATE('05/07/2010', 'DD/MM/YYYY'), TO_DATE('07/07/2010', 'DD/MM/YYYY')  
+	0012, 0012, TO_DATE('05/07/2010', 'DD/MM/YYYY'), TO_DATE('09/07/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0013, 0013, TO_DATE('05/07/2010', 'DD/MM/YYYY'), TO_DATE('07/07/2010', 'DD/MM/YYYY')  
+	0013, 0013, TO_DATE('05/07/2010', 'DD/MM/YYYY'), TO_DATE('10/07/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0014, 0014, TO_DATE('05/07/2010', 'DD/MM/YYYY'), TO_DATE('07/07/2010', 'DD/MM/YYYY')  
+	0014, 0014, TO_DATE('05/07/2010', 'DD/MM/YYYY'), TO_DATE('09/07/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0015, 0015, TO_DATE('05/07/2010', 'DD/MM/YYYY'), TO_DATE('07/07/2010', 'DD/MM/YYYY')  
+	0015, 0015, TO_DATE('05/07/2010', 'DD/MM/YYYY'), TO_DATE('08/07/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0016, 0016, TO_DATE('05/07/2010', 'DD/MM/YYYY'), TO_DATE('07/07/2010', 'DD/MM/YYYY')  
+	0016, 0016, TO_DATE('05/07/2010', 'DD/MM/YYYY'), TO_DATE('10/07/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0017, 0017, TO_DATE('05/07/2010', 'DD/MM/YYYY'), TO_DATE('07/07/2010', 'DD/MM/YYYY')  
+	0017, 0017, TO_DATE('05/07/2010', 'DD/MM/YYYY'), TO_DATE('10/07/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
 	0018, 0018, TO_DATE('05/07/2010', 'DD/MM/YYYY'), TO_DATE('07/07/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0019, 0019, TO_DATE('05/07/2010', 'DD/MM/YYYY'), TO_DATE('07/07/2010', 'DD/MM/YYYY')  
+	0019, 0019, TO_DATE('05/07/2010', 'DD/MM/YYYY'), TO_DATE('08/07/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0020, 0020, TO_DATE('05/07/2010', 'DD/MM/YYYY'), TO_DATE('07/07/2010', 'DD/MM/YYYY')  
+	0020, 0020, TO_DATE('05/07/2010', 'DD/MM/YYYY'), TO_DATE('09/07/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0021, 0021, TO_DATE('10/08/2010', 'DD/MM/YYYY'), TO_DATE('12/08/2010', 'DD/MM/YYYY')  
+	0021, 0021, TO_DATE('10/08/2010', 'DD/MM/YYYY'), TO_DATE('13/08/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0022, 0022, TO_DATE('10/08/2010', 'DD/MM/YYYY'), TO_DATE('12/08/2010', 'DD/MM/YYYY')  
+	0022, 0022, TO_DATE('10/08/2010', 'DD/MM/YYYY'), TO_DATE('14/08/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0023, 0023, TO_DATE('10/08/2010', 'DD/MM/YYYY'), TO_DATE('12/08/2010', 'DD/MM/YYYY')  
+	0023, 0023, TO_DATE('10/08/2010', 'DD/MM/YYYY'), TO_DATE('15/08/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
 	0024, 0024, TO_DATE('10/08/2010', 'DD/MM/YYYY'), TO_DATE('12/08/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0025, 0025, TO_DATE('10/08/2010', 'DD/MM/YYYY'), TO_DATE('12/08/2010', 'DD/MM/YYYY')  
+	0025, 0025, TO_DATE('10/08/2010', 'DD/MM/YYYY'), TO_DATE('13/08/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
 	0026, 0026, TO_DATE('10/08/2010', 'DD/MM/YYYY'), TO_DATE('12/08/2010', 'DD/MM/YYYY')  
@@ -992,26 +992,29 @@ INSERT INTO TourDate VALUES (
 	0050, 0050, TO_DATE('20/10/2010', 'DD/MM/YYYY'), TO_DATE('22/10/2010', 'DD/MM/YYYY')  
 );
 
+-- TOUR 51: MULTIPLE start date, finish date; total_Days = 2 days for tour 51 
 INSERT INTO TourDate VALUES (
 	0051, 0051, TO_DATE('12/11/2010', 'DD/MM/YYYY'), TO_DATE('14/11/2010', 'DD/MM/YYYY')  
 );
-
+INSERT INTO TourDate VALUES (
+	0052, 0051, TO_DATE('20/11/2010', 'DD/MM/YYYY'), TO_DATE('22/11/2010', 'DD/MM/YYYY')  
+);
 
 -- NO start date, finish date; total_Days = 1 day for on demand tours 52,53,54,55
 
 -- *** start date, finish date will be removed later *** 
 
 INSERT INTO TourDate VALUES (
-	0052, 0052, TO_DATE('25/12/2010', 'DD/MM/YYYY'), TO_DATE('26/12/2010', 'DD/MM/YYYY')  
+	0053, 0052, TO_DATE('25/12/2010', 'DD/MM/YYYY'), TO_DATE('26/12/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0053, 0053, TO_DATE('25/12/2010', 'DD/MM/YYYY'), TO_DATE('26/12/2010', 'DD/MM/YYYY')  
+	0054, 0053, TO_DATE('25/12/2010', 'DD/MM/YYYY'), TO_DATE('26/12/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0054, 0054, TO_DATE('25/12/2010', 'DD/MM/YYYY'), TO_DATE('26/12/2010', 'DD/MM/YYYY')  
+	0055, 0054, TO_DATE('25/12/2010', 'DD/MM/YYYY'), TO_DATE('26/12/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0055, 0055, TO_DATE('25/12/2010', 'DD/MM/YYYY'), TO_DATE('26/12/2010', 'DD/MM/YYYY')  
+	0056, 0055, TO_DATE('25/12/2010', 'DD/MM/YYYY'), TO_DATE('26/12/2010', 'DD/MM/YYYY')  
 );
 
 
