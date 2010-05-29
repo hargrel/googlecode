@@ -14,24 +14,28 @@
 	<field name="s2" class="java.lang.String"/>
 	<field name="s3" class="java.lang.String"/>
 	<title>
-		<band height="70" splitType="Stretch">
+		<band height="134" splitType="Stretch">
 			<line>
-				<reportElement x="0" y="0" width="515" height="1"/>
+				<reportElement x="0" y="74" width="515" height="1"/>
 			</line>
 			<textField isBlankWhenNull="true">
-				<reportElement x="0" y="10" width="515" height="30"/>
+				<reportElement x="0" y="84" width="515" height="30"/>
 				<textElement textAlignment="Center">
 					<font reportFont="Arial_Normal" size="22"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{ReportTitle}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="0" y="40" width="515" height="20"/>
+				<reportElement x="0" y="114" width="515" height="20"/>
 				<textElement textAlignment="Center">
 					<font reportFont="Arial_Normal" size="14"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{DataFile}]]></textFieldExpression>
 			</textField>
+			<image>
+				<reportElement x="0" y="0" width="515" height="74"/>
+				<imageExpression class="java.lang.String"><![CDATA["antipodeBanner.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>

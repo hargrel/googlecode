@@ -87,46 +87,50 @@
 		</groupFooter>
 	</group>
 	<title>
-		<band height="103" splitType="Stretch">
+		<band height="177" splitType="Stretch">
 			<line>
-				<reportElement x="0" y="0" width="515" height="1"/>
+				<reportElement x="0" y="73" width="515" height="1"/>
 			</line>
 			<textField isBlankWhenNull="true">
-				<reportElement x="0" y="10" width="515" height="30"/>
+				<reportElement x="0" y="83" width="515" height="30"/>
 				<textElement textAlignment="Center">
 					<font reportFont="Arial_Normal" size="22"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{ReportTitle}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="0" y="83" width="515" height="20"/>
+				<reportElement x="0" y="156" width="515" height="20"/>
 				<textElement textAlignment="Center">
 					<font reportFont="Arial_Normal" size="14"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{DataFile}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="70" y="43" width="445" height="20"/>
+				<reportElement x="70" y="116" width="445" height="20"/>
 				<textElement textAlignment="Left">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{CustomerName}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="70" y="63" width="445" height="20"/>
+				<reportElement x="70" y="136" width="445" height="20"/>
 				<textElement textAlignment="Left"/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{ReportPeriod}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="63" width="70" height="20"/>
+				<reportElement x="0" y="136" width="70" height="20"/>
 				<textElement/>
 				<text><![CDATA[Date period:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="43" width="70" height="20"/>
+				<reportElement x="0" y="116" width="70" height="20"/>
 				<textElement/>
 				<text><![CDATA[Customer:]]></text>
 			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="515" height="74"/>
+				<imageExpression class="java.lang.String"><![CDATA["antipodeBanner.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<detail>
