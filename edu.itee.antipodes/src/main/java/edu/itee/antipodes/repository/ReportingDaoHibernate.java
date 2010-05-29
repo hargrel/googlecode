@@ -77,12 +77,12 @@ public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterab
 	
 	public List<Object[]> getNumToursAsscWithLocationByLocationID(int id){
 		List<Object[]> list = new ArrayList<Object[]>();				
-		String select="select c.locationID, c.locationName, COUNT(l.listID) ";
+		String select="select c.locationID, c.locationName, COUNT(*)  ";
 		String from="from ListedTour as l join l.tour as t join t.locations as c ";
 		String where="where c.locationID=:locationID ";
 		
 		if (id == 0) return null;
-		String sql= select+ from+where+ "group by c.locationID, c.locationName ";
+		String sql= select+ from+where+ "group by c.locationID, c.locationName "+"order by count(*) desc";
 
 //			Query query= getSession().createQuery(sql);
 //			query.setParameter("locationID", id);
@@ -107,10 +107,10 @@ public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterab
 	 */
 	public List<Object[]> getNumToursAsscWithLocation(){
 				
-		String select="select c.locationID, c.locationName, COUNT(l.listID) ";
+		String select="select c.locationID, c.locationName, COUNT(*) ";
 		String from="from ListedTour as l join l.tour as t join t.locations as c ";
 		
-		String sql= select+ from+"group by c.locationID, c.locationName ";
+		String sql= select+ from+"group by c.locationID, c.locationName "+"order by count(*) desc";
 //			Query query= getSession().createQuery(sql);
 //			int i=0;
 //			 for (Iterator it= query.iterate(); it.hasNext(); i++ ) {
@@ -141,7 +141,8 @@ public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterab
 		String select = "select t.tourID,  t.tourName, COUNT(DISTINCT a.activityID) + COUNT(DISTINCT c.locationID) ";
 		String from = "from ListedTour as l join l.tour as t join t.activities as a join t.locations as c ";
 		String sql = select+from+"group by t.tourID, t.tourName "+
-			"having COUNT(DISTINCT a.activityID)+COUNT(DISTINCT c.locationID) >= :minNum "+"order by t.tourID";
+			"having COUNT(DISTINCT a.activityID)+COUNT(DISTINCT c.locationID) >= :minNum "
+			+"ORDER BY COUNT(DISTINCT a.activityID) + COUNT(DISTINCT c.locationID) desc";
 		
 		list = getHibernateTemplate().findByNamedParam(sql, "minNum", (long)minNum);
 		
@@ -199,7 +200,7 @@ public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterab
 		
 		// l.listedFrom-30 since we want to include the previous month, ex. for 12/05/2010, we want to charge 05/2010's fee as well
 		String where="where m.monthYearStart between :from and :to and m.monthYearStart between (l.listedFrom-30) and l.listedTo and (l.listedTo-l.listedFrom)>=1  ";
-		String sql= select+ from+ where+"group by  m.monthYearStart,o.operatorID,o.operatorName, m.fee "+"order by m.monthYearStart desc";
+		String sql= select+ from+ where+"group by  m.monthYearStart,o.operatorID,o.operatorName, m.fee "+"order by m.monthYearStart desc, o.operatorID asc";
 		
 		String[] params = new String[2];
 		params[0] = "from";
@@ -240,7 +241,7 @@ public class ReportingDaoHibernate extends HibernateDaoSupport implements Iterab
 		String select="select m.monthYearStart, t.tourID, t.tourName, m.fee ";
 		String from="from TourOperator as o join o.listedTour as l join l.tour as t, MonthlyFee as m ";
 		String where="where o.operatorID=:operatorID and m.monthYearStart between :from and :to and m.monthYearStart between (l.listedFrom-30) and l.listedTo and (l.listedTo-l.listedFrom)>=1 ";
-		String sql= select+ from+ where+"order by m.monthYearStart desc";
+		String sql= select+ from+ where+"order by m.monthYearStart desc, t.tourID asc";
 		
 		String[] params = new String[3];
 		params[0]="operatorID";
