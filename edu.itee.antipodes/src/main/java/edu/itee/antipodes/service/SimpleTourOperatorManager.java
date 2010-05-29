@@ -140,6 +140,7 @@ public class SimpleTourOperatorManager implements ITourOperatorManager {
 
 		tour.setActivities(dbTour.getActivities());
 		tour.setLocations(dbTour.getLocations());
+		tour.setImages(dbTour.getImages());
 
 		tourDao.saveTour(tour);
 	}
