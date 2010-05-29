@@ -138,7 +138,7 @@ function confirmDelete(id)
 			<td colspan="2" align="right"><input type="button"
 				value="Cancel"
 				onClick="window.location.href='<c:url value="TOhome.html"/>'" />&nbsp;&nbsp;&nbsp;&nbsp;<input
-				type="submit" value="Align" /></td>
+				type="submit" value="Align" style="margin-right:40px; margin-top:10px"/></td>
 		</tr>
 
 	</table>
@@ -156,7 +156,7 @@ function confirmDelete(id)
 				<!-- Insert start & finish date -->
 
 				<td><form:hidden path="tourID" />From:&nbsp;&nbsp;<form:input path="startDate"
-					cssErrorClass="form-error-field" id="datepicker_from" />
+					cssErrorClass="form-error-field" id="datepicker_from" />&nbsp;&nbsp;
 				<div class="form-error-message"><form:errors path="startDate" /></div>
 				</td>
 
@@ -180,10 +180,9 @@ function confirmDelete(id)
 		</thead>
 		<tbody>
 			<c:forEach items="${tour.tourDates}" var="date">
-
 				<tr>
-					<td><c:out value="${date.startDate}" /></td>
-					<td><c:out value="${date.finishDate}" /></td>
+					<td><fmt:formatDate value="${date.startDate}" pattern="d MMM yyyy"/></td>
+					<td><fmt:formatDate value="${date.finishDate}" pattern="d MMM yyyy"/></td>
 					<td class="center">
 					<form style="margin: 0px; padding: 0px;"
 						name="delete_${date.dateID}" action="deleteTourDate.html" method="post"><input
@@ -201,5 +200,6 @@ function confirmDelete(id)
 </td>
 </tr>
 </table>
+<a style="color:blue" href="userManual.html#Criteria"><img src="<c:url value="/img/Help-icon.png"/>" style="margin-right:10px;margin-bottom:-2px">Help</a>
 </body>
 </html>

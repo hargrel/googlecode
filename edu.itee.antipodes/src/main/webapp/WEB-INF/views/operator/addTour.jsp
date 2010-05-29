@@ -121,6 +121,10 @@ function hideText() {
 				type="button" value="Delete Selected Point" onclick="deletePoint()" />&nbsp;&nbsp;<input
 				type="button" value="Delete All Points" onclick="deleteAllPoints()" /></td>
 		</tr>
+		
+		<tr>
+			<td><a style="color:blue" href="userManual.html#Add"><img src="<c:url value="/img/Help-icon.png"/>" style="margin-right:10px;margin-bottom:-2px">Help</a></td>
+		</tr>
 
 		<tr id="hide" style="display: none">
 			<td><select id="pointList" size="8"

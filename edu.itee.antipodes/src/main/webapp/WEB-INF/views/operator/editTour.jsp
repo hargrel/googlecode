@@ -104,6 +104,10 @@
 		</td>
 	</tr>
 	
+	<tr>
+			<td><a style="color:blue" href="userManual.html#EditInfo"><img src="<c:url value="/img/Help-icon.png"/>" style="margin-right:10px;margin-bottom:-2px">Help</a></td>
+	</tr>
+		
 	<tr id="hide" style="display:none">
 		<td><select id="pointList" size="8" onchange="highlight(this.selectedIndex)" ondblclick="jumpToPoint()"></select></td>
   	</tr>

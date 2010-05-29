@@ -46,7 +46,7 @@
 				<td><c:out value="${tour.tourID}" /></td>
 				<td><c:out value="${tour.tourName}" /></td>	
 				<td><c:out value="${tour.totalDays}" />&nbsp; days</td>		
-				<td>
+				<td class="center">
 					<form style="margin:0px; padding: 0px;" name="align_${tour.tourID}" action="alignTour.html" method="get">
 						<input type="hidden" name="tourID" value="${tour.tourID}" />
 					</form>

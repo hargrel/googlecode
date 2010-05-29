@@ -44,6 +44,10 @@ function createPolyline(point,level) {
 
 function createMarker(point,img) {
     var marker = new GMarker(point);
+    GEvent.addListener(marker, "click", function(){    
+    	 marker.openInfoWindowHtml('<img src="uploads/images/' + img + '" width="250px"/>'); 
+    });
+
     marker.openInfoWindowHtml('<img src="uploads/images/' + img + '" width="250px"/>'); 
     map.addOverlay(marker);
     return marker;
