@@ -114,7 +114,7 @@ $(document).ready(function() {
 </c:forEach>
 -->
 
-<c:forEach items="${listedTour.tour.images}" var="image">
+<c:forEach items="${images}" var="image">
 <a class="group" rel="images" href="<c:url value="/uploads/images/"/><c:out value="${image.url}" />"><img src="<c:url value="/uploads/images/"/><c:out value="${image.url}" />" width="100px"/></a>
 </c:forEach>
 
