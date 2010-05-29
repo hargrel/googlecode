@@ -88,7 +88,7 @@ public class SimpleReportingManager implements IReportingManager {
 
 		// ReportingDaoHibernate rdh = DaoManager.getReporingDao();
 
-		numberOfCriterias++;
+		//numberOfCriterias++;
 		List<UniversalBean> list = new ArrayList<UniversalBean>();
 		List<Object[]> tl = rdh
 				.getSumOfActivitiesAndLocationsForToursByMinNum(numberOfCriterias);
