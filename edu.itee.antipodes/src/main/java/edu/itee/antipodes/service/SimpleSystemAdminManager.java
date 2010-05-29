@@ -116,7 +116,7 @@ public class SimpleSystemAdminManager implements ISystemAdminManager {
 		this.templateMessage = templateMessage;
 	}
 	@Override
-	public void regeneratePassword(String email) throws Exception {
+	public boolean regeneratePassword(String email) throws Exception {
 		SecureRandom random = new SecureRandom();
 	    String newPassword = new BigInteger(130, random).toString(32);
 	    
@@ -138,9 +138,9 @@ public class SimpleSystemAdminManager implements ISystemAdminManager {
 		try {
 			this.mailSender.send(msg);
 		} catch (MailException ex) {
-			// simply log it and go on...
-			System.err.println(ex.getMessage());
+			return false;
 		}
+		return true;
 		
 	}
 

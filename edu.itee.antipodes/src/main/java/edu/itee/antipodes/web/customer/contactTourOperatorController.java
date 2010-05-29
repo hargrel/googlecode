@@ -51,8 +51,11 @@ public final class contactTourOperatorController {
 			return "contactTourOperator";
 		}
 
-		customerManager.contactOperator(contactOpt);
-
+		if(!customerManager.contactOperator(contactOpt)){
+			model.addAttribute("errorheader", "Oopps");
+			model.addAttribute("errormessage", "Our email server is currently unavailable. Please try again later.");
+			return "error";
+		}
 		model.addAttribute("headermessage", "Thank you.");
 		model.addAttribute("message",
 				"Your message has been sent. Thank you for your time");

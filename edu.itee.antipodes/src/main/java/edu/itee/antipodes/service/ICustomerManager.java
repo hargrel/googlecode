@@ -20,9 +20,9 @@ public interface ICustomerManager extends Serializable {
 
 	public List<Object> searchListedTours(String activityNames, String locationNames, String startDate, String finishDate, String currency) throws DataAccessResourceFailureException, HibernateException, IllegalStateException, ParseException;
 	
-	public void contactOperator(ContactOperator contactOperator);
+	public boolean contactOperator(ContactOperator contactOperator);
 	
 	public ContactOperator getContactOperator(String operatorID);
 
-	public void contactUs(ContactOperator contact);
+	public boolean contactUs(ContactOperator contact);
 }

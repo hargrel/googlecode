@@ -25,7 +25,11 @@ public class forgotPasswordController {
 	public Object getMessage(Model model,@RequestParam("email") String email) throws Exception
 	{
 		try{
-			systemAdminManager.regeneratePassword(email);
+			if(!systemAdminManager.regeneratePassword(email)){
+				model.addAttribute("errorheader", "Oopps");
+				model.addAttribute("errormessage", "Our email server is currently unavailable. Please try again later.");
+				return "error";
+			}
 		}catch(NullPointerException npe){
 			model.addAttribute("errorMessage", "The email you entered was invalid or does not exist.");
 			return "forgotPassword";

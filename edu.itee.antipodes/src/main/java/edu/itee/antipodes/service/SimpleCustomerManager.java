@@ -73,7 +73,7 @@ public class SimpleCustomerManager implements ICustomerManager {
 	}
 
 	@Override
-	public void contactOperator(ContactOperator contactOperator) {
+	public boolean contactOperator(ContactOperator contactOperator) {
 		SimpleMailMessage msg = new SimpleMailMessage(this.templateMessage);
 		TourOperator operator = tourOperatorDao
 				.getTourOperatorByID(contactOperator.getOperatorID());
@@ -91,9 +91,9 @@ public class SimpleCustomerManager implements ICustomerManager {
 		try {
 			this.mailSender.send(msg);
 		} catch (MailException ex) {
-			// simply log it and go on...
-			System.err.println(ex.getMessage());
+			return false;
 		}
+		return true;
 	}
 
 	@Override
@@ -114,7 +114,7 @@ public class SimpleCustomerManager implements ICustomerManager {
 	}
 
 	@Override
-	public void contactUs(ContactOperator contact) {
+	public boolean contactUs(ContactOperator contact) {
 		SimpleMailMessage msg = new SimpleMailMessage(this.contactUsMessage);
 
 		msg.setFrom(contact.getEmail());
@@ -132,8 +132,8 @@ public class SimpleCustomerManager implements ICustomerManager {
 		try {
 			this.mailSender.send(msg);
 		} catch (MailException ex) {
-			// simply log it and go on...
-			System.err.println(ex.getMessage());
+			return false;
 		}
+		return true;
 	}
 }

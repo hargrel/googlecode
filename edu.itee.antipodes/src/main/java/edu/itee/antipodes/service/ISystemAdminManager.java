@@ -11,7 +11,7 @@ public interface ISystemAdminManager {
 	public Location getLocationByID(String locationID);
 	public void saveLocation(Location location);
 	public List<Location> getLocationList();
-	public void regeneratePassword(String email) throws Exception;
+	public boolean regeneratePassword(String email) throws Exception;
 	
 	public List<Activity> getActivityList();
 	public Activity getActivityByID(String activityID);

@@ -38,7 +38,11 @@ public final class contactUsController {
 			return "contactUs";
 		}
 
-		customerManager.contactUs(contact);
+		if(!customerManager.contactUs(contact)){
+			model.addAttribute("errorheader", "Oopps");
+			model.addAttribute("errormessage", "Our email server is currently unavailable. Please try again later.");
+			return "error";
+		}
 
 		model.addAttribute("headermessage", "Thank you.");
 		model.addAttribute("message",
