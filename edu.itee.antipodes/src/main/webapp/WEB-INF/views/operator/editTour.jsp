@@ -15,6 +15,7 @@
       		font-size: 10px;
     		}
 		</style>
+<link type="text/css" href="<c:url value="/js/lightbox/jquery.fancybox-1.3.1.css"/>" rel="stylesheet" />
 <link rel="stylesheet" href="<c:url value="/js/jwysiwyg/jquery.wysiwyg.css"/>" />
 <script type="text/javascript" src="<c:url value="/js/jquery-1.4.2.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/jwysiwyg/jquery.wysiwyg.js"/>"></script>
@@ -24,6 +25,18 @@
       $('#tourDesc').wysiwyg();
   });
 </script>
+<script type="text/javascript" src="<c:url value="/js/lightbox/jquery.fancybox-1.3.1.pack.js"/>"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("a.group").fancybox({
+		'transitionIn'	:	'elastic',
+		'transitionOut'	:	'elastic',
+		'speedIn'		:	400, 
+		'speedOut'		:	200, 
+		'overlayShow'	:	false
+	});
+});
+	</script>
 <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAQlV1b2FPUM74rst4A4cFzxT2yXp_ZAY8_ufC3CFXhHIE1NvwkxQSgLSOP2XkswKd7txk3wHZjh27CA&sensor=false" type="text/javascript"></script>
 <script type="text/javascript" src="<c:url value="/js/gmap/routes.js"/>"></script>
 </head>
@@ -71,7 +84,7 @@
 			</c:if>
 			
 			<c:forEach items="${images}" var="image">
-			<img src="<c:url value="/uploads/images/"/><c:out value="${image.url}" />" width="180px"/><br/>
+			<a class="group" rel="images" href="<c:url value="/uploads/images/"/><c:out value="${image.url}" />"><img src="<c:url value="/uploads/images/"/><c:out value="${image.url}" />" width="180px"/></a><br/>
 			<a href="<c:url value="deleteImages.html?imageID="/><c:out value="${image.imageID}" />" onclick="return confirm('Are you sure you want to delete this image?')" style="color: blue">Delete</a><br/><br/>
 			</c:forEach>
 			<c:if test="${empty images}">
