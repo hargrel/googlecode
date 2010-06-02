@@ -18,7 +18,7 @@
 <form:form commandName="detectAbuse">
 <table border="0" style="border-collapse:collapse; margin-right:30px">
 	<tr>
-		<td width="140" valign="top">Number of criteria:</td>
+		<td width="210" valign="top">Minimum number of criteria:</td>
 		<td><form:input path="criteriaNum" size="5" cssErrorClass="form-error-field"/><div class="form-error-message"><form:errors path="criteriaNum"/></div></td>
 	</tr>
 	
