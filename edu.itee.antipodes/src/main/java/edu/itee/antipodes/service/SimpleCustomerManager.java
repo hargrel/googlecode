@@ -91,6 +91,7 @@ public class SimpleCustomerManager implements ICustomerManager {
 		try {
 			this.mailSender.send(msg);
 		} catch (MailException ex) {
+			System.out.println(ex.toString());
 			return false;
 		}
 		return true;
@@ -132,6 +133,7 @@ public class SimpleCustomerManager implements ICustomerManager {
 		try {
 			this.mailSender.send(msg);
 		} catch (MailException ex) {
+			System.out.println(ex.toString());
 			return false;
 		}
 		return true;
