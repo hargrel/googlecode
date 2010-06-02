@@ -89,11 +89,11 @@ INSERT INTO Tour VALUES (
 );
 INSERT INTO Tour VALUES (
 	0004, 'More Winter Walks', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
-	1679.95, 6, 0,'AUD',2, 'o}dhHcnhuOxnfi@cfvpBinwW{f~vAny_{A~pchB', 'BBBB'
+	1679.95, 6, 0,'AUD',1, 'o}dhHcnhuOxnfi@cfvpBinwW{f~vAny_{A~pchB', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0005, 'Alps Trek', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
-	1899.95, 6, 0,'AUD',2, '{zqrFsrst@wibf@ftcA|on@aswg@', 'BBB'
+	1899.95, 6, 0,'AUD',1, '{zqrFsrst@wibf@ftcA|on@aswg@', 'BBB'
 );
 INSERT INTO Tour VALUES (
 	0006, 'Trekking Mont Blanc', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
@@ -101,95 +101,95 @@ INSERT INTO Tour VALUES (
 );
 INSERT INTO Tour VALUES (
 	0007, 'Trekking Alpen', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
-	1899.95, 8, 0,'AUD',3, 'bCcmnuPmzuRwh', 'BBBB'
+	1899.95, 8, 0,'AUD',2, 'bCcmnuPmzuRwh', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0008, 'Silent Night', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
-	1999.95, 4, 0,'AUD',3, '_d{jCsqzgLaqbk@ms{Z`acLyren@~n~]os{Z', 'BBBB'
+	1999.95, 4, 0,'AUD',2, '_d{jCsqzgLaqbk@ms{Z`acLyren@~n~]os{Z', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0009, 'Winter Wonderland', 'Trek the Alps from France to Italy and Switzerland; cross glaciers and pine forests, visit remote villages and mountain refuges before finishing your days with local cuisine and wines.',
-	1599.95, 6, 0,'EUR',3, '_{xaFsespMm~gi@chjp@xuvNogtcAjezCufl}Acucd@ugf}@|pnL}gxv@', 'BBBBBB'
+	1599.95, 6, 0,'EUR',2, '_{xaFsespMm~gi@chjp@xuvNogtcAjezCufl}Acucd@ugf}@|pnL}gxv@', 'BBBBBB'
 );
 INSERT INTO Tour VALUES (
 	0010, 'Denmark Adventure', 'Denmark is a small country made up of the Jutland Peninsula and over 500 islands with an abundance of places to visit.',
-	1399.35, 2, 0,'AUD',4, 's{tvFufl}Aqi{g@|{p_B', 'BB'
+	1399.35, 2, 0,'AUD',2, 's{tvFufl}Aqi{g@|{p_B', 'BB'
 );
 INSERT INTO Tour VALUES (
 	0011, 'Extraordinary Experiences', 'Denmark is home to a number of wonderful bike trails - gentle grades for families, and mountain bike trails for those who like a bit of adventure.',
-	1269.55, 3, 0,'USD',4, 'erknGsgm`A}jaSlg{fAiofi@|sxJx`vKm|moAel`V_op{N', 'BBBBB'
+	1269.55, 3, 0,'USD',3, 'erknGsgm`A}jaSlg{fAiofi@|sxJx`vKm|moAel`V_op{N', 'BBBBB'
 );
 INSERT INTO Tour VALUES (
 	0012, 'Denmark Magic', 'Follow in the steps of the Incas on this trip to the "must-see" highlight of Denmark.',
-	1289.75, 4, 0,'USD',4, 'qmutCovjmGvrxJqmquE_entA_pihCnofeCoihC', 'BBBB'
+	1289.75, 4, 0,'USD',3, 'qmutCovjmGvrxJqmquE_entA_pihCnofeCoihC', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0013, 'Travel to Russia', 'Go Russia ¨C cultural and discovery tours to Russia. We offer city-breaks, cruises, discovery and adventure  trips or a famous Trans Siberian journey.',
-	1399.35, 5, 0,'AUD',5, 's{tvFufl}Aqi{g@|{p_B', 'BB'
+	1399.35, 5, 0,'AUD',3, 's{tvFufl}Aqi{g@|{p_B', 'BB'
 );
 INSERT INTO Tour VALUES (
 	0014, 'Go Russia', 'Adventure tours in Russia and CIS countries. Elbrus climb, Kamchatka trekking and ski-tours, Caucasus ski-tours, Expeditions.',
-	1679.95, 4, 0,'AUD',5, 'o}dhHcnhuOxnfi@cfvpBinwW{f~vAny_{A~pchB', 'BBBB'
+	1679.95, 4, 0,'AUD',3, 'o}dhHcnhuOxnfi@cfvpBinwW{f~vAny_{A~pchB', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0015, 'Kamchatka - Russia', 'Take an adventure holiday in RUSSIA with World Expeditions, one of the world¡¯s leading travel companies.',
-	1899.95, 3, 0,'AUD',5, '{zqrFsrst@wibf@ftcA|on@aswg@', 'BBB'
+	1899.95, 3, 0,'AUD',3, '{zqrFsrst@wibf@ftcA|on@aswg@', 'BBB'
 );
 INSERT INTO Tour VALUES (
 	0016, 'Mountain Travel-Sobek', 'Mountain Travel-Sobek is thrilled to announce what they believe will be the first ever adventure tour of Saudi Arabia',
-	2099.95, 5, 0,'AUD',6, 'o}dhHcnhuOi`fCgroaAdyxA}gxv@eyxAmra{@', 'BBBB'
+	2099.95, 5, 0,'AUD',4, 'o}dhHcnhuOi`fCgroaAdyxA}gxv@eyxAmra{@', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0017, 'Go - Saudi Arabia', 'The largest country in the Arabian Peninsula, Saudi Arabia, tourism is an important business shaping up there.',
-	1899.95,5, 0,'AUD',6, 'bCcmnuPmzuRwh', 'BBBB'
+	1899.95,5, 0,'AUD',4, 'bCcmnuPmzuRwh', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0018, 'Cave Creeping', 'Availability of many caves across Saudi Arabia makes it an adventurous tourist destination for them who like to creep through the curious desert caves.',
-	1999.95, 2, 0,'AUD',6, '_d{jCsqzgLaqbk@ms{Z`acLyren@~n~]os{Z', 'BBBB'
+	1999.95, 2, 0,'AUD',4, '_d{jCsqzgLaqbk@ms{Z`acLyren@~n~]os{Z', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0019, 'Roam India', 'India is home to great food, fascinating culture, alluring sights and friendly and inviting people. Discover the charms and mystery that makes up this incredible country.',
-	1599.95, 3, 0,'EUR',7, '_{xaFsespMm~gi@chjp@xuvNogtcAjezCufl}Acucd@ugf}@|pnL}gxv@', 'BBBBBB'
+	1599.95, 3, 0,'EUR',4, '_{xaFsespMm~gi@chjp@xuvNogtcAjezCufl}Acucd@ugf}@|pnL}gxv@', 'BBBBBB'
 );
 INSERT INTO Tour VALUES (
 	0020, 'Here Be India', 'India is home to great food, fascinating culture, alluring sights and friendly and inviting people. Discover the charms and mystery that makes up this incredible country.',
-	1399.35, 4, 0,'AUD',7, 's{tvFufl}Aqi{g@|{p_B', 'BB'
+	1399.35, 4, 0,'AUD',4, 's{tvFufl}Aqi{g@|{p_B', 'BB'
 );
 INSERT INTO Tour VALUES (
 	0021, 'Beautiful India - Manali', 'Manali, with its soothing backdrop of the Himalayas, offers a blend of tranquility and adventure that makes it one of northern India most popular tourist destinations.',
-	1269.55, 2, 0,'USD',7, 'erknGsgm`A}jaSlg{fAiofi@|sxJx`vKm|moAel`V_op{N', 'BBBBB'
+	1269.55, 2, 0,'USD',5, 'erknGsgm`A}jaSlg{fAiofi@|sxJx`vKm|moAel`V_op{N', 'BBBBB'
 );
 INSERT INTO Tour VALUES (
 	0022, 'Asia Adventure', 'Follow in the steps of the Incas on this trip to the "must-see" highlight of Asia - from China to Thailand! This tour is spectacular and the first glimpse of Asia will leave memories.',
-	1289.75, 3, 0,'USD',8, 'qmutCovjmGvrxJqmquE_entA_pihCnofeCoihC', 'BBBB'
+	1289.75, 3, 0,'USD',5, 'qmutCovjmGvrxJqmquE_entA_pihCnofeCoihC', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0023, 'Hike China, Bike & Raft', 'From rural roads through endless rice fields in southern China to the bustling streets of Beijing, over the Great Wall of China and down the Li River, see China in a unique way!',
-	1399.35, 4, 0,'AUD',8, 's{tvFufl}Aqi{g@|{p_B', 'BB'
+	1399.35, 4, 0,'AUD',5, 's{tvFufl}Aqi{g@|{p_B', 'BB'
 );
 INSERT INTO Tour VALUES (
 	0024, 'I Love Mongolia', 'An incredible journey to the land of blue skies, green hills and nomadic people. Get out and explore the city of Ulaan Baatar and lush green countryside, which is dotted with ancient monasteries.',
-	1679.95, 5, 0,'AUD',8, 'o}dhHcnhuOxnfi@cfvpBinwW{f~vAny_{A~pchB', 'BBBB'
+	1679.95, 5, 0,'AUD',5, 'o}dhHcnhuOxnfi@cfvpBinwW{f~vAny_{A~pchB', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0025, 'Thailand Sailing Adventure', 'Island hop in Southern Thailand to some of the best snorkeling and diving locations in the world. Enjoy a week aboard a sailing catamaran, while swimming in deserted waters among turtles.',
-	1899.95, 4, 0,'AUD',9, '{zqrFsrst@wibf@ftcA|on@aswg@', 'BBB'
+	1899.95, 4, 0,'AUD',5, '{zqrFsrst@wibf@ftcA|on@aswg@', 'BBB'
 );
 INSERT INTO Tour VALUES (
 	0026, 'Asia Magic', 'Follow in the steps of the Incas on this trip to the "must-see" highlight of Asia - from China to Thailand! This tour is spectacular and the first glimpse of Asia will leave memories.',
-	2099.95, 3, 0,'AUD',9, 'o}dhHcnhuOi`fCgroaAdyxA}gxv@eyxAmra{@', 'BBBB'
+	2099.95, 3, 0,'AUD',6, 'o}dhHcnhuOi`fCgroaAdyxA}gxv@eyxAmra{@', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0027, 'Sail Thailand', 'Island hop in Southern Thailand to some of the best snorkeling and diving locations in the world. Enjoy a week aboard a sailing catamaran, while swimming in deserted waters among turtles.',
-	1899.95, 2, 0,'AUD',9, 'bCcmnuPmzuRwh', 'BBBB'
+	1899.95, 2, 0,'AUD',7, 'bCcmnuPmzuRwh', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0028, 'Trail Volcano', 'Exhilarating hiking on the edge! A week of unforgettable hikes over three active volcanoes: Vulcano; Stromboli, one of the most active volcanoes in the world; and mighty Etna, Europe highest active volcano.',
-	1999.95, 2, 0,'AUD',10, '_d{jCsqzgLaqbk@ms{Z`acLyren@~n~]os{Z', 'BBBB'
+	1999.95, 2, 0,'AUD',8, '_d{jCsqzgLaqbk@ms{Z`acLyren@~n~]os{Z', 'BBBB'
 );
 INSERT INTO Tour VALUES (
 	0029, 'Go Himalayas', 'Love to hike? Then this 8-day active adventure in Nepal is for you! Enjoy mountain treks offering magnificent views, encounters with Berber villagers and the opportunity to explore bustling Marrakech.',
-	1599.95, 2, 0,'EUR',10, '_{xaFsespMm~gi@chjp@xuvNogtcAjezCufl}Acucd@ugf}@|pnL}gxv@', 'BBBBBB'
+	1599.95, 2, 0,'EUR',9, '_{xaFsespMm~gi@chjp@xuvNogtcAjezCufl}Acucd@ugf}@|pnL}gxv@', 'BBBBBB'
 );
 INSERT INTO Tour VALUES (
 	0030, 'Trek Himalaya', 'Love to hike? Then this 8-day active adventure in Nepal is for you! Enjoy mountain treks offering magnificent views, encounters with Berber villagers and the opportunity to explore bustling Marrakech.',
@@ -301,9 +301,6 @@ INSERT INTO ListedTour VALUES (
 -- Search multiple activities seperated by comma WITHOUT space, any case accepted
 -- peRU,NepAL without space will work
 -- peRU, NepAL with space will not work
-
--- Activity 'HIKING' linked to Tour 1-50
--- Multiple activities 'CYCLING','SAILING','DIVING' linked to Tour 51-55 
 
 -- Activity(activity_ID, activity_Name)
 
@@ -555,10 +552,10 @@ INSERT INTO TourDate VALUES (
 	0028, 0028, TO_DATE('10/11/2010', 'DD/MM/YYYY'), TO_DATE('18/11/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0029, 0029, TO_DATE('10/12/2010', 'DD/MM/YYYY'), TO_DATE('13/11/2010', 'DD/MM/YYYY')  
+	0029, 0029, TO_DATE('10/12/2010', 'DD/MM/YYYY'), TO_DATE('13/12/2010', 'DD/MM/YYYY')  
 );
 INSERT INTO TourDate VALUES (
-	0030, 0030, TO_DATE('10/12/2010', 'DD/MM/YYYY'), TO_DATE('17/11/2010', 'DD/MM/YYYY')  
+	0030, 0030, TO_DATE('10/12/2010', 'DD/MM/YYYY'), TO_DATE('17/12/2010', 'DD/MM/YYYY')  
 );
 
 -- MonthlyFee -----------------------------------------------------------------------
