@@ -13,7 +13,8 @@ public class ListedTourDaoHibernate extends HibernateDaoSupport implements Liste
 	}
 	@SuppressWarnings("unchecked")
 	public List<ListedTour> getListedTourList() {
-		return getHibernateTemplate().find("from ListedTour");
+		//return getHibernateTemplate().find("from ListedTour");
+		return getHibernateTemplate().find("select LT from ListedTour as LT join LT.tour as T");
 	}
 	@SuppressWarnings("unchecked")
 	public List<ListedTour> getListedToursByOpID(int id) {
