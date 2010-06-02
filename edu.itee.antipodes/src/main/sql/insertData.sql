@@ -604,3 +604,5 @@ INSERT INTO MonthlyFee VALUES (
 
 COMMIT;
 
+
+
