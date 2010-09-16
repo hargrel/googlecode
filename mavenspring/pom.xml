@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+    http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.mycompany.app</groupId>
+  <artifactId>mavenspring</artifactId>
+  <packaging>war</packaging>
+  <version>1.0</version>
+  <name>Spring Maven Wep Application</name>
+  <description>The description of the project.</description>
+
+  <!-- Shared version number properties -->
+  <properties>
+    <java.version>1.5</java.version>
+    <org.springframework.version>3.0.3.RELEASE</org.springframework.version>
+    <oracle.version>10.2.0</oracle.version>
+    <hibernate-core.version>3.3.2.GA</hibernate-core.version>
+    <hibernate-annotations.version>3.4.0.GA</hibernate-annotations.version>
+  </properties>
+
+  <!-- Dependencies -->
+  <dependencies>
+
+    <!-- Spring  -->
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${org.springframework.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>${org.springframework.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <version>${org.springframework.version}</version>
+    </dependency>
+
+	<!-- Hibernate -->
+
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>${hibernate-core.version}</version>
+    </dependency>
+    
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-annotations</artifactId>
+        <version>${hibernate-annotations.version}</version>
+    </dependency>
+
+    <!-- Oracle -->
+    
+    <dependency>
+      <groupId>com.oracle</groupId>
+      <artifactId>ojdbc14</artifactId>
+      <version>${oracle.version}</version>
+    </dependency>
+    
+    <!-- Servlet -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.5</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet.jsp</groupId>
+      <artifactId>jsp-api</artifactId>
+      <version>2.1</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+    
+    <!-- Testing -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.8.1</version>
+    </dependency>
+
+  </dependencies>
+
+  <build> 
+    <finalName>mavenspring</finalName>  
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>tomcat-maven-plugin</artifactId>
+        <configuration>
+          <server>tomcat6</server>
+          <path>/mavenspring</path>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
