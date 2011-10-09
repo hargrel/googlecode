@@ -1,0 +1,12 @@
+/* SITELINKS */
+
+a.sitelink {
+	position:absolute;
+}
+
+a.sitelink img {
+	height:80px;
+	width:80px;
+	border:none;
+}
+

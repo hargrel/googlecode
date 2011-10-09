@@ -1,0 +1,12 @@
+/* DEBUG */
+
+p#dimensions {
+	position:absolute;
+	bottom:3px;
+	right:3px;
+	color:white;
+}
+
+p#canvas{
+	position:absolute;
+}

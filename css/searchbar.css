@@ -1,0 +1,20 @@
+/* SEARCH BAR */
+
+form#searchbar {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	padding:3px;
+	background:white;
+	border-radius: 5px;
+}
+
+form#searchbar input {
+	border:none;
+	outline:none;
+	font-size:1.3em;
+	color:gray;
+	padding:0px 2px;
+}
+
+
