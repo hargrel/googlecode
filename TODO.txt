@@ -1,3 +1,5 @@
 HSQL database or flat text file??
 
+Use Java to load page originally, Javascript for anything after that.
 
+Do we need AJAX? Identify points. Keep it clean.
