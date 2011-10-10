@@ -2,7 +2,7 @@ window.onresize = printdebug;
 
 function printdebug() {
 	var width = $(window).width();
-	var height = $(window).height()
+	var height = $(window).height();
 	
 	$("p#dimensions").text(width + " x " + height);
 	
