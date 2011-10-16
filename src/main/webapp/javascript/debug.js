@@ -1,7 +1,7 @@
-window.onload = debug;
+//window.onload = debug;
 window.onresize = debug;
 
-function printdebug() {
+/*function printdebug() {
 	var width = $(window).width();
 	var height = $(window).height();
 	
@@ -12,7 +12,7 @@ function printdebug() {
 	
 	$("p#canvas").css("top",movevertical);
 	$("p#canvas").css("left",movehorizontal);
-}
+}*/
 
 function debug() {
 	var canvas = new windowCanvas();
@@ -25,24 +25,28 @@ function debug() {
 }
 
 function moveObject() {
-	moveGoogle(new coordinate(100, 100), new coordinate(200, 300));
+	moveGoogle(new coordinate(100, 100), new coordinate(500, 500));
 }
 
 /* Moves an object "#id" from the start "coordinate" to the end "coordinate". */
-/* y - y1 = m(x - x1) */
-/* Need to add a sleep method somehow. setTimeout maybe */
+/* y = m(x - x1) + y1 */
 function moveGoogle(start, end) {
 	var slope = Math.floor((end.y - start.y) / (end.x - start.x));
-	var x;
-	
-	if (start.x < end.x) {
-		for (x = start.x; x <= end.x; x++) {
-			var y = slope * (x - start.x) + start.y;
-			$("a#google").css("top", (y + "px"));
-			$("a#google").css("left", (x + "px"));
-		}
+	var xCount = start.x;
+	var interval = setInterval(mover, 1);
+
+	function mover() {
+		if (xCount < end.x) {
+			var yCount = slope * (xCount - start.x) + start.y;
+			$("a#google").css("top", (yCount + "px"));
+			$("a#google").css("left", (xCount + "px"));
+			xCount = xCount + 5;
+		} else {
+			clearInterval(interval);
+		}		
 	}
 }
+
 
 
 /** Objects */
