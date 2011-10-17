@@ -1,7 +1,8 @@
-/* Writes a set of script tags for loading in HTML in one line */
+/** Writes a set of script tags for loading in HTML in one line */
 
 loadscript('https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js');
-loadscript('javascript/searchfade.js');
+loadscript('javascript/objects.js');
+loadscript('javascript/functions.js');
 loadscript('javascript/debug.js');
 
 function loadscript(src) {
