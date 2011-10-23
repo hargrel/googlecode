@@ -1,11 +1,14 @@
 /** Use this file for debug purposes. */
 
 function debug() {
-	var canvas = new windowCanvas();
+	var windowArea = new windowCanvas();
+	var linkArea = new linkCanvas(new resolution(80, 84));
 	
-	$("p#dimensions").text(canvas.size.width + " x " + canvas.size.height);
+	$("p#dimensions").text(windowArea.size.width + " x " + windowArea.size.height);
 
-	$("a#google").css("top", (canvas.randomCoordinate.y + "px"));
-	$("a#google").css("left", (canvas.randomCoordinate.x + "px"));
+	$("p#imgcanvas").text(linkArea.size.width + " x " + linkArea.size.height);
+
+	$("a#google").css("top", (linkArea.randomCoordinate.y + "px"));
+	$("a#google").css("left", (linkArea.randomCoordinate.x + "px"));
 
 }

@@ -38,7 +38,7 @@ function slideSpeed(position, distance) {
 	var halfway = distance / 2;
 	var minSpeed = 0.2;
 	var topSpeed = 5;
-	var distanceOffset = 10;
+	var distanceOffset = topSpeed * 2;
 	
 	if (position < halfway) {
 		return accelerationSpeed();
@@ -63,4 +63,11 @@ function slideSpeed(position, distance) {
 		}
 		return speed;
 	}
+}
+
+function randomScreenCoordinate(resolution) {
+	var x = Math.floor(resolution.width * Math.random());
+	var y = Math.floor(resolution.height * Math.random());
+	
+	return new coordinate(x, y);
 }
