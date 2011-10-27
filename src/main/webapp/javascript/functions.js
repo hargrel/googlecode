@@ -12,17 +12,20 @@ function moveDiv(id, start, end) {
 
 	var interval = setInterval(mover, 1);
 	function mover() {
+		var yCount = pointSlopeEquation(slope, xCount, start.x, start.y);
+		var position;
+
+		$(id).css("top", (yCount + "px"));
+		$(id).css("left", (xCount + "px"));
+
 		if (xCount < end.x) {
-			var yCount = pointSlopeEquation(slope, xCount, start.x, start.y);
-			var position = (xCount + 1) - start.x;
-			
-			$(id).css("top", (yCount + "px"));
-			$(id).css("left", (xCount + "px"));
-			
+			position = (xCount + 1) - start.x;
 			xCount += slideSpeed(position, distance);
+//		} else if (xCount > end.x) {
+			
 		} else {
 			clearInterval(interval);
-		}		
+		}
 	}	
 }
 
