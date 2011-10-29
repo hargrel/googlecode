@@ -1,14 +1,19 @@
 /** Custom functions (like static methods) */
 
-function moveObject() {
-	moveDiv("#google", new coordinate(50, 50), new coordinate(900, 500));
+function moveDiv() {
+	var divId = "#google";
+	var position = $(divId).position();
+	var start = new coordinate(position.left, position.top);
+	var linkArea = new linkCanvas(new resolution(80, 84));
+	
+	moveObject("#google", start, randomScreenCoordinate(linkArea.size));
 }
 
 /* Moves an object "#id" from the start "coordinate" to the end "coordinate". */
-function moveDiv(id, start, end) {
+function moveObject(id, start, end) {
 	var slope = calculateGradient(start, end);
 	var xCount = start.x;
-	var distance = end.x - start.x;
+	var distance = Math.abs(end.x - start.x);
 
 	var interval = setInterval(mover, 1);
 	function mover() {
@@ -18,14 +23,22 @@ function moveDiv(id, start, end) {
 		$(id).css("top", (yCount + "px"));
 		$(id).css("left", (xCount + "px"));
 
-		if (xCount < end.x) {
-			position = (xCount + 1) - start.x;
-			xCount += slideSpeed(position, distance);
-//		} else if (xCount > end.x) {
-			
+		if (start.x < end.x) {
+			if (xCount < end.x) {
+				position = (xCount + 1) - start.x;
+				xCount += slideSpeed(position, distance);				
+			} else {
+				clearInterval(interval);
+			}
 		} else {
-			clearInterval(interval);
+			if (xCount > end.x) {
+				position = start.x - xCount + 1;
+				xCount -= slideSpeed(position, distance);				
+			} else {
+				clearInterval(interval);
+			}
 		}
+
 	}	
 }
 
@@ -37,6 +50,7 @@ function pointSlopeEquation(slope, x, x1, y1) {
 	return slope * (x - x1) + y1;
 }
 
+/* One dimensional function returning a value based on how far left to go. */
 function slideSpeed(position, distance) {
 	var halfway = distance / 2;
 	var minSpeed = 0.2;
