@@ -1,13 +1,21 @@
-function moveLink(id) {
-	var left = generateMovementStrings().left;
-	var top = generateMovementStrings().top;
-	
-	$(id).animate({left: left, top: top}, 1000);
+function moveLinks() {
+	$('.sitelink').each(function () {
+		moveLink("#" + $(this).attr('id'));
+	});
 }
 
-function generateMovementStrings() {
-	var left = "+=500";
-	var top = "+=50";
+function moveLink(id) {
+	var moveStrings = new randomMoveStrings(id);
 	
-	return ( {left:left, top:top} );
+	$(id).animate({left: moveStrings.left, top: moveStrings.top}, 1000);
 }
+
+function randomMoveStrings(id) {
+	var newLinkPosition = randomPosition(new linkWindowObj());
+	
+	var leftDistance = newLinkPosition.left - $(id).position().left;	
+	var topDistance = newLinkPosition.top - $(id).position().top;
+	
+	return ({left: "+=" + leftDistance, top: "+=" + topDistance});	
+}
+
