@@ -2,6 +2,7 @@
 <html>
 
 <head>
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" type="text/css" href="css/imports.css" />
 <script type="text/javascript" src="javascript/scriptloader.js"></script>
 <script type="text/javascript">
@@ -12,8 +13,8 @@
 
 <body>
 
-<form id="searchbar" action="" method="post">
-  <input type="text" size="10" autocomplete="off" />
+<form id="searchbar">
+  <input id="autocomplete" type="text" size="10" autocomplete="off" onkeypress="{if (event.keyCode==13)goLuke()}" />
 </form>
 
 <a id="gmail" class="sitelink" href="https://mail.google.com" target="_blank" style="top:100px;left:100px;">
@@ -21,11 +22,11 @@
 </a>
 
 <a id="facebook" class="sitelink" href="http://www.facebook.com" target="_blank" style="top:50px;left:500px;">
-  <img src="images/facebook.png" style="opacity:0.05;" />
+  <img src="images/facebook.png" style="opacity:1;" />
 </a>
 
 <a id="w3schools" class="sitelink" href="http://www.w3schools.com" target="_blank" style="top:300px;left:400px;">
-  <img src="images/w3schools.png" style="opacity:0.5;" />
+  <img src="images/w3schools.png" style="opacity:1;" />
 </a>
 
 <p id="dimensions"></p>
