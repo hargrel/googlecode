@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xmlns:security="http://www.springframework.org/schema/security"
+         xmlns:aop="http://www.springframework.org/schema/aop"
+         xmlns:tx="http://www.springframework.org/schema/tx"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	
+    <bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	    <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+	    <property name="url" value="jdbc:oracle:thin:@oracle.students.itee.uq.edu.au:1521:iteeo"/> 
+	    <!-- <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/> -->
+	    <property name="username" value="csse3005a"/>
+	    <property name="password" value="csse3005a"/>
+  	</bean>
+
+ 	<bean id="mySessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+	    <property name="dataSource" ref="myDataSource"></property>
+	    <property name="mappingResources">
+	      <list>
+	         <value>edu/itee/antipodes/repository/Tour.hbm.xml</value>
+	         <value>edu/itee/antipodes/repository/TourDate.hbm.xml</value> 
+	         <value>edu/itee/antipodes/repository/Activity.hbm.xml</value>
+	         <value>edu/itee/antipodes/repository/Location.hbm.xml</value>
+			 <value>edu/itee/antipodes/repository/AccountUser.hbm.xml</value>	      
+	      	 <value>edu/itee/antipodes/repository/TourOperator.hbm.xml</value>
+	     	 <value>edu/itee/antipodes/repository/ListedTour.hbm.xml</value>
+	     	 <value>edu/itee/antipodes/repository/MonthlyFee.hbm.xml</value>
+	     	 <value>edu/itee/antipodes/repository/Image.hbm.xml</value>
+	    </list>
+	    </property>
+  	</bean>
+
+    <bean id="customerSearchDao" class="edu.itee.antipodes.repository.CustomerSearchDaoHibernate">
+        <property name="sessionFactory" ref="mySessionFactory" />
+    </bean>
+    <bean id="reportDao" class="edu.itee.antipodes.repository.ReportingDaoHibernate">
+        <property name="sessionFactory" ref="mySessionFactory" />
+    </bean>
+    <bean id="tourDao" class="edu.itee.antipodes.repository.TourDaoHibernate">
+        <property name="sessionFactory" ref="mySessionFactory" />
+    </bean>
+    <bean id="tourDateDao" class="edu.itee.antipodes.repository.TourDateDaoHibernate">
+        <property name="sessionFactory" ref="mySessionFactory" />
+    </bean>
+    <bean id="activityDao" class="edu.itee.antipodes.repository.ActivityDaoHibernate">
+        <property name="sessionFactory" ref="mySessionFactory" />
+    </bean>
+    <bean id="locationDao" class="edu.itee.antipodes.repository.LocationDaoHibernate">
+        <property name="sessionFactory" ref="mySessionFactory" />
+    </bean>
+    <bean id="accountUserDao" class="edu.itee.antipodes.repository.AccountUserDaoHibernate">
+        <property name="sessionFactory" ref="mySessionFactory" />
+    </bean>
+    <bean id="tourOperatorDao" class="edu.itee.antipodes.repository.TourOperatorDaoHibernate">
+        <property name="sessionFactory" ref="mySessionFactory" />
+    </bean>
+    <bean id="monthlyFeeDao" class="edu.itee.antipodes.repository.MonthlyFeeDaoHibernate">
+        <property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+	<bean id="listedTourDao" class="edu.itee.antipodes.repository.ListedTourDaoHibernate">
+        <property name="sessionFactory" ref="mySessionFactory" />
+    </bean>
+    <bean id="imageDao" class="edu.itee.antipodes.repository.ImageDaoHibernate">
+        <property name="sessionFactory" ref="mySessionFactory" />
+    </bean>
+
+	<!-- tour manager -->
+    <bean id="tourManager" class="edu.itee.antipodes.service.ExampleTourManager">
+        <property name="tourDao" ref="tourDao" />
+    </bean>
+
+</beans>
+

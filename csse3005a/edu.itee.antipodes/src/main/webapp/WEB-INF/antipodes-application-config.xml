@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+	        http://www.springframework.org/schema/security 
+			http://www.springframework.org/schema/security/spring-security-2.0.1.xsd"
+	default-autowire="byName">
+
+	<context:component-scan base-package="edu.itee.antipodes.service" />
+
+
+	<security:http auto-config="true" access-denied-page="/accessDenied.html">
+		<security:intercept-url pattern="/admin/**"
+			access="ROLE_ADMIN" />
+		<security:intercept-url pattern="/operator/**"
+			access="ROLE_OPERATOR" />
+		<security:form-login login-page='/login.html'
+			authentication-failure-url='/loginFail.html' default-target-url='/redirect.html'
+			always-use-default-target='true' />
+		<security:logout logout-success-url='/search.html' />
+		<security:remember-me />
+		<security:concurrent-session-control
+			max-sessions="1" expired-url="/accessDenied.html"
+			exception-if-maximum-exceeded="true" />
+	</security:http>
+
+	<bean id="userDetailsService" class="edu.itee.antipodes.service.UserDetailsServiceImpl">
+	</bean>
+	<bean id="daoAuthenticationProvider"
+		class="org.springframework.security.providers.dao.DaoAuthenticationProvider">
+		<security:custom-authentication-provider />
+		<property name="userDetailsService" ref="userDetailsService" />
+	</bean>
+	<bean id="authenticationManager" class="org.springframework.security.providers.ProviderManager">
+		<property name="providers">
+			<list>
+				<ref local="daoAuthenticationProvider" />
+			</list>
+		</property>
+	</bean>
+	<security:authentication-provider
+		user-service-ref="userDetailsService">
+		<security:password-encoder hash="md5" />
+	</security:authentication-provider>
+
+
+	<!-- File upload -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+
+	<!-- Exception Handler -->
+	<bean id="defaultExceptionHandler"
+		class="edu.itee.antipodes.service.SimpleHandlerExceptionResolver">
+		<property name="defaultErrorView" value="error" />
+	</bean>
+
+	<!-- Mail -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="mail.uq.edu.au" />
+	</bean>
+
+	<bean id="templateMessage" class="org.springframework.mail.SimpleMailMessage">
+		<property name="from" value="antipodes@uq.edu.au" />
+	</bean>
+
+	<bean id="contactUsMessage" class="org.springframework.mail.SimpleMailMessage">
+		<property name="to" value="tay.booncheen@gmail.com" />
+	</bean>
+
+	<!-- Service layer -->
+	<bean id="customerManager" class="edu.itee.antipodes.service.SimpleCustomerManager">
+		<property name="mailSender" ref="mailSender" />
+		<property name="templateMessage" ref="templateMessage" />
+		<property name="contactUsMessage" ref="contactUsMessage" />
+	</bean>
+	<bean id="accountUserManager" class="edu.itee.antipodes.service.SimpleAccountManager">
+	</bean>
+	<bean id="reportingManager" class="edu.itee.antipodes.service.SimpleReportingManager">
+	</bean>
+	<bean id="tourOperatorManager" class="edu.itee.antipodes.service.SimpleTourOperatorManager">
+	</bean>
+	<bean id="systemAdminManager" class="edu.itee.antipodes.service.SimpleSystemAdminManager">
+		<property name="mailSender" ref="mailSender" />
+		<property name="templateMessage" ref="templateMessage" />
+	</bean>
+
+
+	<!-- This application context -->
+	<bean id="springApplicationContext" class="edu.itee.antipodes.utils.SpringApplicationContext" >
+		<property name="currencyConversion" value="false" />
+	</bean>
+
+
+	<bean id="userBean" class="edu.itee.antipodes.domain.SessionHolder"
+		scope="session" />
+</beans>
+

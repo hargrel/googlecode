@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="edu.itee.antipodes.domain.db">
+  <class name="MonthlyFee" table="MONTHLYFEE" lazy="false">
+  	<id name="feeID" type="integer" column="FEE_ID">
+  		<generator class="increment"/>
+  	</id>
+  	<property name="monthYearStart" column="MONTH_YEAR_START" />
+  	<property name="fee" column="FEE" type="float" /></class>
+</hibernate-mapping>

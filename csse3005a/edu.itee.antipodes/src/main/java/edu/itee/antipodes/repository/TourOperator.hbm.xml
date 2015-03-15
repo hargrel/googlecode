@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="edu.itee.antipodes.domain.db">
+  <class name="TourOperator" table="TourOperator" lazy="false">
+  	<id name="operatorID" type="integer" column="OPERATOR_ID">
+  		<generator class="foreign">
+  			<param name="property">accountUser</param>
+  		</generator>
+  	</id>
+  	<property name="operatorName" column="OPERATOR_NAME"/>  
+  	<property name="companyInfo" column="COMPANY_INFO"/>  	
+  	<property name="membershipExpired" column="MEMBERSHIP_EXPIRED"/>
+  	<property name="email" column="EMAIL"/>
+  	
+  	<one-to-one name="accountUser" class="AccountUser" constrained="true"/>
+  	<set name="listedTour" table="ListedTour" cascade="all" lazy="false">
+	  	<key column="OPERATOR_ID"/>
+	  	<one-to-many class="ListedTour"/>
+  	</set> 
+  	
+  	<!-- bidirectional one-to-many mapping to tourDate table -->
+  	<!--  <set name="tour" inverse="true">
+	  	<key column="DATE_ID"></key>
+	  	<one-to-many class="TourDate"></one-to-many>
+  	</set>  
+  	--> 	
+  </class>
+</hibernate-mapping>

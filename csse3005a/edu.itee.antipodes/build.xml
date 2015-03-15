@@ -1,0 +1,230 @@
+<?xml version="1.0"?>
+
+<project name="edu.itee.antipodes" default="usage">
+	
+<!-- Main Ant Settings -->
+	
+	<property file="build.properties" />
+	
+	<property name="src.dir" value="src/main/java" />
+	<property name="web.dir" value="src/main/webapp" />
+	<property name="build.dir" value="${web.dir}/WEB-INF/classes" />
+	<property name="name" value="antipodes" />
+	
+	<path id="master-classpath">
+		<fileset dir="${web.dir}/WEB-INF/lib">
+			<include name="*.jar" />
+		</fileset>
+		<pathelement path="${build.dir}" />
+	</path>
+	
+	<target name="usage">
+		<echo message="" />
+		<echo message="${name} build file" />
+		<echo message="-----------------------------------" />
+		<echo message="" />
+		<echo message="Available targets are:" />
+		<echo message="" />
+		<echo message="build        --> Compile the Java classes to WEB-INF/classes" />
+		<echo message="clean        --> Delete the Java classes from WEB-INF/classes" />
+		<echo message="createwar    --> Create a .war file in the base directory" />
+		<echo message="deploy       --> Build and copy application to Tomcat" />
+		<echo message="export       --> Export application files to basedir/antipodes" />
+		<echo message="reload       --> Reload application in Tomcat" />
+		<echo message="tomcat-start --> Start Apache Tomcat" />
+		<echo message="tomcat-stop  --> Stop Apache Tomcat" />
+		<echo message="dbCreate     --> Run the database creation scripts" />
+		<echo message="dbDelete     --> Drop all tables in the database" />
+		<echo message="dbRefresh    --> Reset the database to default" />
+		<echo message="" />
+	</target>
+
+<!--Hibernate Metadata shortcuts-->
+	<patternset id="meta.files">
+		<include name="**/*.xml" />
+		<include name="**/*.properties" />
+	</patternset>
+	
+<!-- Java Related Targets -->
+	
+	<target name="build" description="Compile main source tree java files">
+		<mkdir dir="${build.dir}" />
+		<javac destdir="${build.dir}" source="1.5" target="1.5" debug="true"
+			   deprecation="false" optimize="false" failonerror="true">
+			<src path="${src.dir}" />
+			<classpath refid="master-classpath" />
+		</javac>		
+	</target>
+
+	<target name="clean" description="Clean output directories">
+		<delete dir="${build.dir}/edu" />
+		<delete dir="${build.dir}/NET" />
+		<delete dir="${deploy.path}/${name}" />
+	</target>
+	
+	<target name="export" depends="build" description="Export application to folder">
+		<copy todir="${name}" preservelastmodified="true">
+			<fileset dir="${web.dir}">
+				<include name="**/*.*" />
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="createwar" depends="build" description="Export as .war file">
+		<war destfile="${name}.war" webxml="${web.dir}/WEB-INF/web.xml">
+			<fileset dir="${web.dir}">
+				<include name="**/*.*" />
+			</fileset>
+		</war>
+	</target>
+	
+<!-- Application Server Related Targets -->
+	
+	<target name="tomcat-start">
+	    <java jar="${tomcat.home}/bin/bootstrap.jar" fork="true">
+	        <jvmarg value="-Dcatalina.home=${tomcat.home}"/>
+	    	<arg line="start"/>
+	    </java>
+	</target>
+
+	<target name="tomcat-stop">
+	    <java jar="${tomcat.home}/bin/bootstrap.jar" fork="true">
+	        <jvmarg value="-Dcatalina.home=${tomcat.home}"/>
+	        <arg line="stop"/>
+	    </java>
+	</target>
+	
+	<target name="full deploy" depends="build,copymetafiles,compile-reports,deploy">
+	</target>
+	
+	<target name="deploy" depends="build" description="Deploy application">
+		<copy todir="${deploy.path}/${name}" preservelastmodified="true">
+			<fileset dir="${web.dir}">
+				<include name="**/*.*" />
+			</fileset>
+		</copy>
+	</target>	
+
+	<path id="catalina-ant-classpath">
+		<fileset dir="${tomcat.home}/lib">
+			<include name="catalina-ant.jar" />
+		</fileset>
+	</path>
+	
+	<taskdef name="reload" classname="org.apache.catalina.ant.ReloadTask">
+		<classpath refid="catalina-ant-classpath" />
+	</taskdef>
+	
+	<target name="reload" description="Reload application in Tomcat">
+		<reload url="${tomcat.manager.url}"
+			    username="${tomcat.manager.username}"
+			    password="${tomcat.manager.password}"
+				path="/${name}" />
+	</target>	
+	
+	<target name="tomcat-stop-start" depends="tomcat-stop,tomcat-start" description="stops and starts tomcat">
+	</target>
+	
+<!-- Database Related Targets -->
+	
+	<target name="dbRefresh">
+		<echo message="REFRESHING TABLES USING: ${db.driver} ${db.url}"/>
+		<sql driver="${db.driver}" url="${db.url}" userid="${db.user}" 
+        	password="${db.pw}" onerror="continue">
+        	<classpath refid="master-classpath" />
+			<transaction  src="${db.scripts}/dropTables.sql" />
+			<transaction  src="${db.scripts}/createTables.sql" />
+			<transaction  src="${db.scripts}/insertData.sql" />
+		</sql>
+	</target>
+
+	<target name="dbDelete">
+		<echo message="DROPPING TABLES USING: ${db.driver} ${db.url}"/>
+		<sql driver="${db.driver}" url="${db.url}" userid="${db.user}" 
+        	password="${db.pw}" onerror="continue">
+        	<classpath refid="master-classpath" />
+			<transaction  src="${db.scripts}/dropTables.sql" />
+		</sql>
+	</target>
+
+<!-- Targets for Running Tests -->
+	
+	<property name="test.dir" value="src/test/java" />
+	
+	<path id="test-classpath">
+		<fileset dir="${web.dir}/WEB-INF/lib">
+			<include name="*.jar" />
+		</fileset>
+		<pathelement path="${build.dir}" />
+		<pathelement path="${test.dir}" />
+		<pathelement path="${web.dir}/WEB-INF/classes" />
+	</path>
+
+
+	<target name="buildtests" description="Compile test tree java files">
+		<mkdir dir="${build.dir}"/>
+		<javac destdir="${build.dir}" source="1.5" target="1.5" debug="true"
+			deprecation="false" optimize="false" failonerror="true">
+			<src path="${test.dir}"/>
+			<classpath refid="master-classpath" />
+		</javac>
+	</target>
+
+	<target name="tests" depends="build, buildtests" description="Run tests">
+		<junit printsummary="on"
+			fork="false"
+			haltonfailure="false"
+			failureproperty="tests.failed"
+			showoutput="true">
+			<classpath refid="test-classpath" />
+			<formatter type="brief" usefile="false" />
+
+			<batchtest>
+				<fileset dir="${build.dir}">
+					<!--<include name="**/*Tests.*" />-->
+					<include name="**/*Test.*" />
+					<exclude name="**/Jdbc*Tests.*"/>
+				</fileset>
+			</batchtest>
+		</junit>
+
+		<fail if="tests.failed">
+			tests.failed=${tests.failed}
+			***********************************************************
+			***********************************************************
+			****  One or more tests failed!  Check the output ...  ****
+			***********************************************************
+			***********************************************************
+		</fail>
+	</target>
+	
+	<target name="deploy and reload" depends="deploy, reload" >
+	</target>
+	
+	<target name="stop deploy start" depends="tomcat-stop, deploy, tomcat-start" >
+	</target>
+	
+	<target name="super-mega-fix" depends="tomcat-stop, clean, copymetafiles, compile-reports, deploy, tomcat-start"></target>
+	
+	<target name="compile-reports">
+		<delete>
+			<fileset dir="${web.dir}">
+				<include name="**/*.jasper"/>
+			</fileset>
+		</delete>
+		<taskdef name="jrc" classname="net.sf.jasperreports.ant.JRAntCompileTask">
+			<classpath refid="master-classpath" />
+		</taskdef>
+		<jrc srcdir="${web.dir}/WEB-INF/reports/">
+		</jrc>
+	</target>
+	
+	<!--Copy metadata to build classpath-->
+	<target name="copymetafiles">
+		<copy todir="${build.dir}">
+			<fileset dir="${src.dir}">
+				<patternset refid="meta.files"/>
+			</fileset>	
+		</copy>
+	</target>	
+</project>

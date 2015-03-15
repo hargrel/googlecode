@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  Copyright (c) 2002 by Phil Hanna
+  All rights reserved.
+  
+  You may study, use, modify, and distribute this
+  software for any purpose provided that this
+  copyright notice appears in all copies.
+  
+  This software is provided without warranty
+  either expressed or implied.
+-->
+
+<taglib
+      xmlns="http://java.sun.com/JSP/TagLibraryDescriptor"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-jsptaglibrary_2_0.xsd"
+      version="2.0">
+
+   <description>
+      EL functions supporting currency conversions
+   </description>
+   <tlib-version>1.0</tlib-version>
+   <jsp-version>2.0</jsp-version>
+   <short-name>currency</short-name>
+   <uri>/currency</uri>
+
+   <function>
+
+      <description>
+         Converts first currency to another
+      </description>
+
+      <name>convert</name>
+
+      <function-class>
+         edu.itee.antipodes.service.Currency
+      </function-class>
+
+      <function-signature>
+         java.lang.String convert(double, java.lang.String)
+      </function-signature>
+
+   </function>
+
+</taglib>

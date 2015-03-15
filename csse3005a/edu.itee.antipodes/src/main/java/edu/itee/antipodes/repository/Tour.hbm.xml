@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="edu.itee.antipodes.domain.db">
+  <class name="Tour" table="Tour" lazy="false">
+  	<id name="tourID" type="integer" column="TOUR_ID">
+  		<generator class="increment"/>
+  	</id>
+  	<property name="tourName" column="TOUR_NAME"/>
+  	<property name="tourDesc" column="TOUR_DESC"/>
+  	<property name="price" column="PRICE"/>
+  	<property name="totalDays" column="TOTAL_DAYS"/>
+  	<property name="onDemand" column="ON_DEMAND"/>
+  	<property name="currency" column="CURRENCY"/>
+  	<property name="points" column="POINTS"/>
+  	<property name="levels" column="LEVELS"/>
+  	<many-to-one name="operator" class="TourOperator" column="OPERATOR_ID" cascade="save-update" />
+  	<set name="activities" table="TourActivity" lazy="false">
+	  	<key column="TOUR_ID"></key>
+	  	<many-to-many column="ACTIVITY_ID"  class="Activity"/>
+  	</set>
+  	<set name="locations" table="TourLocation" lazy="false">
+	  	<key column="TOUR_ID"></key>
+	  	<many-to-many column="LOCATION_ID"  class="Location"/>
+  	</set>
+  	<set name="tourDates" lazy="false">
+	  	<key column="TOUR_ID"></key>
+	  	<one-to-many class="TourDate" />
+  	</set>
+  	<set name="images" lazy="false">
+	  	<key column="IMAGE_ID"></key>
+	  	<one-to-many class="Image" />
+  	</set>
+ </class>
+</hibernate-mapping>
+

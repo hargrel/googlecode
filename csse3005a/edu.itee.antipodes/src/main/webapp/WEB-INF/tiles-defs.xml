@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<!-- Base Layout -->
+	<definition name="baseLayoutCustomer" template="/WEB-INF/tiles/baseLayoutCustomer.jsp">
+		<put-attribute name="title" value="Antipodes | Online Eco-adventure Tours Directory"/>
+		<put-attribute name="header" value="/WEB-INF/tiles/headerCustomer.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/tiles/menuCustomer.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
+	</definition>
+	
+	<definition name="baseLayoutTO" template="/WEB-INF/tiles/baseLayoutTO.jsp">
+		<put-attribute name="title" value="Antipodes | Tour Operator"/>
+		<put-attribute name="header" value="/WEB-INF/tiles/headerGeneral.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/tiles/menuTO.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
+	</definition>
+	
+	<definition name="baseLayoutAdmin" template="/WEB-INF/tiles/baseLayoutAdmin.jsp">
+		<put-attribute name="title" value="Antipodes | System Administrator"/>
+		<put-attribute name="header" value="/WEB-INF/tiles/headerGeneral.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/tiles/menuAdmin.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
+	</definition>
+	
+	<definition name="baseLayoutGeneral" template="/WEB-INF/tiles/baseLayoutGeneral.jsp">
+		<put-attribute name="title" value="Antipodes | Online Eco-adventure Tours Directory"/>
+		<put-attribute name="header" value="/WEB-INF/tiles/headerGeneral.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/tiles/menuCustomer.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
+	</definition>
+	
+	<!-- Customer -->
+	<definition name="search" extends="baseLayoutCustomer">
+		<put-attribute name="body" value="/WEB-INF/views/customer/search.jsp"/>
+	</definition>
+	
+	<definition name="searchResult" extends="baseLayoutCustomer">
+		<put-attribute name="body" value="/WEB-INF/views/customer/searchResult.jsp"/>
+	</definition>
+	
+	<definition name="tourInfo" extends="baseLayoutCustomer">
+		<put-attribute name="body" value="/WEB-INF/views/customer/tourInfo.jsp"/>
+	</definition>
+	
+	<definition name="contactTourOperator" extends="baseLayoutCustomer">
+		<put-attribute name="body" value="/WEB-INF/views/customer/contactTourOperator.jsp"/>
+	</definition>
+	
+	<definition name="companyInfo" extends="baseLayoutCustomer">
+		<put-attribute name="body" value="/WEB-INF/views/customer/companyInfo.jsp"/>
+	</definition>
+	
+	<definition name="contactUs" extends="baseLayoutCustomer">
+		<put-attribute name="body" value="/WEB-INF/views/customer/contactUs.jsp"/>
+	</definition>
+	
+	<definition name="aboutUs" extends="baseLayoutCustomer">
+		<put-attribute name="body" value="/WEB-INF/views/customer/aboutUs.jsp"/>
+	</definition>
+	
+	<definition name="browseTours" extends="baseLayoutCustomer">
+		<put-attribute name="body" value="/WEB-INF/views/customer/browseTours.jsp"/>
+	</definition>
+	
+	<!-- Tour Operator -->	
+	changePassword
+	<definition name="TOhome" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/TOhome.jsp"/>
+	</definition>
+	
+	<definition name="changePassword" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/changePassword.jsp"/>
+	</definition>
+
+	<definition name="editCompanyInfo" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/editCompanyInfo.jsp"/>
+	</definition>
+	
+	<definition name="uploadImages" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/uploadImages.jsp"/>
+	</definition>
+	
+	<definition name="tourList" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/tourList.jsp"/>
+	</definition>
+	
+	<definition name="addTour" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/addTour.jsp"/>
+	</definition>
+	
+	<definition name="editTour" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/editTour.jsp"/>
+	</definition>
+	
+	<definition name="alignTourList" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/alignTourList.jsp"/>
+	</definition>
+	
+	<definition name="alignTour" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/alignTour.jsp"/>
+	</definition>
+	
+	<definition name="tourDateList" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/tourDateList.jsp"/>
+	</definition>
+	
+	<definition name="addTourDate" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/addTourDate.jsp"/>
+	</definition>
+	
+	<definition name="editTourDate" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/editTourDate.jsp"/>
+	</definition>
+	
+	<definition name="tourLocationList" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/tourLocationList.jsp"/>
+	</definition>
+	
+	<definition name="addTourLocation" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/addTourLocation.jsp"/>
+	</definition>
+	
+	<definition name="editTourLocation" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/editTourLocation.jsp"/>
+	</definition>
+	
+	<definition name="tourActivityList" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/tourActivityList.jsp"/>
+	</definition>
+	
+	<definition name="addTourActivity" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/addTourActivity.jsp"/>
+	</definition>
+	
+	<definition name="editTourActivity" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/editTourActivity.jsp"/>
+	</definition>
+	
+	<definition name="userManual" extends="baseLayoutTO">
+		<put-attribute name="body" value="/WEB-INF/views/operator/userManual.jsp"/>
+	</definition>
+	
+	<!-- Administrator -->
+	<definition name="SAhome" extends="baseLayoutAdmin">
+		<put-attribute name="body" value="/WEB-INF/views/admin/SAhome.jsp"/>
+	</definition>
+	
+	<definition name="addAccount" extends="baseLayoutAdmin">
+		<put-attribute name="body" value="/WEB-INF/views/admin/addAccount.jsp"/>
+	</definition>
+	
+	<definition name="deleteAccount" extends="baseLayoutAdmin">
+		<put-attribute name="body" value="/WEB-INF/views/admin/deleteAccount.jsp"/>
+	</definition>
+	
+	<definition name="accountList" extends="baseLayoutAdmin">
+		<put-attribute name="body" value="/WEB-INF/views/admin/accountList.jsp"/>
+	</definition>
+	
+	<definition name="editAccount" extends="baseLayoutAdmin">
+		<put-attribute name="body" value="/WEB-INF/views/admin/editAccount.jsp"/>
+	</definition>
+	
+	<definition name="manageFee" extends="baseLayoutAdmin">
+		<put-attribute name="body" value="/WEB-INF/views/admin/manageFee.jsp"/>
+	</definition>
+	
+	<definition name="feeList" extends="baseLayoutAdmin">
+		<put-attribute name="body" value="/WEB-INF/views/admin/feeList.jsp"/>
+	</definition>
+	
+	<definition name="produceReport" extends="baseLayoutAdmin">
+		<put-attribute name="body" value="/WEB-INF/views/admin/produceReport.jsp"/>
+	</definition>
+	
+	<definition name="maintainSearchCriteria" extends="baseLayoutAdmin">
+		<put-attribute name="body" value="/WEB-INF/views/admin/maintainSearchCriteria.jsp"/>
+	</definition>
+	
+	<definition name="globalListLocation" extends="baseLayoutAdmin">
+		<put-attribute name="body" value="/WEB-INF/views/admin/globalListLocation.jsp"/>
+	</definition>
+	
+	<definition name="globalListActivity" extends="baseLayoutAdmin">
+		<put-attribute name="body" value="/WEB-INF/views/admin/globalListActivity.jsp"/>
+	</definition>
+	
+	<definition name="editGlobalListLocation" extends="baseLayoutAdmin">
+		<put-attribute name="body" value="/WEB-INF/views/admin/editGlobalListLocation.jsp"/>
+	</definition>
+	
+	<definition name="editGlobalListActivity" extends="baseLayoutAdmin">
+		<put-attribute name="body" value="/WEB-INF/views/admin/editGlobalListActivity.jsp"/>
+	</definition>
+	
+	<definition name="maintainLink" extends="baseLayoutAdmin">
+		<put-attribute name="body" value="/WEB-INF/views/admin/maintainLink.jsp"/>
+	</definition>
+	
+	<definition name="billTourOperator" extends="baseLayoutAdmin">
+		<put-attribute name="body" value="/WEB-INF/views/admin/billTourOperator.jsp"/>
+	</definition>
+	
+	<definition name="monitorSystemUtil" extends="baseLayoutAdmin">
+		<put-attribute name="body" value="/WEB-INF/views/admin/monitorSystemUtil.jsp"/>
+	</definition>
+	
+	<definition name="monitorSearchCriteriaUtil" extends="baseLayoutAdmin">
+		<put-attribute name="body" value="/WEB-INF/views/admin/monitorSearchCriteriaUtil.jsp"/>
+	</definition>
+	
+	<definition name="detectAbuse" extends="baseLayoutAdmin">
+		<put-attribute name="body" value="/WEB-INF/views/admin/detectAbuse.jsp"/>
+	</definition>
+	
+	
+	<!-- Security -->
+	<definition name="login" extends="baseLayoutGeneral">
+		<put-attribute name="body" value="/WEB-INF/views/security/login.jsp"/>
+	</definition>
+	
+	<definition name="forgotPassword" extends="baseLayoutGeneral">
+		<put-attribute name="body" value="/WEB-INF/views/security/forgotPassword.jsp"/>
+	</definition>
+
+	<definition name="accessDenied" extends="baseLayoutCustomer">
+		<put-attribute name="body" value="/WEB-INF/views/security/accessDenied.jsp"/>
+	</definition>
+	
+	<definition name="loginFail" extends="baseLayoutGeneral">
+		<put-attribute name="body" value="/WEB-INF/views/security/loginFail.jsp"/>
+	</definition>
+	
+	<definition name="redirect" extends="baseLayoutGeneral">
+		<put-attribute name="body" value="/WEB-INF/views/security/redirect.jsp"/>
+	</definition>
+	
+	<definition name="error" extends="baseLayoutGeneral">
+		<put-attribute name="body" value="/WEB-INF/views/security/error.jsp"/>
+	</definition>
+	
+	<definition name="success" extends="baseLayoutGeneral">
+		<put-attribute name="body" value="/WEB-INF/views/security/success.jsp"/>
+	</definition>
+	
+</tiles-definitions>

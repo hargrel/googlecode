@@ -1,0 +1,109 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd          
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-2.5.xsd        
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-2.5.xsd            
+        "
+	default-autowire="byName">
+
+	<context:component-scan base-package="edu.itee.antipodes.repository">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Repository" />
+	</context:component-scan>
+
+	<!-- enable declarative transaction management
+	<tx:annotation-driven />
+	-->
+	
+	<!-- 
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	-->
+
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:/hibernate.properties" />
+	</bean>
+
+<!-- <bean id="myDataSource" class="org.springframework.jdbc.datasource.SingleConnectionDataSource" -->
+<!--<bean id="myDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" -->
+	 <bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource" 
+		destroy-method="close">
+		<property name="driverClassName" value="${hibernate.connection.driver_class}" />
+		<property name="url" value="${hibernate.connection.url}" />
+		<property name="username" value="${hibernate.connection.username}" />
+		<property name="password" value="${hibernate.connection.password}" />
+	</bean>
+
+	<bean id="mySessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="myDataSource"></property>
+
+		<property name="mappingResources">
+			<list>
+				<value>edu/itee/antipodes/repository/Tour.hbm.xml</value>
+				<value>edu/itee/antipodes/repository/TourDate.hbm.xml</value>
+				<value>edu/itee/antipodes/repository/Activity.hbm.xml</value>
+				<value>edu/itee/antipodes/repository/Location.hbm.xml</value>
+				<value>edu/itee/antipodes/repository/AccountUser.hbm.xml</value>
+				<value>edu/itee/antipodes/repository/TourOperator.hbm.xml</value>
+				<value>edu/itee/antipodes/repository/ListedTour.hbm.xml</value>
+				<value>edu/itee/antipodes/repository/MonthlyFee.hbm.xml</value>
+				<value>edu/itee/antipodes/repository/Image.hbm.xml</value>
+			</list>
+		</property>
+		
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+			</props>
+		</property>
+	</bean>
+
+
+	<bean id="tourDao" class="edu.itee.antipodes.repository.TourDaoHibernate">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+	<bean id="tourDateDao" class="edu.itee.antipodes.repository.TourDateDaoHibernate">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+	<bean id="activityDao" class="edu.itee.antipodes.repository.ActivityDaoHibernate">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+	<bean id="locationDao" class="edu.itee.antipodes.repository.LocationDaoHibernate">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+	<bean id="accountUserDao" class="edu.itee.antipodes.repository.AccountUserDaoHibernate">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+	<bean id="tourOperatorDao" class="edu.itee.antipodes.repository.TourOperatorDaoHibernate">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+	<bean id="monthlyFeeDao" class="edu.itee.antipodes.repository.MonthlyFeeDaoHibernate">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+	<bean id="listedTourDao" class="edu.itee.antipodes.repository.ListedTourDaoHibernate">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+	<bean id="imageDao" class="edu.itee.antipodes.repository.ImageDaoHibernate">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+
+	<bean id="searchDao"
+		class="edu.itee.antipodes.repository.CustomerSearchDaoHibernate">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+
+	<bean id="reportingDao" class="edu.itee.antipodes.repository.ReportingDaoHibernate">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+
+</beans>        

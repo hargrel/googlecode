@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="edu.itee.antipodes.domain.db">
+  <class name="ListedTour" table="ListedTour" lazy="false">
+  	<id name="listID" type="integer" column="LIST_ID">
+  		<generator class="increment"/>
+  	</id>
+  	 
+  	<property name="tourID" type="integer" column="TOUR_ID" insert="false" update="false"/>
+  	<!-- 
+  	<property name="operatorID" type="integer" column="OPERATOR_ID" insert="false" update="false"/>
+  	-->
+  	<property name="listedFrom" type="date" column="LISTED_FROM"/>
+  	<property name="listedTo" type="date" column="LISTED_TO"/>
+  	<!-- haven't implement the bidirectional access from TourOperator -->
+  	<many-to-one name="operator" class="TourOperator" column="OPERATOR_ID" 
+  		not-null="true"/>
+  	<many-to-one name="tour" class="Tour" column="TOUR_ID" 
+  		not-null="true"/>
+  	<!-- bidirectional one-to-many mapping to tourDate table -->
+  	<!--  
+  	<set name="tour" inverse="true">
+	  	<key column="DATE_ID"></key>
+	  	<one-to-many class="TourDate"></one-to-many>
+  	</set>  
+  	--> 	
+  </class>
+</hibernate-mapping>
