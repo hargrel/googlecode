@@ -1,0 +1,119 @@
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	color: #333333;
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+
+a {
+	color: #335882;
+	text-decoration: none;
+}
+
+
+header {
+	background-image: url("qg-coa.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+	background: WhiteSmoke;
+	padding: 20px 40px;
+}
+
+section#mainsection {
+	float: left;
+	margin: 20px 0px 20px 40px;
+	max-width: 600px;
+}
+
+section#mainsection h2 {
+	margin: 5px 0px;
+}
+
+section#mainsection h3 {
+	font-weight: normal;
+	margin: 5px 0px 20px;
+}
+
+section#mainsection p {
+	margin-bottom: 20px;
+}
+
+aside#loginoptions {
+	background: WhiteSmoke;
+	border: 1px solid #D9D9D9;
+	border-radius: 2px;
+	box-shadow: 0px 1px 3px 0px #c0c0c0;
+	float: right;
+	margin: 20px 40px 20px 0px;
+	padding: 20px;
+}
+
+div#selectaccount {
+	padding-left: 10px;
+}
+
+div#listofaccounts {
+	margin: 20px 0px;
+}
+
+div.accounts {
+	background: white;
+	border: 1px solid #D9D9D9;
+	font-weight: bold;
+	height: 40px;
+	padding: 10px;
+	width: 350px;
+}
+
+div.accounts img, span.accountlinks {
+	float: left;
+}
+
+div.accounts img {
+	margin-right: 10px;
+	border: none;
+}
+
+span.arrow {
+	color: #c0c0c0;
+	float: right;
+	margin-top: 10px;
+}
+
+p.linkdescription {
+	color: grey;
+	font-weight: normal;
+}
+
+span#preferred {
+	background: #335882;
+	float: left;
+	height: 62px;
+}
+
+div#registeredit {
+	padding: 0px 10px;
+}
+
+span#register {
+	float: left;
+}
+
+span#editsettings {
+	float: right;
+}
+
+footer {
+	background: WhiteSmoke;
+	bottom: 0px;
+	clear: both;
+	color: grey;
+	padding: 5px 40px;
+	position: fixed;
+	width: 100%;
+}
+
