@@ -1,0 +1,16 @@
+/* DEBUG */
+
+p#dimensions {
+	position:absolute;
+	bottom:3px;
+	right:3px;
+	color:white;
+}
+
+a#movelinks {
+	position:absolute;
+	bottom:3px;
+	left:3px;
+
+}
+

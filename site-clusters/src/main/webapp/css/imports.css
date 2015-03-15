@@ -1,0 +1,8 @@
+/* IMPORTING ALL CSS STYLES INTO ONE */
+
+@import url("general.css");
+@import url("searchbar.css");
+@import url("sitelinks.css");
+@import url("debug.css");
+
+

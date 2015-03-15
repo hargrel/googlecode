@@ -1,0 +1,18 @@
+/* GENERAL DEFAULTS */
+
+* {
+	margin:0px;
+	padding:0px;
+}
+
+body {
+	background:gray;
+	font-family:arial;
+}
+
+a:link, a:visited {
+	color:white;
+	text-decoration:none;
+	outline:none;
+}
+
