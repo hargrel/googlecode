@@ -1,0 +1,93 @@
+Add the following in the plugins area to make the mvn sql:execute command 
+run the three database scripts.
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>sql-maven-plugin</artifactId>
+        <version>1.4</version>
+        <dependencies>
+          <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc14</artifactId>
+            <version>${oracle.version}</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <driver>oracle.jdbc.OracleDriver</driver>
+          <url>jdbc:oracle:thin:@localhost:1521:xe</url>
+          <username>mavenspring</username>
+          <password>password</password>
+        </configuration>
+        <executions>
+          <execution>
+            <id>default-cli</id>
+            <goals>
+              <goal>execute</goal>
+            </goals>
+            <configuration>
+              <autocommit>true</autocommit>
+              <onError>continue</onError>
+              <srcFiles>
+                <srcFile>src/main/sql/drop-tables.sql</srcFile>
+                <srcFile>src/main/sql/create-tables.sql</srcFile>
+                <srcFile>src/main/sql/insert-data.sql</srcFile>
+              </srcFiles>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      
+------------------
+
+Full version of Book.java if needed for reference
+
+package com.mycompany.domain;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table (name="Book")
+public class Book {
+
+	private Long id;
+	private String author;
+	private String title;
+	
+	public Book() {
+	}
+	
+	@Id
+	@GeneratedValue
+	public Long getId() {
+		return this.id;
+	}
+	
+	private void setId(Long id) {
+		this.id = id;
+	}
+	
+	@Column (length=255)
+	public String getAuthor() {
+		return this.author;
+	}
+	
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	@Column (length=255)
+	public String getTitle() {
+		return this.title;
+	}
+	
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+}
+
+      

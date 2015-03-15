@@ -1,0 +1,7 @@
+CREATE TABLE Book (
+	id NUMBER PRIMARY KEY,
+	author VARCHAR2(256),
+	title VARCHAR2(256)
+);
+
+COMMIT;

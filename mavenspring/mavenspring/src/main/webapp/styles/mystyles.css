@@ -1,0 +1,43 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+body {
+	background: Gray;	
+}
+
+a {
+	color: blue;
+}
+
+#wrapper {
+	margin: 0px auto;
+	width: 900px;
+	background: white;
+}
+
+#navlinks {
+	border-bottom: 1px solid Gainsboro;
+	padding: 3px 8px 5px;
+}
+
+#banner {
+	background-image: url('../images/banner.png');
+	padding: 10px;
+	color: white;
+}
+
+#content {
+	padding: 8px;	
+}
+
+#footer {
+	border-top: 1px solid Gainsboro;
+	padding: 3px 0px;;
+	text-align: center;
+}
+
+#exception {
+	font-size: 0.8em;
+}
